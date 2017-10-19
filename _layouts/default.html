@@ -77,7 +77,7 @@
   <!-- Header
   =========================================== -->
   {% if page.isHome %}
-  <div id="content">
+  <div id="content" class="bs-docs-masthead">
     <div class="container">
       <h1 class="home-title">{{site.name}}</h1>
       <p class="lead">{{page.description}}</p>
@@ -95,7 +95,7 @@
   {% endif %}
 
   {% else %}
-  <div class="bs-docs-hedader" id="contdent">
+  <div class="bs-docs-header" id="content">
     <div class="container">
       <h1>{{page.title}}</h1>
       <p>{{page.description}}</p>
