@@ -1,3 +1,9 @@
+---
+layout: default
+title: Getting started
+description: Add a description here.
+---
+
 # Shopware Bootstrap Theme
 
 ## Basics
