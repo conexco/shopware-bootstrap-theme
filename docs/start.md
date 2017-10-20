@@ -65,7 +65,7 @@ The plugin should now appear in the list of uninstalled plugins. Click the green
 
 Continue as described in **Using the Shopware Bootstrap Theme**
 
-##### Installation via GitHub on the command-line
+##### Installation via GitHub on the Command-Line
 
 In the command line, navigate to the root directory of your Shopware installation. Then, execute following commands:
 ```
