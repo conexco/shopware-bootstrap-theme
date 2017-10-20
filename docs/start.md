@@ -1,7 +1,7 @@
 ---
 layout: default
-title: First Steps
-description: Creating your first custom theme
+title: Start
+description: Let's get it started
 ---
 
 # First Steps
