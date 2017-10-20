@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Get Started
+title: About
 description: Make Shopware great again!
 ---
 
