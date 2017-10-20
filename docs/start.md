@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Getting started
-description: Add a description here.
+title: Get Started
+description: Make Shopware great again!
 ---
 
 # Shopware Bootstrap Theme
