@@ -6,6 +6,7 @@ description: Add a description here.
 
 # Shopware Bootstrap Theme
 
+<section class="bs-docs-section">
 ## Basics
 
 ### Why Bootstrap?
@@ -28,7 +29,9 @@ that behaviour and much more is just few elementary class names away!
 The Shopware Bootstrap Theme allows for a great amount of configuration,
 whether it be just changing few colours here and there or turning the entire shop upside down, everything is possible.
 And if it isn't, make it possible. We are open-source; just fork us on GitHub.
+</section>
 
+<section class="bs-docs-section">
 ## Prerequisites
 
 ### Further Reading
@@ -92,3 +95,4 @@ while _BootstrapAddons_ inherits from _BootstrapBare_ and extends it by the temp
 of the Shopware Professional and Enterprise Editions. Depending on your needs, you may base your own theme on either of them.
 The process of doing so is exactly identical - you just have the opportunity to exclude some unneeded overhead and clutter
 if you are using the Community Edition.
+</section>

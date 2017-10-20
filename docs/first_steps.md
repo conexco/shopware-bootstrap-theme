@@ -19,11 +19,23 @@ but here is a short summary of the relevant bits for theme development.
 The minimal directory structure for a plugin containing a theme is following:
 
 ```
-SwfBootstrapTemplate
-├──Themes
+MyPlugin
+├──themes
 │  └──Frontend
-│     └──
-└──SwfBootstrapTemplate.php
+│     └──MyTheme
+│        └──...
+├──plugin.xml
+└──MyPlugin.php
 ```
+whereby the names `MyPlugin` and `MyTheme` are up to your choice.
 
+#### Explanation
 
+As you can see, the plugin's directory structure is quite simple. It should be after all, because it's only a wrapper for a theme.
+The only files in your plugin that are not part of the theme itself are `plugin.xml` and `MyPlugin.php`, whereby `plugin.xml`
+holds meta-data like the plugin's version, description and changelog, and `MyPlugin.php` consists of installation routines -
+something we can safely neglect at the moment.
+
+### Theme Structure
+
+The `themes`-Directory is structured in the same way as the `themes`-Directory in Shopware itself
