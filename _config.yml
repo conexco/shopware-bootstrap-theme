@@ -54,5 +54,3 @@ plugins:
   - jemoji
   - jekyll-redirect-from
   - jekyll-sitemap
-developmentUrl: http://localhost:4000
-developmentUrl: "http://localhost:4000"
