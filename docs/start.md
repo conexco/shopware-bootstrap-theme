@@ -146,18 +146,18 @@ or included into one as a reusable component, for example the main menu.
 
 Let's get our hands dirty and create our first theme.
 Suppose we sell only a handful of different products, all of which are advertised on the front page of our shop.
-We decide to remove the search bar in the page header and move our logo into the header's centre.
+We decide to reduce the search bar and move it to the right, so that the shop's logo can be presented more prominently in the centre.
 
 ### Laying Out a Foundation
 
-First of all, we want to have a plugin in which we wrap our theme; we're going to call it `NoSearchBarTheme`.
+First of all, we want to have a plugin in which we wrap our theme; we're going to call it `SmallSearchBarTheme`.
 Starting from the shop installation's root directory, we do following
 ```sh
 cd custom/plugins
-mkdir NoSearchBarTheme && cd NoSearchBarTheme
+mkdir SmallSearchBarTheme && cd NoSearchBarTheme
 ```
 
-In it, we're going to create our `plugin.xml` file for metadata and the `NoSearchBarTheme.php`,
+In it, we're going to create our `plugin.xml` file for metadata and the `SmallSearchBarTheme.php`,
 which contains the empty plugin class that's required for every plugin.
 
 **plugin.xml**
@@ -165,9 +165,9 @@ which contains the empty plugin class that's required for every plugin.
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.2/engine/Shopware/Components/Plugin/schema/plugin.xsd">
-    <label>No Search Bar Theme</label>
+    <label>Small Search Bar Theme</label>
     <version>0.0.0dev01</version>
-    <description>The Bootstrap Theme, but without a search bar.</description>
+    <description>The Bootstrap Theme, but with a smaller search bar.</description>
 
     <compatibility minVersion="5.3.0"/>
     <author>conexco</author>
@@ -175,14 +175,14 @@ which contains the empty plugin class that's required for every plugin.
 </plugin>
 ```
 
-**NoSearchBarTheme.php**
+**SmallSearchBarTheme.php**
 ```php
 <?php
-namespace NoSearchBarTheme;
+namespace SmallSearchBarTheme;
 
 use Shopware\Components\Plugin;
 
-class NoSearchBarTheme extends Plugin
+class SmallSearchBarTheme extends Plugin
 {
 }
 ```
@@ -191,23 +191,24 @@ We are now able to install the plugin in the shop backend's plugin-manager, but 
 
 Now, we're going to create the directories for our theme. From the plugin's root directory (where we stopped earlier):
 ```sh
-mkdir -p Resources/Themes/Frontend/NoSearchBarTheme
-cd Resources/Themes/Frontend/NoSearchBarTheme
+mkdir -p Resources/Themes/Frontend/SmallSearchBarTheme
+cd Resources/Themes/Frontend/SmallSearchBarTheme
 ```
 
 In it, we're going to create the `Theme.php`, which contains a class providing meta-data for the Theme.
+
 **Theme.php**
 ```php
 <?php
-namespace Shopware\Themes\NoSearchBarTheme;
+namespace Shopware\Themes\SmallSearchBarTheme;
 
 class Theme extends \Shopware\Components\Theme
 {
     protected $extend = 'BootstrapBare';
 
-    protected $name = 'No Search Bar Theme';
+    protected $name = 'Small Search Bar Theme';
 
-    protected $description = 'The Bootstrap Theme, but without a search bar.';
+    protected $description = 'The Bootstrap Theme, but with a smaller search bar.';
 
     protected $author = 'conexco';
 
@@ -221,7 +222,7 @@ The theme should be listed there. Enable it by clicking on it, then on the butto
 Upon visiting the frontend, no changes should be obvious, because our theme extends the Shopware Bootstrap Theme
 and provides no changes to it. But that's something we're going to change now.
 
-### Step for Step
+### Step by Step
 
 Let's start with the search bar.
 
@@ -282,18 +283,24 @@ Let's have a look
 ```
 
 The search container is being included in a block called `frontend_index_search_inner`, which is part of the block `frontend_index_search`.
-By clearing that block, we can eliminate the search container, along with the `div` that wraps it, entirely.
+In that block, there is a `div`, which uses some of the Boostrap framework's classes to define its size within its overlaying container, the header.
 
-We're going to create our own `frontend/index/shop-navigation.tpl`-file in our NoSearchBarTheme-directory, and it is going to extend
+We're going to create our own `frontend/index/shop-navigation.tpl`-file in our SmallSearchBarTheme-directory, and it is going to extend
 the original `frontend/index/shop-navigation.tpl`.
 
 **frontend/index/shop-navigation.tpl**
 ```smarty
 {extends file="parent:frontend/index/shop-navigation.tpl"}
 
-{block name='frontend_index_search'}{/block}
+{block name='frontend_index_search'}
+    <div class="col-xs-12 col-md-4 col-lg-4">
+        {block name='frontend_index_search_inner'}
+            {include file="frontend/index/search.tpl"}
+        {/block}
+    </div>
+{/block}
 ```
 
 The first line tells Smarty that we're going to extend the parent theme's `frontend/index/shop-navigation.tpl` template.
 That means, we take it as it is, and apply our changes to selected blocks. In our case, to `frontend_index_search`,
-of which we remove the entire content.
+which we overwrite entirely to replace the `div`'s classes `col-md-8` and `col-lg-8` by `col-md-4` and `col-lg-4`
