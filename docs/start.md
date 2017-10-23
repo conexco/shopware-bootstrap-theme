@@ -293,7 +293,7 @@ the original `frontend/index/shop-navigation.tpl`.
 {extends file="parent:frontend/index/shop-navigation.tpl"}
 
 {block name='frontend_index_search'}
-    <div class="col-xs-12 col-md-4 col-lg-4">
+    <div class="col-xs-12 col-md-6 col-md-offset-6">
         {block name='frontend_index_search_inner'}
             {include file="frontend/index/search.tpl"}
         {/block}
@@ -303,4 +303,30 @@ the original `frontend/index/shop-navigation.tpl`.
 
 The first line tells Smarty that we're going to extend the parent theme's `frontend/index/shop-navigation.tpl` template.
 That means, we take it as it is, and apply our changes to selected blocks. In our case, to `frontend_index_search`,
-which we overwrite entirely to replace the `div`'s classes `col-md-8` and `col-lg-8` by `col-md-4` and `col-lg-4`
+which we overwrite entirely to replace the `div`'s classes `col-md-8` by `col-md-6` and `col-md-offset-6`.
+
+Next, we're going to move the logo a little bit into the centre. The logo is located in `frontend/index/logo-container.tpl`,
+which is being included in the `frontend/index/index.tpl`. I decided to move the logo into the centre
+by offsetting it slightly to the right. To do that, we must also reduce the entire right part of the header a little bit
+so that there is enough space for the offset.
+
+**frontend/index/index.tpl**
+```smarty
+{extends file="parent:frontend/index/index.tpl"}
+{block name='frontend_index_header_row_left'}
+	{* class col-md-offset-1 added *}
+    <div class="col-sm-12 col-hd-5 col-md-3 col-md-offset-1">
+        {*! Shop logo *}
+        {include file="frontend/index/logo-container.tpl"}
+    </div>
+{/block}
+{block name='frontend_index_header_row_right'}
+	{* classes col-md-8 replaces col-md-9 *}
+    <div class="col-sm-12 col-hd-7 col-md-8">
+        {* Shop navigation *}
+        {block name='frontend_index_shop_navigation'}
+            {include file="frontend/index/shop-navigation.tpl"}
+        {/block}
+    </div>
+{/block}
+```

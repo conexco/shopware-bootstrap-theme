@@ -70,7 +70,9 @@ Continue as described in **Using the Shopware Bootstrap Theme**
 In the command line, navigate to the root directory of your Shopware installation. Then, execute following commands:
 ```
 git clone https://github.com/conexco/shopware-bootstrap-theme.git custom/plugins/SwfBootstrapTheme
+php bin/console sw:plugin:refresh
 php bin/console sw:plugin:install SwfBootstrapTheme
+php bin/console sw:plugin:activate SwfBootstrapTheme
 ```
 
 Continue as described in **Using the Shopware Bootstrap Theme**
