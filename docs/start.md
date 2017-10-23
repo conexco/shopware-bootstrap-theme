@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Start
-description: Let's get it started
+title: Getting Started
+description: Writing Our First Theme
 ---
 
 # First Steps
