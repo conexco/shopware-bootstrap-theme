@@ -26,10 +26,11 @@ The minimal directory structure for a plugin containing a theme is following:
 
 ```
 MyPlugin
-├──themes
-│  └──Frontend
-│     └──MyTheme
-│        └──...
+├──Resources
+│  └──Themes
+│     └──Frontend
+│        └──MyTheme
+│           └──...
 ├──plugin.xml
 └──MyPlugin.php
 ```
@@ -147,6 +148,81 @@ Let's get our hands dirty and create our first theme.
 Suppose we sell only a handful of different products, all of which are advertised on the front page of our shop.
 We decide to remove the search bar in the page header and move our logo into the header's centre.
 
+### Laying Out a Foundation
+
+First of all, we want to have a plugin in which we wrap our theme; we're going to call it `NoSearchBarTheme`.
+Starting from the shop installation's root directory, we do following
+```sh
+cd custom/plugins
+mkdir NoSearchBarTheme && cd NoSearchBarTheme
+```
+
+In it, we're going to create our `plugin.xml` file for metadata and the `NoSearchBarTheme.php`,
+which contains the empty plugin class that's required for every plugin.
+
+**plugin.xml**
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.2/engine/Shopware/Components/Plugin/schema/plugin.xsd">
+    <label>No Search Bar Theme</label>
+    <version>0.0.0dev01</version>
+    <description>The Bootstrap Theme, but without a search bar.</description>
+
+    <compatibility minVersion="5.3.0"/>
+    <author>conexco</author>
+    <license>MIT</license>
+</plugin>
+```
+
+**NoSearchBarTheme.php**
+```php
+<?php
+namespace NoSearchBarTheme;
+
+use Shopware\Components\Plugin;
+
+class NoSearchBarTheme extends Plugin
+{
+}
+```
+
+We are now able to install the plugin in the shop backend's plugin-manager, but we won't do that yet.
+
+Now, we're going to create the directories for our theme. From the plugin's root directory (where we stopped earlier):
+```sh
+mkdir -p Resources/Themes/Frontend/NoSearchBarTheme
+cd Resources/Themes/Frontend/NoSearchBarTheme
+```
+
+In it, we're going to create the `Theme.php`, which contains a class providing meta-data for the Theme.
+**Theme.php**
+```php
+<?php
+namespace Shopware\Themes\NoSearchBarTheme;
+
+class Theme extends \Shopware\Components\Theme
+{
+    protected $extend = 'BootstrapBare';
+
+    protected $name = 'No Search Bar Theme';
+
+    protected $description = 'The Bootstrap Theme, but without a search bar.';
+
+    protected $author = 'conexco';
+
+    protected $license = 'MIT';
+}
+```
+
+Now, let's install the plugin. After installing and activating the theme, open the Theme Manager (_Configuration_->_Theme Manager_).
+The theme should be listed there. Enable it by clicking on it, then on the button _Select theme_ in the lower right corner.
+
+Upon visiting the frontend, no changes should be obvious, because our theme extends the Shopware Bootstrap Theme
+and provides no changes to it. But that's something we're going to change now.
+
+### Step for Step
+
 Let's start with the search bar.
 
 We know the search bar is visible on every page within the shop (well, except during the checkout process),
@@ -174,3 +250,50 @@ sites-navigation.tpl
 One of the files is called `search.tpl`. That sounds exactly like what we're looking for.
 A quick look inside tells us that the entire search container, along with a form that wraps the input element,
 is located inside the file. If we manage to stop including it in the header file, it shouldn't appear any more.
+
+By a simple `grep 'search.tpl' *` within the `frontend/index`-directory,
+we find out that the `search.tpl` is included in the `shop-navigation.tpl`.
+Let's have a look
+
+**frontend/index/shop-navigation.tpl**
+```smarty
+{block name='frontend_index_header_row_right_inner'}
+    {block name='frontend_index_shop_navigation'}
+        ...
+    {/block}
+    {block name='frontend_index_search_trusted'}
+        <div class="row mvm">
+            {block name='frontend_index_search_trusted_inner'}
+                {block name='frontend_index_search'}
+                    <div class="col-xs-12 col-md-8 col-lg-8">
+                        {*! Search *}
+                        {block name='frontend_index_search_inner'}
+                            {include file="frontend/index/search.tpl"}
+                        {/block}
+                    </div>
+                {/block}
+                {block name='frontend_index_trusted'}
+                    ...
+                {/block}
+            {/block}
+        </div>
+    {/block}
+{/block}
+```
+
+The search container is being included in a block called `frontend_index_search_inner`, which is part of the block `frontend_index_search`.
+By clearing that block, we can eliminate the search container, along with the `div` that wraps it, entirely.
+
+We're going to create our own `frontend/index/shop-navigation.tpl`-file in our NoSearchBarTheme-directory, and it is going to extend
+the original `frontend/index/shop-navigation.tpl`.
+
+**frontend/index/shop-navigation.tpl**
+```smarty
+{extends file="parent:frontend/index/shop-navigation.tpl"}
+
+{block name='frontend_index_search'}{/block}
+```
+
+The first line tells Smarty that we're going to extend the parent theme's `frontend/index/shop-navigation.tpl` template.
+That means, we take it as it is, and apply our changes to selected blocks. In our case, to `frontend_index_search`,
+of which we remove the entire content.
