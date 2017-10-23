@@ -314,14 +314,14 @@ so that there is enough space for the offset.
 ```smarty
 {extends file="parent:frontend/index/index.tpl"}
 {block name='frontend_index_header_row_left'}
-	{* class col-md-offset-1 added *}
+    {* class col-md-offset-1 added *}
     <div class="col-sm-12 col-hd-5 col-md-3 col-md-offset-1">
         {*! Shop logo *}
         {include file="frontend/index/logo-container.tpl"}
     </div>
 {/block}
 {block name='frontend_index_header_row_right'}
-	{* classes col-md-8 replaces col-md-9 *}
+    {* class col-md-8 replaces col-md-9 *}
     <div class="col-sm-12 col-hd-7 col-md-8">
         {* Shop navigation *}
         {block name='frontend_index_shop_navigation'}
@@ -330,3 +330,5 @@ so that there is enough space for the offset.
     </div>
 {/block}
 ```
+
+
