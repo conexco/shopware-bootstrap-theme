@@ -570,7 +570,9 @@ footer .nav .nav-item a.nav-link:hover::after{
 /* Canvas */
 
 canvas{
-    display: none;
+    height: 0;
+    position: absolute;
+    visibility: hidden;
 }
 
 /* Letter */
@@ -738,6 +740,7 @@ canvas{
         left: 0;
         position: fixed;
         top: 0;
+        visibility: visible;
         width: 100%;
         z-index: 0;
     }
