@@ -101,8 +101,6 @@ hr{
 /* Header */
 
 header{
-    background-color: rgba(255, 255, 255, 0.95);
-    position: sticky;
     position: relative;
     top: 0;
     z-index: 1071;
@@ -278,6 +276,14 @@ form input.form-control.email:-moz-placeholder { /* Firefox 18- */
 
 main ul li{
     margin-left: 20px;
+}
+
+main img{
+    max-width: 100%;
+}
+
+.highlight pre{
+    white-space: pre;
 }
 
 /* Footer */
@@ -705,14 +711,14 @@ canvas{
 
     /* Canvas */
 
-    .canvas{
+    body.is-home .canvas{
         height: 100%;
         position: relative;
         overflow: hidden;
         width: 100%;
     }
 
-    .canvas::before{
+    body.is-home .canvas::before{
         background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
         background: -o-linear-gradien(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
         background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
@@ -726,7 +732,7 @@ canvas{
         z-index: 5;
     }
 
-    canvas{
+    body.is-home canvas{
         display: block;
         height: 100%;
         left: 0;
@@ -802,8 +808,4 @@ canvas{
         background-position: right bottom;
     }
 
-}
-
-.highlight pre {
-	white-space: pre;
 }
