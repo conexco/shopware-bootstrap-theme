@@ -3,12 +3,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.3.0/bootbox.min.js" integrity="sha384-Ex/JXVxsfyOwd+osCmgXYY4x7vm2u1UpaEsmBXT8wBc8g0Y7OmAlZ8MOgSLETgAD" crossorigin="anonymous"></script>
 
-<!--
-<script src="{{site.github.url}}/assets/js/docs.min.js"></script>
-<script src="{{site.github.url}}/assets/js/script.js"></script>
--->
-<script src="{{ site.baseurl }}/assets/js/docs.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/script.js"></script>
+<script src="{% if site.developmentUrl %}{{site.developmentUrl}}{% else %}{{site.github.url}}{% endif %}/assets/js/docs.min.js"></script>
+<script src="{% if site.developmentUrl %}{{site.developmentUrl}}{% else %}{{site.github.url}}{% endif %}/assets/js/script.js"></script>
 
 {% if site.twitter.enabled or site.twitter.account %}
 <script>
