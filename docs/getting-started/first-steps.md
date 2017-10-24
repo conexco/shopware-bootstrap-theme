@@ -24,7 +24,7 @@ but here is a short summary of the relevant bits for theme development.
 
 The minimal directory structure for a plugin containing a theme is following:
 
-```
+{% highlight plaintext %}
 MyPlugin
 ├──Resources
 │  └──Themes
@@ -33,7 +33,7 @@ MyPlugin
 │           └──...
 ├──plugin.xml
 └──MyPlugin.php
-```
+{% endhighlight %}
 whereby the names `MyPlugin` and `MyTheme` are up to your choice.
 
 #### Explanation
@@ -49,7 +49,7 @@ please refer to [Shopware's Developer Guides](https://developers.shopware.com/de
 #### Example
 
 **MyPlugin.php**
-```php
+{% highlight php %}
 namespace MyPlugin\MyPlugin;
 
 use Shopware\Components\Plugin;
@@ -57,10 +57,10 @@ use Shopware\Components\Plugin;
 class MyPlugin extends Plugin
 {
 }
-```
+{% endhighlight %}
 
 **plugin.xml**
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.2/engine/Shopware/Components/Plugin/schema/plugin.xsd">
@@ -77,7 +77,7 @@ class MyPlugin extends Plugin
         <changes lang="de">Initiales Release</changes>
     </changelog>
 </plugin>
-```
+{% endhighlight %}
 
 ### Theme Structure
 
@@ -93,10 +93,10 @@ Theoretically, you can ship as many Themes as you like in one single plugin;
 the Shopware Bootstrap Theme makes use of that mechanic with the _BootstrapBare_ and _BootstrapExtension_ themes.
 
 The minimal directory structure of a theme is
-```
+{% highlight plaintext %}
 MyTheme
 └──Theme.php
-```
+{% endhighlight %}
 
 If you can't think of anything else than floating question marks right now
 and are asking yourself why there is only one file to be found here, let me explain!
@@ -107,7 +107,7 @@ and where you can perform some elementary configuration.
 
 #### Example
 
-```php
+{% highlight php %}
 <?php
 // The deepest level of the namespace is identical with your theme's name
 namespace Shopware\Themes\MyTheme;
@@ -133,7 +133,7 @@ class Theme extends \Shopware\Components\Theme
     /** @var string License of the theme */
     protected $license = 'MIT';
 }
-```
+{% endhighlight %}
 
 ### Template Directory Structure
 
@@ -152,16 +152,16 @@ We decide to reduce the search bar and move it to the right, so that the shop's 
 
 First of all, we want to have a plugin in which we wrap our theme; we're going to call it `SmallSearchBarTheme`.
 Starting from the shop installation's root directory, we do following
-```sh
+{% highlight sh %}
 cd custom/plugins
 mkdir SmallSearchBarTheme && cd NoSearchBarTheme
-```
+{% endhighlight %}
 
 In it, we're going to create our `plugin.xml` file for metadata and the `SmallSearchBarTheme.php`,
 which contains the empty plugin class that's required for every plugin.
 
 **plugin.xml**
-```xml
+{% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.2/engine/Shopware/Components/Plugin/schema/plugin.xsd">
@@ -173,10 +173,10 @@ which contains the empty plugin class that's required for every plugin.
     <author>conexco</author>
     <license>MIT</license>
 </plugin>
-```
+{% endhighlight %}
 
 **SmallSearchBarTheme.php**
-```php
+{% highlight php %}
 <?php
 namespace SmallSearchBarTheme;
 
@@ -185,20 +185,20 @@ use Shopware\Components\Plugin;
 class SmallSearchBarTheme extends Plugin
 {
 }
-```
+{% endhighlight %}
 
 We are now able to install the plugin in the shop backend's plugin-manager, but we won't do that yet.
 
 Now, we're going to create the directories for our theme. From the plugin's root directory (where we stopped earlier):
-```sh
+{% highlight sh %}
 mkdir -p Resources/Themes/Frontend/SmallSearchBarTheme
 cd Resources/Themes/Frontend/SmallSearchBarTheme
-```
+{% endhighlight %}
 
 In it, we're going to create the `Theme.php`, which contains a class providing meta-data for the Theme.
 
 **Theme.php**
-```php
+{% highlight php %}
 <?php
 namespace Shopware\Themes\SmallSearchBarTheme;
 
@@ -214,7 +214,7 @@ class Theme extends \Shopware\Components\Theme
 
     protected $license = 'MIT';
 }
-```
+{% endhighlight %}
 
 Now, let's install the plugin. After installing and activating the theme, open the Theme Manager (_Configuration_->_Theme Manager_).
 The theme should be listed there. Enable it by clicking on it, then on the button _Select theme_ in the lower right corner.
@@ -231,7 +231,7 @@ in the shop header. We can therefore assume that the template for the search bar
 in the `frontend/index`-Directory. Just by looking at the file names in there, we can pinpoint the search bar's location
 quite accurately.
 
-```
+{% highlight plaintext %}
 /var/www/Shopware/custom/plugins/SwfBootstrapTheme/Themes/Frontend/BootstrapBare/frontend/index $ ls
 breadcrumb.tpl
 footer_minimal.tpl
@@ -247,7 +247,7 @@ shop-navigation.tpl
 sidebar-categories.tpl
 sidebar.tpl
 sites-navigation.tpl
-```
+{% endhighlight %}
 One of the files is called `search.tpl`. That sounds exactly like what we're looking for.
 A quick look inside tells us that the entire search container, along with a form that wraps the input element,
 is located inside the file. If we manage to stop including it in the header file, it shouldn't appear any more.
@@ -257,7 +257,7 @@ we find out that the `search.tpl` is included in the `shop-navigation.tpl`.
 Let's have a look
 
 **frontend/index/shop-navigation.tpl**
-```smarty
+{% highlight smarty %}
 {block name='frontend_index_header_row_right_inner'}
     {block name='frontend_index_shop_navigation'}
         ...
@@ -280,7 +280,7 @@ Let's have a look
         </div>
     {/block}
 {/block}
-```
+{% endhighlight %}
 
 The search container is being included in a block called `frontend_index_search_inner`, which is part of the block `frontend_index_search`.
 In that block, there is a `div`, which uses some of the Boostrap framework's classes to define its size within its overlaying container, the header.
@@ -289,7 +289,7 @@ We're going to create our own `frontend/index/shop-navigation.tpl`-file in our S
 the original `frontend/index/shop-navigation.tpl`.
 
 **frontend/index/shop-navigation.tpl**
-```smarty
+{% highlight smarty %}
 {extends file="parent:frontend/index/shop-navigation.tpl"}
 
 {block name='frontend_index_search'}
@@ -299,7 +299,7 @@ the original `frontend/index/shop-navigation.tpl`.
         {/block}
     </div>
 {/block}
-```
+{% endhighlight %}
 
 The first line tells Smarty that we're going to extend the parent theme's `frontend/index/shop-navigation.tpl` template.
 That means, we take it as it is, and apply our changes to selected blocks. In our case, to `frontend_index_search`,
@@ -311,7 +311,7 @@ by offsetting it slightly to the right. To do that, we must also reduce the enti
 so that there is enough space for the offset.
 
 **frontend/index/index.tpl**
-```smarty
+{% highlight smarty %}
 {extends file="parent:frontend/index/index.tpl"}
 {block name='frontend_index_header_row_left'}
     {* class col-md-offset-1 added *}
@@ -329,7 +329,7 @@ so that there is enough space for the offset.
         {/block}
     </div>
 {/block}
-```
+{% endhighlight %}
 
 And here is the result:
 
