@@ -1,0 +1,49 @@
+{% if page.layout == "home" %}
+<header id="top">
+    <div class="container">
+        <div class="text-lg-center">
+            <a href="/" id="logo" class="mx-4">
+                {% include svg/logo.svg %}
+            </a>
+            <h1 class="d-none">Bootstrap for shopware</h1>
+        </div>
+    </div>
+</header>
+{% else %}
+<header>
+    <div class="container">
+        <div class="navbar navbar-expand flex-column flex-md-row px-0">
+            <a class="navbar-brand mr-4" href="{{ site.baseurl }}/" aria-label="Shopware Bootstrap Theme">
+                {% include svg/sign.svg width="36" height="36" class="d-block" %}
+            </a>
+
+            <div class="navbar-nav-scroll">
+                <ul class="navbar-nav bd-navbar-nav flex-row text-18 black">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ site.baseurl }}/">home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.title != "Download" %}active{% endif %}" href="{{ site.baseurl }}/docs/getting-started/introduction/">documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.title == "Download" %}active{% endif %}" href="{{ site.baseurl }}/docs/getting-started/download/">download</a>
+                    </li>
+<!--
+                    <li class="nav-item">
+                        <a class="nav-link {% if page.title == "about" %}active{% endif %}" href="{{ site.baseurl }}/docs/about/">about</a>
+                    </li>
+-->
+                </ul>
+            </div>
+
+            <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
+                <li class="nav-item">
+                    <a class="nav-link p-2" href="{{ site.repo }}" rel="noopener" aria-label="GitHub">
+                        {% include svg/github.svg class="navbar-nav-svg" %}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+{% endif %}

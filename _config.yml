@@ -1,5 +1,6 @@
 id: conexco/shopware-bootstrap-theme
 name: Bootstrap Theme for Shopware
+description: The Shopware Bootstrap Theme helps you build fast, robust, and adaptable responsive shopware themes. Kick-start your shopware theme with the combined knowledge and effort of 1000s of custom shopware themes.
 version: 1.0.0
 license: GPL-3.0
 licenseUrl: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -10,27 +11,26 @@ licenseUrl: https://www.gnu.org/licenses/gpl-3.0.en.html
 # if download.popup is true, any option is optional
 # download.cdn.img is optional
 download:
-  popup: false
-  url: https://github.com/conexco/shopware-bootstrap-theme/
+    popup: false
+    url: https://github.com/conexco/shopware-bootstrap-theme/
 
 # set this to true to replace the generated header navbar by _includes/navbar.html
 customNavBar: true
 
 # list of additional links on the right of the top menu
-headerLinks:
-  - title: GitHub
-    url: https://github.com/conexco/shopware-bootstrap-theme
+#headerLinks:
+#    - title: GitHub
+#        url: https://github.com/conexco/shopware-bootstrap-theme
 
 # list if additional links on the footer
-footerLinks:
-  - title: GitHub
-    url: https://github.com/conexco/shopware-bootstrap-theme
+#footerLinks:
+#    - title: GitHub
+#        url: https://github.com/conexco/shopware-bootstrap-theme
 
 # header
 header:
-  color1: "#080331"
-  color2: "#673051"
-  trianglify: true
+    color1: "#080331"
+    color2: "#673051"
 
 # google analytics
 # analytics:
@@ -39,18 +39,37 @@ header:
 
 # github buttons
 githubButton:
-  user: conexco
-  repo: shopware-bootstrap-theme
+    user: conexco
+    repo: shopware-bootstrap-theme
 
 # facebook buttons
 facebook:
-  enabled: true
-  profileUrl: https://www.facebook.com/conexco
+    enabled: false
+    profileUrl: https://www.facebook.com/conexco
 
-exclude: ['README.md', 'LICENSE', 'bower.json', 'Gemfile.lock', 'Gemfile']
+exclude: ['README.md', 'LICENSE', 'bower.json', 'Gemfile.lock', 'Gemfile', 'vendor']
 
 plugins:
-  - jekyll-mentions
-  - jemoji
-  - jekyll-redirect-from
-  - jekyll-sitemap
+    - jekyll-mentions
+    - jemoji
+    - jekyll-redirect-from
+    - jekyll-sitemap
+
+# social
+title:              "Bootstrap for shopware"
+description:        "The Shopware Bootstrap Theme helps you build fast, robust, and adaptable responsive shopware themes."
+twitter:            conexco
+authors:            conexco
+social_image_path:  /assets/img/bs4sw-sign.png
+social_logo_path:   /assets/img/bs4sw-logo.png
+
+# cdn:
+#   # See https://www.srihash.org for info on how to generate the hashes
+#   css:              "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+#   css_hash:         "sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+#   js:               "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+#   js_hash:          "sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+#   jquery:           "https://code.jquery.com/jquery-3.2.1.slim.min.js"
+#   jquery_hash:      "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+#   popper:           "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"
+#   popper_hash:      "sha384-W1IgCZfiFCplncoIxD5rld+uzdB6FlcG2vm4qjrCP5Z7uUt7vnwbztJXeqXgd26w"developmentUrl: "http://localhost:4000"

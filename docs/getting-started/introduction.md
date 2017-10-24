@@ -1,10 +1,14 @@
 ---
-layout: default
-title: About
-description: Make Shopware great again!
+layout: docs
+title: Introduction
+description: Get started with Shopware Bootstrap Theme.
+group: getting-started
+redirect_from:
+  - /docs/4.0/getting-started/
+  - /docs/4.0/
+  - /docs/
+toc: true
 ---
-
-# Shopware Bootstrap Theme
 
 ## Basics
 
@@ -21,7 +25,7 @@ We follow Bootstrap's approach – devices are categorised in viewport width ran
 from extra-small under which most handheld phones fall, to extra-large, like your high resolution desktop.
 Never was it more straightforward to stretch that button over a phone's full width,
 tuck it into the top-right corner of your tablet, while hiding it completely on your ultra-wide-screen workstation;
-that behaviour and much more is just few elementary class names away! 
+that behaviour and much more is just few elementary class names away!
 
 ### Extensibility
 
@@ -40,7 +44,7 @@ and in the end, these blocks are combined into a finished web page and shipped t
 
 Before you get started with developing your own theme based on the Shopware Bootstrap Theme, you should become familiar with Smarty.
 Take a look at Shopware's own [Frontend Guides](https://https://developers.shopware.com/designers-guide/),
-where the basics of theme and template development are covered. 
+where the basics of theme and template development are covered.
 
 ### System Requirements
 

@@ -1,10 +1,10 @@
 ---
-layout: default
-title: Start
+layout: docs
+title: First Steps
 description: Let's get it started
+group: getting-started
+toc: true
 ---
-
-# First Steps
 
 ## In-Depth Structure
 

@@ -1,13 +1,47 @@
 ---
-layout: default
-title: Docs
-description: Make Shopware great again!
+layout: home
 ---
 
-<section class="bs-docs-section">
-    <h1 id="basics" class="page-header">Basics</h1>
-    <h2>Advantages</h2>
-    <p>The Shopware Bootstrap Theme combines the extensibility of Shopware and the simplicity of Bootstrap. With these assets in your pocket, developing innovative themes for e-commerce becomes as easy as never before.</p>
-    <h2>Reusable Responsive Components</h2>
-    <p>@media { max-width: 480px; }… how was it again? Worry not; Bootstrap already took care of this. Readymade classes let you realise your ideas without any effort, for all devices, fully responsive. We follow Bootstrap's approach – devices are categorised in viewport width ranges, from extra-small under which most handheld phones fall, to extra-large, like your high resolution desktop. Never was it more straightforward to stretch that button over an iPhone's full width, tuck it into the top-right corner of your tablet, while hiding it completely on your ultra-wide-screen work station; this behaviour and much more is just few elementary class names away!</p>
-</section>
+<main id="content" role="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 order-2 order-lg-1 text-center text-lg-left">
+                <h2 class="text-30 black fw600 t40 mb-0">Future is here.</h2>
+                <div class="text-animated">
+                    <p class="mb-2 mt-2 pt-1 pt-lg-0">
+                        <span class="word">faster.</span>
+                        <span class="word">flexible.</span>
+                    </p>
+                </div>
+                <p class="text-14 black t40 pt-2 pt-lg-0">The Shopware Bootstrap Theme helps you build fast, robust, and adaptable responsive shopware themes. Kick-start your shopware theme with the combined knowledge and effort of 1000s of custom shopware themes.</p>
+                <div class="row">
+                    <div class="col">
+                        <a href="/docs/getting-started/introduction.html" class="btn btn-gradient btn-lg btn-block text-18 fw600 white mt-3">get started</a>
+                    </div>
+                    <div class="col">
+                        <a href="/docs/getting-started/download/" class="btn btn-ghost btn-lg btn-block text-18 black fw200 mt-3">download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg order-lg-2"></div>
+            <div class="order-1 col-lg-5 order-lg-3 text-right text-lg-center" id="plane">
+                {% include svg/sign.svg %}
+                <img src="assets/img/sign-shadow.png" class="t-20" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 col-xl-3 ml-sm-auto text-center" id="initiative">
+                <h5 class="text-10 up stretch black fw200 t100 mb-3 pt-4 pt-sm-0">An initiative from</h5>
+                <a href="https://www.conexco.com/" target="_blank">
+                    {% include svg/conexco.svg %}
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-xl-3 mr-sm-auto text-center" id="support">
+                <h5 class="text-10 up stretch black fw200 t100 mb-3">Officially supported by</h5>
+                <a href="https://de.shopware.com/" target="_blank">
+                    {% include svg/shopware.svg %}
+                </a>
+            </div>
+        </div>
+    </div>
+</main>

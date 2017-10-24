@@ -1,0 +1,33 @@
+<footer>
+    <div class="container">
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link text-10" href="/">home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-10" href="{{ site.baseurl }}/docs/getting-started/introduction/">documentation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-10" href="{{ site.baseurl }}/docs/getting-started/download/">download</a>
+            </li>
+<!--
+            <li class="nav-item">
+                <a class="nav-link text-10" href="{{ site.baseurl }}/docs/about/">about</a>
+            </li>
+-->
+            <li class="nav-item">
+                <a class="nav-link text-10" href="{{ site.repo }}">github</a>
+            </li>
+        </ul>
+        <div class="text-right justify-content-end pr-3">
+            <p class="text-10 mt-4 mb-2">Designed and built with all the love in the world by <a href="http://www.conexco.com/" target="_blank">conexco</a>.</p>
+            <p class="text-10">Currently v{{ site.current_version }}. Code licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GPL-3.0</a>, documentation under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        </div>
+    </div>
+</footer>
+
+{% if page.layout == "home" %}
+<div class="canvas">
+   <canvas id="canvas"></canvas>
+</div>
+{% endif %}
