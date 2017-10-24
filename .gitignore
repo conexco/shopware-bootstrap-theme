@@ -5,3 +5,5 @@
 /.idea
 /*.iml
 *.swp
+/.bundle
+/vendor
