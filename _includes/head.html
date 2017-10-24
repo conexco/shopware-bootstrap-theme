@@ -13,6 +13,8 @@
     {%- endif -%}
 </title>
 
+<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
 <!--
 <meta name="robots" content="index,follow">
 <meta name="revisit-after" content="3 days">
@@ -41,8 +43,6 @@
 <meta name="msapplication-window" content="width=1024;height=768">
 <meta name="msapplication-TileImage" content="{{site.github.url}}/assets/img/icons/ms-icon-144x144.png">
 <meta name="msapplication-TileColor" content="">
-
-<link rel="canonical" href="{{site.github.url}}">
 -->
 
 {% include favicons.html %}
@@ -57,5 +57,5 @@
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-<link rel="stylesheet" href="{% if site.developmentUrl %}{{site.developmentUrl}}{% else %}{{site.github.url}}{% endif %}/assets/css/docs.min.css" />
-<link rel="stylesheet" href="{% if site.developmentUrl %}{{site.developmentUrl}}{% else %}{{site.github.url}}{% endif %}/assets/css/style.css" />
+<link rel="stylesheet" href="{% if site.developmentUrl %}{{site.developmentUrl}}{% endif %}/assets/css/docs.min.css" />
+<link rel="stylesheet" href="{% if site.developmentUrl %}{{site.developmentUrl}}{% endif %}/assets/css/style.css" />
