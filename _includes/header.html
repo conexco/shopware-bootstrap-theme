@@ -2,7 +2,7 @@
 <header id="top">
     <div class="container">
         <div class="text-lg-center">
-            <a href="/" id="logo" class="mx-4">
+            <a href="{{ site.baseurl }}/" id="logo" class="mx-4">
                 {% include svg/logo.svg %}
             </a>
             <h1 class="d-none">Bootstrap for shopware</h1>
@@ -38,7 +38,7 @@
 
             <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
                 <li class="nav-item">
-                    <a class="nav-link p-2" href="{{ site.repo }}" rel="noopener" aria-label="GitHub">
+                    <a class="nav-link p-2" href="{{ site.githubButton.repo }}" rel="noopener" aria-label="GitHub">
                         {% include svg/github.svg class="navbar-nav-svg" %}
                     </a>
                 </li>
