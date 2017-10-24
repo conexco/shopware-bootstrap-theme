@@ -1,0 +1,29 @@
+{block name="frontend_listing_box_article_includes"}
+    {$path = ''}
+
+    {if $productBoxLayout == 'minimal'}
+        {$path = "frontend/listing/product-box/box-minimal.tpl"}
+    {elseif $productBoxLayout == 'image'}
+        {$path = "frontend/listing/product-box/box-big-image.tpl"}
+    {elseif $productBoxLayout == 'slider'}
+        {$path = "frontend/listing/product-box/box-product-slider.tpl"}
+    {elseif $productBoxLayout == 'emotion'}
+        {$path = "frontend/listing/product-box/box-emotion.tpl"}
+    {elseif $productBoxLayout == 'blog'}
+        {$path = "frontend/listing/product-box/box-blog.tpl"}
+    {elseif $productBoxLayout == 'similar'}
+        {$path = "frontend/listing/product-box/box-similar.tpl"}
+    {elseif $productBoxLayout == 'crossselling'}
+        {$path = "frontend/listing/product-box/box-crossselling.tpl"}
+    {elseif $productBoxLayout == 'list'}
+        {$path = "frontend/listing/product-box/box-list.tpl"}
+    {/if}
+
+    {if $path == ''}
+        {block name="frontend_listing_box_article_includes_additional"}
+            {include file="frontend/listing/product-box/box-basic.tpl" productBoxLayout="basic"}
+        {/block}
+    {else}
+        {include file=$path}
+    {/if}
+{/block}

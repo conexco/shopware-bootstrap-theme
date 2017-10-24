@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../engine/Shopware/Components/Plugin/schema/config.xsd">
+    <elements>
+        <element type="button" required="false">
+            <name>seperator_menu</name>
+            <label lang="de">Menü</label>
+            <label lang="en">Menu</label>
+        </element>
+
+        <element type="number" scope="shop">
+            <name>menu_cache_time</name>
+            <label lang="de">Mega-Menü: Cachezeit</label>
+            <label lang="en">mega menu: cachetime</label>
+            <value>86400</value>
+            <description lang="de">Zeit, wie lange das Menü gecached werden soll.</description>
+            <description lang="en">defines the caching time of the menu.</description>
+            <options>
+                <minValue>1</minValue>
+            </options>
+        </element>
+
+        <element type="button" required="false">
+            <name>seperator_shopselector</name>
+            <label>Shopselector</label>
+        </element>
+
+        <element type="boolean" scope="shop">
+            <name>shopselector_active</name>
+            <label lang="de">Shopselector aktivieren</label>
+            <label lang="en">activate shopselector</label>
+            <value>false</value>
+            <description>Möchten Sie den Shopselector für diesen Shop aktivieren? Ist er deaktiviert, so wird das Standardmenü zur Auswahl des Shops angezeigt</description>
+        </element>
+
+        <element type="boolean" scope="shop">
+            <name>selectable</name>
+            <label lang="de">Shop im Frontend auswählbar</label>
+            <label lang="en">shop is selectable</label>
+            <value>true</value>
+            <description>Hier können Sie festlegen, ob ein Shop im Frontend ausgewählt werden kann</description>
+        </element>
+
+        <element type="text" scope="shop">
+            <name>name</name>
+            <label lang="de">Anzeigename</label>
+            <label lang="en">displayname</label>
+            <description>Hier können Sie einen Namen festlegen, welcher im Menü angezeigt werden soll</description>
+        </element>
+
+        <element type="mediaselection" scope="shop">
+            <name>image</name>
+            <label lang="de">Bild</label>
+            <label lang="en">image</label>
+            <description>Hier können Sie ein Bild festlegen, welches auf dem Button des Menüs angezeigt werden soll</description>
+        </element>
+    </elements>
+</config>

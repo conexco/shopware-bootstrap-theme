@@ -1,0 +1,183 @@
+.wizard-question-content {
+    text-align: center;
+    .question-label {
+        border: 1px solid #ccc;
+        font-weight: 600;
+        height: 100%;
+        width: 100%;
+        padding-left: 0;
+        &:hover {
+            border: 1px solid darken(#ccc, 10%);
+        }
+    }
+
+    // Only for non-image elements
+    .question-filter {
+        overflow: hidden;
+
+        .question-label {
+            .unitize-padding(10, 10, 10, 10);
+            overflow: hidden;
+            text-align: center;
+            word-wrap: break-word;
+            position: relative;
+            cursor: pointer;
+        }
+
+        input:checked ~ .question-label {
+            .box-shadow();
+            border-color: @swf-brand-primary;
+            color: @swf-gray-base;
+            &:after {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                content: "\f00c";
+                font-family: 'FontAwesome';
+                display: inline-block;
+                color: @swf-brand-primary;
+            }
+        }
+    }
+}
+
+.advisor-wizard-progress {
+    .progress {
+        height: 10px;
+    }
+}
+
+@media (min-width: @swf-screen-hd-min) {
+    .advisor-content-sidebar {
+        &.advisor-state-start {
+            &.content-sidebar-position-lower {
+                display: none;
+            }
+        }
+    }
+}
+
+.advisor-sidebar-buttons {
+    .unitize-padding(10, 10, 10, 10);
+}
+
+.question-hidden {
+    display: none;
+}
+
+.sidebar-collapse {
+    &.sidebar-open {
+        &.collapsed {
+            .question-name-arrow {
+                transition: .5s;
+                .rotate(180deg);
+            }
+        }
+    }
+    &.collapsed {
+        .question-name-arrow {
+            transition: .5s;
+            .rotate(180deg);
+        }
+    }
+    .question-name-arrow {
+        display: inline-block;
+        position: absolute;
+        .unitize(right, 15);
+        transition: .5s;
+    }
+}
+
+.content-wizard-checkbox {
+    .question-label {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.wizard-question-content {
+    .unitize-padding(0,15,0,15);
+    .advisor-cell-filled {
+        border: 1px solid #ccc;
+        label {
+            padding: 0;
+            margin: 0;
+            &, &:hover, &:focus, &:active {
+                border: none;
+                cursor: pointer;
+            }
+        }
+        input:checked ~ .question-label {
+            position: relative;
+            &:before {
+                .unitize-height(30);
+                .unitize-width(30);
+                .unitize(line-height, 30);
+                box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+                background-color: #ffffff;
+                border-radius: 100%;
+                color: @swf-brand-primary;
+                display: block;
+                left: 50%;
+                position: absolute;
+                text-align: center;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1000;
+                content: "\f00c";
+                font-family: 'FontAwesome';
+            }
+            &:after {
+                background-color: #000;
+                content: '';
+                opacity: .4;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 999;
+            }
+        }
+    }
+    .advisor-cell-image {
+        .unitize-margin(5,5,5,5);
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+.answers-checkbox-wrapper {
+    .unitize-margin(10,0,10,0);
+    label {
+        font-weight: normal;
+    }
+}
+
+.advisor-question {
+    padding: 0;
+    .sidebar-collapse {
+        display: block;
+        .unitize-padding(10,15,10,15);
+    }
+    .collapse, .collapsing {
+        .unitize-padding(0,15,0,15);
+    }
+    .selectboxit-container {
+        .unitize-margin(10,0,10,0);
+    }
+    label {
+        font-weight: normal;
+    }
+}
+
+.advisor-reset-btn {
+    display: none;
+}
+
+.advisor-cell-image {
+    img[src=""] {
+        display: none;
+    }
+}

@@ -1,0 +1,60 @@
+.selectboxit-container {
+    // Button
+    display: block;
+    border-radius: @swf-border-radius-base;
+    border: 1px solid @swf-panel-default-border;
+    & * {
+        .unitize(font-size, @swf-font-size-base);
+        font-family: @swf-font-family-base;
+    }
+    .selectboxit {
+        width: 100% !important;
+        border-radius: @swf-border-radius-base;
+        border: none;
+        .selectboxit-arrow-container {
+            .transition(all 220ms ease-in-out);
+            .selectboxit-arrow {
+                position: static;
+                &:before {
+                    font-family: FontAwesome;
+                    content: '\f107';
+                }
+            }
+        }
+        &.open .selectboxit-arrow-container {
+            .rotate(180deg);
+        }
+        // Button Text
+        .selectboxit-text {
+            color: @swf-text-color;
+            .unitize(font-size, @swf-font-size-base);
+            max-width: 75% !important;
+        }
+    }
+    // Height and Vertical Alignment of Text
+    span {
+        .unitize-height(@input-height-base);
+        .unitize(line-height, @input-height-base);
+    }
+    .selectboxit-options {
+        width: 100%;
+        border-radius: @swf-border-radius-base;
+        z-index: @swf-zindex-custom-select;
+        .selectboxit-option-first {
+            border-top-right-radius: @swf-border-radius-base;
+            border-top-left-radius: @swf-border-radius-base;
+        }
+        .selectboxit-option-last {
+            border-bottom-right-radius: @swf-border-radius-base;
+            border-bottom-left-radius: @swf-border-radius-base;
+        }
+    }
+}
+
+// Validation
+.form-group.has-error span.selectboxit-container { 
+    border-color: @swf-brand-danger;
+    .selectboxit-arrow-container {
+        color: @swf-brand-danger;
+    } 
+}

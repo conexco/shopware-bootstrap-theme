@@ -1,0 +1,19 @@
+.loader {
+    width: 100%;
+    display: block;
+    text-align: center;
+    &.is-fullscreen {
+        top: 45%;
+        position: fixed;
+        font-size: 300%;
+        z-index: @swf-zindex-loader-full;
+    }
+
+}
+
+// btn-primary loading indicator
+.btn.btn-primary {
+    i.loader-icon {
+        color: #fff;
+    }
+}

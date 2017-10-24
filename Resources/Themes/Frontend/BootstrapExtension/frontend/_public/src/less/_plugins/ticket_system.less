@@ -1,0 +1,35 @@
+.ticket-system {
+    border: none;
+
+    .ticket-status-1 {
+        color: @brand-danger;
+    }
+
+    .ticket-status-2 {
+        color: @brand-warning;
+    }
+
+    .ticket-status-3 {
+        color: @brand-info;
+    }
+
+    .ticket-status-4 {
+        color: @brand-success;
+    }
+}
+
+.option_values_upload_file_custom {
+    position: relative;
+    overflow: hidden;
+    input.fileupload-input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        .unitize('font-size', 20);
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+}

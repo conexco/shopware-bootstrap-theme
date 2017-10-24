@@ -1,0 +1,112 @@
+// include shopware responsive theme variables as fallback to avoid less compiling errors with plugins
+@brand-primary: #D9400B;
+@brand-primary-light: #D9400B;
+@brand-secondary: #5F7285;
+@brand-secondary-dark: #5F7285;
+@gray: #F5F5F8;
+@gray-light: #F5F5F8;
+@gray-dark: #F5F5F8;
+@border-color: @gray-dark;
+@highlight-success: #2ECC71;
+@highlight-error: #E74C3C;
+@highlight-notice: #F1C40F;
+@highlight-info: #4AA3DF;
+@body-bg: #FFFFFF;
+@overlay-bg: #000000;
+@overlay-opacity: 0.7;
+@text-color: @brand-secondary;
+@text-color-dark: @brand-secondary-dark;
+@link-color: @brand-primary;
+@link-hover-color: @brand-primary;
+@rating-star-color: @highlight-notice;
+@btn-default-top-bg: #FFFFFF;
+@btn-default-bottom-bg: @gray-light;
+@btn-default-hover-bg: #FFFFFF;
+@btn-default-text-color: @text-color;
+@btn-default-hover-text-color: @brand-primary;
+@btn-default-border-color: @border-color;
+@btn-default-hover-border-color: @brand-primary;
+@btn-primary-top-bg: @brand-primary-light;
+@btn-primary-bottom-bg: @brand-primary;
+@btn-primary-hover-bg: @brand-primary;
+@btn-primary-text-color: #FFFFFF;
+@btn-primary-hover-text-color: @btn-primary-text-color;
+@btn-secondary-top-bg: @brand-secondary;
+@btn-secondary-bottom-bg: @brand-secondary-dark;
+@btn-secondary-hover-bg: @brand-secondary-dark;
+@btn-secondary-text-color: #FFFFFF;
+@btn-secondary-hover-text-color: @btn-secondary-text-color;
+@panel-header-bg: @gray-light;
+@panel-header-color: @text-color;
+@panel-border: @border-color;
+@panel-bg: #FFFFFF;
+@label-color: @text-color;
+@input-bg: @gray-light;
+@input-color: @brand-secondary;
+@input-placeholder-color: @brand-secondary;
+@input-border: @border-color;
+@input-focus-bg: #FFFFFF;
+@input-focus-border: @brand-primary;
+@input-focus-color: @brand-secondary;
+@input-error-bg: @brand-secondary;
+@input-error-border: @highlight-error;
+@input-error-color: @highlight-error;
+@input-success-bg: #FFFFFF;
+@input-success-border: @highlight-success;
+@input-success-color: @brand-secondary-dark;
+@input-font-size: 1em;
+@panel-table-header-bg: @panel-bg;
+@panel-table-header-color: @text-color-dark;
+@table-row-bg: #FFFFFF;
+@table-row-color: @brand-secondary;
+@table-row-highlight-bg: @brand-secondary;
+@table-header-bg: @brand-secondary;
+@table-header-color: #FFFFFF;
+@badge-discount-bg: @highlight-error;
+@badge-discount-color: #FFFFFF;
+@badge-newcomer-bg: @highlight-notice;
+@badge-newcomer-color: #FFFFFF;
+@badge-recommendation-bg: @highlight-success;
+@badge-recommendation-color: #FFFFFF;
+@badge-download-bg: @highlight-info;
+@badge-download-color: #FFFFFF;
+@phoneLandscapeViewportWidth: 30em;
+@tabletViewportWidth: 48em;
+@tabletLandscapeViewportWidth: 64em;
+@desktopViewportWidth: 78.75em;
+@remScaleFactor: 16;
+@sw-icon-fontname: '';
+@sw-icon-arrow-left: '';
+@sw-icon-arrow-right: '';
+@sw-icon-arrow-down: '';
+@sw-icon-arrow-up: '';
+@sw-icon-plus3: '';
+
+// mixins used by shopware plugins
+.linear-gradient(@start, @end) {}
+.transform(@transformation) {  }
+.border-radius-multi(@leftTop: 0, @rightTop:0, @rightBottom: 0, @leftBottom: 0) {}
+.border-radius(@radius: 3px) {}
+.primary-gradient() {}
+.tap-highlight-color(@color: rgba(0, 0, 0, 0)) {}
+.column-count(@count: auto) {}
+.is--align-right {}
+.transform-origin(@x: 50%, @y: 50%, @z: 0) {}
+.user-select(@type: none) {}
+.touch-callout(@type: none) {}
+.box-sizing(@box-sizing: border-box) {}
+.appearance(@type: none) {}
+
+.transition(@transition: all 0.3s ease-out) {
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -ms-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
+}
+
+// overwrite bootstrap mixin, because shopware calls mixin without parameter
+.box-shadow(@shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2)) {
+	-webkit-box-shadow: @shadow;
+    box-shadow: @shadow;
+}

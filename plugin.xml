@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.3/engine/Shopware/Components/Plugin/schema/plugin.xsd">
+
+    <label lang="de">Shopware Bootstrap Theme</label>
+    <label lang="en">Shopware Bootstrap Theme</label>
+    <version>1.0.0</version>
+    <description>
+        The Shopware Bootstrap Theme helps you build fast, robust, and adaptable responsive shopware themes. Kick-start your shopware theme with the combined knowledge and effort of 1000s of custom shopware themes.
+    </description>
+
+    <compatibility minVersion="5.3.0"/>
+    <author>conexco - the e-commerce experts</author>
+    <copyright>Copyright (c) 2017, conexco UG (haftungsbeschränkt) &amp; Co. KG</copyright>
+    <license>GNU GPLv3</license>
+    <link>http://www.bootstrap.de</link>
+</plugin>

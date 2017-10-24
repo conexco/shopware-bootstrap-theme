@@ -1,0 +1,120 @@
+// pdp collapse
+.custom-products-option {
+    border-top: 1px solid @swf-list-group-border;
+    label {
+        margin: 0;
+        display: block;
+        cursor: pointer;
+        i {
+            .unitize(margin-top, 2);
+        }
+        &.collapsed i {
+            .rotate(180deg);
+        }
+        &.has-validation-error {
+            color: @swf-brand-danger;
+        }
+    }
+}
+.modal .custom-products-option {
+    border: none;
+}
+
+// pdp timepicker
+.custom-products-time .picker--time .picker__holder {
+    overflow-y: scroll;    
+    background: #fff;
+    font-size: @swf-font-size-base;
+    border-bottom-left-radius: @swf-border-radius-base;
+    border-bottom-right-radius: @swf-border-radius-base;
+    .picker__list {
+        .unitize(padding-bottom, 10);
+    }
+    .picker__button--clear {
+        border: 1px solid transparent;
+        .button-variant(@swf-btn-default-color; @swf-btn-default-bg; @swf-btn-default-border);
+        &:before {
+            content: none;
+        }
+    }
+}
+.custom-products-time, .custom-products-date {
+    line-height: 0;
+}
+
+// pdp wysiwyg editor
+.custom-products-wysiwyg .trumbowyg-box {
+    margin-top: 0;
+}
+
+//pdp image selection
+.custom-products-colorselect .custom-products-color-selection-display {
+    .unitize-height(50);
+}
+.custom-products-imageselect .custom-products-image-selection img {
+    .unitize(max-height, 200);
+}
+.custom-products-colorselect, .custom-products-imageselect {
+    input:checked ~ label {
+        position: relative;
+        &:before {
+            font-family: 'FontAwesome';
+            content: "\f058";
+            color: @swf-brand-primary;
+            position: absolute;
+            right: 0;
+            .unitize(top, -5);
+            font-size: 1rem;
+        }
+    }
+}
+
+// pdp fileupload/imageupload 
+.custom-products-fileupload, .custom-products-imageupload {
+    .custom-products-upload-wrapper {
+        border: 1px solid @swf-gray-light;
+        background-color: @swf-gray-lighter;
+        position: relative;
+        &.is-dragover {
+            border-color: @swf-brand-info;
+            background: #fff;
+        }
+        &.is-failure {
+            border-color: @swf-brand-danger;
+        }
+        &.is-success {
+            border-color: @swf-brand-success;
+            background: #fff;
+        }
+        .upload-field {
+            .opacity(0);
+            overflow: hidden;
+            position: absolute;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+        .uploading-panel {
+            display: none;
+        }
+        .custom-products-uploading-failure .uploading-text {
+            display: none;
+        } 
+    }
+    .upload-preview-image {
+        display: inline;
+        float: none;
+        .unitize(margin-right, 10);
+        .unitize(max-height, 100);
+        .unitize(max-width, 100);
+    }   
+}
+
+.custom-products-option {
+    .form-control, fieldset {
+        &, &[disabled], &[readonly] {
+            background-color: #fff;
+            cursor: pointer;
+        }
+    }
+}

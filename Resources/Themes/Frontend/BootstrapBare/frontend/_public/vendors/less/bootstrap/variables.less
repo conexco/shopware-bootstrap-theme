@@ -1,0 +1,860 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+@gray-base:              	@swf-gray-base;
+@gray-darker:            	@swf-gray-darker;
+@gray-dark:              	@swf-gray-dark;
+@gray:                   	@swf-gray;
+@gray-light:             	@swf-gray-light;
+@gray-lighter:           	@swf-gray-lighter;
+
+@brand-primary:         	@swf-brand-primary;
+@brand-success:         	@swf-brand-success;
+@brand-info:            	@swf-brand-info;
+@brand-warning:         	@swf-brand-warning;
+@brand-danger:          	@swf-brand-danger;
+
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+@body-bg:               	@swf-body-bg;
+//** Global text color on `<body>`.
+@text-color:            	@swf-text-color;
+
+//** Global textual link color.
+@link-color:            	@swf-link-color;
+//** Link hover color set via `darken()` function.
+@link-hover-color:      	@swf-link-hover-color;
+//** Link hover decoration.
+@link-hover-decoration: 	@swf-link-hover-decoration;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+@font-family-sans-serif:  	@swf-font-family-base;
+@font-family-serif:       	@swf-font-family-serif;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+@font-family-monospace:   	@swf-font-family-monospace;
+@font-family-base:        	@swf-font-family-base;
+
+@font-size-base:          	@swf-font-size-base;
+@font-size-large:         	@swf-font-size-large;
+@font-size-small:         	@swf-font-size-small;
+
+@font-size-h1:            	@swf-font-size-h1;
+@font-size-h2:            	@swf-font-size-h2;
+@font-size-h3:            	@swf-font-size-h3;
+@font-size-h4:            	@swf-font-size-h4;
+@font-size-h5:            	@swf-font-size-h5;
+@font-size-h6:            	@swf-font-size-h6;
+
+//** Unit-less `line-height` for use in components like buttons.
+@line-height-base:        	@swf-line-height-base;
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@line-height-computed:    	@swf-line-height-computed; // ~20px
+
+//** By default, this inherits from the `<body>`.
+@headings-font-family:    	@swf-headings-font-family;
+@headings-font-weight:    	@swf-headings-font-weight;
+@headings-line-height:    	@swf-headings-line-height;
+@headings-color:          	@swf-headings-color;
+
+
+//== Iconography
+//
+//## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
+
+//** Load fonts from this directory.
+@icon-font-path:          	"../../fonts/";
+//** File name for all font files.
+@icon-font-name:          	"glyphicons-halflings-regular";
+//** Element ID within SVG icon file.
+@icon-font-svg-id:        	"glyphicons_halflingsregular";
+
+
+//== Components
+//
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+
+@padding-base-vertical:     @swf-padding-base-vertical;
+@padding-base-horizontal:   @swf-padding-base-horizontal;
+
+@padding-large-vertical:    @swf-padding-large-vertical;
+@padding-large-horizontal:  @swf-padding-large-horizontal;
+
+@padding-small-vertical:    @swf-padding-small-vertical;
+@padding-small-horizontal:  @swf-padding-small-horizontal;
+
+@padding-xs-vertical:       @swf-padding-xs-vertical;
+@padding-xs-horizontal:     @swf-padding-xs-horizontal;
+
+@line-height-large:         @swf-line-height-large;
+@line-height-small:         @swf-line-height-small;
+
+@border-radius-base:        @swf-border-radius-base;
+@border-radius-large:       @swf-border-radius-large;
+@border-radius-small:       @swf-border-radius-small;
+
+//** Global color for active items (e.g., navs or dropdowns).
+@component-active-color:    @swf-component-active-color;
+//** Global background color for active items (e.g., navs or dropdowns).
+@component-active-bg:       @swf-component-active-bg;
+
+//** Width of the `border` for generating carets that indicator dropdowns.
+@caret-width-base:          @swf-caret-width-base;
+//** Carets increase slightly in size for larger components.
+@caret-width-large:         @swf-caret-width-large;
+
+
+//== Tables
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+//** Padding for `<th>`s and `<td>`s.
+@table-cell-padding:            @swf-table-cell-padding;
+//** Padding for cells in `.table-condensed`.
+@table-condensed-cell-padding:  @swf-table-condensed-cell-padding;
+
+//** Default background color used for all tables.
+@table-bg:                      @swf-table-bg;
+//** Background color used for `.table-striped`.
+@table-bg-accent:               @swf-table-bg-accent;
+//** Background color used for `.table-hover`.
+@table-bg-hover:                @swf-table-bg-hover;
+@table-bg-active:               @swf-table-bg-active;
+
+//** Border color for table and cell borders.
+@table-border-color:            @swf-table-border-color;
+
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+@btn-font-weight:                @swf-btn-font-weight;
+
+@btn-default-color:              @swf-btn-default-color;
+@btn-default-bg:                 @swf-btn-default-bg;
+@btn-default-border:             @swf-btn-default-border;
+
+@btn-primary-color:              @swf-btn-primary-color;
+@btn-primary-bg:                 @swf-btn-primary-bg;
+@btn-primary-border:             @swf-btn-primary-border;
+
+@btn-success-color:              @swf-btn-success-color;
+@btn-success-bg:                 @swf-btn-success-bg;
+@btn-success-border:             @swf-btn-success-border;
+
+@btn-info-color:                 @swf-btn-info-color;
+@btn-info-bg:                    @swf-btn-info-bg;
+@btn-info-border:                @swf-btn-info-border;
+
+@btn-warning-color:              @swf-btn-warning-color;
+@btn-warning-bg:                 @swf-btn-warning-bg;
+@btn-warning-border:             @swf-btn-warning-border;
+
+@btn-danger-color:               @swf-btn-danger-color;
+@btn-danger-bg:                  @swf-btn-danger-bg;
+@btn-danger-border:              @swf-btn-danger-border;
+
+@btn-link-disabled-color:        @gray-light;
+
+// Allows for customizing button radius independently from global border radius
+@btn-border-radius-base:         @border-radius-base;
+@btn-border-radius-large:        @border-radius-large;
+@btn-border-radius-small:        @border-radius-small;
+
+
+//== Forms
+//
+//##
+
+//** `<input>` background color
+@input-bg:                       @swf-input-bg;
+//** `<input disabled>` background color
+@input-bg-disabled:              @swf-input-bg-disabled;
+
+//** Text color for `<input>`s
+@input-color:                    @swf-input-color;
+//** `<input>` border color
+@input-border:                   @swf-input-border;
+
+//** Default `.form-control` border radius
+@input-border-radius:            @swf-input-border-radius;
+//** Large `.form-control` border radius
+@input-border-radius-large:      @swf-input-border-radius-large;
+//** Small `.form-control` border radius
+@input-border-radius-small:      @swf-input-border-radius-small;
+
+//** Border color for inputs on focus
+@input-border-focus:             @swf-input-border-focus;
+
+//** Placeholder text color
+@input-color-placeholder:        @swf-input-color-placeholder;
+
+//** Default `.form-control` height
+@input-height-base:              @swf-input-height-base;
+//** Large `.form-control` height
+@input-height-large:             @swf-input-height-large;
+//** Small `.form-control` height
+@input-height-small:             @swf-input-height-small;
+
+//** `.form-group` margin
+@form-group-margin-bottom:       15px;
+
+@legend-color:                   @swf-legend-color;
+@legend-border-color:            @swf-legend-border-color;
+
+//** Background color for textual input addons
+@input-group-addon-bg:           @swf-input-group-addon-bg;
+//** Border color for textual input addons
+@input-group-addon-border-color: @swf-input-group-addon-border-color;
+
+//** Disabled cursor for form controls and buttons.
+@cursor-disabled:                not-allowed;
+
+
+//== Dropdowns
+//
+//## Dropdown menu container and contents.
+
+//** Background for the dropdown menu.
+@dropdown-bg:                    @swf-dropdown-bg;
+//** Dropdown menu `border-color`.
+@dropdown-border:                @swf-dropdown-border;
+//** Dropdown menu `border-color` **for IE8**.
+@dropdown-fallback-border:       @swf-dropdown-fallback-border;
+//** Divider color for between dropdown items.
+@dropdown-divider-bg:            @swf-dropdown-divider-bg;
+
+//** Dropdown link text color.
+@dropdown-link-color:            @swf-dropdown-link-color;
+//** Hover color for dropdown links.
+@dropdown-link-hover-color:      @swf-dropdown-link-hover-color;
+//** Hover background for dropdown links.
+@dropdown-link-hover-bg:         @swf-dropdown-link-hover-bg;
+
+//** Active dropdown menu item text color.
+@dropdown-link-active-color:     @swf-dropdown-link-active-color;
+//** Active dropdown menu item background color.
+@dropdown-link-active-bg:        @swf-dropdown-link-active-bg;
+
+//** Disabled dropdown menu item background color.
+@dropdown-link-disabled-color:   @swf-dropdown-link-disabled-color;
+
+//** Text color for headers within dropdown menus.
+@dropdown-header-color:          @swf-dropdown-header-color;
+
+//** Deprecated `@dropdown-caret-color` as of v3.1.0
+@dropdown-caret-color:           @swf-dropdown-caret-color;
+
+
+//-- Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+//
+// Note: These variables are not generated into the Customizer.
+
+@zindex-navbar:            @swf-zindex-navbar;
+@zindex-dropdown:          @swf-zindex-dropdown;
+@zindex-popover:           @swf-zindex-popover;
+@zindex-tooltip:           @swf-zindex-tooltip;
+@zindex-navbar-fixed:      @swf-zindex-navbar-fixed;
+@zindex-modal-background:  @swf-zindex-modal-background;
+@zindex-modal:             @swf-zindex-modal;
+
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `@screen-xs` as of v3.0.1
+@screen-xs:                  1px;
+//** Deprecated `@screen-xs-min` as of v3.2.0
+@screen-xs-min:              @screen-xs;
+
+// Small screen / tablet
+@screen-sm-min:              @swf-screen-sm-min;
+
+// Small desktop / tablet landscape
+@screen-hd-min:              @swf-screen-hd-min;
+
+// Medium screen / desktop
+@screen-md-min:              @swf-screen-md-min;
+
+// Large screen / wide desktop
+@screen-lg-min:              @swf-screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:              (@swf-screen-sm-min - 1);
+@screen-sm-max:              (@swf-screen-hd-min - 1);
+@screen-hd-max:              (@swf-screen-md-min - 1);
+@screen-md-max:              (@swf-screen-lg-min - 1);
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+@grid-columns:              12;
+//** Padding between columns. Gets divided in half for the left and right.
+@grid-gutter-width:         @swf-grid-gutter-width;
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+@grid-float-breakpoint:     @swf-screen-sm-min;
+//** Point at which the navbar begins collapsing.
+@grid-float-breakpoint-max: (@swf-screen-sm-min - 1);
+
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+// Small screen / tablet
+@container-tablet:             @swf-screen-sm-min;
+//** For `@screen-sm-min` and up.
+@container-sm:                 @swf-screen-sm-min;
+
+// Small desktop / tablet landscape
+//** For `@screen-hd-min` and up.
+@container-hd:                 @swf-container-hd;
+
+// Medium screen / desktop
+@container-desktop:            @swf-container-md;
+//** For `@screen-md-min` and up.
+@container-md:                 @swf-container-md;
+
+// Large screen / wide desktop
+@container-large-desktop:      @swf-container-lg;
+//** For `@screen-lg-min` and up.
+@container-lg:                 @swf-container-lg;
+
+
+//== Navbar
+//
+//##
+
+// Basics of a navbar
+@navbar-height:                    @swf-navbar-height;
+@navbar-margin-bottom:             @swf-line-height-computed;
+@navbar-border-radius:             @swf-navbar-border-radius;
+@navbar-padding-horizontal:        floor((@swf-grid-gutter-width / 2));
+@navbar-padding-vertical:          ((@swf-navbar-height - @swf-line-height-computed) / 2);
+@navbar-collapse-max-height:       340px;
+
+@navbar-default-color:             #777;
+@navbar-default-bg:                @swf-navbar-default-bg;
+@navbar-default-border:            @swf-navbar-default-border;
+
+// Navbar links
+@navbar-default-link-color:                @swf-navbar-default-link-color;
+@navbar-default-link-hover-color:          @swf-navbar-default-link-hover-color;
+@navbar-default-link-hover-bg:             @swf-navbar-default-link-hover-bg;
+@navbar-default-link-active-color:         @swf-navbar-default-link-active-color;
+@navbar-default-link-active-bg:            @swf-navbar-default-link-active-bg;
+@navbar-default-link-disabled-color:       @swf-navbar-default-link-disabled-color;
+@navbar-default-link-disabled-bg:          @swf-navbar-default-link-disabled-bg;
+
+// Navbar brand label
+@navbar-default-brand-color:               @swf-navbar-default-link-color;
+@navbar-default-brand-hover-color:         @swf-navbar-default-link-hover-color;
+@navbar-default-brand-hover-bg:            @swf-navbar-default-link-hover-bg;
+
+// Navbar toggle
+@navbar-default-toggle-hover-bg:           @swf-navbar-default-toggle-hover-bg;
+@navbar-default-toggle-icon-bar-bg:        @swf-navbar-default-toggle-icon-bar-bg;
+@navbar-default-toggle-border-color:       #ddd;
+
+
+//=== Inverted navbar
+// Reset inverted navbar basics
+@navbar-inverse-color:                      lighten(@gray-light, 15%);
+@navbar-inverse-bg:                         #222;
+@navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
+
+// Inverted navbar links
+@navbar-inverse-link-color:                 lighten(@gray-light, 15%);
+@navbar-inverse-link-hover-color:           #fff;
+@navbar-inverse-link-hover-bg:              transparent;
+@navbar-inverse-link-active-color:          @navbar-inverse-link-hover-color;
+@navbar-inverse-link-active-bg:             darken(@navbar-inverse-bg, 10%);
+@navbar-inverse-link-disabled-color:        #444;
+@navbar-inverse-link-disabled-bg:           transparent;
+
+// Inverted navbar brand label
+@navbar-inverse-brand-color:                @navbar-inverse-link-color;
+@navbar-inverse-brand-hover-color:          #fff;
+@navbar-inverse-brand-hover-bg:             transparent;
+
+// Inverted navbar toggle
+@navbar-inverse-toggle-hover-bg:            #333;
+@navbar-inverse-toggle-icon-bar-bg:         #fff;
+@navbar-inverse-toggle-border-color:        #333;
+
+
+//== Navs
+//
+//##
+
+//=== Shared nav styles
+@nav-link-padding:                          @swf-nav-link-padding;
+@nav-link-hover-bg:                         @swf-nav-link-hover-bg;
+
+@nav-disabled-link-color:                   @swf-nav-disabled-link-color;
+@nav-disabled-link-hover-color:             #000;
+
+//== Tabs
+@nav-tabs-border-color:                     @swf-nav-tabs-border-color;
+
+@nav-tabs-link-hover-border-color:          @swf-nav-tabs-link-hover-border-color;
+
+@nav-tabs-active-link-hover-bg:             @swf-nav-tabs-active-link-hover-bg;
+@nav-tabs-active-link-hover-color:          @swf-nav-tabs-active-link-hover-color;
+@nav-tabs-active-link-hover-border-color:   @swf-nav-tabs-active-link-hover-border-color;
+
+@nav-tabs-justified-link-border-color:            @swf-nav-tabs-justified-link-border-color;
+@nav-tabs-justified-active-link-border-color:     @swf-nav-tabs-justified-active-link-border-color;
+
+//== Pills
+@nav-pills-border-radius:                   @swf-nav-pills-border-radius;
+@nav-pills-active-link-hover-bg:            @swf-nav-pills-active-link-hover-bg;
+@nav-pills-active-link-hover-color:         @swf-nav-pills-active-link-hover-color;
+
+
+//== Pagination
+//
+//##
+
+@pagination-color:                     @swf-pagination-color;
+@pagination-bg:                        @swf-pagination-bg;
+@pagination-border:                    @swf-pagination-border;
+
+@pagination-hover-color:               @swf-pagination-hover-color;
+@pagination-hover-bg:                  @swf-pagination-hover-bg;
+@pagination-hover-border:              @swf-pagination-hover-border;
+
+@pagination-active-color:              @swf-pagination-active-color;
+@pagination-active-bg:                 @swf-pagination-active-bg;
+@pagination-active-border:             @swf-pagination-active-border;
+
+@pagination-disabled-color:            @swf-pagination-disabled-color;
+@pagination-disabled-bg:               @swf-pagination-disabled-bg;
+@pagination-disabled-border:           @swf-pagination-disabled-border;
+
+
+//== Pager
+//
+//##
+
+@pager-bg:                             @pagination-bg;
+@pager-border:                         @pagination-border;
+@pager-border-radius:                  15px;
+
+@pager-hover-bg:                       @pagination-hover-bg;
+
+@pager-active-bg:                      @pagination-active-bg;
+@pager-active-color:                   @pagination-active-color;
+
+@pager-disabled-color:                 @pagination-disabled-color;
+
+
+//== Jumbotron
+//
+//##
+
+@jumbotron-padding:              30px;
+@jumbotron-color:                inherit;
+@jumbotron-bg:                   @gray-lighter;
+@jumbotron-heading-color:        inherit;
+@jumbotron-font-size:            ceil((@font-size-base * 1.5));
+@jumbotron-heading-font-size:    ceil((@font-size-base * 4.5));
+
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+@state-success-text:             @swf-state-success-text;
+@state-success-bg:               @swf-state-success-bg;
+@state-success-border:           @swf-state-success-border;
+
+@state-info-text:                @swf-state-info-text;
+@state-info-bg:                  @swf-state-info-bg;
+@state-info-border:              @swf-state-info-border;
+
+@state-warning-text:             @swf-state-warning-text;
+@state-warning-bg:               @swf-state-warning-bg;
+@state-warning-border:           @swf-state-warning-border;
+
+@state-danger-text:              @swf-state-danger-text;
+@state-danger-bg:                @swf-state-danger-bg;
+@state-danger-border:            @swf-state-danger-border;
+
+
+//== Tooltips
+//
+//##
+
+//** Tooltip max width
+@tooltip-max-width:           200px;
+//** Tooltip text color
+@tooltip-color:               #fff;
+//** Tooltip background color
+@tooltip-bg:                  #000;
+@tooltip-opacity:             .9;
+
+//** Tooltip arrow width
+@tooltip-arrow-width:         5px;
+//** Tooltip arrow color
+@tooltip-arrow-color:         @tooltip-bg;
+
+
+//== Popovers
+//
+//##
+
+//** Popover body background color
+@popover-bg:                          @swf-popover-bg;
+//** Popover maximum width
+@popover-max-width:                   @swf-popover-max-width;
+//** Popover border color
+@popover-border-color:                @swf-popover-border-color;
+//** Popover fallback border color
+@popover-fallback-border-color:       @swf-popover-fallback-border-color;
+
+//** Popover title background color
+@popover-title-bg:                    @swf-popover-title-bg;
+
+//** Popover arrow width
+@popover-arrow-width:                 @swf-popover-arrow-width;
+//** Popover arrow color
+@popover-arrow-color:                 @swf-popover-arrow-color;
+
+//** Popover outer arrow width
+@popover-arrow-outer-width:           @swf-popover-arrow-outer-width;
+//** Popover outer arrow color
+@popover-arrow-outer-color:           @swf-popover-arrow-outer-color;
+//** Popover outer arrow fallback color
+@popover-arrow-outer-fallback-color:  @swf-popover-arrow-outer-fallback-color;
+
+
+//== Labels
+//
+//##
+
+//** Default label background color
+@label-default-bg:            @swf-label-default-bg;
+//** Primary label background color
+@label-primary-bg:            @swf-label-primary-bg;
+//** Success label background color
+@label-success-bg:            @swf-label-success-bg;
+//** Info label background color
+@label-info-bg:               @swf-label-info-bg;
+//** Warning label background color
+@label-warning-bg:            @swf-label-warning-bg;
+//** Danger label background color
+@label-danger-bg:             @swf-label-danger-bg;
+
+//** Default label text color
+@label-color:                 @swf-label-color;
+//** Default text color of a linked label
+@label-link-hover-color:      @swf-label-link-hover-color;
+
+
+//== Modals
+//
+//##
+
+//** Padding applied to the modal body
+@modal-inner-padding:         @swf-modal-inner-padding;
+
+//** Padding applied to the modal title
+@modal-title-padding:         @swf-modal-title-padding;
+//** Modal title line-height
+@modal-title-line-height:     @swf-line-height-base;
+
+//** Background color of modal content area
+@modal-content-bg:                             @swf-modal-content-bg;
+//** Modal content border color
+@modal-content-border-color:                   @swf-modal-content-border-color;
+//** Modal content border color **for IE8**
+@modal-content-fallback-border-color:          @swf-modal-content-fallback-border-color;
+
+//** Modal backdrop background color
+@modal-backdrop-bg:           @swf-modal-backdrop-bg;
+//** Modal backdrop opacity
+@modal-backdrop-opacity:      @swf-modal-backdrop-opacity;
+//** Modal header border color
+@modal-header-border-color:   @swf-modal-header-border-color;
+//** Modal footer border color
+@modal-footer-border-color:   @swf-modal-footer-border-color;
+
+@modal-lg:                    @swf-modal-lg;
+@modal-md:                    @swf-modal-md;
+@modal-sm:                    @swf-modal-sm;
+
+
+//== Alerts
+//
+//## Define alert colors, border radius, and padding.
+
+@alert-padding:               @swf-alert-padding;
+@alert-border-radius:         @swf-alert-border-radius;
+@alert-link-font-weight:      @swf-alert-link-font-weight;
+
+@alert-success-bg:            @swf-alert-success-bg;
+@alert-success-text:          @swf-alert-success-text;
+@alert-success-border:        @swf-alert-success-border;
+
+@alert-info-bg:               @swf-alert-info-bg;
+@alert-info-text:             @swf-alert-info-text;
+@alert-info-border:           @swf-alert-info-border;
+
+@alert-warning-bg:            @swf-alert-warning-bg;
+@alert-warning-text:          @swf-alert-warning-text;
+@alert-warning-border:        @swf-alert-warning-border;
+
+@alert-danger-bg:             @swf-alert-danger-bg;
+@alert-danger-text:           @swf-alert-danger-text;
+@alert-danger-border:         @swf-alert-danger-border;
+
+
+//== Progress bars
+//
+//##
+
+//** Background color of the whole progress component
+@progress-bg:                 #f5f5f5;
+//** Progress bar text color
+@progress-bar-color:          #fff;
+//** Variable for setting rounded corners on progress bar.
+@progress-border-radius:      @border-radius-base;
+
+//** Default progress bar color
+@progress-bar-bg:             @brand-primary;
+//** Success progress bar color
+@progress-bar-success-bg:     @brand-success;
+//** Warning progress bar color
+@progress-bar-warning-bg:     @brand-warning;
+//** Danger progress bar color
+@progress-bar-danger-bg:      @brand-danger;
+//** Info progress bar color
+@progress-bar-info-bg:        @brand-info;
+
+
+//== List group
+//
+//##
+
+//** Background color on `.list-group-item`
+@list-group-bg:                 @swf-list-group-bg;
+//** `.list-group-item` border color
+@list-group-border:             @swf-list-group-border;
+//** List group border radius
+@list-group-border-radius:      @swf-list-group-border-radius;
+
+//** Background color of single list items on hover
+@list-group-hover-bg:           @swf-list-group-hover-bg;
+//** Text color of active list items
+@list-group-active-color:       @swf-list-group-active-color;
+//** Background color of active list items
+@list-group-active-bg:          @swf-list-group-active-bg;
+//** Border color of active list elements
+@list-group-active-border:      @swf-list-group-active-border;
+//** Text color for content within active list items
+@list-group-active-text-color:  @swf-list-group-active-text-color;
+
+//** Text color of disabled list items
+@list-group-disabled-color:      @swf-list-group-disabled-color;
+//** Background color of disabled list items
+@list-group-disabled-bg:         @swf-list-group-disabled-bg;
+//** Text color for content within disabled list items
+@list-group-disabled-text-color: @swf-list-group-disabled-color;
+
+@list-group-link-color:         @swf-list-group-link-color;
+@list-group-link-hover-color:   @swf-list-group-link-hover-color;
+@list-group-link-heading-color: #333;
+
+
+//== Panels
+//
+//##
+
+@panel-bg:                    @swf-panel-bg;
+@panel-body-padding:          @swf-panel-body-padding;
+@panel-heading-padding:       @swf-panel-heading-padding;
+@panel-footer-padding:        @swf-panel-footer-padding;
+@panel-border-radius:         @swf-panel-border-radius;
+
+//** Border color for elements within panels
+@panel-inner-border:          #ddd;
+@panel-footer-bg:             @swf-panel-footer-bg;
+
+@panel-default-text:          @swf-gray-dark;
+@panel-default-border:        @swf-panel-default-border;
+@panel-default-heading-bg:    @swf-panel-default-heading-bg;
+
+@panel-primary-text:          @swf-panel-primary-text;
+@panel-primary-border:        @swf-panel-primary-border;
+@panel-primary-heading-bg:    @swf-panel-primary-heading-bg;
+
+@panel-success-text:          @swf-panel-success-heading-text;
+@panel-success-border:        @swf-panel-success-border;
+@panel-success-heading-bg:    @swf-panel-success-heading-bg;
+
+@panel-info-text:             @swf-panel-info-heading-text;
+@panel-info-border:           @swf-panel-info-border;
+@panel-info-heading-bg:       @swf-panel-info-heading-bg;
+
+@panel-warning-text:          @swf-panel-warning-heading-text;
+@panel-warning-border:        @swf-panel-warning-border;
+@panel-warning-heading-bg:    @swf-panel-warning-heading-bg;
+
+@panel-danger-text:           @swf-panel-danger-heading-text;
+@panel-danger-border:         @swf-panel-danger-border;
+@panel-danger-heading-bg:     @swf-panel-danger-heading-bg;
+
+
+//== Thumbnails
+//
+//##
+
+//** Padding around the thumbnail image
+@thumbnail-padding:           @swf-thumbnail-padding;
+//** Thumbnail background color
+@thumbnail-bg:                @swf-thumbnail-bg;
+//** Thumbnail border color
+@thumbnail-border:            @swf-thumbnail-border;
+//** Thumbnail border radius
+@thumbnail-border-radius:     @swf-thumbnail-border-radius;
+
+//** Custom text color for thumbnail captions
+@thumbnail-caption-color:     @swf-thumbnail-caption-color;
+//** Padding around the thumbnail caption
+@thumbnail-caption-padding:   @swf-thumbnail-padding;
+
+
+//== Wells
+//
+//##
+
+@well-bg:                     @swf-well-bg;
+@well-border:                 @swf-well-border;
+
+
+//== Badges
+//
+//##
+
+@badge-color:                 @swf-badge-color;
+//** Linked badge text color on hover
+@badge-link-hover-color:      @swf-badge-link-hover-color;
+@badge-bg:                    @swf-badge-bg;
+
+//** Badge text color in active nav link
+@badge-active-color:          @swf-badge-active-color;
+//** Badge background color in active nav link
+@badge-active-bg:             @swf-badge-active-bg;
+
+@badge-font-weight:           @swf-badge-font-weight;
+@badge-line-height:           @swf-badge-line-height;
+@badge-border-radius:         @swf-badge-border-radius;
+
+
+//== Breadcrumbs
+//
+//##
+
+@breadcrumb-padding-vertical:   @swf-breadcrumb-padding-vertical;
+@breadcrumb-padding-horizontal: @swf-breadcrumb-padding-horizontal;
+//** Breadcrumb background color
+@breadcrumb-bg:                 @swf-breadcrumb-bg;
+//** Breadcrumb text color
+@breadcrumb-color:              @swf-breadcrumb-color;
+//** Text color of current page in the breadcrumb
+@breadcrumb-active-color:       @swf-breadcrumb-active-color;
+//** Textual separator for between breadcrumb elements
+@breadcrumb-separator:          @swf-breadcrumb-separator;
+
+
+//== Carousel
+//
+//##
+
+@carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6);
+
+@carousel-control-color:                      #fff;
+@carousel-control-width:                      15%;
+@carousel-control-opacity:                    .5;
+@carousel-control-font-size:                  20px;
+
+@carousel-indicator-active-bg:                #fff;
+@carousel-indicator-border-color:             #fff;
+
+@carousel-caption-color:                      #fff;
+
+
+//== Close
+//
+//##
+
+@close-font-weight:           bold;
+@close-color:                 #000;
+@close-text-shadow:           0 1px 0 #fff;
+
+
+//== Code
+//
+//##
+
+@code-color:                  #c7254e;
+@code-bg:                     #f9f2f4;
+
+@kbd-color:                   #fff;
+@kbd-bg:                      #333;
+
+@pre-bg:                      #f5f5f5;
+@pre-color:                   @gray-dark;
+@pre-border-color:            #ccc;
+@pre-scrollable-max-height:   340px;
+
+
+//== Type
+//
+//##
+
+//** Horizontal offset for forms and lists.
+@component-offset-horizontal: @swf-component-offset-horizontal;
+//** Text muted color
+@text-muted:                  @swf-text-muted;
+//** Abbreviations and acronyms border color
+@abbr-border-color:           @swf-abbr-border-color;
+//** Headings small color
+@headings-small-color:        @swf-headings-small-color;
+//** Blockquote small color
+@blockquote-small-color:      @swf-blockquote-small-color;
+//** Blockquote font size
+@blockquote-font-size:        @swf-blockquote-font-size;
+//** Blockquote border color
+@blockquote-border-color:     @swf-blockquote-border-color;
+//** Page header border color
+@page-header-border-color:    @swf-page-header-border-color;
+//** Width of horizontal description list titles
+@dl-horizontal-offset:        @swf-dl-horizontal-offset;
+//** Point at which .dl-horizontal becomes horizontal
+@dl-horizontal-breakpoint:    @grid-float-breakpoint;
+//** Horizontal line color.
+@hr-border:                   @swf-hr-border;

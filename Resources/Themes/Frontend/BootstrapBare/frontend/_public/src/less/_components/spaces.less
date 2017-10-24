@@ -1,0 +1,167 @@
+//Based on spaces.less from the designmodo Flat-UI Kit - https://github.com/designmodo/Flat-UI/blob/master/less/spaces.less
+// Should be used to modify the default spacing between objects (not between nodes of * the same object)
+// p,m = padding,margin
+// a,t,r,b,l,h,v = all,top,right,bottom,left,horizontal,vertical
+// x,s,m,l,n = extra-small(@x),small(@s),medium(@m),large(@l),none(0)
+// New: Bootstrap 3 viewports added: *,-xs,-sm,-hd,-md,-lg = all, XS only, SM only, HD only, MD only, LG only
+
+// Default space values
+@x: @swf-space-mini;
+@s: @swf-space-small;
+@m: @swf-space;
+@l: @swf-space-large;
+
+.spaces-padding-mixin(@vp) {
+    .ptn@{vp}, .pvn@{vp}, .pan@{vp} {
+        padding-top: 0;
+    }
+    .ptx@{vp}, .pvx@{vp}, .pax@{vp} {
+        .unitize(padding-top, @x);
+    }
+    .pts@{vp}, .pvs@{vp}, .pas@{vp} {
+        .unitize(padding-top, @s);
+    }
+    .ptm@{vp}, .pvm@{vp}, .pam@{vp} {
+        .unitize(padding-top, @m);
+    }
+    .ptl@{vp}, .pvl@{vp}, .pal@{vp} {
+        .unitize(padding-top, @l);
+    }
+    .prn@{vp}, .phn@{vp}, .pan@{vp} {
+        padding-right: 0;
+    }
+    .prx@{vp}, .phx@{vp}, .pax@{vp} {
+        .unitize(padding-right, @x);
+    }
+    .prs@{vp}, .phs@{vp}, .pas@{vp} {
+        .unitize(padding-right, @s);
+    }
+    .prm@{vp}, .phm@{vp}, .pam@{vp} {
+        .unitize(padding-right, @m);
+    }
+    .prl@{vp}, .phl@{vp}, .pal@{vp} {
+        .unitize(padding-right, @l);
+    }
+    .pbn@{vp}, .pvn@{vp}, .pan@{vp} {
+        padding-bottom: 0;
+    }
+    .pbx@{vp}, .pvx@{vp}, .pax@{vp} {
+        .unitize(padding-bottom, @x);
+    }
+    .pbs@{vp}, .pvs@{vp}, .pas@{vp} {
+        .unitize(padding-bottom, @s);
+    }
+    .pbm@{vp}, .pvm@{vp}, .pam@{vp} {
+        .unitize(padding-bottom, @m);
+    }
+    .pbl@{vp}, .pvl@{vp}, .pal@{vp} {
+        .unitize(padding-bottom, @l);
+    }
+    .pln@{vp}, .phn@{vp}, .pan@{vp} {
+        padding-left: 0;
+    }
+    .plx@{vp}, .phx@{vp}, .pax@{vp} {
+        .unitize(padding-left, @x);
+    }
+    .pls@{vp}, .phs@{vp}, .pas@{vp} {
+        .unitize(padding-left, @s);
+    }
+    .plm@{vp}, .phm@{vp}, .pam@{vp} {
+        .unitize(padding-left, @m);
+    }
+    .pll@{vp}, .phl@{vp}, .pal@{vp} {
+        .unitize(padding-left, @l);
+    }
+}
+
+.spaces-margin-mixin(@vp) {
+    .mtn@{vp}, .mvn@{vp}, .man@{vp} {
+        margin-top: 0;
+    }
+    .mtx@{vp}, .mvx@{vp}, .max@{vp} {
+        .unitize(margin-top, @x);
+    }
+    .mts@{vp}, .mvs@{vp}, .mas@{vp} {
+        .unitize(margin-top, @s);
+    }
+    .mtm@{vp}, .mvm@{vp}, .mam@{vp} {
+        .unitize(margin-top, @m);
+    }
+    .mtl@{vp}, .mvl@{vp}, .mal@{vp} {
+        .unitize(margin-top, @l);
+    }
+    .mrn@{vp}, .mhn@{vp}, .man@{vp} {
+        margin-right: 0;
+    }
+    .mrx@{vp}, .mhx@{vp}, .max@{vp} {
+        .unitize(margin-right, @x);
+    }
+    .mrs@{vp}, .mhs@{vp}, .mas@{vp} {
+        .unitize(margin-right, @s);
+    }
+    .mrm@{vp}, .mhm@{vp}, .mam@{vp} {
+        .unitize(margin-right, @m);
+    }
+    .mrl@{vp}, .mhl@{vp}, .mal@{vp} {
+        .unitize(margin-right, @l);
+    }
+    .mbn@{vp}, .mvn@{vp}, .man@{vp} {
+        margin-bottom: 0;
+    }
+    .mbx@{vp}, .mvx@{vp}, .max@{vp} {
+        .unitize(margin-bottom, @x);
+    }
+    .mbs@{vp}, .mvs@{vp}, .mas@{vp} {
+        .unitize(margin-bottom, @s);
+    }
+    .mbm@{vp}, .mvm@{vp}, .mam@{vp} {
+        .unitize(margin-bottom, @m);
+    }
+    .mbl@{vp}, .mvl@{vp}, .mal@{vp} {
+        .unitize(margin-bottom, @l);
+    }
+    .mln@{vp}, .mhn@{vp}, .man@{vp} {
+        margin-left: 0;
+    }
+    .mlx@{vp}, .mhx@{vp}, .max@{vp} {
+        .unitize(margin-left, @x);
+    }
+    .mls@{vp}, .mhs@{vp}, .mas@{vp} {
+        .unitize(margin-left, @s);
+    }
+    .mlm@{vp}, .mhm@{vp}, .mam@{vp} {
+        .unitize(margin-left, @m);
+    }
+    .mll@{vp}, .mhl@{vp}, .mal@{vp} {
+        .unitize(margin-left, @l);
+    }
+}
+
+// Generate the output
+.spaces-padding-mixin(~'');
+.spaces-margin-mixin(~'');
+
+@media (max-width: @screen-xs-max) {
+    .spaces-padding-mixin(-xs);
+    .spaces-margin-mixin(-xs);
+}
+
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .spaces-padding-mixin(-sm);
+    .spaces-margin-mixin(-sm);
+}
+
+@media (min-width: @screen-hd-min) and (max-width: @screen-hd-max) {
+    .spaces-padding-mixin(-hd);
+    .spaces-margin-mixin(-hd);
+}
+
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    .spaces-padding-mixin(-md);
+    .spaces-margin-mixin(-md);
+}
+
+@media (min-width: @screen-lg-min) {
+    .spaces-padding-mixin(-lg);
+    .spaces-margin-mixin(-lg);
+}

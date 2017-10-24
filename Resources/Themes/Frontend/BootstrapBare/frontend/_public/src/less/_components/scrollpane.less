@@ -1,0 +1,85 @@
+@swf-scrollbar-ajax-cart-width: 7px;
+
+.jspScrollable {
+    outline: none;
+}
+
+.jspContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.jspPane {
+    position: absolute;
+}
+
+.jspVerticalBar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    .unitize-width(@swf-scrollbar-ajax-cart-width);
+    height: 100%;
+    background: @swf-brand-primary;
+    .jspArrow {
+        .unitize-height(@swf-scrollbar-ajax-cart-width);
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.jspHorizontalBar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    .unitize-height(@swf-scrollbar-ajax-cart-width);
+    background: rgba(0, 0, 0, 0.1);
+    .jspCap {
+        float: left;
+    }
+    .jspTrack, .jspDrag {
+        float: left;
+        height: 100%;
+    }
+    .jspArrow {
+        .unitize-width(@swf-scrollbar-ajax-cart-width);
+        float: left;
+        height: 100%;
+    }
+}
+
+.jspCap {
+    display: none;
+}
+
+.jspTrack {
+    position: relative;
+}
+
+.jspDrag {
+    background: @swf-brand-primary;
+    position: relative;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.jspArrow {
+    background: @swf-gray-light;
+    .unitize(text-indent, -20000);
+    display: block;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    &.jspDisabled {
+        cursor: default;
+        background: @swf-gray-light;
+    }
+}
+
+.jspCorner {
+    background: @swf-gray-light;
+    float: left;
+    height: 100%;
+}

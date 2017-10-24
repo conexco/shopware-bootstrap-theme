@@ -1,0 +1,218 @@
+// Create Custom Hd Breakpoint
+.container {
+    // Container width for the custom grid.
+    @media (min-width: @screen-hd-min) and (max-width: @screen-hd-max) {
+        width: @container-hd;
+    }
+    // Remove Container Width for sm
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        width: 100%;
+    }
+}
+
+// Styles for hd grid columns
+.make-grid-columns-custom() {
+    // Common styles for all sizes of grid columns, widths 1-12
+    .col(@index) { // initial
+        @item: ~".col-xs-@{index}, .col-sm-@{index}, .col-hd-@{index}, .col-md-@{index}, .col-lg-@{index}";
+        .col((@index + 1), @item);
+    }
+    .col(@index, @list) when (@index =< @grid-columns) { // general; "=<" isn't a typo
+        @item: ~".col-xs-@{index}, .col-sm-@{index}, .col-hd-@{index}, .col-md-@{index}, .col-lg-@{index}";
+        .col((@index + 1), ~"@{list}, @{item}");
+    }
+    .col(@index, @list) when (@index > @grid-columns) { // terminal
+        @{list} {
+            position: relative;
+            // Prevent columns from collapsing when empty
+            min-height: 1px;
+            // Inner gutter via padding
+            padding-left:  (@grid-gutter-width / 2);
+            padding-right: (@grid-gutter-width / 2);
+        }
+    }
+    .col(1); // kickstart it
+}
+.make-grid-columns-custom();
+
+// Columns, offsets, pushes, and pulls for hd viewport
+@media (min-width: @screen-hd-min) {
+    .make-grid(hd);
+}
+@media (min-width: @screen-md-min) {
+    .make-grid(md);
+}
+@media (min-width: @screen-lg-min) {
+    .make-grid(lg);
+}
+
+// Custom Visibility utilities
+.visible-xs,
+.visible-sm,
+.visible-hd,
+.visible-md,
+.visible-lg {
+    .responsive-invisibility();
+}
+
+.visible-xs-block,
+.visible-xs-inline,
+.visible-xs-inline-block,
+.visible-sm-block,
+.visible-sm-inline,
+.visible-sm-inline-block,
+.visible-hd-block,
+.visible-hd-inline,
+.visible-hd-inline-block,
+.visible-md-block,
+.visible-md-inline,
+.visible-md-inline-block,
+.visible-lg-block,
+.visible-lg-inline,
+.visible-lg-inline-block {
+    display: none !important;
+}
+
+.visible-xs {
+    @media (max-width: @screen-xs-max) {
+        .responsive-visibility();
+    }
+}
+.visible-xs-block {
+    @media (max-width: @screen-xs-max) {
+        display: block !important;
+    }
+}
+.visible-xs-inline {
+    @media (max-width: @screen-xs-max) {
+        display: inline !important;
+    }
+}
+.visible-xs-inline-block {
+    @media (max-width: @screen-xs-max) {
+        display: inline-block !important;
+    }
+}
+
+.visible-sm {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        .responsive-visibility();
+    }
+}
+.visible-sm-block {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        display: block !important;
+    }
+}
+.visible-sm-inline {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        display: inline !important;
+    }
+}
+.visible-sm-inline-block {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        display: inline-block !important;
+    }
+}
+
+.visible-hd {
+    @media (min-width: @screen-hd-min) and (max-width: @screen-hd-max) {
+        .responsive-visibility();
+    }
+}
+.visible-hd-block {
+    @media (min-width: @screen-hd-min) and (max-width: @screen-hd-max) {
+        display: block !important;
+    }
+}
+.visible-hd-inline {
+    @media (min-width: @screen-hd-min) and (max-width: @screen-hd-max) {
+        display: inline !important;
+    }
+}
+.visible-hd-inline-block {
+    @media (min-width: @screen-hd-min) and (max-width: @screen-hd-max) {
+        display: inline-block !important;
+    }
+}
+
+.visible-md {
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+        .responsive-visibility();
+    }
+}
+.visible-md-block {
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+        display: block !important;
+    }
+}
+.visible-md-inline {
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+        display: inline !important;
+    }
+}
+.visible-md-inline-block {
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+        display: inline-block !important;
+    }
+}
+
+.visible-lg {
+    @media (min-width: @screen-lg-min) {
+        .responsive-visibility();
+    }
+}
+.visible-lg-block {
+    @media (min-width: @screen-lg-min) {
+        display: block !important;
+    }
+}
+.visible-lg-inline {
+    @media (min-width: @screen-lg-min) {
+        display: inline !important;
+    }
+}
+.visible-lg-inline-block {
+    @media (min-width: @screen-lg-min) {
+        display: inline-block !important;
+    }
+}
+
+.hidden-xs {
+    @media (max-width: @screen-xs-max) {
+        .responsive-invisibility();
+    }
+}
+.hidden-sm {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        .responsive-invisibility();
+    }
+}
+.hidden-hd {
+    @media (min-width: @screen-hd-min) and (max-width: @screen-hd-max) {
+        .responsive-invisibility();
+    }
+}
+.hidden-md {
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+        .responsive-invisibility();
+    }
+}
+.hidden-lg {
+    @media (min-width: @screen-lg-min) {
+        .responsive-invisibility();
+    }
+}
+
+// Scale up the modal on new hd breakpoint
+@media (min-width: @screen-hd-min) and (max-width: @screen-hd-max) {
+    .modal-dialog {
+        width: @modal-md;
+    }
+}
+// Scale down the modal for smaller sm breakpoint
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .modal-dialog {
+        width: auto;
+    }
+}

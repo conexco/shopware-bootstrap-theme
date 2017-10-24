@@ -1,0 +1,41 @@
+.range-slider {
+    .touch-callout(none);
+    .range-slider-container {
+        background-color: @swf-gray-lighter;
+        .unitize-height(12);
+        display: block;
+        width: 100%;
+        -ms-touch-action: none;
+        .range-slider-range-bar {
+            .user-select(none);
+            .touch-callout(none);
+            height: 100%;
+            width: 100%;
+            position: relative;
+            background: @swf-brand-primary;
+            .range-slider-handle {
+                .user-select(none);
+                .touch-callout(none);
+                background-color: @swf-gray-lighter;
+                .unitize-width(20);
+                .unitize-height(18);
+                position: absolute;
+                border: 1px solid @swf-gray-light;
+                cursor: pointer;
+                &.is-min, &.is-max {
+                    .unitize(top, -3);
+                }
+                &.is-min {
+                    .unitize(left, -10);
+                }
+                &.is-max {
+                    .unitize(right, -10);
+                }
+                &:hover, &.is-dragging {
+                    background-color: @swf-gray-light;
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,143 @@
+// move gallery arrows out of zoomContainer if zoom is active
+@media (min-width: @screen-md-min) {
+    #gallery[data-image-zoom="true"] {
+        .slick-prev {
+            .unitize(left, -20);
+        }
+        .slick-next {
+            .unitize(right, -20);
+        }
+    }
+}
+
+// gallery thumbnails
+#detailbox #thumbs .thumbnail {
+    outline: none;
+    cursor: pointer;
+    &.slick-current {
+        border-color: @swf-brand-primary;
+    }
+}
+
+#buybox {
+    dt {
+        .unitize-width(100);
+    }
+    dd {
+        .unitize(margin-left, 120);
+    }
+    @media (max-width: @screen-xs-max) {
+        // display dt and dd in one line
+        .dl-horizontal {
+            dt {
+                float: left;
+                margin: 0;
+            }
+            dd {
+                margin: 0;
+            }
+        }
+    }
+    // Variants
+    .configurator-variant {
+        .variant-option {
+            overflow: hidden;
+            width: 23%;
+            .unitize-margin(0, 10, 10, 0);
+            position: relative;
+            float: left;
+            input {
+                opacity: 0;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: @swf-zindex-variant-input;
+                cursor: pointer;
+                &:not([disabled]):hover ~ label {
+                    color: @swf-brand-primary;
+                    border-color: @swf-brand-primary;
+                }
+                &:checked ~ label {
+                    color: @swf-brand-primary;
+                    border-color: @swf-brand-primary;
+                }
+                &:disabled ~ label {
+                    opacity: 0.5;
+                }
+                &:disabled {
+                    cursor: not-allowed;
+                }
+            }
+            label {
+                .unitize(padding, 5);
+                .unitize(line-height, 40);
+                border-radius: @swf-border-radius-base;
+                background-clip: padding-box;
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                z-index: @swf-zindex-variant-label;
+                color: @swf-gray-light;
+                border: 1px solid @swf-gray-light;
+                text-align: center;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+#similar {
+    .page-header {
+        margin-top: 0;
+        h4 {
+            .unitize(margin-top, 2);
+        }
+    }
+}
+
+// Offcanvas Tab-Buttons
+.off-canvas-tabs [data-offcanvas="true"] {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    .unitize(padding, 15);
+    color: @swf-text-color;
+}
+
+// Article Navigation
+.breadcrumb > li + li.article-navigation {
+    &:before {
+        content: "";
+        padding: 0;
+    }
+    ul li {
+        display: inline-block;
+        + li:before {
+            content: "@{breadcrumb-separator}\00a0";
+            .unitize-padding(0, 5, 0, 5);
+            color: @swf-breadcrumb-color;
+        }
+        a:active {
+	        box-shadow: none;
+        }
+    }
+}
+
+#detailCartButton {
+        .buybox-button {
+            .unitize(padding-top, 14);
+            .unitize(padding-bottom, 14);
+        }
+    }
+
+@media (min-width: @swf-screen-sm-min) {
+    #detailCartButton {
+        .buybox-button {
+            .unitize(padding-top, @swf-padding-base-vertical);
+            .unitize(padding-bottom, @swf-padding-base-vertical);
+        }
+    }
+}

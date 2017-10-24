@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- subscribers -->
+        <service id="swf_bootstrap_theme.subscribers.frontend" class="SwfBootstrapTheme\Subscribers\Frontend">
+            <argument type="service" id="shopware.plugin.cached_config_reader"/>
+            <argument type="service" id="swf_bootstrap_theme.services.theme_config_reader"/>
+            <argument>%active_plugins%</argument>
+            <argument>%swf_bootstrap_theme.plugin_name%</argument>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swf_bootstrap_theme.subscribers.smarty" class="SwfBootstrapTheme\Subscribers\Smarty">
+            <argument type="service" id="swf_bootstrap_theme.services.theme_config_reader"/>
+            <argument type="service" id="swf_bootstrap_theme.services.smarty_extensions"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swf_bootstrap_theme.subscribers.widgets" class="SwfBootstrapTheme\Subscribers\Widgets">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+
+        <!-- services -->
+        <service id="swf_bootstrap_theme.services.shop_selector" class="SwfBootstrapTheme\Services\ShopSelector">
+            <argument>%swf_bootstrap_theme.plugin_name%</argument>
+            <argument type="service" id="dbal_connection"/>
+        </service>
+
+        <service id="swf_bootstrap_theme.services.smarty_extensions" class="SwfBootstrapTheme\Services\SmartyExtensions">
+        </service>
+
+        <service id="swf_bootstrap_theme.services.theme_config_reader" class="SwfBootstrapTheme\Services\ThemeConfigReader">
+            <argument type="service" id="theme_inheritance"/>
+            <argument type="service" id="service_container"/>
+        </service>
+    </services>
+</container>

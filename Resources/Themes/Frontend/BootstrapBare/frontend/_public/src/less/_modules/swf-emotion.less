@@ -1,0 +1,934 @@
+/*
+Emotions
+=========================================
+Contains the basic styles for the Shopware 5 shopping worlds and its elements.
+
+Shopware 5 provides 11 integrated elements inside the shopping worlds that can be chosen and modified inside the backend shopping world editor such as sliders, video elements and blog-articles.
+*/
+.createColumns(@n, @state: ~'', @i: 1) when (@i =< @n) {
+
+    .emotion-element.col@{state}-@{i} {
+        width: (100% / @n * @i);
+    }
+
+    .start-col@{state}-@{i} {
+        left: (100% / @n * (@i - 1));
+    }
+
+    .createColumns(@n, @state, (@i + 1));
+}
+
+.createGrid(@n) {
+
+    &.emotion-column-@{n} {
+
+        .createColumns(@n);
+        .createColumns(@n, ~'-xs');
+
+        @media screen and(min-width: @swf-screen-sm-min) {
+            .createColumns(@n, ~'-s');
+        }
+
+        @media screen and(min-width: @swf-screen-hd-min) {
+            .createColumns(@n, ~'-m');
+        }
+
+        @media screen and(min-width: @swf-screen-md-min) {
+            .createColumns(@n, ~'-l');
+        }
+
+        @media screen and(min-width: @swf-screen-lg-min) {
+            .createColumns(@n, ~'-xl');
+        }
+    }
+}
+
+.content-main {
+    #content {
+        position: relative;
+
+        @keyframes fadein-emotion {
+            from { opacity: 0}
+            to   { opacity: 1}
+        }
+        .content-container.is-emotion {
+            visibility: hidden;
+            opacity: 0;
+            &.loaded {
+                visibility: visible;
+                animation: fadein-emotion 1s;
+                opacity: 1;
+            }
+        }
+    }
+
+    // Content fullscreen mode
+    &.is--fullscreen {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+
+        #content.container {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+            .content-container.is-emotion > .row {
+                margin: 0;
+                #gFull {
+                    padding: 0;
+                    float: none;
+                }
+            }
+        }
+
+        .breadcrumb,
+        .tagcloud-wrapper,
+        .last-seen-products-wrapper {
+            display: none;
+        }
+
+        .listing-wrapper {
+            .unitize(padding, 15);
+        }
+    }
+}
+
+// Emotion loading overlay
+.emotion-overlay {
+    width: 100%;
+    .unitize(top, 50);
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    z-index: @swf-zindex-emotion-overlay;
+}
+
+// Emotion content
+.content-emotions {
+    display: block;
+}
+
+// Emotion preview content
+body.emotion-preview {
+    background: #ffffff;
+
+    .content-main {
+        margin: 0;
+    }
+}
+
+// Emotion wrapper
+.emotion-wrapper {
+    display: block;
+    margin: 0 auto;
+    .unitize-max-width(1160);
+    overflow: hidden;
+
+    &.is--fullscreen {
+        max-width: none;
+    }
+}
+
+// Emotion container
+.emotion-container {
+    .clearfix();
+    display: block;
+    position: relative;
+    top: 0; left: 0;
+    background: #fff;
+
+    &.emotion-mode-resize {
+        .transform-origin(0 0 0);
+    }
+
+    &.emotion-mode-rows {
+        .emotion--sizer,
+        .emotion--sizer-xs,
+        .emotion--sizer-s,
+        .emotion--sizer-m,
+        .emotion--sizer-l,
+        .emotion--sizer-xl {
+            display: none;
+        }
+
+        .emotion--row {
+            .clearfix();
+        }
+    }
+
+    // Create the grid classes for different grid sizes
+    .createGrid(1); // Container with one column
+    .createGrid(2); // Container with two columns
+    .createGrid(3); // Container with three columns
+    .createGrid(4); // Container with four columns
+    .createGrid(5); // Container with five columns
+    .createGrid(6); // Container with six columns
+    .createGrid(7); // Container with seven columns
+    .createGrid(8); // Container with eight columns
+    .createGrid(9); // Container with nine columns
+    .createGrid(10); // Container with ten columns
+    .createGrid(11); // Container with eleven columns
+    .createGrid(12); // Container with twelve columns
+
+    // Hide elements which are not visible in the current viewport
+    .is--hidden-s,
+    .is--hidden-m,
+    .is--hidden-l,
+    .is--hidden-xl {
+        display: block;
+    }
+
+    .is--hidden-xs {
+        display: none;
+    }
+
+    // Hide all sizer which don't match the current viewport
+    .emotion--sizer-s,
+    .emotion--sizer-m,
+    .emotion--sizer-l,
+    .emotion--sizer-xl {
+        display: none;
+    }
+
+    // Only show the sizer of the current viewport
+    .emotion--sizer-xs {
+        display: block;
+
+        // Hide the default sizer when there is a sizer for the current viewport
+        & ~ .emotion--sizer {
+            display: none;
+        }
+    }
+
+    @media screen and(min-width: @swf-screen-sm-min) {
+        .is--hidden-xs,
+        .is--hidden-m,
+        .is--hidden-l,
+        .is--hidden-xl {
+            display: block;
+        }
+
+        .is--hidden-s {
+            display: none;
+        }
+
+        .emotion--sizer-xs,
+        .emotion--sizer-m,
+        .emotion--sizer-l,
+        .emotion--sizer-xl {
+            display: none;
+        }
+
+        .emotion--sizer-s {
+            display: block;
+
+            & ~ .emotion--sizer {
+                display: none;
+            }
+        }
+    }
+
+    @media screen and(min-width: @swf-screen-hd-min) {
+        .is--hidden-xs,
+        .is--hidden-s,
+        .is--hidden-l,
+        .is--hidden-xl {
+            display: block;
+        }
+
+        .is--hidden-m {
+            display: none;
+        }
+
+        .emotion--sizer-s,
+        .emotion--sizer-xs,
+        .emotion--sizer-l,
+        .emotion--sizer-xl {
+            display: none;
+        }
+
+        .emotion--sizer-m {
+            display: block;
+
+            & ~ .emotion--sizer {
+                display: none;
+            }
+        }
+    }
+
+    @media screen and(min-width: @swf-screen-md-min) {
+        .is--hidden-xs,
+        .is--hidden-s,
+        .is--hidden-m,
+        .is--hidden-xl {
+            display: block;
+        }
+
+        .is--hidden-l {
+            display: none;
+        }
+
+        .emotion--sizer-xs,
+        .emotion--sizer-s,
+        .emotion--sizer-m,
+        .emotion--sizer-xl {
+            display: none;
+        }
+
+        .emotion--sizer-l {
+            display: block;
+
+            & ~ .emotion--sizer {
+                display: none;
+            }
+        }
+    }
+
+    @media screen and(min-width: @swf-screen-lg-min) {
+        .is--hidden-xs,
+        .is--hidden-s,
+        .is--hidden-m,
+        .is--hidden-l {
+            display: block;
+        }
+
+        .is--hidden-xl {
+            display: none;
+        }
+
+        .emotion--sizer-s,
+        .emotion--sizer-xs,
+        .emotion--sizer-m,
+        .emotion--sizer-l {
+            display: none;
+        }
+
+        .emotion--sizer-xl {
+            display: block;
+
+            & ~ .emotion--sizer {
+                display: none;
+            }
+        }
+    }
+}
+
+// Emotion element
+.emotion-element {
+    display: block;
+    position: absolute;
+    top: 0; left: 0;
+    .emotion-container.emotion-mode-rows & {
+        position: relative;
+        top: 0; left: 0;
+        float: left;
+        vertical-align: top;
+    }
+
+    // neutralize bootstrap column xs class
+    &.col-xs-1, &.col-xs-2, 
+    &.col-xs-3, &.col-xs-4, 
+    &.col-xs-5, &.col-xs-6, 
+    &.col-xs-7, &.col-xs-8, 
+    &.col-xs-9, &.col-xs-10, 
+    &.col-xs-11, &.col-xs-12 {
+        float: none;
+        padding-right: 0;
+    }
+
+    // general slider styling
+    .slick, .slick-list, .slick-track {
+        height: 100%;
+    }
+}
+
+// Banner element
+.emotion-banner {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    .banner-content {
+        .translate(-50%, -50%);
+        display: block;
+        position: absolute;
+        top: 50%; left: 50%;
+
+        &.left.top {
+            .translate(0, 0);
+            left: 0; top: 0;
+        }
+        &.left.center {
+            .translate(0, -50%);
+            left: 0; top: 50%;
+        }
+        &.left.bottom {
+            .translate(0, -100%);
+            left: 0; top: 100%;
+        }
+        &.center.top {
+            .translate(-50%, 0);
+            left: 50%; top: 0;
+        }
+        &.center.bottom {
+            .translate(-50%, -100%);
+            left: 50%; top: 100%;
+        }
+        &.right.top {
+            .translate(-100%, 0);
+            left: 100%; top: 0;
+        }
+        &.right.center {
+            .translate(-100%, -50%);
+            left: 100%; top: 50%;
+        }
+        &.right.bottom {
+            .translate(-100%, -100%);
+            left: 100%; top: 100%;
+        }
+    }
+
+    .emotion-mode-rows & {
+        height: auto;
+
+        .banner-content,
+        .banner-content.left.top,
+        .banner-content.left.center,
+        .banner-content.left.bottom,
+        .banner-content.center.top,
+        .banner-content.center.bottom,
+        .banner-content.right.top,
+        .banner-content.right.center,
+        .banner-content.right.bottom {
+            .translate(0, 0);
+            position: relative;
+            left: 0; top: 0;
+            float: none;
+        }
+    }
+
+    .banner-image {
+        width: 100%;
+    }
+
+    .banner-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        z-index: @swf-zindex-emotion-mapping-link;
+    }
+
+    .banner-mapping {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+    }
+
+    .banner-mapping-link {
+        position: absolute;
+        display: block;
+        z-index: @swf-zindex-emotion-mapping-link;
+        background: rgba(0,0,0,0);
+    }
+}
+
+// Banner-Slider element
+.emotion-banner-slider {
+    width: 100%;
+    height: 100%;
+
+    .emotion-mode-rows & {
+        height: auto;
+
+        .banner-slider-item {
+            vertical-align: middle;
+        }
+
+        .banner-slider-banner {
+            -webkit-transform: none;
+            -moz-transform: none;
+            -o-transform: none;
+            -ms-transform: none;
+            transform: none;
+            position: relative;
+            top: 0; left: 0;
+            width: 100%;
+        }
+    }
+
+    .banner-slider-title {
+        font-size: @swf-font-size-h3;
+        .unitize-padding(10, 20, 10, 20);
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        z-index: @swf-zindex-emotion-slider-title;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.5);
+        white-space: nowrap;
+        overflow: hidden;
+        text-align: center;
+        text-overflow: ellipsis;
+    }
+
+    .banner-slider-item {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .banner-slider-banner {
+        .translate(-50%, -50%);
+        display: block;
+        position: absolute;
+        top: 50%; left: 50%;
+        z-index: 100;
+    }
+
+    .banner-slider-image {
+        width: 100%;
+    }
+
+    .banner-slider-link {
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        z-index: 200;
+        text-indent: 200%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+
+// Product-Slider element && Product-Box element
+.emotion-product-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .emotion-mode-rows & {
+        .unitize-height(360);
+    }
+
+    .product-slider-title {
+        font-size: @swf-font-size-h3;
+        .unitize-height(35);
+        position: relative;
+        top: 0; left: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-bottom: 1px solid @swf-page-header-border-color;
+    }
+
+    .product-slider-content {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0; left: 0;
+    }
+
+    .product-slider-title ~ .product-slider-content {
+        .unitize(padding-top, 45);
+    }
+}
+.is--fullscreen .emotion-product-slider .product-slider-title {
+    .unitize(padding-left, 10);
+}
+
+.product-box.box-emotion {
+    &, .thumbnail, .item-wrapper {
+        height: 100%;
+    }
+    .product-image {
+        height: 60%;
+        display: block;
+        text-align: center;
+        .image-element {
+            height: 100%;
+            width: 100%;
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            img {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                display: inline-block;
+                vertical-align: middle;
+                z-index: @swf-zindex-box-emotion-image-element;
+                max-width: 100%;
+                max-height: 100%;
+                height: auto;
+            }
+        }
+    }
+    .product-details {
+        max-height: 35%;
+        width: 100%;
+        .unitize(margin-top, 5);
+        .title-wrapper a {
+            .unitize-height(45);
+            .unitize(margin-bottom, 5);
+            display: block;
+            width: 100%;
+            overflow: hidden;
+        }
+        .pseudo-wrapper {
+            .unitize-height(17);
+        }
+        .price {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.emotion-product, .emotion-product-slider {
+    &.is-no-border .thumbnail {
+        border: none;
+        &:focus, &:hover {
+            box-shadow: none;
+        }
+    }
+}
+
+.emotion-product {
+    width: 100%;
+    height: 100%;
+
+    .emotion-mode-rows & {
+        .unitize-height(360);
+    }
+}
+
+// Category-Teaser element
+.emotion-category-teaser {
+    width: 100%;
+    height: 100%;
+
+    .emotion-mode-rows & {
+        .unitize-height(360);
+    }
+
+    .category-teaser-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: transparent;
+    }
+
+    .category-teaser-title {
+        .unitize(padding, 10);
+        display: block;
+        width: 100%;
+        position: absolute;
+        bottom: 0; left: 0;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.5);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+// Manufacturer element
+.emotion-manufacturer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .emotion-mode-rows & {
+        .unitize-height(260);
+    }
+
+    .manufacturer-title {
+        font-size: @swf-font-size-h3;
+        .unitize-height(35);
+        position: relative;
+        top: 0; left: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-bottom: 1px solid @swf-page-header-border-color;
+    }
+
+    .manufacturer-content {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0; left: 0;
+    }
+
+    .manufacturer-title ~ .manufacturer-content {
+        .unitize(padding-top, 45);
+    }
+
+    .manufacturer-slider {
+        height: 100%;
+        border: 1px solid @swf-panel-default-border;
+    }
+    &.is-no-border .manufacturer-slider {
+        border: none;
+    }
+
+    .manufacturer-item {
+        .unitize(padding, 10);
+        text-align: center;
+    }
+
+    .manufacturer-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        font-weight: 600;
+    }
+
+    .manufacturer-image {
+        max-height: 100%;
+    }
+}
+.is--fullscreen .emotion-manufacturer .manufacturer-title {
+    .unitize(padding-left, 10);
+}
+
+// YouTube element
+.emotion-youtube {
+    width: 100%;
+    height: 100%;
+
+    .emotion-mode-rows & {
+        .unitize-height(360);
+    }
+}
+
+// Video element
+.emotion-video {       
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .emotion-mode-rows & {
+        height: auto;
+
+        .video-element {
+            height: auto;
+            position: relative;
+        }
+    }
+
+    video::-moz-media-controls,
+    video::-webkit-media-controls {
+        bottom: 15%;
+    }
+
+    .video-element {
+        width: 100%;
+        height: 100%;
+        background: #000;
+        position: absolute;
+        top: 0; left: 0;
+        z-index: @swf-zindex-emotion-video-element;
+    }
+
+    .video-cover {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        z-index: @swf-zindex-emotion-video-cover;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: #000;
+        text-align: center;
+
+        .video-play-icon {
+            .unitize-width(50);
+            .unitize-height(50);
+            .unitize(font-size, 50);
+            display: block;
+            position: absolute;
+            top: 0; bottom: 0;
+            right: 0; left: 0;
+            margin: auto;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+            color: #fff;
+        }
+    }
+
+    .video-play-btn {
+        .transition();
+        .unitize(top, 25);
+        .unitize(right, 25);
+        .unitize(line-height, 39);
+        .unitize(font-size, 18);
+        .unitize-width(42);
+        .unitize-height(42);
+        border-radius: 100%;
+        background-clip: padding-box;
+        position: absolute;
+        cursor: pointer;
+        color: #fff;
+        border: 2px solid #fff;
+        text-align: center;
+        z-index: @swf-zindex-emotion-video-play-btn;
+    }
+
+    .video-text {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        position: absolute;
+        left: 0; right: 0;
+        top: 0; bottom: 0;
+        z-index: @swf-zindex-emotion-video-text;
+        color: #fff;
+        text-align: center;
+
+        &.no-events {
+            pointer-events: none;
+        }
+    }
+}
+
+// Iframe element
+.emotion-iframe {
+    width: 100%;
+    height: 100%;
+
+    .emotion-mode-rows & {
+        .unitize-height(360);
+    }
+}
+
+// Blog element
+.emotion-blog {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    .emotion-mode-rows & {
+        height: auto;
+
+        .blog-image {
+            .unitize-height(160);
+        }
+    }
+
+    .blog-container {
+        height: 100%;
+        margin: 0 0 0 -1%;
+    }
+
+    .blog-entry {
+        height: 100%;
+        padding-left: 1%;
+        float: left;
+    }
+
+    .blog-image {
+        height: 40%;
+        width: 100%;
+        display: block;
+        background-position: center center;
+        background-size: cover;
+        margin-bottom: 2%;
+    }
+
+    .blog-title {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 2%;
+    }
+
+    .blog-description {
+        height: auto;
+        max-height: 60%;
+    }
+}
+
+@media screen and (min-width: 48em) {
+    .emotion-blog {
+        overflow: hidden;
+    }
+}
+
+// HTML element
+.emotion-html {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: auto;
+
+    .emotion-mode-rows & {
+        height: auto;
+        overflow: initial;
+    }
+
+    .html-content {
+        :last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// needed for Emotion in Listing
+// {$emotionViewports[$device]} has other breakpoint names
+
+@media (min-width: @swf-screen-sm-min) {
+    .visible-s {
+        .visible-sm;
+    }
+
+    .hidden-s {
+        .hidden-sm;
+    }
+}
+
+@media (min-width: @swf-screen-hd-min) {
+    .visible-m {
+        .visible-hd;
+    }
+
+    .hidden-m {
+        .hidden-hd;
+    }
+}
+
+@media (min-width: @swf-screen-md-min) {
+    .visible-l {
+        .visible-md;
+    }
+
+    .hidden-l {
+        .hidden-md;
+    }
+}
+
+@media (min-width: @swf-screen-lg-min) {
+    .visible-xl {
+        .visible-lg;
+    }
+
+    .hidden-xl {
+        .hidden-lg;
+    }
+}

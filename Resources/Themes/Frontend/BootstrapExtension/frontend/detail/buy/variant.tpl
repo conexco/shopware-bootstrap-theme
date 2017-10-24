@@ -1,0 +1,2 @@
+<input class="abo-hidden-values sw5-plugin" type="hidden" value="{$aboCommerce.minDeliveryInterval}" name="sDeliveryInterval"{if !$aboCommerce.isExclusive} disabled="disabled"{/if}/>
+<input class="abo-hidden-values sw5-plugin" type="hidden" value="{$aboCommerce.minDuration}" name="sDurationInterval"{if !$aboCommerce.isExclusive} disabled="disabled"{/if}/>

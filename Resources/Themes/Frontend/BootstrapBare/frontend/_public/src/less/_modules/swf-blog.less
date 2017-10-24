@@ -1,0 +1,35 @@
+// blog listing
+.listing-blog {
+    .panel {
+        border-right: none;
+        border-left: none;
+        box-shadow: none;
+        border-top: none;
+        &.panel-default > .panel-heading {
+            background-color: transparent;
+            border-color: transparent;
+        }
+    }
+}
+
+// blog filter offcanvas
+.off-canvas-blog {
+    .group > .list-group-item {
+        font-weight: normal;
+    }
+    // open offcanvas
+    .blog-filter-offcanvas-btn {
+        text-align: left;
+        .unitize-padding(13, 16, 13, 16);
+        .offcanvas-btn-angle {
+            float: right;
+            .unitize(margin-top, 3);
+        }
+    }
+    .off-canvas.is-active .panel.panel-default > .panel-heading {
+        border-top: none;
+    }
+    .panel-heading + .list-group .list-group-item + .list-group-item {
+        border: none;
+    }
+}
