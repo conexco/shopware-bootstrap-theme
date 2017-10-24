@@ -333,4 +333,8 @@ so that there is enough space for the offset.
 
 And here is the result:
 
+_Before_
+![before](first-steps-before.png)
 
+_After_
+![after](first-steps-after.png)
