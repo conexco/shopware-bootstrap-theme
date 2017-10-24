@@ -11,11 +11,11 @@
     {%- endif -%}
 
     <div class="bd-toc-item{% unless active == nil %} {{ active }}{% endunless %} mt-4 pt-4">
-        <a class="bd-toc-link" href="{{ site.baseurl }}/docs/{{ group_slug }}/{{ link_slug }}{% if link_slug %}/{% endif %}">
+        <a class="bd-toc-link" href="{{ site.baseurl }}/docs/{{ group_slug }}/{{ link_slug }}.html">
             {{ group.title }}
         </a>
 
-        <ul class="nav">
+        <ul class="nav docs-sidebar">
             {%- for doc in group.pages -%}
                 {%- assign doc_slug = doc.title | slugify -%}
                 {%- assign active = nil -%}
@@ -48,3 +48,4 @@
     </div>
     {%- endfor -%}
 </nav>
+
