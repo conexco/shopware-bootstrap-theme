@@ -73,6 +73,3 @@ social_logo_path:   /assets/img/bs4sw-logo.png
 #   jquery_hash:      "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 #   popper:           "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"
 #   popper_hash:      "sha384-W1IgCZfiFCplncoIxD5rld+uzdB6FlcG2vm4qjrCP5Z7uUt7vnwbztJXeqXgd26w"developmentUrl: "http://localhost:4000"
-
-developmentUrl: http://localhost:4000
-developmentUrl: "http://localhost:4000"
