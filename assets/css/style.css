@@ -103,8 +103,14 @@ hr{
 header{
     background-color: rgba(255, 255, 255, 0.95);
     position: sticky;
+    position: relative;
     top: 0;
     z-index: 1071;
+}
+
+body:not(.is-home) header{
+    background-color: rgba(255, 255, 255, 0.95);
+    position: sticky;
 }
 
 header #logo svg{
