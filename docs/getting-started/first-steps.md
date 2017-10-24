@@ -334,9 +334,9 @@ so that there is enough space for the offset.
 And here is the result:
 
 _Before_
-![before](first-steps-before.png)
+![before](img/first-steps-before.png)
 
 _After_
-![after](first-steps-after.png)
+![after](img/first-steps-after.png)
 
 [You can download the example theme here](https://github.com/oktupol/shopware-bootstrap-small-search-bar-theme)
