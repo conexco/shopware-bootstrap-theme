@@ -33,9 +33,9 @@ header:
     color2: "#673051"
 
 # google analytics
-# analytics:
-#   account:
-#   domain:
+analytics:
+    account: UA-21473902-5
+    domain: auto
 
 # github buttons
 githubButton:
@@ -60,8 +60,7 @@ title:              "Bootstrap for shopware"
 description:        "The Shopware Bootstrap Theme helps you build fast, robust, and adaptable responsive shopware themes."
 twitter:            conexco
 authors:            conexco
-social_image_path:  /assets/img/bs4sw-sign.png
-social_logo_path:   /assets/img/bs4sw-logo.png
+social_image_path:  /assets/img/bs4sw-logo.png
 
 # cdn:
 #   # See https://www.srihash.org for info on how to generate the hashes
