@@ -212,3 +212,5 @@ private function modifyExtendedThemeConfigs(Form\Container\FieldSet $fieldSet)
 And the result:
 
 ![result](img/fieldset.png)
+
+[This example is available for download in a separate project on GitHub](https://github.com/conexco/shopware-bootstrap-custom-configuration-theme){:target="_blank"}

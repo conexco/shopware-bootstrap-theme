@@ -338,4 +338,4 @@ _Before_
 _After_
 ![after](img/first-steps-after.png)
 
-[You can download the example theme here](https://github.com/oktupol/shopware-bootstrap-small-search-bar-theme){:target="_blank"}
+[This example is available for download in a separate project on GitHub](https://github.com/conexco/shopware-bootstrap-small-search-bar-theme){:target="_blank"}
