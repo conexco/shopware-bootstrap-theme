@@ -365,6 +365,8 @@ form input.form-control.email:-moz-placeholder { /* Firefox 18- */
 }
 
 main ul li{
+    font-size: 14px;
+    letter-spacing: 0.3px;
     margin-left: 20px;
 }
 
