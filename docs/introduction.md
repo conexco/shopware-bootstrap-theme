@@ -38,7 +38,7 @@ Smarty provides a simple and modular structure for your templates - blocks that 
 and in the end, these blocks are combined into a finished web page and shipped to your browser.
 
 Before you get started with developing your own theme based on the Shopware Bootstrap Theme, you should become familiar with Smarty.
-Take a look at Shopware's own [Frontend Guides](https://https://developers.shopware.com/designers-guide/),
+Take a look at Shopware's own [Frontend Guides](https://developers.shopware.com/designers-guide/){:target="_blank"},
 where the basics of theme and template development are covered.
 
 ### System Requirements
@@ -50,8 +50,8 @@ To develop a theme based on the Shopware Bootstrap Theme, you need
 
 #### Development Environment Set-Up
 
-Download and install Shopware as described on the [Download Page of Shopware](http://community.shopware.com/Downloads_cat_448.html).
-Alternatively, clone Shopware from it's [GitHub Repository](https://github.com/shopware/shopware) and follow its installation steps
+Download and install Shopware as described on the [Download Page of Shopware](http://community.shopware.com/Downloads_cat_448.html){:target="_blank"}.
+Alternatively, clone Shopware from it's [GitHub Repository](https://github.com/shopware/shopware){:target="_blank"} and follow its installation steps
 as described in its README-file.
 Once you have done this, you have multiple ways to install the Shopware Bootstrap Theme, of which two are covered here.
 
@@ -66,7 +66,7 @@ Continue as described in **Using the Shopware Bootstrap Theme**
 
 ##### Installation via Plugin-Manager
 
-[Download the latest version of the Shopware Bootstrap Theme as a zip file from its GitHub-Page](https://github.com/conexco/shopware-bootstrap-theme/releases)
+[Download the latest version of the Shopware Bootstrap Theme as a zip file from its GitHub-Page](https://github.com/conexco/shopware-bootstrap-theme/releases){:target="_blank"}
 Open the backend of your Shopware installation. Press `Ctrl + Alt + P` or navigate to _Configuration_ -> _Plugin Manager_ using the main menu.
 In the left side-bar, use the link _Installed_, then upload the zip file you just downloaded using the _Upload plugin_ button in the toolbar.
 The plugin should now appear in the list of uninstalled plugins. Click the green plus-sign to install it.
