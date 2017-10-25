@@ -69,7 +69,7 @@ class Frontend implements SubscriberInterface
     {
         $view = $args->getSubject()->View();
         $view->assign('swVersion', Shopware()->Config()->get('version'));
-        $view->assign('swrtVersion', $this->activePlugins[$this->pluginName]);
+        $view->assign('swbtVersion', $this->activePlugins[$this->pluginName]);
     }
 
 
