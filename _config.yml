@@ -33,9 +33,9 @@ header:
     color2: "#673051"
 
 # google analytics
-# analytics:
-#   account:
-#   domain:
+analytics:
+    account: UA-21473902-5
+    domain: auto
 
 # github buttons
 githubButton:
