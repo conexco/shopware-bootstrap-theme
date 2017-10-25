@@ -41,8 +41,9 @@ plugins:
     - jekyll-sitemap
 
 # social
-title:              "Bootstrap for shopware"
-description:        "The Shopware Bootstrap Theme helps you build fast, robust, and adaptable responsive shopware themes."
-twitter:            conexco
-authors:            conexco
-social_image_path:  /assets/img/bs4sw-logo.png
+title:                      "Bootstrap for shopware"
+description:                "The Shopware Bootstrap Theme helps you build fast, robust, and adaptable responsive shopware themes."
+twitter:                    conexco
+authors:                    conexco
+social_twitter_image_path:  /assets/img/twitter_800x418.png
+social_facebook_image_path: /assets/img/facebook_1200x630.png
