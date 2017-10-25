@@ -25,7 +25,7 @@
 {/block}
 
 {* Footer *}
-{block name='frontend_index_footer_container'}
+{block name='frontend_index_footer'}
     {if !$theme.checkoutFooter}
         {$smarty.block.parent}
     {else}
