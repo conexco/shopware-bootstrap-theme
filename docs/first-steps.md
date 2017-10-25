@@ -47,6 +47,8 @@ please refer to [Shopware's Developer Guides](https://developers.shopware.com/de
 
 #### Example
 
+[The following  example is available for download in a separate project on GitHub](https://github.com/conexco/shopware-bootstrap-small-search-bar-theme){:target="_blank"}
+
 **MyPlugin.php**
 ```php
 namespace MyPlugin\MyPlugin;

@@ -23,7 +23,7 @@ due to an equally impressive amount of configuration options. The second thing y
 configuration options are hidden.
 
 What's the reason behind this? It's simple. The Shopware Bootstrap Theme is not targeted to shop owners
-who would like to perform major changes in a graphical interface; Shopware's own Responsive serves this target group well enough.
+who would like to perform major changes in a graphical interface; Shopware's own Responsive Theme serves this target group well enough.
 Instead, it is supposed to be flexible to developers who like to create and sell themes based on the Bootstrap Theme,
 and depending on your ideas you have for your theme, you might want to change the behaviour of some elementary parts.
 
@@ -34,6 +34,8 @@ The following section shows you how to change the default values for some config
 and add your own configuration fields for the end user to configure.
 
 #### Modifying Existing Configuration
+
+[The following example is available for download in a separate project on GitHub](https://github.com/conexco/shopware-bootstrap-custom-configuration-theme){:target="_blank"}
 
 The `Theme` class in your `Theme.php` may override the function `createConfig`, which is being invoked with a `TabContainer`.
 If you extend a theme and the `inheritanceConfig` attribute is set to _true_, which it is by default, this `TabContainer` is already filled with
