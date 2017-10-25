@@ -13,13 +13,13 @@ toc: true
 
 ### Why Bootstrap?
 
-The Shopware Bootstrap Theme combines the extensibility of Shopware and the simplicity of Twitter Bootstrap.
+The Shopware Bootstrap Theme combines the extensibility of Shopware and the simplicity of Bootstrap 3.
 With these assets in your pocket, developing innovative themes for e-commerce becomes as easy as never before.
 
 #### Reusable Responsive Components
 
 @media { max-width: 480px; } how was it again? Worry not; Bootstrap already took care of this.
-Ready-made classes let you realise your ideas without any effort, for all devices, fully responsive.
+Ready-made classes let you realise your ideas without much effort, for all devices, fully responsive.
 We follow Bootstrap's approach – devices are categorised in viewport width ranges,
 from extra-small under which most handheld phones fall, to extra-large, like your high resolution desktop.
 Never was it more straightforward to stretch that button over a phone's full width,
@@ -30,7 +30,7 @@ that behaviour and much more is just few elementary class names away!
 
 The Shopware Bootstrap Theme allows for a great amount of configuration,
 whether it be just changing few colours here and there or turning the entire shop upside down, everything is possible.
-And if it isn't, make it possible. We are open-source; just fork us on GitHub.
+And if it isn't, make it possible. We are open-source; create a pull request or just fork us on GitHub.
 
 ## Prerequisites
 
@@ -91,9 +91,9 @@ The theme is now activated and you can see it in action in your shop's frontend.
 ### Structure
 
 In the last step, you may have observed that not one, but two new themes have been added to the Theme Manager.
-These are _BootstrapBare_ and _BootstrapAddons_. Their difference is insignificant -
+These are _BootstrapBare_ and _BootstrapExtension_. Their difference is insignificant -
 _BootstrapBare_ contains the template files for a bare installation of the Shopware Community Edition,
-while _BootstrapAddons_ inherits from _BootstrapBare_ and extends it by the templates for the additional features
+while _BootstrapExtension_ inherits from _BootstrapBare_ and extends it by the templates for the additional features
 of the Shopware Professional and Enterprise Editions. Depending on your needs, you may base your own theme on either of them.
 The process of doing so is exactly identical - you just have the opportunity to exclude some unneeded overhead and clutter
 if you are using the Community Edition.
