@@ -66,7 +66,8 @@ Continue as described in **Using the Shopware Bootstrap Theme**
 
 ##### Installation via Plugin-Manager
 
-[Download the latest version of the Shopware Bootstrap Theme as a zip file from its GitHub-Page](https://github.com/conexco/shopware-bootstrap-theme/releases){:target="_blank"}
+[Download the latest version of the Shopware Bootstrap Theme as a zip file from its GitHub-Page](https://github.com/conexco/shopware-bootstrap-theme/releases){:target="_blank"}.
+
 Open the backend of your Shopware installation. Press `Ctrl + Alt + P` or navigate to _Configuration_ -> _Plugin Manager_ using the main menu.
 In the left side-bar, use the link _Installed_, then upload the zip file you just downloaded using the _Upload plugin_ button in the toolbar.
 The plugin should now appear in the list of uninstalled plugins. Click the green plus-sign to install it.
