@@ -41,13 +41,23 @@
     -webkit-font-smoothing: antialiased;
 }
 
+a{
+    color: #e50065;
+}
+
 a:hover, a:active, a:focus{
+    color: #563D7C;
     outline: 0 !important;
     text-decoration: none;
 }
 
+a:not([href]):not([tabindex]){
+    cursor: pointer;
+}
+
 body{
     background-color: white;
+    color: #444A5E;
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
@@ -63,7 +73,6 @@ body::before, body::after{
     height: 100%;
     position: absolute;
     width: 100%;
-    z-index: 10;
 }
 
 body::before{
@@ -73,6 +82,7 @@ body::before{
     left: 0;
     top: 0;
     transform: translateY(-45%);
+    z-index: 0;
 }
 
 body::after{
@@ -81,10 +91,7 @@ body::after{
     background-repeat: no-repeat;
     bottom: 0;
     right: 0;
-}
-
-a:not([href]):not([tabindex]){
-    cursor: pointer;
+    z-index: 2;
 }
 
 small{
@@ -98,17 +105,74 @@ hr{
     width: 100%;
 }
 
+
+/* Headings */
+
+body:not(.is-home) main h1,
+body:not(.is-home) main h2{
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 34px;
+    margin-bottom: 10px;
+    padding-top: 1px;
+}
+
+body:not(.is-home) main h2{
+    font-weight: 300;
+    margin-top: 60px;
+}
+
+body:not(.is-home) main h3{
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 26px;
+    margin-top: 50px;
+    padding-top: 2px;
+}
+
+body:not(.is-home) main h4,
+body:not(.is-home) main p.lead{
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 24px;
+    margin-top: 50px;
+    padding-top: 1px;
+}
+
+body:not(.is-home) main p.lead{
+    font-weight: 200;
+    letter-spacing: 0;
+    margin-top: 10px;
+}
+
+body:not(.is-home) main p{
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    line-height: 26px;
+    margin-top: 10px;
+    white-space: inherit;
+}
+
+body:not(.is-home) main code span{
+    font-family: inherit;
+    font-weight: 300;
+}
+
 /* Header */
 
 header{
     position: relative;
     top: 0;
-    z-index: 1071;
+    z-index: 3;
 }
 
 body:not(.is-home) header{
     background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     position: sticky;
+    z-index: 5;
 }
 
 header #logo svg{
@@ -121,23 +185,22 @@ header #logo svg{
 }
 
 .navbar .navbar-nav .nav-item .nav-link{
-    color: #444A5E;
-    text-fill-color: #444A5E;
-    -webkit-text-fill-color: #444A5E;
+    color: rgba(68, 74, 94, 0.4);
+    text-fill-color: rgba(68, 74, 94, 0.4);
+    -webkit-text-fill-color: rgba(68, 74, 94, 0.4);
     font-weight: 600;
 }
 
 .navbar .navbar-nav .nav-item .nav-link:hover{
-    color: #563D7C;
-    text-fill-color: #563D7C;
-    -webkit-text-fill-color: #563D7C;
+    color: rgba(68, 74, 94, 1);
+    text-fill-color: rgba(68, 74, 94, 1);
+    -webkit-text-fill-color: rgba(68, 74, 94, 1);
 }
 
 .navbar .navbar-nav .nav-item .nav-link.active{
-    color: #563D7C;
-    border-bottom: 1px solid #563D7C;
-    text-fill-color: #563D7C;
-    -webkit-text-fill-color: #563D7C;
+    color: rgba(68, 74, 94, 1);
+    text-fill-color: rgba(68, 74, 94, 1);
+    -webkit-text-fill-color: rgba(68, 74, 94, 1);
 }
 
 .navbar .nav-link svg{
@@ -147,7 +210,6 @@ header #logo svg{
 
 nav{
     position: relative;
-    z-index: 20;
 }
 
 nav li{
@@ -160,7 +222,17 @@ nav li{
 
 main{
     position: relative;
-    z-index: 20;
+    z-index: 3;
+}
+
+body:not(.is-home) main a{
+    border-bottom: 1px solid rgba(229, 0, 101, 0.5)
+}
+
+body:not(.is-home) main a:hover,
+body:not(.is-home) main a:active,
+body:not(.is-home) main a:focus{
+    border-color: rgba(86, 61, 124, 0.5);
 }
 
 body.is-home main #plane svg{
@@ -292,7 +364,7 @@ footer{
     padding-top: 100px;
     padding-bottom: 40px;
     position: relative;
-    z-index: 1100;
+    z-index: 3;
 }
 
 footer .nav .nav-item a.nav-link{
@@ -731,7 +803,7 @@ canvas{
         top: -14%;
         transform: rotate(15deg);
         width: 100%;
-        z-index: 5;
+        z-index: 0;
     }
 
     body.is-home canvas{
@@ -742,7 +814,43 @@ canvas{
         top: 0;
         visibility: visible;
         width: 100%;
-        z-index: 0;
+        z-index: -1;
+    }
+
+    /* sidebar */
+
+    #sidemenu{
+        z-index: 4;
+    }
+
+    #sidemenu.affix-top, #sidemenu.affix{
+        position: fixed;
+    }
+
+    #sidemenu.affix-bottom{
+        position: fixed;
+    }
+
+    #sidemenu.affix{
+        position: fixed;
+    }
+
+    #sidemenu .nav-link.active,
+    #sidemenu .nav-link:hover,
+    #sidemenu .nav-link:focus{
+        color: #e50065;
+    }
+
+    .anchor-link{
+        display: block;
+        height: 70px;
+        margin-top: -70px;
+        visibility: hidden;
+    }
+
+    .docs-sidebar .toc-item .toc-link{
+        font-size: 18px;
+        font-weight: 300;
     }
 
 }
