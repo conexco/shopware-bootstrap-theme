@@ -59,6 +59,15 @@ Alternatively, clone Shopware from it's [GitHub Repository](https://github.com/s
 as described in its README-file.
 Once you have done this, you have multiple ways to install the Shopware Bootstrap Theme, of which two are covered here.
 
+##### Installation via Community Store
+
+Open the backend of your Shopware installation. Press `Ctrl + Alt + P` or navigate to _Configuration_ -> _Plugin Manager_ using the main menu.
+Using the search-field in the top left corner, search for _Shopware Bootstrap Theme_. Proceed to install it by clicking the respective button,
+then, use the link _Installed_ on the left side bar. The plugin should appear in the list of uninstalled plugins.
+Click the green plus-sign to install it.
+
+Continue as described in **Using the Shopware Bootstrap Theme**
+
 ##### Installation via Plugin-Manager
 
 [Download the latest version of the Shopware Bootstrap Theme as a zip file from its GitHub-Page](https://github.com/conexco/shopware-bootstrap-theme/releases)
