@@ -2,6 +2,7 @@
 
 - **License**: GPL-3.0
 - **Github**: <https://github.com/conexco/shopware-bootstrap-theme>
+- **Shopware Community Store**: <http://store.shopware.com/detail/index/sArticle/164323>
 
 ### Requirements
 - Shopware 5.3 or newer
