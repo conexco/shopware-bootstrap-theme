@@ -17,8 +17,8 @@
 {block name='frontend_index_body'}
     <body
     {* Background Image *}
-    {if $Controller || $BodyBgImg || $swVersion || $swbtVersion}
-        class="{block name="frontend_index_body_classes"}ctl_{controllerName} is-act-{controllerAction}{if $sUserLoggedIn} is-user{/if}{if $sOneTimeAccount} is-one-time-account{/if}{if $BodyBgImg} bg-img-{$theme['body-bg-img-hide']}{/if} {if $swVersion && $swbtVersion}{$swVersion|replace:".":""}-{$swbtVersion|replace:".":""}{/if}{/block}"
+    {if $Controller || $BodyBgImg}
+        class="{block name="frontend_index_body_classes"}ctl_{controllerName} is-act-{controllerAction}{if $sUserLoggedIn} is-user{/if}{if $sOneTimeAccount} is-one-time-account{/if}{if $BodyBgImg} bg-img-{$theme['body-bg-img-hide']}{/if}{/block}"
     {/if}
     {if $BodyBgImg}
         style="background: url({link file=$BodyBgImg}) {$theme['swf-body-bg-img-repeat']};"

@@ -8,7 +8,6 @@
         <service id="swf_bootstrap_theme.subscribers.frontend" class="SwfBootstrapTheme\Subscribers\Frontend">
             <argument type="service" id="shopware.plugin.cached_config_reader"/>
             <argument type="service" id="swf_bootstrap_theme.services.theme_config_reader"/>
-            <argument>%active_plugins%</argument>
             <argument>%swf_bootstrap_theme.plugin_name%</argument>
             <tag name="shopware.event_subscriber"/>
         </service>

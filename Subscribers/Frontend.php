@@ -31,20 +31,17 @@ class Frontend implements SubscriberInterface
 {
     private $cachedConfigReader;
     private $themeConfigReader;
-    private $activePlugins;
     private $pluginName;
 
 
     public function __construct(
         CachedConfigReader $cachedConfigReader,
         ThemeConfigReader $themeConfigReader,
-        array $activePlugins,
         $pluginName
     )
     {
         $this->cachedConfigReader = $cachedConfigReader;
         $this->themeConfigReader = $themeConfigReader;
-        $this->activePlugins = $activePlugins;
         $this->pluginName = $pluginName;
     }
 
@@ -52,24 +49,8 @@ class Frontend implements SubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            'Enlight_Controller_Action_PostDispatchSecure_Frontend' => array(
-                array('onPostDispatchSecureFrontend'),
-                array('onPostDispatchSecureFrontendMegaMenu')
-            ),
+            'Enlight_Controller_Action_PostDispatchSecure_Frontend' => 'onPostDispatchSecureFrontendMegaMenu',
         );
-    }
-
-
-    /**
-     * adds theme and shopware version to the view
-     *
-     * @param \Enlight_Controller_ActionEventArgs $args
-     */
-    public function onPostDispatchSecureFrontend(\Enlight_Controller_ActionEventArgs $args)
-    {
-        $view = $args->getSubject()->View();
-        $view->assign('swVersion', Shopware()->Config()->get('version'));
-        $view->assign('swbtVersion', $this->activePlugins[$this->pluginName]);
     }
 
 
