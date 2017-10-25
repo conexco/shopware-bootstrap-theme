@@ -9,13 +9,13 @@ toc: true
 
 ### Why Bootstrap?
 
-The Shopware Bootstrap Theme combines the extensibility of Shopware and the simplicity of Twitter Bootstrap.
+The Shopware Bootstrap Theme combines the extensibility of Shopware and the simplicity of Bootstrap 3.
 With these assets in your pocket, developing innovative themes for e-commerce becomes as easy as never before.
 
 #### Reusable Responsive Components
 
 @media { max-width: 480px; } how was it again? Worry not; Bootstrap already took care of this.
-Ready-made classes let you realise your ideas without any effort, for all devices, fully responsive.
+Ready-made classes let you realise your ideas without much effort, for all devices, fully responsive.
 We follow Bootstrap's approach – devices are categorised in viewport width ranges,
 from extra-small under which most handheld phones fall, to extra-large, like your high resolution desktop.
 Never was it more straightforward to stretch that button over a phone's full width,
@@ -26,7 +26,7 @@ that behaviour and much more is just few elementary class names away!
 
 The Shopware Bootstrap Theme allows for a great amount of configuration,
 whether it be just changing few colours here and there or turning the entire shop upside down, everything is possible.
-And if it isn't, make it possible. We are open-source; just fork us on GitHub.
+And if it isn't, make it possible. We are open-source; create a pull request or just fork us on GitHub.
 
 ## Prerequisites
 
@@ -54,6 +54,15 @@ Download and install Shopware as described on the [Download Page of Shopware](ht
 Alternatively, clone Shopware from it's [GitHub Repository](https://github.com/shopware/shopware) and follow its installation steps
 as described in its README-file.
 Once you have done this, you have multiple ways to install the Shopware Bootstrap Theme, of which two are covered here.
+
+##### Installation via Community Store
+
+Open the backend of your Shopware installation. Press `Ctrl + Alt + P` or navigate to _Configuration_ -> _Plugin Manager_ using the main menu.
+Using the search-field in the top left corner, search for _Shopware Bootstrap Theme_. Proceed to install it by clicking the respective button,
+then, use the link _Installed_ on the left side bar. The plugin should appear in the list of uninstalled plugins.
+Click the green plus-sign to install it.
+
+Continue as described in **Using the Shopware Bootstrap Theme**
 
 ##### Installation via Plugin-Manager
 
@@ -87,9 +96,10 @@ The theme is now activated and you can see it in action in your shop's frontend.
 ### Structure
 
 In the last step, you may have observed that not one, but two new themes have been added to the Theme Manager.
-These are _BootstrapBare_ and _BootstrapAddons_. Their difference is insignificant -
+These are _BootstrapBare_ and _BootstrapExtension_. Their difference is insignificant -
 _BootstrapBare_ contains the template files for a bare installation of the Shopware Community Edition,
-while _BootstrapAddons_ inherits from _BootstrapBare_ and extends it by the templates for the additional features
-of the Shopware Professional and Enterprise Editions. Depending on your needs, you may base your own theme on either of them.
-The process of doing so is exactly identical - you just have the opportunity to exclude some unneeded overhead and clutter
-if you are using the Community Edition.
+while _BootstrapExtension_ inherits from _BootstrapBare_ and extends it by the templates for the additional features
+of the Shopware Professional and Enterprise Editions, and by the templates for premium plugins made by Shopware.
+Depending on your needs, you may base your own theme on either of them. The process of doing so is exactly identical -
+you just have the opportunity to exclude some unneeded overhead and clutter if you are using the Community Edition
+without any plugins made by Shopware.
