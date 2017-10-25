@@ -26,19 +26,14 @@
                         <a class="nav-link {% if page.title != "Download" %}active{% endif %}" href="{{ site.baseurl }}/docs/introduction.html">documentation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if page.title == "Download" %}active{% endif %}" href="https://github.com/conexco/shopware-bootstrap-theme/releases/">download</a>
+                        <a class="nav-link {% if page.title == "Download" %}active{% endif %}" href="https://github.com/conexco/shopware-bootstrap-theme/releases/" target="_blank">download</a>
                     </li>
-<!--
-                    <li class="nav-item">
-                        <a class="nav-link {% if page.title == "about" %}active{% endif %}" href="{{ site.baseurl }}/docs/about/">about</a>
-                    </li>
--->
                 </ul>
             </div>
 
             <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
                 <li class="nav-item">
-                    <a class="nav-link p-2" href="{{ site.githubButton.repo }}" rel="noopener" aria-label="GitHub">
+                    <a class="nav-link p-2" href="{{ site.githubButton.repo }}" target="_blank" rel="noopener" aria-label="GitHub">
                         {% include svg/github.svg class="navbar-nav-svg" %}
                     </a>
                 </li>
