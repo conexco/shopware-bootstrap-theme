@@ -141,10 +141,28 @@ body:not(.is-home) main p.lead{
     padding-top: 1px;
 }
 
+body:not(.is-home) main h4,
+body:not(.is-home) main p.lead{
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 24px;
+    margin-top: 50px;
+    padding-top: 1px;
+}
+
 body:not(.is-home) main p.lead{
     font-weight: 200;
     letter-spacing: 0;
     margin-top: 10px;
+}
+
+body:not(.is-home) main h5{
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0.3px;
+    margin-top: 40px;
 }
 
 body:not(.is-home) main p{
