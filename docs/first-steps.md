@@ -18,7 +18,7 @@ While Shopware themes work exactly the same no matter in which of these director
 having a theme wrapped in a plugin is beneficial, because it allows for easy updates and versioning of the theme.
 
 The structure of a plugin is quite simple.
-It is covered in-depth in the [Shopware Documentation](https://developers.shopware.com/developers-guide/plugin-system/),
+It is covered in-depth in the [Shopware Documentation](https://developers.shopware.com/developers-guide/plugin-system/){:target="_blank"},
 but here is a short summary of the relevant bits for theme development.
 
 The minimal directory structure for a plugin containing a theme is following:
@@ -43,7 +43,7 @@ holds meta-data like the plugin's version, description and changelog, and `MyPlu
 something we can safely neglect at the moment.
 
 As this guide is mainly about theme development, we won't cover the plugin structure in-depth. If you want to read more about it,
-please refer to [Shopware's Developer Guides](https://developers.shopware.com/developers-guide/plugin-system/)
+please refer to [Shopware's Developer Guides](https://developers.shopware.com/developers-guide/plugin-system/){:target="_blank"}
 
 #### Example
 
@@ -338,4 +338,4 @@ _Before_
 _After_
 ![after](img/first-steps-after.png)
 
-[You can download the example theme here](https://github.com/oktupol/shopware-bootstrap-small-search-bar-theme)
+[You can download the example theme here](https://github.com/oktupol/shopware-bootstrap-small-search-bar-theme){:target="_blank"}
