@@ -6,7 +6,7 @@ group: customisation
 toc: true
 ---
 
-## Theme Variables
+## Theme Configuration
 
 Shopware's Theme system supports shipping Themes that allow a fair amount of configuration.
 Shopware's own default theme makes good use of that, you are able to define your shop's logo and colours there,
