@@ -7,9 +7,9 @@
     - title: In-Depth Structure
     - title: Creating Our First Theme
 #    - title: Setup
-#- title: Customize
-#  pages:
-#    - title: Theme Configuration
+- title: Customisation
+  pages:
+    - title: Theme Configuration
 #    - title: Variables
 #    - title: Extends
 #- title: Integrate
