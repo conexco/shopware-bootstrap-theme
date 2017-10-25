@@ -91,9 +91,10 @@ The theme is now activated and you can see it in action in your shop's frontend.
 ### Structure
 
 In the last step, you may have observed that not one, but two new themes have been added to the Theme Manager.
-These are _BootstrapBare_ and _BootstrapAddons_. Their difference is insignificant -
+These are _BootstrapBare_ and _BootstrapExtension_. Their difference is insignificant -
 _BootstrapBare_ contains the template files for a bare installation of the Shopware Community Edition,
-while _BootstrapAddons_ inherits from _BootstrapBare_ and extends it by the templates for the additional features
-of the Shopware Professional and Enterprise Editions. Depending on your needs, you may base your own theme on either of them.
-The process of doing so is exactly identical - you just have the opportunity to exclude some unneeded overhead and clutter
-if you are using the Community Edition.
+while _BootstrapExtension_ inherits from _BootstrapBare_ and extends it by the templates for the additional features
+of the Shopware Professional and Enterprise Editions, and by the templates for premium plugins made by Shopware.
+Depending on your needs, you may base your own theme on either of them. The process of doing so is exactly identical -
+you just have the opportunity to exclude some unneeded overhead and clutter if you are using the Community Edition
+without any plugins made by Shopware.

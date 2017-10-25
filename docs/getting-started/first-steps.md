@@ -81,10 +81,10 @@ class MyPlugin extends Plugin
 
 ### Theme Structure
 
-The `themes`-Directory is structured in the same way as the `themes`-Directory in Shopware itself.
+The `Themes`-Directory is structured in the same way as the `Themes`-Directory in Shopware itself.
 Likewise, once the plugin is installed and activated, its contents are treated identically.
 
-Shopware's main `themes`-directory consists of one `Frontend` and one `Backend` directory.
+Shopware's main `Themes`-directory consists of one `Frontend` and one `Backend` directory.
 As the name suggests, the `Backend` directory contains templates for the Shop administration.
 Consequently, our custom theme only contains a `Frontend`-directory.
 
