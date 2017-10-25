@@ -1,50 +1,31 @@
-<nav>
-    {%- assign page_slug = page.url | split: '/' | last -%}
+<nav class="docs-sidebar mt-4 pt-4" id="sidemenu">
+    {%- assign page_slug = page.url | split: '/' | last | replace: '.html', ''  -%}
+
     {%- for group in site.data.nav -%}
-    {%- assign link = group.pages | first -%}
-    {%- assign link_slug = link.title | slugify -%}
-    {%- assign group_slug = group.title | slugify -%}
-    {%- assign active = nil -%}
+        {%- assign link = group.pages | first -%}
+        {%- assign group_slug = group.title | slugify -%}
+        {%- assign active = nil -%}
+        {%- if page_slug == group_slug -%}
+            {%- assign active = 'active' -%}
+        {%- endif -%}
 
-    {%- if page.group == group_slug -%}
-        {%- assign active = 'active' -%}
-    {%- endif -%}
-
-    <div class="bd-toc-item{% unless active == nil %} {{ active }}{% endunless %} mt-4 pt-4">
-        <a class="bd-toc-link" href="{{ site.baseurl }}/docs/{{ group_slug }}/{{ link_slug }}.html">
+    <div class="toc-item{% unless active == nil %} {{ active }}{% endunless %} mt-1 mb-2">
+        <a class="toc-link" href="{{ site.baseurl }}/docs/{{ group_slug }}.html">
             {{ group.title }}
         </a>
 
-        <ul class="nav docs-sidebar">
+        {% unless active == nil %}
+        <ul class="nav mt-2 ml-3">
             {%- for doc in group.pages -%}
                 {%- assign doc_slug = doc.title | slugify -%}
-                {%- assign active = nil -%}
-
-                {%- if page.group == group_slug and page_slug == doc_slug -%}
-                    {%- assign active = 'active bd-sidenav-active' -%}
-                {%- endif -%}
-
-                <li{% unless active == nil %} class="{{ active }}"{% endunless %}>
-                    <a href="{{ site.baseurl }}/docs/{{ group_slug }}/{{ doc_slug }}.html">
+                <li>
+                    <a href="#{{ doc_slug }}">
                         {{ doc.title }}
                     </a>
-
-                    {%- comment -%}
-                    {% unless doc.sections == nil %}
-                    <ul class="nav">
-                        {% for section in doc.sections %}
-                        <li>
-                            <a href="#{{ section.title | downcase | replace: ' ', '-' }}">
-                                {{ section.title }}
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                    {% endunless %}
-                    {%- endcomment -%}
                 </li>
             {%- endfor -%}
         </ul>
+        {% endunless %}
     </div>
     {%- endfor -%}
 </nav>

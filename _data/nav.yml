@@ -1,4 +1,23 @@
-- title: Getting started
+- title: Introduction
   pages:
-    - title: Introduction
-    - title: First Steps
+    - title: Basics
+    - title: Prerequisites
+- title: First Steps
+  pages:
+    - title: In-Depth Structure
+    - title: Creating Our First Theme
+#    - title: Setup
+#- title: Customize
+#  pages:
+#    - title: Theme Configuration
+#    - title: Variables
+#    - title: Extends
+#- title: Integrate
+#  pages:
+#    - title: Plugins
+#- title: Components
+#  pages:
+#    - title: jQuery Plugins
+#    - title: Shopware JS Plugins
+#    - title: conexco JS Plugins
+#- title: Download

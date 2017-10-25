@@ -2,10 +2,6 @@
 layout: docs
 title: Introduction
 description: Get started with Shopware Bootstrap Theme.
-group: getting-started
-redirect_from:
-  - /docs/getting-started/
-  - /docs/
 toc: true
 ---
 
