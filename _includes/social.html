@@ -4,7 +4,7 @@
 <meta name="twitter:creator" content="@{{ site.twitter }}">
 <meta name="twitter:title" content="{{ page.title | default: site.title }}">
 <meta name="twitter:description" content="{{ page.description | default: site.description }}">
-<meta name="twitter:image" content="{{ site.url | append: site.social_image_path }}">
+<meta name="twitter:image" content="{{ site.url | replace: 'http://', 'https://' | append: site.social_image_path }}">
 
 <!-- Facebook -->
 <meta property="og:url" content="{{ site.url | append: page.url }}">
@@ -12,7 +12,7 @@
 <meta property="og:description" content="{{ page.description | default: site.description }}">
 <meta property="og:type" content="website">
 <meta property="og:image" content="{{ site.url | replace: 'https://', 'http://' | append: site.social_image_path }}">
-<meta property="og:image:secure_url" content="{{ site.url | append: site.social_image_path }}">
+<meta property="og:image:secure_url" content="{{ site.url | replace: 'http://', 'https://' | append: site.social_image_path }}">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
