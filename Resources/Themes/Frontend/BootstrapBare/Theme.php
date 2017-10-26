@@ -160,7 +160,7 @@ class Theme extends \Shopware\Components\Theme
                 'attributes' => array(
                     'layout' => 'anchor',
                     'autoScroll' => true,
-                ),
+                )
             )
         );
 
@@ -177,7 +177,7 @@ class Theme extends \Shopware\Components\Theme
             'shopLogos',
             'Shop Logos',
             array(
-                'attributes' => $this->fieldSetColumnDefaults,
+                'attributes' => $this->fieldSetColumnDefaults
             )
         );
 
@@ -185,7 +185,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createMediaField(
                 'desktopLogo',
                 'Standard Logo',
-                'frontend/_public/src/img/logos/logo.png',
+                $this->themeDefaults['desktopLogo'],
                 array(
                     'attributes' => array(
                         'lessCompatible' => false,
@@ -198,7 +198,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createMediaField(
                 'mobileLogo',
                 'Smartphone Logo',
-                'frontend/_public/src/img/logos/logo-mobile.png',
+                $this->themeDefaults['mobileLogo'],
                 array(
                     'attributes' => array(
                         'lessCompatible' => false,
@@ -219,7 +219,7 @@ class Theme extends \Shopware\Components\Theme
             array(
                 'attributes' => array_merge($this->fieldSetColumnDefaults, array(
                         'height' => 290)
-                ),
+                )
             )
         );
 
@@ -227,7 +227,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createMediaField(
                 'favicon',
                 'Favicon',
-                'frontend/_public/src/img/favicon.png',
+                $this->themeDefaults['favicon'],
                 array(
                     'attributes' => array(
                         'lessCompatible' => false,
@@ -240,7 +240,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createMediaField(
                 'appleTouchIcon',
                 'Apple Touch Icon',
-                'frontend/_public/src/img/icons/apple-touch-icon.png',
+                $this->themeDefaults['appleTouchIcon'],
                 array(
                     'attributes' => array(
                         'lessCompatible' => false,
@@ -253,7 +253,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createMediaField(
                 'androidLogo',
                 'Android Logo',
-                'frontend/_public/src/img/icons/android-chrome.png',
+                $this->themeDefaults['androidLogo'],
                 array(
                     'attributes' => array(
                         'lessCompatible' => false,
@@ -266,7 +266,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createMediaField(
                 'body-bg-img',
                 'Hintergrundbild (Body)',
-                '',
+                $this->themeDefaults['body-bg-img'],
                 $this->hiddenField +
                 array(
                     'attributes' => array(
@@ -280,7 +280,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'body-bg-img-repeat',
                 'Hintergrundbild (Body) Anzeige',
-                'repeat',
+                $this->themeDefaults['body-bg-img-repeat'],
                 array(
                     array(
                         'text' => 'nicht anzeigen',
@@ -315,7 +315,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'body-bg-img-hide',
                 'Hintergrundbild (Body) ausblenden ab',
-                'sm',
+                $this->themeDefaults['body-bg-img-hide'],
                 array(
                     array(
                         'text' => 'Smartphone',
@@ -355,7 +355,7 @@ class Theme extends \Shopware\Components\Theme
                 'attributes' => array(
                     'layout' => 'anchor',
                     'autoScroll' => true,
-                ),
+                )
             )
         );
 
@@ -408,7 +408,7 @@ class Theme extends \Shopware\Components\Theme
             array(
                 'attributes' => array_merge($this->fieldSetColumnDefaults, array(
                         'height' => 220)
-                ),
+                )
             )
         );
 
@@ -416,7 +416,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-brand-primary',
                 'Farbe Primär',
-                '#337ab7'
+                $this->themeDefaults['swf-brand-primary']
             )
         );
 
@@ -424,7 +424,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-brand-success',
                 'Farbe Erfolg',
-                '#5cb85c'
+                $this->themeDefaults['swf-brand-success']
             )
         );
 
@@ -432,7 +432,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-brand-warning',
                 'Farbe Warnung',
-                '#f0ad4e'
+                $this->themeDefaults['swf-brand-warning']
             )
         );
 
@@ -440,7 +440,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-brand-danger',
                 'Farbe Fehler',
-                '#d9534f'
+                $this->themeDefaults['swf-brand-danger']
             )
         );
 
@@ -448,7 +448,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-brand-info',
                 'Farbe Info',
-                '#5bc0de'
+                $this->themeDefaults['swf-brand-info']
             )
         );
 
@@ -456,7 +456,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-gray-base',
                 'Basis Grau',
-                '#000',
+                $this->themeDefaults['swf-gray-base'],
                 $this->hiddenField
             )
         );
@@ -465,7 +465,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-gray-darker',
                 'sehr dunkles Grau',
-                'lighten(@gray-base, 13.5%)'
+                $this->themeDefaults['swf-gray-darker']
             )
         );
 
@@ -473,7 +473,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-gray-dark',
                 'dunkles Grau',
-                'lighten(@gray-base, 20%)'
+                $this->themeDefaults['swf-gray-dark']
             )
         );
 
@@ -481,7 +481,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-gray',
                 'Grau',
-                'lighten(@gray-base, 33.5%)'
+                $this->themeDefaults['swf-gray']
             )
         );
 
@@ -489,7 +489,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-gray-light',
                 'helles Grau',
-                'lighten(@gray-base, 46.7%)'
+                $this->themeDefaults['swf-gray-light']
             )
         );
 
@@ -497,7 +497,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-gray-lighter',
                 'sehr helles Grau',
-                'lighten(@gray-base, 93.5%)'
+                $this->themeDefaults['swf-gray-lighter']
             )
         );
 
@@ -513,7 +513,7 @@ class Theme extends \Shopware\Components\Theme
             array(
                 'attributes' => array_merge($this->fieldSetColumnDefaults, array(
                         'height' => 290)
-                ),
+                )
             )
         );
 
@@ -521,7 +521,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-font-family-base',
                 'Standardschriftart',
-                '@swf-font-family-sans-serif'
+                $this->themeDefaults['swf-font-family-base']
             )
         );
 
@@ -529,7 +529,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-font-family-serif',
                 'Standardschriftart (serif)',
-                'Georgia, "Times New Roman", Times, serif'
+                $this->themeDefaults['swf-font-family-serif']
             )
         );
 
@@ -537,7 +537,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-font-family-sans-serif',
                 'Standardschriftart (sans-serif)',
-                '"Helvetica Neue", Helvetica, Arial, sans-serif'
+                $this->themeDefaults['swf-font-family-sans-serif']
             )
         );
 
@@ -545,7 +545,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-font-family-monospace',
                 'Standardschriftart (monospace)',
-                'Menlo, Monaco, Consolas, "Courier New", monospace'
+                $this->themeDefaults['swf-font-family-monospace']
             )
         );
 
@@ -553,7 +553,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-headings-font-family',
                 'Schriftart Überschriften',
-                'inherit'
+                $this->themeDefaults['swf-headings-font-family']
             )
         );
 
@@ -561,7 +561,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-font-size-base',
                 'Standardschriftgröße',
-                '14px'
+                $this->themeDefaults['swf-font-size-base']
             )
         );
 
@@ -569,7 +569,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-font-size-small',
                 'Kleine Schriftgröße',
-                'ceil(@swf-font-size-base * 0.85)'
+                $this->themeDefaults['swf-font-size-small']
             )
         );
 
@@ -577,7 +577,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-font-size-large',
                 'Große Schriftgröße',
-                'ceil((@swf-font-size-base * 1.25))'
+                $this->themeDefaults['swf-font-size-large']
             )
         );
 
@@ -585,7 +585,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-line-height-base',
                 'Standard Zeilenhöhe',
-                '1.428571429',
+                $this->themeDefaults['swf-line-height-base'],
                 $this->hiddenField
             )
         );
@@ -594,7 +594,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-line-height-large',
                 'Große Zeilenhöhe',
-                '1.33',
+                $this->themeDefaults['swf-line-height-large'],
                 $this->hiddenField
             )
         );
@@ -603,7 +603,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-line-height-small',
                 'Kleine Zeilenhöhe',
-                '1.5',
+                $this->themeDefaults['swf-line-height-small'],
                 $this->hiddenField
             )
         );
@@ -612,7 +612,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-line-height-computed',
                 'Berechnete Zeilenhöhe',
-                'floor((@swf-font-size-base * @swf-line-height-base))',
+                $this->themeDefaults['swf-line-height-computed'],
                 $this->hiddenField
             )
         );
@@ -621,7 +621,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createNumberField(
                 'swf-headings-font-weight',
                 'Schriftschnitt Überschrift',
-                '500',
+                $this->themeDefaults['swf-headings-font-weight'],
                 $this->hiddenField
             )
         );
@@ -630,7 +630,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-headings-line-height',
                 'Zeilenhöhe Überschrift',
-                '1.1',
+                $this->themeDefaults['swf-headings-line-height'],
                 $this->hiddenField
             )
         );
@@ -639,7 +639,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-font-size-h1',
                 'Schriftgröße Überschrift 1',
-                'floor(@swf-font-size-base * 2.60)'
+                $this->themeDefaults['swf-font-size-h1']
             )
         );
 
@@ -647,7 +647,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-font-size-h2',
                 'Schriftgröße Überschrift 2',
-                'floor(@swf-font-size-base * 2.15)'
+                $this->themeDefaults['swf-font-size-h2']
             )
         );
 
@@ -655,7 +655,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-font-size-h3',
                 'Schriftgröße Überschrift 3',
-                'ceil(@swf-font-size-base * 1.70)'
+                $this->themeDefaults['swf-font-size-h3']
             )
         );
 
@@ -663,7 +663,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-font-size-h4',
                 'Schriftgröße Überschrift 4',
-                'ceil(@swf-font-size-base * 1.25)'
+                $this->themeDefaults['swf-font-size-h4']
             )
         );
 
@@ -671,7 +671,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-font-size-h5',
                 'Schriftgröße Überschrift 5',
-                '@swf-font-size-base'
+                $this->themeDefaults['swf-font-size-h5']
             )
         );
 
@@ -679,7 +679,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-font-size-h6',
                 'Schriftgröße Überschrift 6',
-                'ceil(@swf-font-size-base * 0.85)'
+                $this->themeDefaults['swf-font-size-h6']
             )
         );
 
@@ -687,7 +687,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-blockquote-font-size',
                 'Schriftgröße Zitatblock',
-                '(@swf-font-size-base * 1.25)',
+                $this->themeDefaults['swf-blockquote-font-size'],
                 $this->hiddenField
             )
         );
@@ -702,7 +702,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-content-min-height',
                 'Mindesthöhe Contentbereich',
-                '720px',
+                $this->themeDefaults['swf-content-min-height'],
                 $this->hiddenField
             )
         );
@@ -711,7 +711,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-border-radius-base',
                 'Eckenradius',
-                '0px',
+                $this->themeDefaults['swf-border-radius-base'],
                 $this->hiddenField
             )
         );
@@ -720,7 +720,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-border-radius-large',
                 'großer Eckenradius',
-                '0px',
+                $this->themeDefaults['swf-border-radius-large'],
                 $this->hiddenField
             )
         );
@@ -729,7 +729,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-border-radius-small',
                 'kleiner Eckenradius',
-                '0px',
+                $this->themeDefaults['swf-border-radius-small'],
                 $this->hiddenField
             )
         );
@@ -738,7 +738,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-table-cell-padding',
                 'Innenabstand Tabellenzeile',
-                '8px',
+                $this->themeDefaults['swf-table-cell-padding'],
                 $this->hiddenField
             )
         );
@@ -747,7 +747,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-table-condensed-cell-padding',
                 'Innenabstand Tabellenzeile (condensed)',
-                '5px',
+                $this->themeDefaults['swf-table-condensed-cell-padding'],
                 $this->hiddenField
             )
         );
@@ -756,7 +756,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'swf-link-hover-decoration',
                 'Textdekoration Link',
-                'underline',
+                $this->themeDefaults['swf-link-hover-decoration'],
                 array(
                     array(
                         'text' => 'Keine Hervorhebung',
@@ -783,7 +783,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-component-offset-horizontal',
                 'Einrückung aktive Elemente',
-                '180px',
+                $this->themeDefaults['swf-component-offset-horizontal'],
                 $this->hiddenField
             )
         );
@@ -792,7 +792,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-dl-horizontal-offset',
                 'Einrückung Definitionsliste',
-                '@swf-component-offset-horizontal',
+                $this->themeDefaults['swf-dl-horizontal-offset'],
                 $this->hiddenField
             )
         );
@@ -807,7 +807,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-body-bg',
                 'Hintergrundfarbe (Body)',
-                '#f0f2f4',
+                $this->themeDefaults['swf-body-bg'],
                 $this->hiddenField
             )
         );
@@ -816,7 +816,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-shop-bg',
                 'Hintergrundfarbe (Shop)',
-                '#fff',
+                $this->themeDefaults['swf-shop-bg'],
                 $this->hiddenField
             )
         );
@@ -825,7 +825,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-text-color',
                 'Schriftfarbe',
-                '@swf-gray-dark',
+                $this->themeDefaults['swf-text-color'],
                 $this->hiddenField
             )
         );
@@ -834,7 +834,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-headings-color',
                 'Schriftfarbe Überschrift',
-                'inherit',
+                $this->themeDefaults['swf-headings-color'],
                 $this->hiddenField
             )
         );
@@ -843,7 +843,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-headings-small-color',
                 'Schriftfarbe kleine Überschrift',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-headings-small-color'],
                 $this->hiddenField
             )
         );
@@ -852,7 +852,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-page-header-border-color',
                 'Rahmenfarbe Seitenüberschrift',
-                '@swf-gray-lighter',
+                $this->themeDefaults['swf-page-header-border-color'],
                 $this->hiddenField
             )
         );
@@ -861,7 +861,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-link-color',
                 'Linkfarbe',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-link-color'],
                 $this->hiddenField
             )
         );
@@ -870,7 +870,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-link-hover-color',
                 'Linkfarbe (Hover)',
-                'darken(@link-color, 15%);',
+                $this->themeDefaults['swf-link-hover-color'],
                 $this->hiddenField
             )
         );
@@ -879,7 +879,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-footer-bg',
                 'Hintergrundfarbe (Footer)',
-                '#000',
+                $this->themeDefaults['swf-footer-bg'],
                 $this->hiddenField
             )
         );
@@ -888,7 +888,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-footer-border',
                 'Rahmenfarbe (Footer)',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-footer-border'],
                 $this->hiddenField
             )
         );
@@ -897,7 +897,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-footer-color',
                 'Schriftfarbe (Footer)',
-                '#fff',
+                $this->themeDefaults['swf-footer-color'],
                 $this->hiddenField
             )
         );
@@ -906,7 +906,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-footer-link-color',
                 'Schriftfarbe Link (Footer)',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-footer-link-color'],
                 $this->hiddenField
             )
         );
@@ -915,7 +915,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-footer-link-hover-color',
                 'Schriftfarbe Link Hover (Footer)',
-                'darken(@swf-footer-link-color, 5%)',
+                $this->themeDefaults['swf-footer-link-hover-color'],
                 $this->hiddenField
             )
         );
@@ -924,7 +924,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-table-bg',
                 'Hintergrundfarbe Tabellen',
-                'transparent',
+                $this->themeDefaults['swf-table-bg'],
                 $this->hiddenField
             )
         );
@@ -933,7 +933,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-table-bg-hover',
                 'Hintergrundfarbe Tabellen (Hover)',
-                '#f9f9f9',
+                $this->themeDefaults['swf-table-bg-hover'],
                 $this->hiddenField
             )
         );
@@ -942,7 +942,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-table-bg-active',
                 'Hintergrundfarbe Tabellen (Aktiv)',
-                '@swf-table-bg-hover',
+                $this->themeDefaults['swf-table-bg-active'],
                 $this->hiddenField
             )
         );
@@ -951,7 +951,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-table-bg-accent',
                 'Hintergrundfarbe 2 Tabellen',
-                '#f9f9f9',
+                $this->themeDefaults['swf-table-bg-accent'],
                 $this->hiddenField
             )
         );
@@ -960,7 +960,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-table-border-color',
                 'Rahmenfarbe Tabellen',
-                '#ddd',
+                $this->themeDefaults['swf-table-border-color'],
                 $this->hiddenField
             )
         );
@@ -969,7 +969,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-well-bg',
                 'Hintergrundfarbe Hervorhebung',
-                '#f5f5f5',
+                $this->themeDefaults['swf-well-bg'],
                 $this->hiddenField
             )
         );
@@ -978,7 +978,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-well-border',
                 'Rahmenfarbe Hervorhebung',
-                'darken(@swf-well-bg, 7%)',
+                $this->themeDefaults['swf-well-border'],
                 $this->hiddenField
             )
         );
@@ -987,7 +987,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-component-active-bg',
                 'Hintergrundfarbe aktive Elemente',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-component-active-bg'],
                 $this->hiddenField
             )
         );
@@ -996,7 +996,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-component-active-color',
                 'Textfarbe aktive Elemente',
-                '#fff',
+                $this->themeDefaults['swf-component-active-color'],
                 $this->hiddenField
             )
         );
@@ -1005,7 +1005,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-hr-border',
                 'Farbe Trennlinie',
-                '@swf-gray-lighter',
+                $this->themeDefaults['swf-hr-border'],
                 $this->hiddenField
             )
         );
@@ -1014,7 +1014,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-text-muted',
                 'Farbe ausgegrauter Text',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-text-muted'],
                 $this->hiddenField
             )
         );
@@ -1023,7 +1023,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-abbr-border-color',
                 'Rahmenfarbe Abkürzungen',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-abbr-border-color'],
                 $this->hiddenField
             )
         );
@@ -1038,7 +1038,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-screen-lg-min',
                 'Breakpoint großer Desktop',
-                '1260px',
+                $this->themeDefaults['swf-screen-lg-min'],
                 $this->hiddenField
             )
         );
@@ -1047,7 +1047,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-screen-md-min',
                 'Breakpoint Tablet Landscape / Kleiner Desktop',
-                '1024px',
+                $this->themeDefaults['swf-screen-md-min'],
                 $this->hiddenField
             )
         );
@@ -1056,7 +1056,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-screen-hd-min',
                 'Breakpoint Tablet',
-                '768px',
+                $this->themeDefaults['swf-screen-hd-min'],
                 $this->hiddenField
             )
         );
@@ -1065,7 +1065,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-screen-sm-min',
                 'Breakpoint Smartphone Landscape',
-                '480px',
+                $this->themeDefaults['swf-screen-sm-min'],
                 $this->hiddenField
             )
         );
@@ -1080,7 +1080,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'articles-col-width-lg',
                 'Großer Desktop',
-                '4',
+                $this->themeDefaults['articles-col-width-lg'],
                 array(
                     array(
                         'text' => '4',
@@ -1107,7 +1107,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'articles-col-width-md',
                 'Tablet Landscape / Kleiner Desktop',
-                '4',
+                $this->themeDefaults['articles-col-width-md'],
                 array(
                     array(
                         'text' => '4',
@@ -1134,7 +1134,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'articles-col-width-hd',
                 'Tablet',
-                '4',
+                $this->themeDefaults['articles-col-width-hd'],
                 array(
                     array(
                         'text' => '4',
@@ -1161,7 +1161,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'articles-col-width-sm',
                 'Smartphone Landscape',
-                '6',
+                $this->themeDefaults['articles-col-width-sm'],
                 array(
                     array(
                         'text' => '4',
@@ -1188,7 +1188,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'articles-col-width-xs',
                 'Smartphone',
-                '12',
+                $this->themeDefaults['articles-col-width-xs'],
                 array(
                     array(
                         'text' => '4',
@@ -1221,7 +1221,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createNumberField(
                 'amount-left-columns',
                 'Breite Seitenbereich (Anzahl Spalten)',
-                '3',
+                $this->themeDefaults['amount-left-columns'],
                 $this->hiddenField +
                 array(
                     'attributes' =>
@@ -1237,7 +1237,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-grid-gutter-width',
                 'Außenabstand Spalten',
-                '30px',
+                $this->themeDefaults['swf-grid-gutter-width'],
                 $this->hiddenField
             )
         );
@@ -1246,7 +1246,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-container-hd',
                 'Breite Spalten-Container (Tablet)',
-                '(720px + @swf-grid-gutter-width)',
+                $this->themeDefaults['swf-container-hd'],
                 $this->hiddenField
             )
         );
@@ -1255,7 +1255,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-container-md',
                 'Breite Spalten-Container (Tablet Landscape, kleiner Desktop)',
-                '(940px + @swf-grid-gutter-width)',
+                $this->themeDefaults['swf-container-md'],
                 $this->hiddenField
             )
         );
@@ -1264,7 +1264,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-container-lg',
                 'Breite Spalten-Container (großer Desktop)',
-                '(1160px + @swf-grid-gutter-width)',
+                $this->themeDefaults['swf-container-lg'],
                 $this->hiddenField
             )
         );
@@ -1279,7 +1279,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-default-bg',
                 'Hintergrundfarbe Top-Navigation',
-                '#f8f8f8',
+                $this->themeDefaults['swf-navbar-default-bg'],
                 $this->hiddenField
             )
         );
@@ -1288,7 +1288,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-default-link-color',
                 'Linkfarbe Top-Navigation',
-                '#777',
+                $this->themeDefaults['swf-navbar-default-link-color'],
                 $this->hiddenField
             )
         );
@@ -1297,7 +1297,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-default-border',
                 'Rahmenfarbe Top-Navigation',
-                'darken(@swf-navbar-default-bg, 6.5%);',
+                $this->themeDefaults['swf-navbar-default-border'],
                 $this->hiddenField
             )
         );
@@ -1306,7 +1306,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-default-link-hover-color',
                 'Linkfarbe (Hover) Top-Navigation',
-                '#333',
+                $this->themeDefaults['swf-navbar-default-link-hover-color'],
                 $this->hiddenField
             )
         );
@@ -1315,7 +1315,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-default-link-active-color',
                 'Linkfarbe (Aktiv) Top-Navigation',
-                '#555',
+                $this->themeDefaults['swf-navbar-default-link-active-color'],
                 $this->hiddenField
             )
         );
@@ -1324,7 +1324,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-default-link-disabled-color',
                 'Linkfarbe (Disabled) Top-Navigation',
-                '#ccc',
+                $this->themeDefaults['swf-navbar-default-link-disabled-color'],
                 $this->hiddenField
             )
         );
@@ -1333,7 +1333,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-default-link-hover-bg',
                 'Hintergrundfarbe (Hover) Top-Navigation',
-                'transparent',
+                $this->themeDefaults['swf-navbar-default-link-hover-bg'],
                 $this->hiddenField
             )
         );
@@ -1342,7 +1342,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-default-link-active-bg',
                 'Hintergrundfarbe (Aktiv) Top-Navigation',
-                'darken(@swf-navbar-default-bg, 6.5%)',
+                $this->themeDefaults['swf-navbar-default-link-active-bg'],
                 $this->hiddenField
             )
         );
@@ -1351,7 +1351,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-default-link-disabled-bg',
                 'Hintergrundfarbe (Disabled) Top-Navigation',
-                'transparent',
+                $this->themeDefaults['swf-navbar-default-link-disabled-bg'],
                 $this->hiddenField
             )
         );
@@ -1360,7 +1360,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-default-toggle-icon-bar-bg',
                 'Smartphone-Button Iconfarbe Top-Navigation',
-                '#888',
+                $this->themeDefaults['swf-navbar-default-toggle-icon-bar-bg'],
                 $this->hiddenField
             )
         );
@@ -1369,7 +1369,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-default-toggle-hover-bg',
                 'Smartphone-Button Iconfarbe (Hover) Top-Navigation',
-                '#ddd',
+                $this->themeDefaults['swf-navbar-default-toggle-hover-bg'],
                 $this->hiddenField
             )
         );
@@ -1378,7 +1378,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-link-separator-color',
                 'Link Trennlinien Farbe Top-Navigation',
-                '@swf-navbar-default-bg',
+                $this->themeDefaults['swf-navbar-link-separator-color'],
                 $this->hiddenField
             )
         );
@@ -1387,7 +1387,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-submenu-bg-color',
                 'Hintergrundfarbe Untermenüs Top-Navigation',
-                '#fff',
+                $this->themeDefaults['swf-navbar-submenu-bg-color'],
                 $this->hiddenField
             )
         );
@@ -1396,7 +1396,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-submenu-border-color',
                 'Rahmenfarbe Untermenüs Top-Navigation',
-                '@swf-gray-lighter',
+                $this->themeDefaults['swf-navbar-submenu-border-color'],
                 $this->hiddenField
             )
         );
@@ -1405,7 +1405,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-navbar-height',
                 'Höhe Top-Navigation',
-                '50px',
+                $this->themeDefaults['swf-navbar-height'],
                 $this->hiddenField
             )
         );
@@ -1414,7 +1414,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-navbar-border-radius',
                 'Eckradius Top-Navigation',
-                '@swf-border-radius-base',
+                $this->themeDefaults['swf-navbar-border-radius'],
                 $this->hiddenField
             )
         );
@@ -1429,7 +1429,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-navbar-off-canvas-width',
                 'Breite Off-Canvas',
-                '300px',
+                $this->themeDefaults['swf-navbar-off-canvas-width'],
                 $this->hiddenField
             )
         );
@@ -1438,7 +1438,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-navbar-off-canvas-indent',
                 'Einrückung Untermenüpunkte Off-Canvas',
-                '25px',
+                $this->themeDefaults['swf-navbar-off-canvas-indent'],
                 $this->hiddenField
             )
         );
@@ -1447,7 +1447,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-off-canvas-bg-color',
                 'Hintergrundfarbe Off-Canvas',
-                '#fff',
+                $this->themeDefaults['swf-navbar-off-canvas-bg-color'],
                 $this->hiddenField
             )
         );
@@ -1456,7 +1456,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-off-canvas-submenu-bg-color',
                 'Hintergrundfarbe Untermenüs Off-Canvas',
-                '@swf-gray-lighter',
+                $this->themeDefaults['swf-navbar-off-canvas-submenu-bg-color'],
                 $this->hiddenField
             )
         );
@@ -1465,7 +1465,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-off-canvas-arrow-color',
                 'Navigations-Pfeil Farbe Off-Canvas',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-navbar-off-canvas-arrow-color'],
                 $this->hiddenField
             )
         );
@@ -1474,7 +1474,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-off-canvas-close-icon-color',
                 'Schließen-Icon Farbe Off-Canvas',
-                '#fff',
+                $this->themeDefaults['swf-navbar-off-canvas-close-icon-color'],
                 $this->hiddenField
             )
         );
@@ -1483,7 +1483,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-navbar-off-canvas-close-icon-color-hover',
                 'Schließen-Icon Farbe (Hover) Off-Canvas',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-navbar-off-canvas-close-icon-color-hover'],
                 $this->hiddenField
             )
         );
@@ -1498,7 +1498,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-nav-link-padding',
                 'Innenabstand Navs',
-                '10px 15px',
+                $this->themeDefaults['swf-nav-link-padding'],
                 $this->hiddenField
             )
         );
@@ -1507,7 +1507,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-nav-link-hover-bg',
                 'Hintergrundfarbe Navs (Hover)',
-                '@swf-gray-lighter',
+                $this->themeDefaults['swf-nav-link-hover-bg'],
                 $this->hiddenField
             )
         );
@@ -1516,7 +1516,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-nav-disabled-link-color',
                 'Textfarbe Tabs (Inaktiv)',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-nav-disabled-link-color'],
                 $this->hiddenField
             )
         );
@@ -1525,7 +1525,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-nav-tabs-active-link-hover-color',
                 'Textfarbe Tab-Navigation (Aktiv & Hover)',
-                '@swf-gray',
+                $this->themeDefaults['swf-nav-tabs-active-link-hover-color'],
                 $this->hiddenField
             )
         );
@@ -1534,7 +1534,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-nav-tabs-active-link-hover-bg',
                 'Hintergrundfarbe Tabs',
-                '@swf-shop-bg',
+                $this->themeDefaults['swf-nav-tabs-active-link-hover-bg'],
                 $this->hiddenField
             )
         );
@@ -1543,7 +1543,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-nav-tabs-border-color',
                 'Rahmenfarbe Tabs',
-                '#ddd',
+                $this->themeDefaults['swf-nav-tabs-border-color'],
                 $this->hiddenField
             )
         );
@@ -1552,7 +1552,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-nav-tabs-link-hover-border-color',
                 'Rahmenfarbe Tab-Navigation (Hover)',
-                '@swf-gray-lighter',
+                $this->themeDefaults['swf-nav-tabs-link-hover-border-color'],
                 $this->hiddenField
             )
         );
@@ -1561,7 +1561,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-nav-tabs-active-link-hover-border-color',
                 'Rahmenfarbe aktive Tab-Navigation (Hover)',
-                '#ddd',
+                $this->themeDefaults['swf-nav-tabs-active-link-hover-border-color'],
                 $this->hiddenField
             )
         );
@@ -1570,7 +1570,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-nav-tabs-justified-link-border-color',
                 'Rahmenfarbe (Justified) Tab-Navigation',
-                '#ddd',
+                $this->themeDefaults['swf-nav-tabs-justified-link-border-color'],
                 $this->hiddenField
             )
         );
@@ -1579,7 +1579,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-nav-tabs-justified-active-link-border-color',
                 'Rahmenfarbe (Justified) Tab-Navigation (Aktiv)',
-                '@swf-body-bg',
+                $this->themeDefaults['swf-nav-tabs-justified-active-link-border-color'],
                 $this->hiddenField
             )
         );
@@ -1588,7 +1588,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-nav-pills-border-radius',
                 'Eckradius Button-Navigation',
-                '@swf-border-radius-base',
+                $this->themeDefaults['swf-nav-pills-border-radius'],
                 $this->hiddenField
             )
         );
@@ -1597,7 +1597,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-nav-pills-active-link-hover-bg',
                 'Hintergrundfarbe Button-Navigation (Aktiv & Hover)',
-                '@swf-component-active-bg',
+                $this->themeDefaults['swf-nav-pills-active-link-hover-bg'],
                 $this->hiddenField
             )
         );
@@ -1606,7 +1606,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-nav-pills-active-link-hover-color',
                 'Textfarbe Button-Navigation (Aktiv & Hover)',
-                '@swf-component-active-color',
+                $this->themeDefaults['swf-nav-pills-active-link-hover-color'],
                 $this->hiddenField
             )
         );
@@ -1615,7 +1615,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-scroll-up-bottom-position',
                 'Scroll-Up Position vom unteren Seitenrand',
-                '120px',
+                $this->themeDefaults['swf-scroll-up-bottom-position'],
                 $this->hiddenField
             )
         );
@@ -1630,7 +1630,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-pagination-color',
                 'Textfarbe Seiten-Nummerierung',
-                '@swf-link-color',
+                $this->themeDefaults['swf-pagination-color'],
                 $this->hiddenField
             )
         );
@@ -1639,7 +1639,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-pagination-border',
                 'Rahmenfarbe Seiten-Nummerierung',
-                '#ddd',
+                $this->themeDefaults['swf-pagination-border'],
                 $this->hiddenField
             )
         );
@@ -1648,7 +1648,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-pagination-hover-border',
                 'Rahmenfarbe Seiten-Nummerierung (Hover)',
-                '#ddd',
+                $this->themeDefaults['swf-pagination-hover-border'],
                 $this->hiddenField
             )
         );
@@ -1657,7 +1657,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-pagination-bg',
                 'Hintergrundfarbe Seiten-Nummerierung',
-                '#fff',
+                $this->themeDefaults['swf-pagination-bg'],
                 $this->hiddenField
             )
         );
@@ -1666,7 +1666,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-pagination-disabled-bg',
                 'Hintergrundfarbe Seiten-Nummerierung (Disabled)',
-                '#fff',
+                $this->themeDefaults['swf-pagination-disabled-bg'],
                 $this->hiddenField
             )
         );
@@ -1675,7 +1675,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-pagination-disabled-border',
                 'Rahmenfarbe Seiten-Nummerierung (Disabled)',
-                '#ddd',
+                $this->themeDefaults['swf-pagination-disabled-border'],
                 $this->hiddenField
             )
         );
@@ -1684,7 +1684,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-pagination-hover-color',
                 'Linkfarbe Seiten-Nummerierung (Hover)',
-                '@swf-link-hover-color',
+                $this->themeDefaults['swf-pagination-hover-color'],
                 $this->hiddenField
             )
         );
@@ -1693,7 +1693,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-pagination-active-color',
                 'Linkfarbe Seiten-Nummerierung (Aktiv)',
-                '#fff',
+                $this->themeDefaults['swf-pagination-active-color'],
                 $this->hiddenField
             )
         );
@@ -1702,7 +1702,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-pagination-disabled-color',
                 'Linkfarbe Seiten-Nummerierung (Disabled)',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-pagination-disabled-color'],
                 $this->hiddenField
             )
         );
@@ -1711,7 +1711,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-pagination-active-bg',
                 'Hintergrundfarbe Seiten-Nummerierung (Aktiv)',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-pagination-active-bg'],
                 $this->hiddenField
             )
         );
@@ -1720,7 +1720,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-pagination-active-border',
                 'Rahmenfarbe Seiten-Nummerierung (Aktiv)',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-pagination-active-border'],
                 $this->hiddenField
             )
         );
@@ -1729,7 +1729,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-pagination-hover-bg',
                 'Hintergrundfarbe Seiten-Nummerierung (Hover)',
-                '@swf-gray-lighter',
+                $this->themeDefaults['swf-pagination-hover-bg'],
                 $this->hiddenField
             )
         );
@@ -1744,7 +1744,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-list-group-border-radius',
                 'Eckradius Menü/Filter',
-                '@swf-border-radius-base',
+                $this->themeDefaults['swf-list-group-border-radius'],
                 $this->hiddenField
             )
         );
@@ -1753,7 +1753,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-list-group-border',
                 'Rahmenfarbe Menü/Filter',
-                '#ddd',
+                $this->themeDefaults['swf-list-group-border'],
                 $this->hiddenField
             )
         );
@@ -1762,7 +1762,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-list-group-bg',
                 'Hintergrundfarbe Menü/Filter',
-                '#fff',
+                $this->themeDefaults['swf-list-group-bg'],
                 $this->hiddenField
             )
         );
@@ -1771,7 +1771,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-list-group-link-color',
                 'Linkfarbe Menü/Filter',
-                '#555',
+                $this->themeDefaults['swf-list-group-link-color'],
                 $this->hiddenField
             )
         );
@@ -1780,7 +1780,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-list-group-hover-bg',
                 'Hintergrundfarbe Menü/Filter (Hover)',
-                '#f5f5f5',
+                $this->themeDefaults['swf-list-group-hover-bg'],
                 $this->hiddenField
             )
         );
@@ -1789,7 +1789,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-list-group-link-hover-color',
                 'Linkfarbe Menü/Filter (Hover)',
-                '@swf-list-group-link-color',
+                $this->themeDefaults['swf-list-group-link-hover-color'],
                 $this->hiddenField
             )
         );
@@ -1798,7 +1798,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-list-group-active-text-color',
                 'Textfarbe Menü/Filter (Aktiv)',
-                'lighten(@swf-list-group-active-bg, 40%)',
+                $this->themeDefaults['swf-list-group-active-text-color'],
                 $this->hiddenField
             )
         );
@@ -1807,7 +1807,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-list-group-active-border',
                 'Rahmenfarbe Menü/Filter (Aktiv)',
-                '@swf-component-active-bg',
+                $this->themeDefaults['swf-list-group-active-border'],
                 $this->hiddenField
             )
         );
@@ -1816,7 +1816,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-list-group-active-bg',
                 'Hintergrundfarbe Menü/Filter (Aktiv)',
-                '@swf-component-active-bg',
+                $this->themeDefaults['swf-list-group-active-bg'],
                 $this->hiddenField
             )
         );
@@ -1825,7 +1825,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-list-group-active-color',
                 'Linkfarbe Menü/Filter (Aktiv)',
-                '#fff',
+                $this->themeDefaults['swf-list-group-active-color'],
                 $this->hiddenField
             )
         );
@@ -1834,7 +1834,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-list-group-disabled-text',
                 'Textfarbe Menü/Filter (Disabled)',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-list-group-disabled-text'],
                 $this->hiddenField
             )
         );
@@ -1843,7 +1843,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-list-group-disabled-bg',
                 'Hintergrundfarbe Menü/Filter (Disabled)',
-                '@swf-gray-lighter',
+                $this->themeDefaults['swf-list-group-disabled-bg'],
                 $this->hiddenField
             )
         );
@@ -1852,7 +1852,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-list-group-disabled-color',
                 'Linkfarbe Menü/Filter (Disabled)',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-list-group-disabled-color'],
                 $this->hiddenField
             )
         );
@@ -1867,7 +1867,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-badge-bg',
                 'Hintergrundfarbe Zähler',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-badge-bg'],
                 $this->hiddenField
             )
         );
@@ -1876,7 +1876,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-badge-color',
                 'Textfarbe Zähler',
-                '#fff',
+                $this->themeDefaults['swf-badge-color'],
                 $this->hiddenField
             )
         );
@@ -1885,7 +1885,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-badge-link-hover-color',
                 'Textfarbe Zähler mit Link (Hover)',
-                '#fff',
+                $this->themeDefaults['swf-badge-link-hover-color'],
                 $this->hiddenField
             )
         );
@@ -1894,7 +1894,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-badge-active-bg',
                 'Hintergrundfarbe Zähler (Aktiv)',
-                '#fff',
+                $this->themeDefaults['swf-badge-active-bg'],
                 $this->hiddenField
             )
         );
@@ -1903,7 +1903,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-badge-active-color',
                 'Textfarbe Zähler (Aktiv)',
-                '@swf-link-color',
+                $this->themeDefaults['swf-badge-active-color'],
                 $this->hiddenField
             )
         );
@@ -1912,7 +1912,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-badge-line-height',
                 'Zeilenhöhe Zähler',
-                '1',
+                $this->themeDefaults['swf-badge-line-height'],
                 $this->hiddenField
             )
         );
@@ -1921,7 +1921,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'swf-badge-font-weight',
                 'Schriftgewicht Zähler',
-                'bold',
+                $this->themeDefaults['swf-badge-font-weight'],
                 array(
                     array(
                         'text' => 'bold',
@@ -1940,7 +1940,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-badge-border-radius',
                 'Eckradius Zähler',
-                '10px',
+                $this->themeDefaults['swf-badge-border-radius'],
                 $this->hiddenField
             )
         );
@@ -1949,7 +1949,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-breadcrumb-bg',
                 'Hintergrundfarbe Breadcrumbs',
-                '#f5f5f5',
+                $this->themeDefaults['swf-breadcrumb-bg'],
                 $this->hiddenField
             )
         );
@@ -1958,7 +1958,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-breadcrumb-color',
                 'Farbe Trennzeichen Breadcrumbs',
-                '#ccc',
+                $this->themeDefaults['swf-breadcrumb-color'],
                 $this->hiddenField
             )
         );
@@ -1967,7 +1967,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-breadcrumb-active-color',
                 'Textfarbe Breadcrumb (Aktiv)',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-breadcrumb-active-color'],
                 $this->hiddenField
             )
         );
@@ -1976,7 +1976,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-breadcrumb-padding-vertical',
                 'Innenabstand vertikal Breadcrumbs',
-                '8px',
+                $this->themeDefaults['swf-breadcrumb-padding-vertical'],
                 $this->hiddenField
             )
         );
@@ -1985,7 +1985,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-breadcrumb-padding-horizontal',
                 'Innenabstand horizontal Breadcrumbs',
-                '15px',
+                $this->themeDefaults['swf-breadcrumb-padding-horizontal'],
                 $this->hiddenField
             )
         );
@@ -1994,7 +1994,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-breadcrumb-separator',
                 'Trennzeichen Breadcrumbs',
-                '"/"',
+                $this->themeDefaults['swf-breadcrumb-separator'],
                 $this->hiddenField
             )
         );
@@ -2009,7 +2009,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-alert-padding',
                 'Innenabstand Meldung',
-                '15px',
+                $this->themeDefaults['swf-alert-padding'],
                 $this->hiddenField
             )
         );
@@ -2018,7 +2018,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-alert-border-radius',
                 'Eckradius Meldung',
-                '@swf-border-radius-base',
+                $this->themeDefaults['swf-alert-border-radius'],
                 $this->hiddenField
             )
         );
@@ -2027,7 +2027,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'swf-alert-link-font-weight',
                 'Schriftgewicht Meldung',
-                'bold',
+                $this->themeDefaults['swf-alert-link-font-weight'],
                 array(
                     array(
                         'text' => 'bold',
@@ -2046,7 +2046,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-alert-success-bg',
                 'Hintergrundfarbe Erfolgsmeldung',
-                '@swf-state-success-bg',
+                $this->themeDefaults['swf-alert-success-bg'],
                 $this->hiddenField
             )
         );
@@ -2055,7 +2055,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-alert-success-text',
                 'Textfarbe Erfolgsmeldung',
-                '@swf-state-success-text',
+                $this->themeDefaults['swf-alert-success-text'],
                 $this->hiddenField
             )
         );
@@ -2064,7 +2064,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-alert-success-border',
                 'Rahmenfarbe Erfolgsmeldung',
-                '@swf-state-success-border',
+                $this->themeDefaults['swf-alert-success-border'],
                 $this->hiddenField
             )
         );
@@ -2073,7 +2073,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-alert-info-bg',
                 'Hintergrundfarbe Infomeldung',
-                '@swf-state-info-bg',
+                $this->themeDefaults['swf-alert-info-bg'],
                 $this->hiddenField
             )
         );
@@ -2082,7 +2082,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-alert-info-text',
                 'Textfarbe Infomeldung',
-                '@swf-state-info-text',
+                $this->themeDefaults['swf-alert-info-text'],
                 $this->hiddenField
             )
         );
@@ -2091,7 +2091,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-alert-info-border',
                 'Rahmenfarbe Infomeldung',
-                '@swf-state-info-border',
+                $this->themeDefaults['swf-alert-info-border'],
                 $this->hiddenField
             )
         );
@@ -2100,7 +2100,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-alert-warning-bg',
                 'Hintergrundfarbe Warnmeldung',
-                '@swf-state-warning-bg',
+                $this->themeDefaults['swf-alert-warning-bg'],
                 $this->hiddenField
             )
         );
@@ -2109,7 +2109,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-alert-warning-text',
                 'Textfarbe Warnmeldung',
-                '@swf-state-warning-text',
+                $this->themeDefaults['swf-alert-warning-text'],
                 $this->hiddenField
             )
         );
@@ -2118,7 +2118,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-alert-warning-border',
                 'Rahmenfarbe Warnmeldung',
-                '@swf-state-warning-border',
+                $this->themeDefaults['swf-alert-warning-border'],
                 $this->hiddenField
             )
         );
@@ -2127,7 +2127,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-alert-danger-bg',
                 'Hintergrundfarbe Fehlermeldung',
-                '@swf-state-danger-bg',
+                $this->themeDefaults['swf-alert-danger-bg'],
                 $this->hiddenField
             )
         );
@@ -2136,7 +2136,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-alert-danger-text',
                 'Textfarbe Fehlermeldung',
-                '@swf-state-danger-text',
+                $this->themeDefaults['swf-alert-danger-text'],
                 $this->hiddenField
             )
         );
@@ -2145,7 +2145,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-alert-danger-border',
                 'Rahmenfarbe Fehlermeldung',
-                '@swf-state-danger-border',
+                $this->themeDefaults['swf-alert-danger-border'],
                 $this->hiddenField
             )
         );
@@ -2160,7 +2160,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-popover-max-width',
                 'Maximale Breite Popover',
-                '276px',
+                $this->themeDefaults['swf-popover-max-width'],
                 $this->hiddenField
             )
         );
@@ -2169,7 +2169,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-popover-bg',
                 'Hintergrundfarbe Popover',
-                '#fff',
+                $this->themeDefaults['swf-popover-bg'],
                 $this->hiddenField
             )
         );
@@ -2178,7 +2178,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-popover-title-bg',
                 'Hintergrundfarbe Kopfzeile Popover',
-                'darken(@swf-popover-bg, 3%)',
+                $this->themeDefaults['swf-popover-title-bg'],
                 $this->hiddenField
             )
         );
@@ -2187,7 +2187,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-popover-border-color',
                 'Rahmenfarbe Popover',
-                'rgba(0,0,0,.2)',
+                $this->themeDefaults['swf-popover-border-color'],
                 $this->hiddenField
             )
         );
@@ -2196,7 +2196,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-popover-fallback-border-color',
                 'Rahmenfarbe Popover (InternetExplorer8 Fallback)',
-                '#ccc',
+                $this->themeDefaults['swf-popover-fallback-border-color'],
                 $this->hiddenField
             )
         );
@@ -2205,7 +2205,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-popover-arrow-width',
                 'Breite Popover-Pfeil',
-                '10px',
+                $this->themeDefaults['swf-popover-arrow-width'],
                 $this->hiddenField
             )
         );
@@ -2214,7 +2214,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-popover-arrow-color',
                 'Farbe Popover-Pfeil',
-                '@swf-popover-bg',
+                $this->themeDefaults['swf-popover-arrow-color'],
                 $this->hiddenField
             )
         );
@@ -2223,7 +2223,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-popover-arrow-outer-width',
                 'Äußere Breite Popover-Pfeil',
-                '(@swf-popover-arrow-width + 1)',
+                $this->themeDefaults['swf-popover-arrow-outer-width'],
                 $this->hiddenField
             )
         );
@@ -2232,7 +2232,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-popover-arrow-outer-color',
                 'Äußere Farbe Popover-Pfeil',
-                'fadein(@swf-popover-border-color, 5%)',
+                $this->themeDefaults['swf-popover-arrow-outer-color'],
                 $this->hiddenField
             )
         );
@@ -2241,7 +2241,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-popover-arrow-outer-fallback-color',
                 'Äußere Farbe Popover-Pfeil (InternetExplorer8 Fallback)',
-                'darken(@swf-popover-fallback-border-color, 20%)',
+                $this->themeDefaults['swf-popover-arrow-outer-fallback-color'],
                 $this->hiddenField
             )
         );
@@ -2256,7 +2256,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-dropdown-bg',
                 'Hintergrundfarbe Dropdown',
-                '#fff',
+                $this->themeDefaults['swf-dropdown-bg'],
                 $this->hiddenField
             )
         );
@@ -2265,7 +2265,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-dropdown-caret-color',
                 'Pfeilfarbe Dropdown',
-                '#000',
+                $this->themeDefaults['swf-dropdown-caret-color'],
                 $this->hiddenField
             )
         );
@@ -2274,7 +2274,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-dropdown-border',
                 'Rahmenfarbe Dropdown',
-                'rgba(0,0,0,.15)',
+                $this->themeDefaults['swf-dropdown-border'],
                 $this->hiddenField
             )
         );
@@ -2283,7 +2283,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-dropdown-fallback-border',
                 'Rahmenfarbe Dropdown (InternetExplorer8 Fallback)',
-                '#ccc',
+                $this->themeDefaults['swf-dropdown-fallback-border'],
                 $this->hiddenField
             )
         );
@@ -2292,7 +2292,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-dropdown-divider-bg',
                 'Trennlinie Farbe Dropdown',
-                '#e5e5e5',
+                $this->themeDefaults['swf-dropdown-divider-bg'],
                 $this->hiddenField
             )
         );
@@ -2301,7 +2301,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-dropdown-header-color',
                 'Textfarbe Überschrift Dropdown',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-dropdown-header-color'],
                 $this->hiddenField
             )
         );
@@ -2310,7 +2310,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-dropdown-link-color',
                 'Textfarbe Link Dropdown',
-                '@swf-gray-dark',
+                $this->themeDefaults['swf-dropdown-link-color'],
                 $this->hiddenField
             )
         );
@@ -2319,7 +2319,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-dropdown-link-hover-color',
                 'Textfarbe Link (Hover) Dropdown',
-                'darken(@swf-gray-dark, 5%)',
+                $this->themeDefaults['swf-dropdown-link-hover-color'],
                 $this->hiddenField
             )
         );
@@ -2328,7 +2328,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-dropdown-link-hover-bg',
                 'Hintergrundfarbe Link (Hover) Dropdown',
-                '#f5f5f5',
+                $this->themeDefaults['swf-dropdown-link-hover-bg'],
                 $this->hiddenField
             )
         );
@@ -2337,7 +2337,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-dropdown-link-active-color',
                 'Textfarbe Link (Aktiv) Dropdown',
-                '@swf-component-active-color',
+                $this->themeDefaults['swf-dropdown-link-active-color'],
                 $this->hiddenField
             )
         );
@@ -2346,7 +2346,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-dropdown-link-active-bg',
                 'Hintergrundfarbe Link (Aktiv) Dropdown',
-                '@swf-component-active-bg',
+                $this->themeDefaults['swf-dropdown-link-active-bg'],
                 $this->hiddenField
             )
         );
@@ -2355,7 +2355,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-dropdown-link-disabled-color',
                 'Textfarbe Link (Disabled) Dropdown',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-dropdown-link-disabled-color'],
                 $this->hiddenField
             )
         );
@@ -2364,7 +2364,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-caret-width-base',
                 'Breite Pfeil Dropdown-Button',
-                '4px',
+                $this->themeDefaults['swf-caret-width-base'],
                 $this->hiddenField
             )
         );
@@ -2373,7 +2373,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-caret-width-large',
                 'Breite großer Pfeil Dropdown-Button',
-                '5px',
+                $this->themeDefaults['swf-caret-width-large'],
                 $this->hiddenField
             )
         );
@@ -2388,7 +2388,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-modal-content-bg',
                 'Hintergrundfarbe Modal',
-                '#fff',
+                $this->themeDefaults['swf-modal-content-bg'],
                 $this->hiddenField
             )
         );
@@ -2397,7 +2397,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-modal-content-border-color',
                 'Rahmenfarbe Modal',
-                'rgba(0,0,0,.2)',
+                $this->themeDefaults['swf-modal-content-border-color'],
                 $this->hiddenField
             )
         );
@@ -2406,7 +2406,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-modal-content-fallback-border-color',
                 'Rahmenfarbe Modal (InternetExplorer8 Fallback)',
-                '#999',
+                $this->themeDefaults['swf-modal-content-fallback-border-color'],
                 $this->hiddenField
             )
         );
@@ -2415,7 +2415,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-modal-backdrop-bg',
                 'Hintergrundfarbe Modal-Layer',
-                '#000',
+                $this->themeDefaults['swf-modal-backdrop-bg'],
                 $this->hiddenField
             )
         );
@@ -2424,7 +2424,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-modal-backdrop-opacity',
                 'Deckkraft Modal-Layer',
-                '.5',
+                $this->themeDefaults['swf-modal-backdrop-opacity'],
                 $this->hiddenField
             )
         );
@@ -2433,7 +2433,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-modal-header-border-color',
                 'Rahmenfarbe Kopfzeile Modal',
-                '#e5e5e5',
+                $this->themeDefaults['swf-modal-header-border-color'],
                 $this->hiddenField
             )
         );
@@ -2442,7 +2442,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-modal-footer-border-color',
                 'Rahmenfarbe Fußzeile Modal',
-                '@swf-modal-header-border-color',
+                $this->themeDefaults['swf-modal-footer-border-color'],
                 $this->hiddenField
             )
         );
@@ -2451,7 +2451,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-modal-inner-padding',
                 'Innenabstand Modal',
-                '15px',
+                $this->themeDefaults['swf-modal-inner-padding'],
                 $this->hiddenField
             )
         );
@@ -2460,7 +2460,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-modal-title-padding',
                 'Innenabstand Kopfzeile Modal',
-                '15px',
+                $this->themeDefaults['swf-modal-title-padding'],
                 $this->hiddenField
             )
         );
@@ -2469,7 +2469,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-modal-lg',
                 'Großer Desktop Modal Breite',
-                '900px',
+                $this->themeDefaults['swf-modal-lg'],
                 $this->hiddenField
             )
         );
@@ -2478,7 +2478,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-modal-md',
                 'Kleiner Desktop Modal Breite',
-                '600px',
+                $this->themeDefaults['swf-modal-md'],
                 $this->hiddenField
             )
         );
@@ -2487,7 +2487,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-modal-sm',
                 'Tablet Modal Breite',
-                '300px',
+                $this->themeDefaults['swf-modal-sm'],
                 $this->hiddenField
             )
         );
@@ -2502,7 +2502,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-panel-body-padding',
                 'Innenabstand Panel',
-                '15px',
+                $this->themeDefaults['swf-panel-body-padding'],
                 $this->hiddenField
             )
         );
@@ -2511,7 +2511,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-panel-heading-padding',
                 'Innenabstand Kopfzeile',
-                '10px 15px',
+                $this->themeDefaults['swf-panel-heading-padding'],
                 $this->hiddenField
             )
         );
@@ -2520,7 +2520,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-panel-footer-padding',
                 'Innenabstand Fußzeile',
-                '@swf-panel-heading-padding',
+                $this->themeDefaults['swf-panel-footer-padding'],
                 $this->hiddenField
             )
         );
@@ -2529,7 +2529,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-panel-border-radius',
                 'Eckradius Panel',
-                '@swf-border-radius-base',
+                $this->themeDefaults['swf-panel-border-radius'],
                 $this->hiddenField
             )
         );
@@ -2538,7 +2538,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-bg',
                 'Hintergrundfarbe',
-                '#fff',
+                $this->themeDefaults['swf-panel-bg'],
                 $this->hiddenField
             )
         );
@@ -2547,7 +2547,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-default-border',
                 'Rahmenfarbe',
-                '#ddd',
+                $this->themeDefaults['swf-panel-default-border'],
                 $this->hiddenField
             )
         );
@@ -2556,7 +2556,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-default-heading-bg',
                 'Hintergrundfarbe Kopfzeile',
-                '#f5f5f5',
+                $this->themeDefaults['swf-panel-default-heading-bg'],
                 $this->hiddenField
             )
         );
@@ -2565,7 +2565,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-footer-bg',
                 'Hintergrundfarbe Fußzeile',
-                '#f5f5f5',
+                $this->themeDefaults['swf-panel-footer-bg'],
                 $this->hiddenField
             )
         );
@@ -2574,7 +2574,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-default-text',
                 'Textfarbe Kopfzeile/Fußzeile',
-                '@swf-gray-dark',
+                $this->themeDefaults['swf-panel-default-text'],
                 $this->hiddenField
             )
         );
@@ -2583,7 +2583,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-primary-border',
                 'Rahmenfarbe Aktionspanel',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-panel-primary-border'],
                 $this->hiddenField
             )
         );
@@ -2592,7 +2592,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-primary-heading-bg',
                 'Hintergrundfarbe Kopfzeile Aktionspanel',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-panel-primary-heading-bg'],
                 $this->hiddenField
             )
         );
@@ -2601,7 +2601,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-primary-text',
                 'Textfarbe Kopfzeile Aktionspanel',
-                '#fff',
+                $this->themeDefaults['swf-panel-primary-text'],
                 $this->hiddenField
             )
         );
@@ -2610,7 +2610,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-success-border',
                 'Rahmenfarbe Erfolgspanel',
-                '@swf-state-success-border',
+                $this->themeDefaults['swf-panel-success-border'],
                 $this->hiddenField
             )
         );
@@ -2619,7 +2619,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-success-heading-bg',
                 'Hintergrundfarbe Kopfzeile Erfolgspanel',
-                '@swf-state-success-bg',
+                $this->themeDefaults['swf-panel-success-heading-bg'],
                 $this->hiddenField
             )
         );
@@ -2628,7 +2628,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-success-heading-text',
                 'Textfarbe Kopfzeile Erfolgspanel',
-                '@swf-state-success-text',
+                $this->themeDefaults['swf-panel-success-heading-text'],
                 $this->hiddenField
             )
         );
@@ -2637,7 +2637,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-info-border',
                 'Rahmenfarbe Infopanel',
-                '@swf-state-info-border',
+                $this->themeDefaults['swf-panel-info-border'],
                 $this->hiddenField
             )
         );
@@ -2646,7 +2646,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-info-heading-bg',
                 'Hintergrundfarbe Kopfzeile Infopanel',
-                '@swf-state-info-bg',
+                $this->themeDefaults['swf-panel-info-heading-bg'],
                 $this->hiddenField
             )
         );
@@ -2655,7 +2655,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-info-heading-text',
                 'Textfarbe Kopfzeile Infopanel',
-                '@swf-state-info-text',
+                $this->themeDefaults['swf-panel-info-heading-text'],
                 $this->hiddenField
             )
         );
@@ -2664,7 +2664,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-warning-border',
                 'Rahmenfarbe Warnungspanel',
-                '@swf-state-warning-border',
+                $this->themeDefaults['swf-panel-warning-border'],
                 $this->hiddenField
             )
         );
@@ -2673,7 +2673,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-warning-heading-bg',
                 'Hintergrundfarbe Kopfzeile Warnungspanel',
-                '@swf-state-warning-bg',
+                $this->themeDefaults['swf-panel-warning-heading-bg'],
                 $this->hiddenField
             )
         );
@@ -2682,7 +2682,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-warning-heading-text',
                 'Textfarbe Kopfzeile Warnungspanel',
-                '@swf-state-warning-text',
+                $this->themeDefaults['swf-panel-warning-heading-text'],
                 $this->hiddenField
             )
         );
@@ -2691,7 +2691,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-danger-border',
                 'Rahmenfarbe Fehlerpanel',
-                '@swf-state-danger-border',
+                $this->themeDefaults['swf-panel-danger-border'],
                 $this->hiddenField
             )
         );
@@ -2700,7 +2700,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-danger-heading-bg',
                 'Hintergrundfarbe Kopfzeile Fehlerpanel',
-                '@swf-state-danger-bg',
+                $this->themeDefaults['swf-panel-danger-heading-bg'],
                 $this->hiddenField
             )
         );
@@ -2709,7 +2709,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-panel-danger-heading-text',
                 'Textfarbe Kopfzeile Fehlerpanel',
-                '@swf-state-danger-text',
+                $this->themeDefaults['swf-panel-danger-heading-text'],
                 $this->hiddenField
             )
         );
@@ -2724,7 +2724,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-price-default-color',
                 'Textfarbe Preise',
-                '@swf-gray',
+                $this->themeDefaults['swf-price-default-color'],
                 $this->hiddenField
             )
         );
@@ -2733,7 +2733,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-price-pseudo-color',
                 'Textfarbe Pseudopreise',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-price-pseudo-color'],
                 $this->hiddenField
             )
         );
@@ -2742,7 +2742,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-price-discount-color',
                 'Textfarbe Rabattpreise',
-                '@swf-brand-danger',
+                $this->themeDefaults['swf-price-discount-color'],
                 $this->hiddenField
             )
         );
@@ -2751,7 +2751,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-rating-color',
                 'Farbe Bewertungssterne',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-rating-color'],
                 $this->hiddenField
             )
         );
@@ -2766,7 +2766,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-blockquote-border-color',
                 'Rahmenfarbe Kommentar',
-                '@swf-gray-lighter',
+                $this->themeDefaults['swf-blockquote-border-color'],
                 $this->hiddenField
             )
         );
@@ -2775,7 +2775,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-blockquote-small-color',
                 'Textfarbe Kommentar (klein)',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-blockquote-small-color'],
                 $this->hiddenField
             )
         );
@@ -2790,7 +2790,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-label-color',
                 'Textfarbe Label',
-                '#fff',
+                $this->themeDefaults['swf-label-color'],
                 $this->hiddenField
             )
         );
@@ -2799,7 +2799,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-label-link-hover-color',
                 'Textfarbe Label Link (Hover)',
-                '#fff',
+                $this->themeDefaults['swf-label-link-hover-color'],
                 $this->hiddenField
             )
         );
@@ -2808,7 +2808,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-label-default-bg',
                 'Hintergrundfarbe Label',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-label-default-bg'],
                 $this->hiddenField
             )
         );
@@ -2817,7 +2817,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-label-primary-bg',
                 'Hintergrundfarbe Label (NEU)',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-label-primary-bg'],
                 $this->hiddenField
             )
         );
@@ -2826,7 +2826,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-label-info-bg',
                 'Hintergrundfarbe Label (INFO)',
-                '@swf-brand-info',
+                $this->themeDefaults['swf-label-info-bg'],
                 $this->hiddenField
             )
         );
@@ -2835,7 +2835,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-label-success-bg',
                 'Hintergrundfarbe Label (TIPP)',
-                '@swf-brand-success',
+                $this->themeDefaults['swf-label-success-bg'],
                 $this->hiddenField
             )
         );
@@ -2844,7 +2844,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-label-warning-bg',
                 'Hintergrundfarbe Label (ESD)',
-                '@swf-brand-warning',
+                $this->themeDefaults['swf-label-warning-bg'],
                 $this->hiddenField
             )
         );
@@ -2853,7 +2853,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-label-danger-bg',
                 'Hintergrundfarbe Label (Rabatt)',
-                '@swf-brand-danger',
+                $this->themeDefaults['swf-label-danger-bg'],
                 $this->hiddenField
             )
         );
@@ -2868,7 +2868,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-thumbnail-padding',
                 'Innenabstand Artikelbox',
-                '4px',
+                $this->themeDefaults['swf-thumbnail-padding'],
                 $this->hiddenField
             )
         );
@@ -2877,7 +2877,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-thumbnail-border-radius',
                 'Eckenradius Artikelbox',
-                '@swf-border-radius-base',
+                $this->themeDefaults['swf-thumbnail-border-radius'],
                 $this->hiddenField
             )
         );
@@ -2886,7 +2886,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-thumbnail-hover-border',
                 'Rahmenfarbe Artikelbox (Hover)',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-thumbnail-hover-border'],
                 $this->hiddenField
             )
         );
@@ -2895,7 +2895,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-thumbnail-bg',
                 'Hintergrundfarbe Artikelbox',
-                '@swf-shop-bg',
+                $this->themeDefaults['swf-thumbnail-bg'],
                 $this->hiddenField
             )
         );
@@ -2904,7 +2904,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-thumbnail-border',
                 'Rahmenfarbe Artikelbox',
-                '#ddd',
+                $this->themeDefaults['swf-thumbnail-border'],
                 $this->hiddenField
             )
         );
@@ -2913,7 +2913,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-thumbnail-caption-color',
                 'Textfarbe Artikelbox',
-                '@swf-text-color',
+                $this->themeDefaults['swf-thumbnail-caption-color'],
                 $this->hiddenField
             )
         );
@@ -2928,7 +2928,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-default-color',
                 'Textfarbe Standard-Buttons',
-                '#333',
+                $this->themeDefaults['swf-btn-default-color'],
                 $this->hiddenField
             )
         );
@@ -2937,7 +2937,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-default-bg',
                 'Hintergrundfarbe Standard-Buttons',
-                '#fff',
+                $this->themeDefaults['swf-btn-default-bg'],
                 $this->hiddenField
             )
         );
@@ -2946,7 +2946,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-default-border',
                 'Rahmenfarbe Standard-Buttons',
-                '#ccc',
+                $this->themeDefaults['swf-btn-default-border'],
                 $this->hiddenField
             )
         );
@@ -2955,7 +2955,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-primary-color',
                 'Textfarbe Aktionen-Buttons',
-                '#fff',
+                $this->themeDefaults['swf-btn-primary-color'],
                 $this->hiddenField
             )
         );
@@ -2964,7 +2964,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-primary-bg',
                 'Hintergrundfarbe Aktionen-Buttons',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-btn-primary-bg'],
                 $this->hiddenField
             )
         );
@@ -2973,7 +2973,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-primary-border',
                 'Rahmenfarbe Aktionen-Buttons',
-                'darken(@swf-btn-primary-bg, 5%)',
+                $this->themeDefaults['swf-btn-primary-border'],
                 $this->hiddenField
             )
         );
@@ -2982,7 +2982,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-danger-color',
                 'Textfarbe Löschen-Buttons',
-                '#fff',
+                $this->themeDefaults['swf-btn-danger-color'],
                 $this->hiddenField
             )
         );
@@ -2991,7 +2991,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-danger-bg',
                 'Hintergrundfarbe Löschen-Buttons',
-                '@swf-brand-danger',
+                $this->themeDefaults['swf-btn-danger-bg'],
                 $this->hiddenField
             )
         );
@@ -3000,7 +3000,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-danger-border',
                 'Rahmenfarbe Löschen-Buttons',
-                'darken(@swf-btn-danger-bg, 5%)',
+                $this->themeDefaults['swf-btn-danger-border'],
                 $this->hiddenField
             )
         );
@@ -3009,7 +3009,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-success-color',
                 'Textfarbe Erfolg-Buttons',
-                '#fff',
+                $this->themeDefaults['swf-btn-success-color'],
                 $this->hiddenField
             )
         );
@@ -3018,7 +3018,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-success-bg',
                 'Hintergrundfarbe Erfolg-Buttons',
-                '@swf-brand-success',
+                $this->themeDefaults['swf-btn-success-bg'],
                 $this->hiddenField
             )
         );
@@ -3027,7 +3027,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-success-border',
                 'Rahmenfarbe Erfolg-Buttons',
-                'darken(@swf-btn-success-bg, 5%)',
+                $this->themeDefaults['swf-btn-success-border'],
                 $this->hiddenField
             )
         );
@@ -3036,7 +3036,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-info-color',
                 'Textfarbe Info-Buttons',
-                '#fff',
+                $this->themeDefaults['swf-btn-info-color'],
                 $this->hiddenField
             )
         );
@@ -3045,7 +3045,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-info-bg',
                 'Hintergrundfarbe Info-Buttons',
-                '@swf-brand-info',
+                $this->themeDefaults['swf-btn-info-bg'],
                 $this->hiddenField
             )
         );
@@ -3054,7 +3054,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-info-border',
                 'Rahmenfarbe Info-Buttons',
-                'darken(@swf-btn-info-bg, 5%)',
+                $this->themeDefaults['swf-btn-info-border'],
                 $this->hiddenField
             )
         );
@@ -3063,7 +3063,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-warning-color',
                 'Textfarbe Warnung-Buttons',
-                '#fff',
+                $this->themeDefaults['swf-btn-warning-color'],
                 $this->hiddenField
             )
         );
@@ -3072,7 +3072,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-warning-bg',
                 'Hintergrundfarbe Warnung-Buttons',
-                '@swf-brand-warning',
+                $this->themeDefaults['swf-btn-warning-bg'],
                 $this->hiddenField
             )
         );
@@ -3081,7 +3081,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-warning-border',
                 'Rahmenfarbe Warnung-Buttons',
-                'darken(@swf-btn-warning-bg, 5%)',
+                $this->themeDefaults['swf-btn-warning-border'],
                 $this->hiddenField
             )
         );
@@ -3090,7 +3090,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-btn-link-disabled-color',
                 'Textfarbe Link-Buttons (Disabled)',
-                '@swf-gray-light',
+                $this->themeDefaults['swf-btn-link-disabled-color'],
                 $this->hiddenField
             )
         );
@@ -3099,7 +3099,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'swf-btn-font-weight',
                 'Schriftschnitt Buttons',
-                'normal',
+                $this->themeDefaults['swf-btn-font-weight'],
                 array(
                     array(
                         'text' => 'bold',
@@ -3124,7 +3124,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-state-success-bg',
                 'Hintergrundfarbe Erfolgsmeldung',
-                '#dff0d8',
+                $this->themeDefaults['swf-state-success-bg'],
                 $this->hiddenField
             )
         );
@@ -3133,7 +3133,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-state-success-text',
                 'Textfarbe Erfolgsmeldungen',
-                '#3c763d',
+                $this->themeDefaults['swf-state-success-text'],
                 $this->hiddenField
             )
         );
@@ -3142,7 +3142,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-state-success-border',
                 'Rahmenfarbe Erfolgsmeldungen',
-                'darken(spin(@swf-state-success-bg, -10), 5%)',
+                $this->themeDefaults['swf-state-success-border'],
                 $this->hiddenField
             )
         );
@@ -3151,7 +3151,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-state-warning-bg',
                 'Hintergrundfarbe Warnmeldung',
-                '#fcf8e3',
+                $this->themeDefaults['swf-state-warning-bg'],
                 $this->hiddenField
             )
         );
@@ -3160,7 +3160,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-state-warning-text',
                 'Textfarbe Warnmeldungen',
-                '#8a6d3b',
+                $this->themeDefaults['swf-state-warning-text'],
                 $this->hiddenField
             )
         );
@@ -3169,7 +3169,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-state-warning-border',
                 'Rahmenfarbe Warnmeldungen',
-                'darken(spin(@swf-state-warning-bg, -10), 5%)',
+                $this->themeDefaults['swf-state-warning-border'],
                 $this->hiddenField
             )
         );
@@ -3178,7 +3178,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-state-danger-bg',
                 'Hintergrundfarbe Fehlermeldung',
-                '#f2dede',
+                $this->themeDefaults['swf-state-danger-bg'],
                 $this->hiddenField
             )
         );
@@ -3187,7 +3187,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-state-danger-text',
                 'Textfarbe Fehlermeldungen',
-                '#a94442',
+                $this->themeDefaults['swf-state-danger-text'],
                 $this->hiddenField
             )
         );
@@ -3196,7 +3196,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-state-danger-border',
                 'Rahmenfarbe Fehlermeldungen',
-                'darken(spin(@swf-state-danger-bg, -10), 5%)',
+                $this->themeDefaults['swf-state-danger-border'],
                 $this->hiddenField
             )
         );
@@ -3205,7 +3205,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-state-info-bg',
                 'Hintergrundfarbe Infomeldung',
-                '#d9edf7',
+                $this->themeDefaults['swf-state-info-bg'],
                 $this->hiddenField
             )
         );
@@ -3214,7 +3214,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-state-info-text',
                 'Textfarbe Infomeldungen',
-                '#31708f',
+                $this->themeDefaults['swf-state-info-text'],
                 $this->hiddenField
             )
         );
@@ -3223,7 +3223,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-state-info-border',
                 'Rahmenfarbe Infomeldungen',
-                'darken(spin(@swf-state-info-bg, -10), 7%)',
+                $this->themeDefaults['swf-state-info-border'],
                 $this->hiddenField
             )
         );
@@ -3238,7 +3238,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-input-color',
                 'Textfarbe Eingabefeld',
-                '@swf-gray',
+                $this->themeDefaults['swf-input-color'],
                 $this->hiddenField
             )
         );
@@ -3247,7 +3247,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-input-bg',
                 'Hintergrundfarbe Eingabefeld',
-                '#fff',
+                $this->themeDefaults['swf-input-bg'],
                 $this->hiddenField
             )
         );
@@ -3256,7 +3256,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-input-bg-disabled',
                 'Hintergrundfarbe Eingabefeld (Disabled)',
-                '@swf-gray-lighter',
+                $this->themeDefaults['swf-input-bg-disabled'],
                 $this->hiddenField
             )
         );
@@ -3265,7 +3265,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-input-border',
                 'Rahmenfarbe Eingabefeld',
-                '#ccc',
+                $this->themeDefaults['swf-input-border'],
                 $this->hiddenField
             )
         );
@@ -3274,7 +3274,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-input-border-focus',
                 'Rahmenfarbe Eingabefeld (Focus)',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-input-border-focus'],
                 $this->hiddenField
             )
         );
@@ -3283,7 +3283,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-input-color-placeholder',
                 'Textfarbe Platzhalter Eingabefeld',
-                '#999',
+                $this->themeDefaults['swf-input-color-placeholder'],
                 $this->hiddenField
             )
         );
@@ -3292,7 +3292,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-input-border-radius',
                 'Eckradius Eingabefeld',
-                '@swf-border-radius-base',
+                $this->themeDefaults['swf-input-border-radius'],
                 $this->hiddenField
             )
         );
@@ -3301,7 +3301,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-input-border-radius-large',
                 'Eckradius großes Eingabefeld',
-                '@swf-border-radius-large',
+                $this->themeDefaults['swf-input-border-radius-large'],
                 $this->hiddenField
             )
         );
@@ -3310,7 +3310,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-input-border-radius-small',
                 'Eckradius kleines Eingabefeld',
-                '@swf-border-radius-small',
+                $this->themeDefaults['swf-input-border-radius-small'],
                 $this->hiddenField
             )
         );
@@ -3319,7 +3319,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-input-height-base',
                 'Höhe Eingabefeld',
-                '(@swf-line-height-computed + (@swf-padding-base-vertical * 2) + 2)',
+                $this->themeDefaults['swf-input-height-base'],
                 $this->hiddenField
             )
         );
@@ -3328,7 +3328,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-input-height-large',
                 'Höhe großes Eingabefeld',
-                '(ceil(@swf-font-size-large * @swf-line-height-large) + (@swf-padding-large-vertical * 2) + 2)',
+                $this->themeDefaults['swf-input-height-large'],
                 $this->hiddenField
             )
         );
@@ -3337,7 +3337,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-input-height-small',
                 'Höhe kleines Eingabefeld',
-                '(floor(@swf-font-size-small * @swf-line-height-small) + (@swf-padding-small-vertical * 2) + 2)',
+                $this->themeDefaults['swf-input-height-small'],
                 $this->hiddenField
             )
         );
@@ -3346,7 +3346,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-input-group-addon-bg',
                 'Hintergrundfarbe Eingabefeld Erweiterung',
-                '@swf-gray-lighter',
+                $this->themeDefaults['swf-input-group-addon-bg'],
                 $this->hiddenField
             )
         );
@@ -3355,7 +3355,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-input-group-addon-border-color',
                 'Rahmenfarbe Eingabefeld Erweiterung',
-                '@swf-input-border',
+                $this->themeDefaults['swf-input-group-addon-border-color'],
                 $this->hiddenField
             )
         );
@@ -3364,7 +3364,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-legend-color',
                 'Textfarbe Legende',
-                '@swf-gray-dark',
+                $this->themeDefaults['swf-legend-color'],
                 $this->hiddenField
             )
         );
@@ -3373,7 +3373,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-legend-border-color',
                 'Rahmenfarbe Legende',
-                '#e5e5e5',
+                $this->themeDefaults['swf-legend-border-color'],
                 $this->hiddenField
             )
         );
@@ -3388,7 +3388,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-padding-base-vertical',
                 'Außenabstand vertikal',
-                '6px',
+                $this->themeDefaults['swf-padding-base-vertical'],
                 $this->hiddenField
             )
         );
@@ -3397,7 +3397,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-padding-base-horizontal',
                 'Außenabstand horizontal',
-                '12px',
+                $this->themeDefaults['swf-padding-base-horizontal'],
                 $this->hiddenField
             )
         );
@@ -3406,7 +3406,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-padding-xs-vertical',
                 'Außenabstand vertikal (Smartphone)',
-                '1px',
+                $this->themeDefaults['swf-padding-xs-vertical'],
                 $this->hiddenField
             )
         );
@@ -3415,7 +3415,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-padding-xs-horizontal',
                 'Außenabstand horizontal (Smartphone)',
-                '5px',
+                $this->themeDefaults['swf-padding-xs-horizontal'],
                 $this->hiddenField
             )
         );
@@ -3424,7 +3424,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-padding-large-vertical',
                 'Außenabstand vertikal (groß)',
-                '10px',
+                $this->themeDefaults['swf-padding-large-vertical'],
                 $this->hiddenField
             )
         );
@@ -3433,7 +3433,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-padding-large-horizontal',
                 'Außenabstand horizontal (groß)',
-                '16px',
+                $this->themeDefaults['swf-padding-large-horizontal'],
                 $this->hiddenField
             )
         );
@@ -3442,7 +3442,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-padding-small-vertical',
                 'Außenabstand vertikal (klein)',
-                '5px',
+                $this->themeDefaults['swf-padding-small-vertical'],
                 $this->hiddenField
             )
         );
@@ -3451,7 +3451,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-padding-small-horizontal',
                 'Außenabstand horizontal (klein)',
-                '10px',
+                $this->themeDefaults['swf-padding-small-horizontal'],
                 $this->hiddenField
             )
         );
@@ -3460,7 +3460,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-space',
                 'Allgemeiner Abstand',
-                '10px',
+                $this->themeDefaults['swf-space'],
                 $this->hiddenField
             )
         );
@@ -3469,7 +3469,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-space-mini',
                 'Allgemeiner Abstand (Mini)',
-                '3px',
+                $this->themeDefaults['swf-space-mini'],
                 $this->hiddenField
             )
         );
@@ -3478,7 +3478,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-space-small',
                 'Allgemeiner Abstand (Klein)',
-                '5px',
+                $this->themeDefaults['swf-space-small'],
                 $this->hiddenField
             )
         );
@@ -3487,7 +3487,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-space-large',
                 'Allgemeiner Abstand (Groß)',
-                '20px',
+                $this->themeDefaults['swf-space-large'],
                 $this->hiddenField
             )
         );
@@ -3502,7 +3502,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-slick-font-family',
                 'Icon Font',
-                '"FontAwesome"',
+                $this->themeDefaults['swf-slick-font-family'],
                 $this->hiddenField
             )
         );
@@ -3511,7 +3511,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-slick-arrow-color',
                 'Farbe Pfeil',
-                '#000',
+                $this->themeDefaults['swf-slick-arrow-color'],
                 $this->hiddenField
             )
         );
@@ -3520,7 +3520,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-slick-dot-color',
                 'Farbe Navigationspunkt',
-                '#000',
+                $this->themeDefaults['swf-slick-dot-color'],
                 $this->hiddenField
             )
         );
@@ -3529,7 +3529,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-slick-dot-color-active',
                 'Farbe Navigationspunkt (aktiv)',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-slick-dot-color-active'],
                 $this->hiddenField
             )
         );
@@ -3538,7 +3538,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createColorPickerField(
                 'swf-slick-dot-color-hover',
                 'Farbe Navigationspunkt (hover)',
-                '@swf-brand-primary',
+                $this->themeDefaults['swf-slick-dot-color-hover'],
                 $this->hiddenField
             )
         );
@@ -3547,7 +3547,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-slick-prev-character',
                 'Zurück-Pfeil Icon',
-                '"\f053"',
+                $this->themeDefaults['swf-slick-prev-character'],
                 $this->hiddenField
             )
         );
@@ -3556,7 +3556,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-slick-next-character',
                 'Vor-Pfeil Icon',
-                '"\f054"',
+                $this->themeDefaults['swf-slick-next-character'],
                 $this->hiddenField
             )
         );
@@ -3565,7 +3565,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-slick-dot-character',
                 'Navigationspunkt Icon',
-                '"\f10c"',
+                $this->themeDefaults['swf-slick-dot-character'],
                 $this->hiddenField
             )
         );
@@ -3574,7 +3574,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-slick-dot-size',
                 'Navigationspunkt Größe',
-                '13px',
+                $this->themeDefaults['swf-slick-dot-size'],
                 $this->hiddenField
             )
         );
@@ -3583,7 +3583,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-slick-opacity-default',
                 'Navigationspunkt Deckkraft',
-                '0.75',
+                $this->themeDefaults['swf-slick-opacity-default'],
                 $this->hiddenField
             )
         );
@@ -3592,7 +3592,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-slick-opacity-on-hover',
                 'Navigationspunkt Deckkraft (hover)',
-                '1',
+                $this->themeDefaults['swf-slick-opacity-on-hover'],
                 $this->hiddenField
             )
         );
@@ -3601,7 +3601,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createTextField(
                 'swf-slick-opacity-not-active',
                 'Deckkraft inaktiver Slidernavigationselemente',
-                '0.25',
+                $this->themeDefaults['swf-slick-opacity-not-active'],
                 $this->hiddenField
             )
         );
@@ -3619,7 +3619,7 @@ class Theme extends \Shopware\Components\Theme
                 'attributes' => array(
                     'layout' => 'anchor',
                     'autoScroll' => true,
-                ),
+                )
             )
         );
 
@@ -3639,7 +3639,7 @@ class Theme extends \Shopware\Components\Theme
             'GeneralPlugins',
             'Allgemein',
             array(
-                'attributes' => $this->fieldSetDefaults,
+                'attributes' => $this->fieldSetDefaults
             )
         );
 
@@ -3647,7 +3647,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'custom-selects',
                 'Standard Select-Felder ersetzen',
-                true,
+                $this->themeDefaults['custom-selects'],
                 array(
                     'attributes' =>
                         array(
@@ -3662,7 +3662,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'pwd-show-hide',
                 'Button zur Anzeige des Passworts im Passwortfeld anzeigen',
-                true,
+                $this->themeDefaults['pwd-show-hide'],
                 array(
                     'attributes' =>
                         array(
@@ -3677,7 +3677,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'pwd-strength',
                 'Progress Bar zur Anzeige der Stärke des Passworts',
-                true,
+                $this->themeDefaults['pwd-strength'],
                 array(
                     'attributes' =>
                         array(
@@ -3692,7 +3692,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'asyncJavascriptLoading',
                 'JavaScript asynchron laden',
-                true,
+                $this->themeDefaults['asyncJavascriptLoading'],
                 [
                     'attributes' => [
                         'lessCompatible' => false,
@@ -3712,7 +3712,7 @@ class Theme extends \Shopware\Components\Theme
             'MenuPlugins',
             'Navigations-Menü',
             array(
-                'attributes' => $this->fieldSetDefaults,
+                'attributes' => $this->fieldSetDefaults
             )
         );
 
@@ -3720,7 +3720,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'fixed-navbar',
                 'Menü fixieren',
-                true,
+                $this->themeDefaults['fixed-navbar'],
                 array(
                     'attributes' =>
                         array(
@@ -3735,7 +3735,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'mega-menu',
                 'Mega-Menü aktivieren',
-                true,
+                $this->themeDefaults['mega-menu'],
                 array(
                     'attributes' =>
                         array(
@@ -3750,7 +3750,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'mega-menu-col-width',
                 'Mega-Menü: Spalten pro Zeile',
-                '3',
+                $this->themeDefaults['mega-menu-col-width'],
                 array(
                     array(
                         'text' => '4',
@@ -3776,7 +3776,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createNumberField(
                 'mega-menu-new-col',
                 'Mega-Menü: Kategorien pro Spalte',
-                3
+                $this->themeDefaults['mega-menu-new-col']
             )
         );
 
@@ -3784,7 +3784,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createNumberField(
                 'mega-menu-depth',
                 'Menü: Tiefe des Kategoriebaums',
-                3,
+                $this->themeDefaults['mega-menu-depth'],
                 array(
                     'attributes' => array(
                         'lessCompatible' => false,
@@ -3797,7 +3797,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'mega-menu-category-img',
                 'Mega-Menü: Kategorie Bild anzeigen',
-                false,
+                $this->themeDefaults['mega-menu-category-img'],
                 array(
                     'attributes' =>
                         array(
@@ -3818,7 +3818,7 @@ class Theme extends \Shopware\Components\Theme
             'ListingPlugins',
             'Listing',
             array(
-                'attributes' => $this->fieldSetDefaults,
+                'attributes' => $this->fieldSetDefaults
             )
         );
 
@@ -3826,7 +3826,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'infinite-scrolling',
                 'Infinite Scrolling',
-                false,
+                $this->themeDefaults['infinite-scrolling'],
                 array(
                     'attributes' =>
                         array(
@@ -3840,7 +3840,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createNumberField(
                 'infinite-threshold',
                 'Seitenanzahl für Infinite Scrolling',
-                4
+                $this->themeDefaults['infinite-threshold']
             )
         );
 
@@ -3848,7 +3848,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'notify-modal-in-listing',
                 'Artikelbenachrichtigung anzeigen',
-                true,
+                $this->themeDefaults['notify-modal-in-listing'],
                 array(
                     'attributes' =>
                         array(
@@ -3863,7 +3863,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'sidebarFilter',
                 'Filter in der Sidebar anzeigen',
-                true,
+                $this->themeDefaults['sidebarFilter'],
                 array(
                     'attributes' =>
                         array(
@@ -3884,7 +3884,7 @@ class Theme extends \Shopware\Components\Theme
             'DetailPlugins',
             'Produktdetailseite',
             array(
-                'attributes' => $this->fieldSetDefaults,
+                'attributes' => $this->fieldSetDefaults
             )
         );
 
@@ -3892,7 +3892,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'deactivate-zoom',
                 'Zoomviewer deaktivieren ab',
-                'sm',
+                $this->themeDefaults['deactivate-zoom'],
                 array(
                     array(
                         'text' => 'Smartphone',
@@ -3908,11 +3908,11 @@ class Theme extends \Shopware\Components\Theme
                     ),
                     array(
                         'text' => 'nie',
-                        'value' => 'false',
+                        'value' => false,
                     ),
                     array(
                         'text' => 'immer',
-                        'value' => 'true',
+                        'value' => true,
                     ),
                 )
             )
@@ -3922,7 +3922,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'zoom-type',
                 'Zoomviewer Typ',
-                'lens',
+                $this->themeDefaults['zoom-type'],
                 array(
                     array(
                         'text' => 'Lupe',
@@ -3940,7 +3940,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'zoom-shape',
                 'Zoomviewer Form',
-                'square',
+                $this->themeDefaults['zoom-shape'],
                 array(
                     array(
                         'text' => 'eckig',
@@ -3958,7 +3958,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'modal-gallery',
                 'Galerie-Slider im Modal',
-                false,
+                $this->themeDefaults['modal-gallery'],
                 array(
                     'attributes' =>
                         array(
@@ -3973,7 +3973,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createSelectField(
                 'modal-gallery-size',
                 'Größe des Modals',
-                'modal-full',
+                $this->themeDefaults['modal-gallery-size'],
                 array(
                     array(
                         'text' => 'Vollbild',
@@ -3996,7 +3996,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'ajaxVariantSwitch',
                 'Variantenwechsel via Ajax',
-                true,
+                $this->themeDefaults['ajaxVariantSwitch'],
                 array(
                     'attributes' =>
                         array(
@@ -4011,7 +4011,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'detailOffcanvasCart',
                 'Offcanvas Warenkorb',
-                true,
+                $this->themeDefaults['detailOffcanvasCart'],
                 array(
                     'attributes' =>
                         array(
@@ -4032,7 +4032,7 @@ class Theme extends \Shopware\Components\Theme
             'CheckoutPlugins',
             'Warenkorb',
             array(
-                'attributes' => $this->fieldSetDefaults,
+                'attributes' => $this->fieldSetDefaults
             )
         );
 
@@ -4040,7 +4040,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'checkoutHeader',
                 'Minimaler Header',
-                true,
+                $this->themeDefaults['checkoutHeader'],
                 array(
                     'attributes' =>
                         array(
@@ -4055,7 +4055,7 @@ class Theme extends \Shopware\Components\Theme
             $this->createCheckboxField(
                 'checkoutFooter',
                 'Minimaler Footer',
-                true,
+                $this->themeDefaults['checkoutFooter'],
                 array(
                     'attributes' =>
                         array(
@@ -4077,7 +4077,16 @@ class Theme extends \Shopware\Components\Theme
      */
     public function createConfigSets(ArrayCollection $collection)
     {
-        $themeDefaults = array(
+        $set = new ConfigSet();
+        $set->setName('Standard Theme')->setDescription(
+            'Aktiviert das Standard Theme'
+        )->setValues(
+            $this->themeDefaults
+        );
+        $collection->add($set);
+    }
+
+    private $themeDefaults = array(
             'amount-left-columns' => '3',
             'articles-col-width-lg' => '4',
             'articles-col-width-md' => '4',
@@ -4397,28 +4406,28 @@ class Theme extends \Shopware\Components\Theme
             'body-bg-img-repeat' => 'repeat',
             'body-bg-img-hide' => 'sm',
             // plugin config defaults
-            'custom-selects' => 'true',
-            'pwd-show-hide' => 'false',
-            'pwd-strength' => 'false',
-            'asyncJavascriptLoading' => 'true',
+            'custom-selects' => true,
+            'pwd-show-hide' => false,
+            'pwd-strength' => false,
+            'asyncJavascriptLoading' => true,
             'deactivate-zoom' => 'sm',
             'zoom-type' => 'lens',
             'zoom-shape' => 'square',
-            'modal-gallery' => 'true',
+            'modal-gallery' => true,
             'modal-gallery-size' => 'modal-full',
-            'ajaxVariantSwitch' => 'true',
-            'detailOffcanvasCart' => 'false',
-            'checkoutHeader' => 'true',
-            'infinite-scrolling' => 'false',
+            'ajaxVariantSwitch' => true,
+            'detailOffcanvasCart' => false,
+            'checkoutHeader' => true,
+            'infinite-scrolling' => false,
             'infinite-threshold' => '4',
-            'notify-modal-in-listing' => 'false',
-            'sidebarFilter' => 'true',
-            'fixed-navbar' => 'false',
-            'mega-menu' => 'true',
+            'notify-modal-in-listing' => false,
+            'sidebarFilter' => true,
+            'fixed-navbar' => false,
+            'mega-menu' => true,
             'mega-menu-col-width' => '3',
             'mega-menu-new-col' => '3',
             'mega-menu-depth' => '3',
-            'mega-menu-category-img' => 'false',
+            'mega-menu-category-img' => false,
             // slider config defaults
             'swf-slick-dot-color-active' => '@swf-brand-primary',
             'swf-slick-dot-color-hover' => '@swf-brand-primary',
@@ -4430,13 +4439,4 @@ class Theme extends \Shopware\Components\Theme
             'swf-slick-opacity-on-hover' => '1',
             'swf-slick-opacity-not-active' => '0.25',
         );
-
-        $set = new ConfigSet();
-        $set->setName('Standard Theme')->setDescription(
-            'Aktiviert das Standard Theme'
-        )->setValues(
-            $themeDefaults
-        );
-        $collection->add($set);
-    }
 }
