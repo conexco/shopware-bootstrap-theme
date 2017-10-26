@@ -302,3 +302,10 @@ $this->createTextField($uniqueName, $label, $defaultValue);
 ```
 
 [This example is available for download in a separate project on GitHub](https://github.com/conexco/shopware-bootstrap-custom-configuration-theme){:target="_blank"}
+
+### config.tpl
+
+In the Bootstrap Theme's template file structure, there is another place where few of the global variables are defined,
+and that is the `config.tpl` file in `BootstrapBare`, located in `Resources/Themes/Frontend/BootstrapBare/_public/src/config.tpl`
+relative to the plugin's root directory. In it, few class names and recurring code snippets for the Bootstrap grid system are defined.
+If you want to override some of these settings, you may do so by extending from the `config.tpl` file in your Theme and overriding the relevant blocks.
