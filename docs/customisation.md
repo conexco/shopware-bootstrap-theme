@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Theme Configuration
+title: Customisation
 description: Make huge changes with little effort
 group: customisation
 toc: true
@@ -214,5 +214,91 @@ private function modifyExtendedThemeConfigs(Form\Container\FieldSet $fieldSet)
 And the result:
 
 ![result](img/fieldset.png)
+
+[This example is available for download in a separate project on GitHub](https://github.com/conexco/shopware-bootstrap-custom-configuration-theme){:target="_blank"}
+
+#### Adding New Configuration
+
+[The following example is available for download in a separate project on GitHub](https://github.com/conexco/shopware-bootstrap-custom-configuration-theme){:target="_blank"}
+
+Compared to modifying existing fields, adding new configuration fields is relatively easy,
+especially if you choose to place them in a new configuration tab.
+
+If you want your configuration fields in already existing field sets, you have to find those field sets
+by cycling through them like shown earlier. Otherwise you have to create new ones.
+
+First of all, we need a `createConfig`-function. In it, I will call a helper function that creates our tab and field set.
+
+**Theme.php**
+```php
+<?php
+namespace Shopware\Themes\AdditioalConfigurationTheme;
+
+use Shopware\Components\Form;
+
+class Theme extends \Shopware\Components\Theme
+{
+    protected $extend = 'BootstrapBare';
+
+    /* more variables for meta-information */
+
+    public function createConfig(Form\Container\TabContainer $container)
+    {
+        $this->createFieldSets($container);
+    }
+
+    private function createFieldSets(Form\Container\TabContainer $container)
+    {
+        $this->additionalTab = $this->createTab('additionalTab', 'Additional tab');
+        $container->addTab($this->additionalTab);
+
+        $this->additionalFieldSet = $this->createFieldSet('additionalFieldSet', 'Additional field set');
+        $this->additionalTab->addElement($this->additionalFieldSet);
+    }
+}
+```
+
+Now, we can add our configuration fields:
+
+**Theme.php**
+```php
+<?php
+// ...
+public function createConfig(Form\Container\TabContainer $container)
+{
+	$this->createFieldSets($container);
+	
+	$this->createQuestionField();
+}
+
+private function createQuestionField()
+{
+	$this->additionalFieldSet->addElement(
+		$this->createTextfield('theQuestion', 'What\'s the question to 42?', '')
+	);
+}
+// ...
+```
+Quite simple, isn't it? Right now, the value of this field will only be available in your Smarty templates as `{$theme.theQuestion}`,
+and in your Less-files as `@theQuestion`.
+
+Of course, you are not limited to text fields only. The different available field and data types are
+- `createTextField`
+- `createNumberField`
+- `createCheckboxField`
+- `createDateField`
+- `createEmField` (automatically adds the suffix “em” to the user's input)
+- `createColourPickerField`
+- `createMediaField`
+- `createPercentField` (automatically adds the suffix “%” to the user's input)
+- `createPixelField` (automatically adds the suffix “px” to the user's input)
+- `createSelectField`
+- `createTextAreaField`
+
+All of them have a similar syntax:
+```php
+<?php
+$this->createTextField($uniqueName, $label, $defaultValue);
+```
 
 [This example is available for download in a separate project on GitHub](https://github.com/conexco/shopware-bootstrap-custom-configuration-theme){:target="_blank"}
