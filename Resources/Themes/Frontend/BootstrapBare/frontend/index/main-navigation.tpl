@@ -11,8 +11,8 @@
             <ul class="mobile-sub wsmenu-list" data-wsmenu="true">
                 {block name='frontend_index_navigation_categories_top_link_home'}
                     <li>
-                        <a href="{url controller='index'}" title="{s name='IndexLinkHome' namespace='frontend/index/categories_top'}{/s}">
-                            {s name='IndexLinkHome' namespace='frontend/index/categories_top'}{/s}
+                        <a href="{url controller='index'}"{if $sCategoryCurrent == $sCategoryStart && $Controller == 'index'} class="active"{/if} title="{s name='IndexLinkHome' namespace='frontend/index/categories_top'}{/s}">
+                            <span itemprop="name">{s name='IndexLinkHome' namespace='frontend/index/categories_top'}{/s}</span>
                         </a>
                     </li>
                 {/block}
