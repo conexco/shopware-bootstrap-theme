@@ -29,15 +29,40 @@ layout: home
                 <img src="assets/img/sign-shadow.png" class="t-20" />
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-lg-10 mx-lg-auto">
+                <div id="video-player">
+                    <video id="vplay" controls preload="auto" poster="assets/vid/swbstheme-teaser.jpg">
+                        <source src="assets/vid/swbstheme-teaser.mp4" type="video/mp4">
+                        <source src="assets/vid/swbstheme-teaser.webm" type="video/webm">
+                        <p>Your browser does not support the video tag.</p>
+                    </video>
+                    <div class="control">
+                        <div class="btnControls">
+                            <div class="btnPlay" title="Play/Pause video"><span></span></div>
+                            <div class="progress-bar">
+                                <div class="progress">
+                                    <span class="bufferBar"></span>
+                                    <span class="timeBar"></span>
+                                </div>
+                            </div>
+                            <div class="btnFullscreen" title="Switch to full screen"><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-sm-6 col-lg-4 col-xl-3 ml-sm-auto text-center" id="initiative">
-                <h5 class="text-10 up stretch black fw200 t40 mb-3 pt-4 pt-sm-0">An initiative from</h5>
+                <h5 class="text-10 up stretch black fw200 t100 mb-3 pt-4 pt-sm-0">An initiative from</h5>
                 <a href="https://www.conexco.com/" target="_blank">
                     {% include svg/conexco.svg %}
                 </a>
             </div>
             <div class="col-sm-6 col-lg-4 col-xl-3 mr-sm-auto text-center" id="support">
-                <h5 class="text-10 up stretch black fw200 t40 mb-3">Officially supported by</h5>
+                <h5 class="text-10 up stretch black fw200 t100 mb-3">Officially supported by</h5>
                 <a href="https://de.shopware.com/" target="_blank">
                     {% include svg/shopware.svg %}
                 </a>

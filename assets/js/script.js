@@ -670,10 +670,153 @@ $(document).ready(function() {
 
 /* smooth scrolling */
 
-$(document).on('click', 'a[href^="#"]', function (event) {
-    event.preventDefault();
+$(document).on('click', 'a[href^="#"]', function (e) {
+    e.preventDefault();
 
     $('html, body').animate({
         scrollTop: $($.attr(this, 'href')).offset().top - $('header').outerHeight(true) - 25
     }, 1000);
+});
+
+
+
+/* video player */
+
+$(document).ready(function(){
+    var $video = $('#vplay'),
+        video = $video[0]
+
+    video.removeAttribute("controls");
+
+    $video.on('loadedmetadata', function() {
+        $('.current').text(timeFormat(0));
+        $('.duration').text(timeFormat(video.duration));
+
+        setTimeout(startBuffer, 150);
+
+        $('#video-player').hover(function() {
+            $('.control').stop().fadeIn();
+        }, function() {
+            if (!timeDrag) {
+                $('.control').stop().fadeOut();
+            }
+        }).on('click', function() {
+            $(this).unbind('click');
+            video.play();
+        });
+    });
+
+    var startBuffer = function() {
+        var currentBuffer = video.buffered.end(0);
+        var maxduration = video.duration;
+        var perc = 100 * currentBuffer / maxduration;
+        $('.bufferBar').css('width', perc+'%');
+        if (currentBuffer < maxduration) {
+            setTimeout(startBuffer, 500);
+        }
+    };
+
+    $video.on('timeupdate', function() {
+        var currentPos = video.currentTime;
+        var maxduration = video.duration;
+        var perc = 100 * currentPos / maxduration;
+        $('.timeBar').css('width', perc+'%');
+        $('.current').text(timeFormat(currentPos));
+    });
+
+    $video.on('click', function() {
+        playpause();
+    });
+
+    $('.btnPlay').on('click', function() {
+        playpause();
+    });
+
+    var playpause = function() {
+        if(video.paused || video.ended) {
+            $('.btnPlay').addClass('paused');
+            video.play();
+        } else {
+            $('.btnPlay').removeClass('paused');
+            video.pause();
+        }
+    };
+
+    $('.btnFullscreen').on('click', function() {
+        if ($.isFunction(video.webkitEnterFullscreen)) {
+            video.webkitEnterFullscreen();
+        } else if ($.isFunction(video.mozRequestFullScreen)) {
+            video.mozRequestFullScreen();
+        } else {
+            alert('Your browsers doesn\'t support fullscreen');
+        }
+    });
+
+    $('.btnMute').click(function() {
+        video.muted = !video.muted;
+        $(this).toggleClass('muted');
+    });
+
+    $video.on('canplay', function() {
+        $('.loading').fadeOut(100);
+    });
+
+    var completeloaded = false;
+    $video.on('canplaythrough', function() {
+        completeloaded = true;
+    });
+
+    $video.on('ended', function() {
+        $('.btnPlay').removeClass('paused');
+        video.pause();
+    });
+
+    $video.on('seeking', function() {
+        if(!completeloaded) {
+            $('.loading').fadeIn(200);
+        }
+    });
+
+    $video.on('seeked', function() { });
+
+    $video.on('waiting', function() {
+        $('.loading').fadeIn(200);
+    });
+
+    var timeDrag = false;
+    $('.progress').on('mousedown', function(e) {
+        timeDrag = true;
+        updatebar(e.pageX);
+    });
+    $(document).on('mouseup', function(e) {
+        if (timeDrag) {
+            timeDrag = false;
+            updatebar(e.pageX);
+        }
+    });
+    $(document).on('mousemove', function(e) {
+        if(timeDrag) {
+            updatebar(e.pageX);
+        }
+    });
+    var updatebar = function(x) {
+        var progress = $('.progress');
+        var maxduration = video.duration;
+        var position = x - progress.offset().left;
+        var percentage = 100 * position / progress.width();
+        if (percentage > 100) {
+            percentage = 100;
+        }
+        if (percentage < 0) {
+            percentage = 0;
+        }
+        $('.timeBar').css('width', percentage+'%');
+        video.currentTime = maxduration * percentage / 100;
+    };
+
+    var timeFormat = function(seconds){
+        var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
+        var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
+        return m+":"+s;
+    };
 });

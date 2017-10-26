@@ -542,6 +542,8 @@ footer .nav .nav-item a.nav-link:hover::after{
 
 .gradient{
     background-image: -webkit-linear-gradient(25deg, #563D7C, #E60566);
+    background-image: -o-linear-gradien(25deg, #563D7C, #E60566);
+    background-image: linear-gradient(25deg, #563D7C, #E60566);
     display: inline-block;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -728,6 +730,143 @@ canvas{
     text-fill-color: #179EFF;
     -webkit-text-fill-color: #179EFF;
 }
+
+/* video */
+
+#video-player{
+    cursor: pointer;
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+}
+
+#video-player video{
+    box-shadow: 0 20px 40px rgba(86, 61, 124, 0.3);
+    height: auto;
+    width: 100%;
+}
+
+#video-player #play-btn{
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    height: 136px;
+    left: 50%;
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s;
+    width: 136px;
+}
+
+#video-player #play-btn svg{
+    left: calc(50% + 5px);
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 43px;
+}
+
+#video-player .control{
+    border-radius: 3px;
+    bottom: 17px;
+    color: #fff;
+    display: none;
+    left: 10px;
+    overflow: hidden;
+    position: absolute;
+    width: calc(100% - 17px);
+    z-index: 5;
+}
+
+#video-player .btnControls{
+    clear: both;
+}
+
+#video-player .control .btnPlay,
+#video-player .control .btnFullscreen{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    float: left;
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+#video-player .control .btnPlay span,
+#video-player .control .btnFullscreen span{
+    display: block;
+    height: 32px;
+    left: 50%;
+    opacity: 0.5;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(0.75);
+    width: 32px;
+}
+
+#video-player .control .btnPlay:hover span,
+#video-player .control .btnFullscreen:hover span{
+    opacity: 1;
+}
+
+.btnPlay span{
+    background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDMxNC4wNjggMzE0LjA2OCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzE0LjA2OCAzMTQuMDY4OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGcgaWQ9Il94MzNfNTYuX1BsYXkiPgoJCTxnPgoJCQk8cGF0aCBkPSJNMjkzLjAwMiw3OC41M0MyNDkuNjQ2LDMuNDM1LDE1My42MTgtMjIuMjk2LDc4LjUyOSwyMS4wNjhDMy40MzQsNjQuNDE4LTIyLjI5OCwxNjAuNDQyLDIxLjA2NiwyMzUuNTM0ICAgICBjNDMuMzUsNzUuMDk1LDEzOS4zNzUsMTAwLjgzLDIxNC40NjUsNTcuNDdDMzEwLjYyNywyNDkuNjM5LDMzNi4zNzEsMTUzLjYyLDI5My4wMDIsNzguNTN6IE0yMTkuODM0LDI2NS44MDEgICAgIGMtNjAuMDY3LDM0LjY5Mi0xMzYuODk0LDE0LjEwNi0xNzEuNTc2LTQ1Ljk3M0MxMy41NjgsMTU5Ljc2MSwzNC4xNjEsODIuOTM1LDk0LjIzLDQ4LjI2ICAgICBjNjAuMDcxLTM0LjY5LDEzNi44OTQtMTQuMTA2LDE3MS41NzgsNDUuOTcxQzMwMC40OTMsMTU0LjMwNywyNzkuOTA2LDIzMS4xMTcsMjE5LjgzNCwyNjUuODAxeiBNMjEzLjU1NSwxNTAuNjUybC04Mi4yMTQtNDcuOTQ5ICAgICBjLTcuNDkyLTQuMzc0LTEzLjUzNS0wLjg3Ny0xMy40OTMsNy43ODlsMC40MjEsOTUuMTc0YzAuMDM4LDguNjY0LDYuMTU1LDEyLjE5MSwxMy42NjksNy44NTFsODEuNTg1LTQ3LjEwMyAgICAgQzIyMS4wMjksMTYyLjA4MiwyMjEuMDQ1LDE1NS4wMjYsMjEzLjU1NSwxNTAuNjUyeiIgZmlsbD0iI0ZGRkZGRiIvPgoJCTwvZz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
+}
+
+.btnPlay.paused span{
+    background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDMxNC4wNjUgMzE0LjA2NCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzE0LjA2NSAzMTQuMDY0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGcgaWQ9Il94MzNfNTguX1BhdXNlIj4KCQk8Zz4KCQkJPHBhdGggZD0iTTEyNS42MzIsMTA5LjkzMWMtOC42NjYsMC0xNS43MDEsNy4wMjctMTUuNzAxLDE1LjcwMXY2Mi43OTNjMCw4LjY2OCw3LjAzNSwxNS43MDEsMTUuNzAxLDE1LjcwMSAgICAgczE1LjcwMS03LjAzMywxNS43MDEtMTUuNzAxdi02Mi43OTNDMTQxLjMzMywxMTYuOTUsMTM0LjI5OCwxMDkuOTMxLDEyNS42MzIsMTA5LjkzMXogTTI5My4wMDIsNzguNTI5ICAgICBDMjQ5LjY0NiwzLjQzNCwxNTMuNjE4LTIyLjI5OCw3OC41MjksMjEuMDY2QzMuNDM0LDY0LjQxNy0yMi4yOTgsMTYwLjQ0LDIxLjA2NiwyMzUuNTMyICAgICBjNDMuMzUsNzUuMDk1LDEzOS4zNzUsMTAwLjgzLDIxNC40NjUsNTcuNDdDMzEwLjYyNywyNDkuNjM4LDMzNi4zNjMsMTUzLjYxOCwyOTMuMDAyLDc4LjUyOXogTTIxOS44MzQsMjY1LjggICAgIGMtNjAuMDY3LDM0LjY5Mi0xMzYuODk0LDE0LjEwNi0xNzEuNTc2LTQ1Ljk3M0MxMy41NjgsMTU5Ljc2LDM0LjE2MSw4Mi45MzMsOTQuMjMsNDguMjU5ICAgICBjNjAuMDcxLTM0LjY5LDEzNi44OTQtMTQuMTA2LDE3MS41NzgsNDUuOTcxQzMwMC40OTMsMTU0LjMwNSwyNzkuOTA2LDIzMS4xMTUsMjE5LjgzNCwyNjUuOHogTTE4OC40MzIsMTA5LjkzMSAgICAgYy04LjY2NCwwLTE1LjcwMSw3LjAyNy0xNS43MDEsMTUuNzAxdjYyLjc5M2MwLDguNjY4LDcuMDM3LDE1LjcwOSwxNS43MDEsMTUuNzA5YzguNjY4LDAsMTUuNzAxLTcuMDMzLDE1LjcwMS0xNS43MDl2LTYyLjc5MyAgICAgQzIwNC4xMzMsMTE2Ljk1LDE5Ny4xLDEwOS45MzEsMTg4LjQzMiwxMDkuOTMxeiIgZmlsbD0iI0ZGRkZGRiIvPgoJCTwvZz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
+}
+
+.btnFullscreen span{
+    background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDM3Ni44MTggMzc2LjgxOCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzc2LjgxOCAzNzYuODE4OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGcgaWQ9Il94MzJfMzMuX0xhcHRvcCI+CgkJPGc+CgkJCTxwYXRoIGQ9Ik0zNjEuMTE3LDI5MC40NjJoLTcuODUxVjg2LjM1OGMwLTE3LjM0LTE0LjA1OC0zMS40LTMxLjQwMi0zMS40SDU0Ljk1NGMtMTcuMzUxLDAtMzEuNDAyLDE0LjA2LTMxLjQwMiwzMS40djIwNC4xMDQgICAgIGgtNy44NTFDNy4wMjcsMjkwLjQ2MiwwLDI5Ny40OTIsMCwzMDYuMTZjMCw4LjY3Miw3LjAyNywxNS43MDEsMTUuNzAxLDE1LjcwMWgzNDUuNDE2YzguNjY0LDAsMTUuNzAxLTcuMDI5LDE1LjcwMS0xNS43MDEgICAgIEMzNzYuODE4LDI5Ny40OTIsMzY5Ljc4MSwyOTAuNDYyLDM2MS4xMTcsMjkwLjQ2MnogTTU0Ljk1NCw4Ni4zNThoMjY2LjkxdjE3Mi43MUg1NC45NTRWODYuMzU4eiIgZmlsbD0iI0ZGRkZGRiIvPgoJCTwvZz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
+}
+
+#video-player .control .btnFullscreen{
+    border-right: 0;
+}
+
+#video-player .control .progress-bar{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    float: left;
+    height: 50px;
+    padding: 10px;
+    width: calc(100% - 103px);
+}
+
+#video-player .control .progress{
+    background-color: rgba(86, 61, 124, 0.5);
+    border-radius: 3px;
+    cursor: pointer;
+    height: 7px;
+    position: relative;
+    width: 100%;
+}
+
+#video-player .control .progress span {
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    display:block;
+}
+#video-player .control .timeBar{
+    background-image: -webkit-linear-gradient(25deg, #563D7C, #E60566);
+    background-image: -o-linear-gradien(25deg, #563D7C, #E60566);
+    background-image: linear-gradient(25deg, #563D7C, #E60566);
+    width: 0;
+    z-index: 10;
+}
+#video-player .control .bufferBar{
+    z-index:5;
+    width:0;
+    background: rgba(255,255,255,0.2);
+}
+
 
 
 /* Small devices (landscape phones, 576px and up) */
