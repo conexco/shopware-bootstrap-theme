@@ -541,7 +541,7 @@ footer .nav .nav-item a.nav-link:hover::after{
 }
 
 .gradient{
-    background: -webkit-linear-gradient(25deg, #563D7C, #E60566);
+    background-image: -webkit-linear-gradient(25deg, #563D7C, #E60566);
     display: inline-block;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -576,9 +576,9 @@ footer .nav .nav-item a.nav-link:hover::after{
     -moz-animation: gradient 10s ease infinite;
     -o-animation: gradient 10s ease infinite;
     animation: gradient 10s ease infinite;
-    background: -webkit-linear-gradient(25deg, #563D7C, #563D7C, #563D7C, #E60566);
-    background: -o-linear-gradien(25deg, #563D7C, #563D7C, #563D7C, #E60566);
-    background: linear-gradient(25deg, #563D7C, #563D7C, #563D7C, #E60566);
+    background-image: -webkit-linear-gradient(25deg, #563D7C, #563D7C, #563D7C, #E60566);
+    background-image: -o-linear-gradien(25deg, #563D7C, #563D7C, #563D7C, #E60566);
+    background-image: linear-gradient(25deg, #563D7C, #563D7C, #563D7C, #E60566);
     background-clip: text;
     -webkit-background-clip: text;
     background-size: 150%;
@@ -611,9 +611,9 @@ footer .nav .nav-item a.nav-link:hover::after{
 
 .btn-gradient,
 .btn-gradient:hover, .btn-gradient:active, .btn-gradient:focus{
-    background: -webkit-linear-gradient(25deg, #563D7C, #563D7C, #E60566, #E60566, #E60566);
-    background: -o-linear-gradien(25deg, #563D7C, #563D7C, #E60566, #E60566, #E60566);
-    background: linear-gradient(25deg, #563D7C, #563D7C, #E60566, #E60566, #E60566);
+    background-image: -webkit-linear-gradient(25deg, #563D7C, #563D7C, #E60566, #E60566, #E60566) !important;
+    background-image: -o-linear-gradien(25deg, #563D7C, #563D7C, #E60566, #E60566, #E60566) !important;
+    background-image: linear-gradient(25deg, #563D7C, #563D7C, #E60566, #E60566, #E60566) !important;
     background-position: left -1px top -1px;
     background-size: 150%;
     border-radius: 50px;
@@ -648,10 +648,10 @@ footer .nav .nav-item a.nav-link:hover::after{
 }
 
 .btn-ghost:hover{
-    color: #563D7C;
-    border-color: #563D7C;
-    text-fill-color: #563D7C;
-    -webkit-text-fill-color: #563D7C;
+    color: rgba(229, 0, 101, 1);
+    border-color: rgba(229, 0, 101, 0.5);
+    text-fill-color: rgba(229, 0, 101, 1);
+    -webkit-text-fill-color: rgba(229, 0, 101, 1);
 }
 
 .btn-ghost:active{
