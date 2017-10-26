@@ -6,9 +6,9 @@ module.exports = function (grunt) {
     //TODO: works only for one custom Theme. Needs to be done for every child Custom Theme!
     // build path for font/img less variables
     var Glob = require("glob").Glob,
-        baseVariablePath = '"../../engine/Shopware/Plugins/Community/Frontend/',
+        baseVariablePath = '"../../custom/plugins/',
         srcPath = '',
-        customThemePaths = new Glob('*CustomTheme/Themes/Frontend/*Theme/frontend/_public/src/**/all.less', {sync: true, cwd: '../../../Frontend'});
+        customThemePaths = new Glob('*CustomTheme/Resources/Themes/Frontend/**/frontend/_public/src/**/all.less', {sync: true, cwd: '../../..'});
 
     if (customThemePaths.found[0]) {
         var cleanThemePath = customThemePaths.found[0].split("frontend/_public/src");
@@ -16,22 +16,25 @@ module.exports = function (grunt) {
     }
 
     var fs = require('fs'),
-        shopwareRoot = '../../../../../../../',
+        shopwareRoot = '../../../../../',
         file = shopwareRoot + 'web/cache/config_' + grunt.option('shopId') + '.json',
         lessTargetFile = {},
         jsFiles = [],
         jsTargetFile = {},
         content = '',
         variables = {
-            'fa-font-path': baseVariablePath + 'SwfBootstrapTheme/Themes/Frontend/BootstrapBare/frontend/_public/vendors/fonts"',
+            'fa-font-path': baseVariablePath + 'SwfBootstrapTheme/Resources/Themes/Frontend/BootstrapBare/frontend/_public/vendors/fonts"',
             'src-path': srcPath
         },
-        allLess = shopwareRoot + 'web/cache/all.less';
+        allLess = shopwareRoot + 'web/cache/all.less',
+        //phpBinary = '/usr/bin/php',               // default  
+        phpBinary = '/opt/php-7.0.18/bin/php',      // TimmeHosting
+        configDumpCmd = phpBinary + ' ' + shopwareRoot + 'bin/console sw:theme:dump:configuration';
 
     // display instructions if config doesn't exist
     if(!fs.existsSync(file)) {
         grunt.log.subhead(['Config JSON muss mit folgendem Befehl initial erzeugt werden:']);
-        grunt.log.writeln(['/usr/bin/php ' + shopwareRoot + 'bin/console sw:theme:dump:configuration']);
+        grunt.log.writeln([configDumpCmd]);
         return;
     }
 
@@ -130,7 +133,7 @@ module.exports = function (grunt) {
 
     configOptions['shell'] = {
         php: {
-            command: '/usr/bin/php ' + shopwareRoot + 'bin/console sw:theme:dump:configuration'
+            command: configDumpCmd
         }
     };
     productionTasks.unshift('shell');
