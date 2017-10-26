@@ -341,3 +341,18 @@ _After_
 ![after](img/first-steps-after.png)
 
 [This example is available for download in a separate project on GitHub](https://github.com/conexco/shopware-bootstrap-small-search-bar-theme){:target="_blank"}
+
+### Extending Blocks Without Fully Overwriting Them
+
+Often, you might want to extend a certain block by attaching a `div` with some specific content before or after it.
+To do that, you want to make use of the `{$smarty.block.parent}` variable - it contains the contents of whichever block you are currently overwriting.
+For example, in the `frontend/index/header.tpl`, you want to add some `meta` tags. This can be done by overwriting the `frontend_index_header_meta_tags` block:
+
+**frontend/index/header.tpl**
+```smarty
+{extends file="parent:frontend/index/header.tpl"}
+{block name="frontend_index_header_meta_tags"}
+    {$smarty.block.parent}
+    <meta name="myMetaTag" content="something"/>
+{/block}
+```
