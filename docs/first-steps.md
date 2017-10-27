@@ -356,6 +356,60 @@ For example, in the `frontend/index/header.tpl`, you want to add some `meta` tag
     <meta name="myMetaTag" content="something"/>
 {/block}
 ```
+
+## Adding Javascripts and Styles
+
+Changing template files is just a minor part of theme development. The biggest and most desirable changes for a theme developer are done
+with style sheets, and maybe few Javascripts to grant components a custom behaviour.
+
+Within a Shopware theme, Javascript, Css and Less source files have to be located in the `frontend/_public` directory.
+Relative to that directory, you can specify your source files in your `Theme.php` through the attributes `javascript` and `css`.
+Less source files can't be specified in the `Theme.php`; instead, a `frontend/_public/src/less/all.less` will automatically be recognised
+by the Less preprocessor. In it, you can include more files.
+
+**Theme.php**
+```php
+<?php
+namespace Shopware\Themes\CssAndJavascriptTheme;
+
+class Theme extends \Shopware\Components\Theme
+{
+    protected $extend = 'BootstrapBare';
+
+	/* more variables for meta-information */
+
+    protected $javascript = [
+        'src/js/my-javascript.js',
+    ];
+
+	protected $css = [
+		'src/css/my-css.css',
+	];
+
+	/* LESS source files are not to be included in the Theme.php */
+}
+```
+
+```
+CssAndJavascriptTheme
+├── CssAndJavascriptTheme.php
+├── Resources
+│   └── Themes
+│       └── Frontend
+│           └── CssAndJavascriptTheme
+│               ├── Theme.php
+│               └── frontend
+│                   └── _public
+│                       └── src
+│                           ├── css
+│                           │   └── my-css.css
+│                           ├── js
+│                           │   └── my-javascript.js
+│                           └── less
+│                               └── all.less (automatically registered)
+└── plugin.xml
+```
+
 ## Development Environment Setup
 
 Shopware's own themes can be compiled with the `grunt` Javascript task runner. This helps you building Javascript- and Less-heavy themes
