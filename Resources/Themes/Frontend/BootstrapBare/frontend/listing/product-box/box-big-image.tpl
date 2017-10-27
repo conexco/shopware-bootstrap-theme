@@ -5,12 +5,14 @@
 
 {block name='frontend_listing_box_article_picture'}
     <a href="{$sArticle.linkDetails}"
-       title="{$productName|escape}"
+       title="{$sArticle.articleName|escape}"
        class="product-image">
         {block name='frontend_listing_box_article_image_element'}
             <div class="image-wrapper" data-equal="image">
                 {block name='frontend_listing_box_article_image_media'}
-                    {$desc = $productName|escape}
+                    
+                    {$desc = $sArticle.articleName|escape}
+                    
                     {if isset($sArticle.image.thumbnails)}
                         {if $sArticle.image.description}
                             {$desc = $sArticle.image.description|escape}
