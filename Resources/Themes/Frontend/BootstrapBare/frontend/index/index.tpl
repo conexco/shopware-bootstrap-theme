@@ -29,7 +29,9 @@
             {block name="frontend_index_navigation_wsmenu"}
                 {if !$theme.checkoutHeader || $theme.checkoutHeader && !({controllerAction} == 'confirm' || {controllerAction} == 'shippingPayment' || {controllerAction} == 'finish')}
                     <div class="wsmenuexpandermain slideRight">
-                        <a id="navToggle" class="animated-arrow slideLeft" href="#" title="{s name='IndexLinkMenu' namespace='frontend/index/menu_left' }{/s}"><span></span></a>
+                        <a id="navToggle" class="animated-arrow slideLeft" href="#" title="{s name='IndexLinkMenu' namespace='frontend/index/menu_left' }{/s}">
+                            <span class="animated-arrow-icon"></span>
+                        </a>
                     </div>
                     <div class="wsmenucontent overlapblackbg"></div>
                 {/if}
