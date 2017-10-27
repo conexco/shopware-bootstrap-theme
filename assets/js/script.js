@@ -700,8 +700,8 @@ $(document).ready(function(){
             if (!timeDrag) {
                 $('.control').stop().fadeOut();
             }
-        }).on('click', function() {
-            $(this).unbind('click');
+        }).on('touchstart click', function() {
+            $(this).unbind('click touchstart');
             video.play();
         });
     });
@@ -724,11 +724,11 @@ $(document).ready(function(){
         $('.current').text(timeFormat(currentPos));
     });
 
-    $video.on('click', function() {
+    $video.on('touchstart click', function() {
         playpause();
     });
 
-    $('.btnPlay').on('click', function() {
+    $('.btnPlay').on('touchstart click', function() {
         playpause();
     });
 
@@ -742,7 +742,7 @@ $(document).ready(function(){
         }
     };
 
-    $('.btnFullscreen').on('click', function() {
+    $('.btnFullscreen').on('touchstart click', function() {
         if ($.isFunction(video.webkitEnterFullscreen)) {
             video.webkitEnterFullscreen();
         } else if ($.isFunction(video.mozRequestFullScreen)) {
