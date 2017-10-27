@@ -6,7 +6,8 @@
   pages:
     - title: In-Depth Structure
     - title: Creating Our First Theme
-#    - title: Setup
+    - title: Adding Javascripts and Styles
+    - title: Development Environment Setup
 - title: Customisation
   pages:
     - title: Theme Configuration

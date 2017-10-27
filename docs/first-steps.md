@@ -356,3 +356,106 @@ For example, in the `frontend/index/header.tpl`, you want to add some `meta` tag
     <meta name="myMetaTag" content="something"/>
 {/block}
 ```
+
+## Adding Javascripts and Styles
+
+Changing template files is just a minor part of theme development. The biggest and most desirable changes for a theme developer are done
+with style sheets, and maybe few Javascripts to grant components a custom behaviour.
+
+Within a Shopware theme, Javascript, Css and Less source files have to be located in the `frontend/_public` directory.
+Relative to that directory, you can specify your source files in your `Theme.php` through the attributes `javascript` and `css`.
+Less source files can't be specified in the `Theme.php`; instead, a `frontend/_public/src/less/all.less` will automatically be recognised
+by the Less preprocessor. In it, you can include more files.
+
+**Theme.php**
+```php
+<?php
+namespace Shopware\Themes\CssAndJavascriptTheme;
+
+class Theme extends \Shopware\Components\Theme
+{
+    protected $extend = 'BootstrapBare';
+
+	/* more variables for meta-information */
+
+    protected $javascript = [
+        'src/js/my-javascript.js',
+    ];
+
+	protected $css = [
+		'src/css/my-css.css',
+	];
+
+	/* LESS source files are not to be included in the Theme.php */
+}
+```
+
+```
+CssAndJavascriptTheme
+├── CssAndJavascriptTheme.php
+├── Resources
+│   └── Themes
+│       └── Frontend
+│           └── CssAndJavascriptTheme
+│               ├── Theme.php
+│               └── frontend
+│                   └── _public
+│                       └── src
+│                           ├── css
+│                           │   └── my-css.css
+│                           ├── js
+│                           │   └── my-javascript.js
+│                           └── less
+│                               └── all.less (automatically registered)
+└── plugin.xml
+```
+
+## Development Environment Setup
+
+Shopware's own themes can be compiled with the `grunt` Javascript task runner. This helps you building Javascript- and Less-heavy themes
+a lot faster, since you don't have to start the theme compilation process manually every time you make changes.
+We recommend setting up Grunt on your development environment to save yourself from a lot of hassle.
+
+Grunt and Less are based on Node.js. If you didn't do so already,
+please [download and install Node.js from its official download page](https://nodejs.org/en/download/){:target="_blank"}
+or through your [favourite package manager](https://nodejs.org/en/download/package-manager/){:target="_blank"}.
+
+### How to use it
+
+Before you start with developing using Grunt, you have to make some preparations. First of all, clear Shopware's theme cache from any
+old files created by Shopware's internal theme compiler. To do that, navigate to the shop's root directory, then execute following:
+```sh
+cd var/cache
+./clear_cache.sh
+```
+
+Grunt has to know how you configured your theme in the Theme Manager, and which files are being included by which theme.
+A command line program by Shopware dumps the relevant configuration ready for use with Grunt. Fron the shop's root directory, execute
+```sh
+./bin/console sw:theme:dump:configuration
+```
+
+At last, we need to install grunt itself, along with its dependencies. From the shop's root directory, execute
+```sh
+cd themes
+npm install
+sudo npm install -g grunt-cli
+```
+whereby `grunt-cli` is a globally available wrapper, that searches for the `grunt` executable at whichever location you're executing it from.
+
+We're now set. Start grunt by executing
+```sh
+grunt
+
+# optionally, specify shopId
+grunt --shopId 1
+```
+
+Grunt will compile the Less and Javascript files once, then it watches for any changes in the source files. If it recognises one, it'll start
+the relevant compilation process again.
+
+Don't forget that upon changing the Theme in the Theme manager, or upon adding or removing Javascript source files in your `Theme.php`,
+you will have to dump the theme configuration again!
+
+For an in-depth guide on how to use Grunt and how to add additional tasks to execute in Grunt,
+please refer to the [official Shopware documentation](https://developers.shopware.com/designers-guide/best-practice-theme-development/){:target="_blank"}
