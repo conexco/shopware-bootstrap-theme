@@ -68,8 +68,10 @@ And the result:
 
 Excellent!
 
-##### Problems you might run into
+##### Problems You Might Run Into
 
 Unfortunately, not every plugin vendor packs their code changes into new blocks. Some just extend blocks with their content -
 in that case, there won't be a block you can conveniently overwrite. You might have to overwrite the block which the plugin extends.
 In our case, that would be `frontend_listing_box_article_new`, or even the entire file.
+Unfortunately, this could mean that you have to copy parts of the Bootstrap Theme without changes into your own theme,
+since `{$smarty.block.parent}` would contain both the Bootstrap Theme's code and code introduced by any plugin that's extending it.
