@@ -74,7 +74,6 @@ $.overridePlugin('swOffcanvasMenu', {
 
                     me.$offCanvas.find('.slick').slickWrapper();
                     me.$offCanvas.find('[data-equalheight="true"]:not([data-mode="ajax"]):visible').equalHeight();
-                    me.$offCanvas.find('[data-free-goods-promotion="true"]').swfPromotionHandleFreeGoods();
 
                     me.ajaxOffcanvasLoaded = true;
 

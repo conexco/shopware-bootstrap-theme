@@ -153,7 +153,6 @@
                         $.subscribe('plugin/swOffcanvasMenu/onOpenMenu.swAddArticle', function(event, plugin) {
                             plugin.$offCanvas.find('.slick').slickWrapper();
                             plugin.$offCanvas.find('[data-equalheight="true"]:not([data-mode="ajax"]):visible').equalHeight();
-                            plugin.$offCanvas.find('[data-free-goods-promotion="true"]').swfPromotionHandleFreeGoods();
                         });
 
                         plugin.ajaxOffcanvasLoaded = true;

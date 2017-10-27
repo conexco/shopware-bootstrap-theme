@@ -120,7 +120,6 @@
                     $content.initScrollpaneSelectboxit();
                     $content.find('.slick').slickWrapper();
                     $content.find('[data-equalheight="true"]:not([data-mode="ajax"]):visible').equalHeight();
-                    $content.find('[data-free-goods-promotion="true"]').swfPromotionHandleFreeGoods();
 
                     $.publish('plugin/modifyAjaxCart/onReloadActionAfterAjax', [ me, $content ]);
                 }

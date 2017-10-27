@@ -2,6 +2,18 @@
 
     $(function () {
         StateManager.addPlugin('[data-free-goods-promotion="true"]', 'swfPromotionHandleFreeGoods');
+
+        $.subscribe('plugin/swOffcanvasMenu/onOpenMenu.swAddArticle', function(event, plugin) {
+            plugin.$offCanvas.find('[data-free-goods-promotion="true"]').swfPromotionHandleFreeGoods();
+        });
+
+        $.subscribe('plugin/swOffcanvasMenu/onOpenMenuAfterAjax', function(event, plugin) {
+            plugin.$offCanvas.find('[data-free-goods-promotion="true"]').swfPromotionHandleFreeGoods();
+        });
+
+        $.subscribe('plugin/modifyAjaxCart/onReloadActionAfterAjax', function(event, plugin, $content) {
+            $content.find('[data-free-goods-promotion="true"]').swfPromotionHandleFreeGoods();
+        });
     });
 
     $.plugin('swfPromotionHandleFreeGoods', {
