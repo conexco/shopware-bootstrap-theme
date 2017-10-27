@@ -738,6 +738,7 @@ canvas{
     position: relative;
     max-width: 100%;
     width: 100%;
+    z-index: 100;
 }
 
 #video-player video{
