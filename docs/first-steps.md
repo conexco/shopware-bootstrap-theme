@@ -382,9 +382,9 @@ class Theme extends \Shopware\Components\Theme
         'src/js/my-javascript.js',
     ];
 
-	protected $css = [
-		'src/css/my-css.css',
-	];
+    protected $css = [
+    	'src/css/my-css.css',
+    ];
 
 	/* LESS source files are not to be included in the Theme.php */
 }
