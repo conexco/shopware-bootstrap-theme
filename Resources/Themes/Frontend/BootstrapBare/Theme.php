@@ -41,87 +41,114 @@ class Theme extends \Shopware\Components\Theme
     /** @var bool Parent theme injected before plugins */
     protected $injectBeforePlugins = true;
 
+    const VENDORS_JS_PATH = 'vendors/js/';
+    const RESPONSIVE_THEME_JS_PATH = '../../../../../../../../../themes/Frontend/Responsive/frontend/_public/src/js/';
+    const SOURCE_JS_PATH = 'src/js/';
+
     /** @var array Defines the files which should be compiled by the javascript compressor */
-    protected $javascript = array(
-        "vendors/js/modernizr/modernizr.custom.35977.js",
-        "vendors/js/jquery.js",
-        "vendors/js/bootstrap.js",
-        "vendors/js/jquery.ui.widget-factory.js",
-        "vendors/js/jquery.selectBoxIt.js",
-        "vendors/js/picturefill.js",
-        "vendors/js/slick.js",
-        "vendors/js/imagesloaded.js",
-        "vendors/js/jquery.elevatezoom.js",
-        "vendors/js/jquery.clingify.js",
-        "vendors/js/jscrollpane/jquery.mousewheel.js",
-        "vendors/js/jscrollpane/mwheelIntent.js",
-        "vendors/js/jscrollpane/jquery.jscrollpane.js",
-        "vendors/js/jquery.bootstrap-strength.js",
-        "vendors/js/shopware/jquery.plugin-base.js",
-        "vendors/js/shopware/jquery.state-manager.js",
-        "vendors/js/shopware/jquery.storage-manager.js",
-        "vendors/js/shopware/jquery.register.js",
-        "vendors/js/shopware/jquery.infinite-scrolling.js",
-        "vendors/js/shopware/jquery.emotion.js",
-        "vendors/js/shopware/jquery.filter-component.js",
-        "vendors/js/shopware/jquery.last-seen-products.js",
-        "vendors/js/shopware/jquery.product-compare-add.js",
-        "vendors/js/shopware/jquery.product-compare-menu.js",
-        "vendors/js/shopware/jquery.auto-submit.js",
-        "vendors/js/shopware/jquery.listing-actions.js",
-        "vendors/js/shopware/jquery.ajax-wishlist.js",
-        "vendors/js/shopware/jquery.captcha.js",
-        "vendors/js/shopware/jquery.cookie-permission.js",
-        "vendors/js/shopware/jquery.storage-field.js",
-        "vendors/js/shopware/jquery.range-slider.js",
-        "vendors/js/shopware/jquery.off-canvas-menu.js",
-        "vendors/js/shopware/jquery.ajax-product-navigation.js",
-        "vendors/js/shopware/jquery.shipping-payment.js",
-        "vendors/js/shopware/jquery.ajax-variant.js",
-        "vendors/js/shopware/jquery.csrf-protection.js",
-        "vendors/js/shopware/jquery.address-selection.js",
-        "vendors/js/shopware/jquery.address-editor.js",
-        "vendors/js/shopware/jquery.form-polyfill.js",
-        "vendors/js/shopware/jquery.pseudo-text.js",
-        "vendors/js/shopware/jquery.preloader-button.js",
+    protected $javascript;
 
-        "src/js/jquery.ui.datepicker.js",
-        "src/js/swbt.helper.js",
-        "src/js/swbt.overlay.js",
-        "src/js/swbt.loader.js",
-        "src/js/swbt.modal.js",
-        "src/js/swbt.scroll-up.js",
-        "src/js/swbt.popover-wrapper.js",
-        "src/js/jquery.product-compare-add-extend.js",
-        "src/js/jquery.product-compare-menu-extend.js",
-        "src/js/swbt.search-popover.js",
-        "src/js/jquery.add-article-extend.js",
-        "src/js/swbt.slick-wrapper.js",
-        "src/js/jquery.last-seen-products-extend.js",
-        "src/js/swbt.newsletter-form.js",
-        "src/js/swbt.image-zoom.js",
-        "src/js/swbt.detail-tabs.js",
-        "src/js/swbt.ajax-cart.js",
-        "src/js/swbt.password-input-viewer.js",
-        "src/js/swbt.password-strength-wrapper.js",
-        "src/js/jquery.register-extend.js",
-        "src/js/jquery.infinite-scrolling-extend.js",
-        "src/js/jquery.emotion-extend.js",
-        "src/js/jquery.auto-submit-extend.js",
-        "src/js/jquery.listing-actions-extend.js",
-        "src/js/jquery.range-slider-extend.js",
-        "src/js/jquery.ajax-wishlist-extend.js",
-        "src/js/jquery.off-canvas-menu-extend.js",
-        "src/js/jquery.ajax-product-navigation-extend.js",
-        "src/js/jquery.shipping-payment-extend.js",
-        "src/js/jquery.ajax-variant-extend.js",
-        "src/js/swbt.menu.js",
-        "src/js/jquery.address-selection-extend.js",
-        "src/js/jquery.address-editor-extend.js",
-        "src/js/jquery.preloader-button-extend.js",
+    public function __construct()
+    {
+        $vendorsJavascripts = [
+            'modernizr/modernizr.custom.35977.js',
+            'jquery.js',
+            'bootstrap.js',
+            'jquery.ui.widget-factory.js',
+            'jquery.selectBoxIt.js',
+            'picturefill.js',
+            'slick.js',
+            'imagesloaded.js',
+            'jquery.elevatezoom.js',
+            'jquery.clingify.js',
+            'jscrollpane/jquery.mousewheel.js',
+            'jscrollpane/mwheelIntent.js',
+            'jscrollpane/jquery.jscrollpane.js',
+            'jquery.bootstrap-strength.js',
+        ];
 
-        "src/js/swbt._init.js",
-    );
+        $shopwareJavascripts = [
+            "jquery.plugin-base.js",
+            "jquery.state-manager.js",
+            "jquery.storage-manager.js",
+            "jquery.register.js",
+            "jquery.infinite-scrolling.js",
+            "jquery.emotion.js",
+            "jquery.filter-component.js",
+            "jquery.last-seen-products.js",
+            "jquery.product-compare-add.js",
+            "jquery.product-compare-menu.js",
+            "jquery.auto-submit.js",
+            "jquery.listing-actions.js",
+            "jquery.ajax-wishlist.js",
+            "jquery.captcha.js",
+            "jquery.cookie-permission.js",
+            "jquery.storage-field.js",
+            "jquery.range-slider.js",
+            "jquery.off-canvas-menu.js",
+            "jquery.ajax-product-navigation.js",
+            "jquery.shipping-payment.js",
+            "jquery.ajax-variant.js",
+            "jquery.csrf-protection.js",
+            "jquery.address-selection.js",
+            "jquery.address-editor.js",
+            "jquery.form-polyfill.js",
+            "jquery.pseudo-text.js",
+            "jquery.preloader-button.js",
+        ];
+
+        $sourceJavascripts = [
+            "jquery.ui.datepicker.js",
+            "swbt.helper.js",
+            "swbt.overlay.js",
+            "swbt.loader.js",
+            "swbt.modal.js",
+            "swbt.scroll-up.js",
+            "swbt.popover-wrapper.js",
+            "jquery.product-compare-add-extend.js",
+            "jquery.product-compare-menu-extend.js",
+            "swbt.search-popover.js",
+            "jquery.add-article-extend.js",
+            "swbt.slick-wrapper.js",
+            "jquery.last-seen-products-extend.js",
+            "swbt.newsletter-form.js",
+            "swbt.image-zoom.js",
+            "swbt.detail-tabs.js",
+            "swbt.ajax-cart.js",
+            "swbt.password-input-viewer.js",
+            "swbt.password-strength-wrapper.js",
+            "jquery.register-extend.js",
+            "jquery.infinite-scrolling-extend.js",
+            "jquery.emotion-extend.js",
+            "jquery.auto-submit-extend.js",
+            "jquery.listing-actions-extend.js",
+            "jquery.range-slider-extend.js",
+            "jquery.ajax-wishlist-extend.js",
+            "jquery.off-canvas-menu-extend.js",
+            "jquery.ajax-product-navigation-extend.js",
+            "jquery.shipping-payment-extend.js",
+            "jquery.ajax-variant-extend.js",
+            "swbt.menu.js",
+            "jquery.address-selection-extend.js",
+            "jquery.address-editor-extend.js",
+            "jquery.preloader-button-extend.js",
+
+            "swbt._init.js",
+        ];
+
+        $this->javascript = array_merge(
+            array_map(function ($filename) {
+                return self::VENDORS_JS_PATH . $filename;
+            }, $vendorsJavascripts),
+            array_map(function ($filename) {
+                return self::RESPONSIVE_THEME_JS_PATH . $filename;
+            }, $shopwareJavascripts),
+            array_map(function ($filename) {
+                return self::SOURCE_JS_PATH . $filename;
+            }, $sourceJavascripts)
+        );
+    }
+
 
     private $fieldSetDefaults = array(
         'defaults' => array(
