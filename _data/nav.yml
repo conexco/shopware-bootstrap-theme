@@ -12,9 +12,9 @@
     - title: Theme Configuration
 #    - title: Variables
 #    - title: Extends
-#- title: Integrate
-#  pages:
-#    - title: Plugins
+- title: Integration
+  pages:
+    - title: Third Party Plugins
 #- title: Components
 #  pages:
 #    - title: jQuery Plugins
