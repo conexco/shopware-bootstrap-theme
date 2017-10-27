@@ -84,13 +84,13 @@
                                         <input type="hidden" value="1" name="subscribeToNewsletter"/>
                                         {block name="frontend_index_footer_column_newsletter_form_field"}
                                             <div class="input-group">
-                                                <input type="email" class="form-control" name="newsletter" placeholder="{s name="IndexFooterNewsletterValue"}Ihre E-Mail Adresse{/s}"/>
+                                                <input type="email" class="form-control" name="newsletter" aria-label="{s name='sFooterNewsletterHead'}{/s}" placeholder="{s name="IndexFooterNewsletterValue"}Ihre E-Mail Adresse{/s}"/>
                                                 {if {config name="newsletterCaptcha"} !== "nocaptcha"}
                                                     <input type="hidden" name="redirect">
                                                 {/if}
                                                 {block name="frontend_index_footer_column_newsletter_form_submit"}
                                                     <span class="input-group-btn">
-                                                        <button type="submit" class="btn btn-primary">
+                                                        <button type="submit" class="btn btn-primary" aria-label="{s name='IndexFooterNewsletterSubmit'}{/s}">
                                                             <i class="fa fa-envelope"></i>
                                                         </button>
                                                     </span>

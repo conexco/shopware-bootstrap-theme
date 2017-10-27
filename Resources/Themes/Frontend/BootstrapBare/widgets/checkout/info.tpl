@@ -134,7 +134,7 @@
                                 class="btn btn-default visible-xs visible-sm"
                                 data-offcanvas="true"
                                 data-offCanvasSelector="#accountSidebar"
-                                title="{s name="AccountHeaderNavigation"}{/s}">
+                                title="{s name='AccountHeaderNavigation' namespace='frontend/account/sidebar'}{/s}">
                                 <i class="fa fa-user fa-lg"></i>
                                 {if $userInfo}
                                     <i class="fa fa-check text-primary"></i>
@@ -155,6 +155,7 @@
                     <button type="button"
                             class="btn {if $sBasketQuantity}btn-primary{else}btn-default{/if}"
                             id="carty"
+                            aria-label="{"{s namespace='frontend/index/checkout_actions' name='IndexLinkCart'}{/s}"|escape}"
                             data-ajax-cart="true"
                             data-change-color="true"
                             data-offcanvas="true"

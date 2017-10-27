@@ -14,8 +14,13 @@
 
             <select name="{$shortParameters.sSort}" 
                     class="form-control" 
+                    aria-label="{s name='ListingLabelSort'}{/s}"
                     data-auto-submit="true" 
                     data-class="sort-select">
+
+                {block name='frontend_listing_actions_sort_label'}
+                    <option value="" disabled="disabled">{s name='ListingLabelSort'}{/s}</option>
+                {/block}
 
                 {foreach $sortings as $sorting}
                     <option value="{$sorting->getId()}"{if $sSort eq $sorting->getId()} selected="selected"{/if}>{$sorting->getLabel()}</option>

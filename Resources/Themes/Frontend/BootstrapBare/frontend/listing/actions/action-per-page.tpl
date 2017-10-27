@@ -18,6 +18,7 @@
                 <select id="{$shortParameters.sPerPage}" 
                         name="{$shortParameters.sPerPage}" 
                         class="form-control per-page-field action-field" 
+                        aria-label="{s name='ListingLabelItemsPerPage'}{/s}"
                         data-auto-submit="true" 
                         data-class="per-page-select">
 
