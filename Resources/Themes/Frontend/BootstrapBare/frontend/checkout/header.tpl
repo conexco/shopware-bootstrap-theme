@@ -19,7 +19,7 @@
 
 				<div class="col-xs-12 col-hd-9 col-md-9 col-lg-10 col-hd-height col-middle">
 					<div class="row">
-						<div class="col-hd-8 col-md-offset-2 col-md-6 col-lg-offset-3 col-lg-6 hidden-xs hidden-sm">
+						<div class="col-hd-8 col-md-offset-2 col-md-6 col-lg-offset-3 hidden-xs hidden-sm">
 							{* Support Info *}
 							{block name='frontend_index_logo_supportinfo'}
 								{s name='RegisterSupportInfo' namespace='frontend/register/index'}{/s}

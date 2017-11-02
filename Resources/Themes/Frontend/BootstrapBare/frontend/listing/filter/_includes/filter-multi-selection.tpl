@@ -44,7 +44,7 @@
                                         {block name="frontend_listing_filter_facet_value_list_option"}
                                             <li class="filter-panel-option sw5-plugin">
                                                 {block name="frontend_listing_filter_facet_value_list_option_container"}
-                                                    <div class="checkbox-inline filter-panel--input">
+                                                    <div class="filter-panel--input">
                                                         {block name="frontend_listing_filter_facet_multi_selection_input"}
                                                             {$name = "__{$facet->getFieldName()|escape:'htmlall'}__{$option->getId()|escape:'htmlall'}"}
                                                             {if $filterType == 'radio'}

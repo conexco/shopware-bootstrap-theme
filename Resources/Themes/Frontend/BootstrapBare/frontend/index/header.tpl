@@ -1,9 +1,10 @@
 <head>
     {*! Http-Tags *}
     {block name="frontend_index_header_meta_http_tags"}
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-        {*! Always force latest IE rendering engine & Chrome Frame *}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {* The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags *}
     {/block}
 
     {*! Meta-Tags *}
@@ -38,7 +39,6 @@
         {/block}
 
         {block name='frontend_index_header_meta_tags_mobile'}
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta name="mobile-web-app-capable" content="yes">
             <meta name="apple-mobile-web-app-title" content="{if $theme.appleWebAppTitle != ""}{$theme.appleWebAppTitle|escapeHtml}{else}{{config name=sShopname}|escapeHtml}{/if}">
             <meta name="apple-mobile-web-app-capable" content="yes">

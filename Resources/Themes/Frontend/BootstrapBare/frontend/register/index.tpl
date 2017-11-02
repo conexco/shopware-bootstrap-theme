@@ -167,26 +167,30 @@
                                         {/if}
                                     {/if}
 
-                                    {*! Required fields hint *}
-                                    {block name='frontend_register_index_form_required'}
-                                        <div class="{$FormInputSize} {$FormLabelOffset}">
-                                            <p class="help-block">
-                                                {s name='RegisterPersonalRequiredText' namespace='frontend/register/personal_fieldset'}{/s}
-                                            </p>
-                                        </div>
-                                    {/block}
+                                    {block name='frontend_register_index_form_bottom'}
+                                        <div class="row">
+                                            {*! Required fields hint *}
+                                            {block name='frontend_register_index_form_required'}
+                                                <div class="{$FormInputSize} {$FormLabelOffset}">
+                                                    <p class="help-block">
+                                                        {s name='RegisterPersonalRequiredText' namespace='frontend/register/personal_fieldset'}{/s}
+                                                    </p>
+                                                </div>
+                                            {/block}
 
-                                    {* Captcha *}
-                                    {block name='frontend_register_index_form_captcha'}
-                                        {$captchaHasError = $errors.captcha}
-                                        {$captchaName = {config name=registerCaptcha}}
-                                        {include file="widgets/captcha/custom_captcha.tpl" captchaName=$captchaName captchaHasError=$captchaHasError}
-                                    {/block}
+                                            {* Captcha *}
+                                            {block name='frontend_register_index_form_captcha'}
+                                                {$captchaHasError = $errors.captcha}
+                                                {$captchaName = {config name=registerCaptcha}}
+                                                {include file="widgets/captcha/custom_captcha.tpl" captchaName=$captchaName captchaHasError=$captchaHasError}
+                                            {/block}
 
-                                    {* Submit button *}
-                                    {block name='frontend_register_index_form_submit'}
-                                        <div class="{$FormInputSize} {$FormLabelOffset}">
-                                            <input id="registerbutton" type="submit" class="btn btn-lg btn-primary register-submit sw5-plugin" value="{s name='RegisterIndexNewActionSubmit'}{/s}"/>
+                                            {* Submit button *}
+                                            {block name='frontend_register_index_form_submit'}
+                                                <div class="{$FormInputSize} {$FormLabelOffset}">
+                                                    <input id="registerbutton" type="submit" class="btn btn-lg btn-primary register-submit sw5-plugin" value="{s name='RegisterIndexNewActionSubmit'}{/s}"/>
+                                                </div>
+                                            {/block}
                                         </div>
                                     {/block}
                                 </form>

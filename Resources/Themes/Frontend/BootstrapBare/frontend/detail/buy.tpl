@@ -81,7 +81,7 @@
                                 {* "Buy now" button *}
                                 {block name='frontend_detail_buy_button'}
                                     {if $sArticle.sConfigurator && !$activeConfiguratorSelection}
-                                        <button class="mtm btn btn-primary btn-block buybox-button disabled" 
+                                        <button class="mtm btn btn-primary btn-block buybox-button" 
                                                 title="{s name="DetailBuySelectConfig"}Bitte wählen Sie eine Ausführung{/s}" 
                                                 name="{s name="DetailBuyActionAddName"}{/s}" 
                                                 disabled="disabled">{s name="DetailBuySelectConfig"}Bitte wählen Sie eine Ausführung{/s}</button>

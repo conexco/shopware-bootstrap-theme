@@ -30,7 +30,7 @@
                                             <li class="filter-panel-option sw5-plugin">
                                                 {block name="frontend_listing_filter_facet_value_tree_option_container"}
                                                     {$disabled = !$option->isActive() && $facet->isActive()}
-                                                    <div class="checkbox-inline filter-panel--input">
+                                                    <div class="filter-panel--input">
                                                         {block name="frontend_listing_filter_facet_value_tree_label"}
                                                             <input type="checkbox"
                                                                     data-parent-id="{$parent}"

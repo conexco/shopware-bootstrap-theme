@@ -12,7 +12,7 @@
                         <label for="payment_mean{$payment_mean.id}">
                             {* Radio Button *}
                             {block name='frontend_checkout_payment_fieldset_input_radio'}
-                                <input type="radio" name="payment" class="radio auto_submit" value="{$payment_mean.id}" id="payment_mean{$payment_mean.id}"{if $payment_mean.id eq $sFormData.payment or (!$sFormData && !$smarty.foreach.register_payment_mean.index)} checked="checked"{/if} />
+                                <input type="radio" name="payment" class="auto_submit" value="{$payment_mean.id}" id="payment_mean{$payment_mean.id}"{if $payment_mean.id eq $sFormData.payment or (!$sFormData && !$smarty.foreach.register_payment_mean.index)} checked="checked"{/if} />
                             {/block}
                             {$payment_mean.description}
                         </label>

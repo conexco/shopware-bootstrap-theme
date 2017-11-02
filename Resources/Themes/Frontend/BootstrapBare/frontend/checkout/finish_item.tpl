@@ -12,7 +12,7 @@
 {block name='frontend_checkout_cart_item_voucher_delete_article'}{/block}
 
 {block name='frontend_checkout_cart_item_total_sum'}
-    <div class="col-xs-12 col-sm-6 col-md-6 text-right">
+    <div class="col-xs-12 col-sm-6 text-right">
         <div class="mtm-xs">
             <strong class="visible-xs-inline-block pull-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
             <strong>{$sBasketItem.amount|currency}*</strong>

@@ -13,7 +13,7 @@
         <div class="row mvm">
             {block name='frontend_index_search_trusted_inner'}
                 {block name='frontend_index_search'}
-                    <div class="col-xs-12 col-md-8 col-lg-8">
+                    <div class="col-xs-12 col-md-8">
                         {*! Search *}
                         {block name='frontend_index_search_inner'}
                             {include file="frontend/index/search.tpl"}
@@ -22,7 +22,7 @@
                 {/block}
                 {block name='frontend_index_trusted'}
                     {*! Trusted Shops *}
-                    <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
+                    <div class="hidden-xs hidden-sm col-md-4">
                         {block name='frontend_index_trusted_inner'}
                             {if $sTrustedShops.id}
                                 {assign var="tsid" value=$sTrustedShops.id}

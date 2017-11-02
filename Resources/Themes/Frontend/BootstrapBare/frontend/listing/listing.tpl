@@ -64,9 +64,9 @@
                         </div>
                     {/block}
                     {block name="frontend_listing_listing_content"}
-                        <div class="row listing" data-compare-ajax="true" data-ajax-wishlist="true">
+                        <div class="listing" data-compare-ajax="true" data-ajax-wishlist="true">
                             {if $sArticles|@count > 0}
-                                <ul class="thumbnails list-unstyled"
+                                <ul class="row thumbnails list-unstyled"
                                     data-equalheight="true"
                                     {if $theme['infinite-scrolling']}
                                         data-infinite-scrolling="true"
@@ -84,11 +84,7 @@
                                     {/block}
                                 </ul>
                             {else}
-                                <div class="col-xs-12">
-                                    <div class="text-center">
-                                        {include file="frontend/_includes/messages.tpl" type="info" content="{s name='ListingInfoNoArticles'}Keine Artikel gefunden{/s}"}
-                                    </div>
-                                </div>
+                                {include file="frontend/_includes/messages.tpl" type="info" content="{s name='ListingInfoNoArticles'}Keine Artikel gefunden{/s}"}
                             {/if}
                         </div>
                     {/block}

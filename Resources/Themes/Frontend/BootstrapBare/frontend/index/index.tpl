@@ -66,16 +66,16 @@
                                         {block name='frontend_index_header_row'}
                                             <div class="row" id="header-row">
                                                 {block name='frontend_index_header_row_left'}
-                                                    <div class="col-sm-12 col-hd-5 col-md-3 col-lg-3">
+                                                    <div class="col-sm-12 col-hd-5 col-md-3">
                                                         {*! Shop logo *}
                                                         {include file="frontend/index/logo-container.tpl"}
                                                     </div>
                                                 {/block}
                                                 {block name='frontend_index_header_hr'}
-                                                    <hr class="visible-xs mts mbm">
+                                                    <hr class="col-xs-12 visible-xs mts mbm">
                                                 {/block}
                                                 {block name='frontend_index_header_row_right'}
-                                                    <div class="col-sm-12 col-hd-7 col-md-9 col-lg-9">
+                                                    <div class="col-sm-12 col-hd-7 col-md-9">
                                                         {* Shop navigation *}
                                                         {block name='frontend_index_shop_navigation'}
                                                             {include file="frontend/index/shop-navigation.tpl"}
@@ -171,7 +171,7 @@
                                                 <div class="last-seen-products-title page-header">
                                                     <h3>{s namespace="frontend/plugins/index/viewlast" name='WidgetsRecentlyViewedHeadline'}{/s}</h3>
                                                 </div>
-                                                <div class="last-seen-products-container sw5-plugin thumbnails" data-equalheight="true" data-mode="ajax">
+                                                <div class="row last-seen-products-container sw5-plugin" data-equalheight="true" data-mode="ajax">
                                                 </div>
                                             </div>
                                         </div>

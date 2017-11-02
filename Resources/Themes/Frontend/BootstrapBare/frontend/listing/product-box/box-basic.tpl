@@ -6,7 +6,25 @@
     {elseif $size}
         {assign "boxSize" $size}
     {else}
-        {assign var="boxSize" value="col-lg-`$theme['articles-col-width-lg']` col-md-`$theme['articles-col-width-md']` col-hd-`$theme['articles-col-width-hd']` col-sm-`$theme['articles-col-width-sm']` col-xs-`$theme['articles-col-width-xs']`"}
+        {$boxSize = ''}
+
+        {if $theme['articles-col-width-xs'] != $theme['articles-col-width-sm']}
+            {$boxSize = "col-xs-`$theme['articles-col-width-xs']`"}
+        {/if}
+
+        {if $theme['articles-col-width-sm'] != $theme['articles-col-width-hd']}
+            {$boxSize = "`$boxSize` col-sm-`$theme['articles-col-width-sm']`"}
+        {/if}
+
+        {if $theme['articles-col-width-hd'] != $theme['articles-col-width-md']}
+            {$boxSize = "`$boxSize` col-hd-`$theme['articles-col-width-hd']`"}
+        {/if}
+
+        {if $theme['articles-col-width-md'] != $theme['articles-col-width-lg']}
+            {$boxSize = "`$boxSize` col-md-`$theme['articles-col-width-md']`"}
+        {/if}
+
+        {$boxSize = "`$boxSize` col-lg-`$theme['articles-col-width-lg']`"}
     {/if}
     {block name='frontend_listing_box_article_item_start'}
         <li class="{$boxSize} mbl product-box box-{$productBoxLayout} sw5-plugin"
