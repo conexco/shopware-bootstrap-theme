@@ -21,7 +21,7 @@
                title="{$productName|escape}"
                class="product-image">
                 {block name='frontend_listing_box_article_image_element'}
-                    <span class="image-element">
+                    <div class="image-wrapper">
                         {if !$imageOnly}
                             {* Product box badges - highlight, newcomer, ESD product and discount *}
                             {block name='frontend_listing_box_article_badges'}
@@ -72,7 +72,6 @@
                                         {/if}
                                     {/foreach}
 
-
                                     <picture>
                                         <source sizes="{$itemSize}" srcset="{$srcSetRetina}" media="(min-resolution: 192dpi)" />
                                         <source sizes="{$itemSize}" srcset="{$srcSet}" />
@@ -87,7 +86,7 @@
                                 {/if}
                             {/block}
                         {/block}
-                    </span>
+                    </div>
                 {/block}
             </a>
         {/block}
