@@ -11,11 +11,18 @@
 }
 
 // gallery thumbnails
-#detailbox #thumbs .thumbnail {
-    outline: none;
-    cursor: pointer;
-    &.slick-current {
-        border-color: @swf-brand-primary;
+#detailbox #thumbs {
+    .thumbnail {
+        outline: none;
+        cursor: pointer;
+    }
+    .slick-slide {
+        .unitize(margin-left, 5);
+        .unitize(margin-right, 5);
+
+        &.slick-current .thumbnail {
+            border-color: @swf-brand-primary;
+        }
     }
 }
 

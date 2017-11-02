@@ -141,7 +141,7 @@
                                         {$alt = $sArticle.image.description|escape}
                                     {/if}
 
-                                    <div class="mhs thumbnail">
+                                    <div class="thumbnail">
                                         {block name='frontend_detail_image_thumbs_main_img'}
                                             <img srcset="{$sArticle.image.thumbnails[0].sourceSet}"
                                                  alt="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt}"
@@ -160,7 +160,7 @@
                                             {$alt = $image.description|escape}
                                         {/if}
 
-                                        <div class="mhs thumbnail">
+                                        <div class="thumbnail">
                                             {block name='frontend_detail_image_thumbs_images_img'}
                                                 <img srcset="{$image.thumbnails[0].sourceSet}"
                                                      alt="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt}"
