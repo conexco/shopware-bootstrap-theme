@@ -29,7 +29,7 @@
                         <a href="{$sBasketItem.linkDetails}" title="{$sBasketItem.articlename|strip_tags}">{$sBasketItem.articlename|truncate:30|escapeHtml}</a>
                         {if $sBasketItem.modus == 10}
                             {s name='AjaxCartInfoBundleAboRabatt'}Rabatt{/s}
-                        {else if $sBasketItem.modus != 4}
+                        {else if $sBasketItem.modus == 0}
                             {block name="frontend_checkout_ajax_cart_articlename_quantity"}
                                 {block name="frontend_checkout_modify_ajax_cart_change_quantity"}
                                     <form class="change-quantity mtm mbm" id="change-quantity-{$sBasketItem.id}" name="change-quantity-{$sBasketItem.id}">
