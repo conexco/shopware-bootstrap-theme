@@ -13,11 +13,11 @@
 <header>
     <div class="container">
         <div class="navbar navbar-expand flex-column flex-md-row px-0">
-            <a class="navbar-brand mr-4" href="{{ site.baseurl }}/" aria-label="Shopware Bootstrap Theme">
+            <a class="navbar-brand float-left float-md-none mr-4" href="{{ site.baseurl }}/" aria-label="Shopware Bootstrap Theme">
                 {% include svg/sign.svg width="36" height="36" class="d-block" %}
             </a>
 
-            <div class="navbar-nav-scroll">
+            <div class="navbar-nav-scroll is-closed" data-navbar-selector="true">
                 <ul class="navbar-nav bd-navbar-nav flex-row text-18 black">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ site.baseurl }}/">home</a>
@@ -31,13 +31,15 @@
                 </ul>
             </div>
 
-            <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
+            <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
                 <li class="nav-item">
                     <a class="nav-link p-2" href="{{ site.githubButton.repo }}" target="_blank" rel="noopener" aria-label="GitHub">
                         {% include svg/github.svg class="navbar-nav-svg" %}
                     </a>
                 </li>
             </ul>
+
+            <button class="navbar-toggle btn-clear d-md-none is-closed" data-navbar-toggle="true"><span></span></button>
         </div>
     </div>
 </header>
