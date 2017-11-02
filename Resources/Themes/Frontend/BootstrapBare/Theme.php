@@ -42,7 +42,7 @@ class Theme extends \Shopware\Components\Theme
     protected $injectBeforePlugins = true;
 
     const VENDORS_JS_PATH = 'vendors/js/';
-    const RESPONSIVE_THEME_JS_PATH = 'vendors/js/shopware';
+    const RESPONSIVE_THEME_JS_PATH = 'vendors/js/shopware/';
     const SOURCE_JS_PATH = 'src/js/';
 
     /** @var array Defines the files which should be compiled by the javascript compressor */
