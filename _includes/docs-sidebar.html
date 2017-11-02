@@ -15,7 +15,7 @@
         </a>
 
         {% unless active == nil %}
-        <ul class="nav mt-2 ml-3">
+        <ul class="nav mt-2 ml-3 d-none d-md-block">
             {%- for doc in group.pages -%}
                 {%- assign doc_slug = doc.title | slugify -%}
                 <li>
