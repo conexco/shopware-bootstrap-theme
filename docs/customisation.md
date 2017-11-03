@@ -201,7 +201,7 @@ private function modifyExtendedThemeConfigs(Form\Container\FieldSet $fieldSet)
             case 'swf-screen-hd-min':
             case 'swf-screen-sm-min':
                 $this->unHideField($field);
-                $fieldSet->getElements()->remove($field);               // remove it from current field set
+                $fieldSet->getElements()->removeElement($field);        // remove it from current field set
                 $this->deviceBreakpointFieldSet->addElement($field);    // add it to new field set
                 break;
             // ...
