@@ -4,20 +4,18 @@
     {if $theme.sidebarFilter}
         <div id="sidebarFilterOffcanvas">
             {block name='frontend_listing_sidebar_offcanvas'}
-                {if $theme['offcanvas-sidebar-filter']}
-                    <div class="buttons-off-canvas{if $class} {$class}{else} offcanvas-default{/if}">
-                        {block name='frontend_listing_sidebar_offcanvas_inner'}
-                            <a href="#" title="{"{s name="OffcanvasCloseMenuLink"}Menü schließen{/s}"|escape}"
-                               class="close-off-canvas sw5-plugin">
-                                <i class="fa fa-angle-left"></i>
-                                <span class="sidebar-offcanvas-close"
-                                      data-show-products-text="{s name="ListingActionsCloseFilterShowProducts" namespace="frontend/listing/listing_actions"}{/s}">
-                                    {s name="OffcanvasCloseMenuLink"}{/s}
-                                </span>
-                            </a>
-                        {/block}
-                    </div>
-                {/if}
+                <div class="buttons-off-canvas{if $class} {$class}{else} offcanvas-default{/if}">
+                    {block name='frontend_listing_sidebar_offcanvas_inner'}
+                        <a href="#" title="{"{s name="OffcanvasCloseMenuLink"}Menü schließen{/s}"|escape}"
+                           class="close-off-canvas sw5-plugin">
+                            <i class="fa fa-angle-left"></i>
+                            <span class="sidebar-offcanvas-close"
+                                  data-show-products-text="{s name="ListingActionsCloseFilterShowProducts" namespace="frontend/listing/listing_actions"}{/s}">
+                                {s name="OffcanvasCloseMenuLink"}{/s}
+                            </span>
+                        </a>
+                    {/block}
+                </div>
             {/block}
             {block name='frontend_listing_sidebar'}
                 <div class="listing-sidebar">

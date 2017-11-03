@@ -51,6 +51,14 @@ $.overridePlugin('swListingActions', {
         sidebarLoadingIndicatorParentSelector: '.content-main'
     },
 
+    init: function () {
+        this.superclass.init.apply(this, arguments);
+
+        var me = this;
+        
+        me.listingUrl = safeUrl(me.listingUrl);
+    },
+
     // original plugin function overwrite
     initStateHandling: function () {
     },

@@ -1,7 +1,7 @@
 {namespace name="frontend/listing/listing_actions"}
 
 {block name="frontend_listing_filter_facet_multi_selection"}
-    <div class="filter-col">
+    <div class="filter-col{if !$theme.sidebarFilter} col-hd-6 col-md-4{/if}">
         {$inputType = 'checkbox'}
 
         {if $filterType == 'radio'}

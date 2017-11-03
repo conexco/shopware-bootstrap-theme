@@ -55,11 +55,9 @@
                     {/block}
 
                     {block name="frontend_listing_actions_filter_form_facets"}
-                        <div class="action-filter-options sw5-plugin
-                                    {if !$theme.sidebarFilter} collapse {else} panel panel-default{/if}
-                                    {if $listingMode != 'full_page_reload'} is-ajax-reload{/if}"
+                        <div class="action-filter-options sw5-plugin{if !$theme.sidebarFilter} collapse{else} panel panel-default{/if}{if $listingMode != 'full_page_reload'} is-ajax-reload{/if}"
                              id="FilterContainer">
-                            <div class="filter-panel-container">
+                            <div class="filter-panel-container{if !$theme.sidebarFilter} row{/if}">
                                 {include file="frontend/listing/actions/action-filter-facets.tpl" facets=$facets}
                             </div>
                         </div>
