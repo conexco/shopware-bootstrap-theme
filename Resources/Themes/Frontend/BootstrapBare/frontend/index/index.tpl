@@ -72,7 +72,9 @@
                                                     </div>
                                                 {/block}
                                                 {block name='frontend_index_header_hr'}
-                                                    <hr class="col-xs-12 visible-xs mts mbm">
+                                                    <div class="col-xs-12 visible-xs">
+                                                        <hr class="mts mbm">
+                                                    </div>
                                                 {/block}
                                                 {block name='frontend_index_header_row_right'}
                                                     <div class="col-sm-12 col-hd-7 col-md-9">

@@ -96,7 +96,7 @@
                                 <input type="hidden" name="sArticle" value="{$sBasketItem.id}"/>
                                 {block name='frontend_checkout_cart_item_quantity_selection'}
                                     {if !$sBasketItem.additional_details.laststock || ($sBasketItem.additional_details.laststock && $sBasketItem.additional_details.instock > 0)}
-                                        <select name="sQuantity" class="form-control" data-auto-submit="true">
+                                        <select name="sQuantity" class="form-control" data-auto-submit="true" aria-label="{s name='CartColumnQuantity' namespace='frontend/checkout/cart_header'}{/s}">
                                             {section name="i" start=$sBasketItem.minpurchase loop=$sBasketItem.maxpurchase+1 step=$sBasketItem.purchasesteps}
                                                 <option value="{$smarty.section.i.index}" {if $smarty.section.i.index==$sBasketItem.quantity}selected="selected"{/if}>
                                                     {$smarty.section.i.index}
