@@ -8,6 +8,9 @@
     top: 0;
     z-index: @swf-zindex-overlay;
     visibility: hidden;
+    &, &.is-open{
+        .transition(all 0.5s ease-in-out);
+    }
     &.is-open {
         opacity: 1;
         visibility: visible;

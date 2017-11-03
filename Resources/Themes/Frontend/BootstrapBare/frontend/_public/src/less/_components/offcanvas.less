@@ -1,15 +1,17 @@
 .off-canvas {
-    .transition(all 0.45s cubic-bezier(.3,0,.15,1));
     .transform-style(preserve-3d);
     .unitize-width(320);
     background: @swf-shop-bg;
     position: fixed;
     top: 0;
     bottom: 0;
-    display: none;
+    display: block;
     overflow: auto;
     .unitize-padding(10, 20, 10, 20);
     z-index: @swf-zindex-offcanvas;
+    &, &.is-open{
+        .transition(all 0.5s ease-in-out);
+    }
     &.is-left {
         .translate(-100%,0);
         left: 0;
