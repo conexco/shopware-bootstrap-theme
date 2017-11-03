@@ -10,16 +10,13 @@
 
 {* Sidebar left *}
 {block name='frontend_index_content_left'}
-    {if $theme.sidebarFilter}
-        {$sArticles = $sSearchResults.sArticles}
-        {$sNumberArticles = $sSearchResults.sArticlesCount}
-        {$sBoxMode = "table"}
-        {$showListing = true}
-        {$pages = ceil($sNumberArticles / $criteria->getLimit())}
-        {$countCtrlUrl = "{url module="widgets" controller="listing" action="listingCount" params=$ajaxCountUrlParams fullPath}"}
-        {include file='frontend/listing/sidebar.tpl'}
-    {/if}
+    {block name="frontend_search_sidebar"}
+        {if $theme.sidebarFilter && $sSearchResults.sArticles}
+            {include file='frontend/listing/sidebar.tpl'}
+        {/if}
+    {/block}
 {/block}
+
 {block name='frontend_index_left_categories_content'}{/block}
 {block name="frontend_index_left_menu_container"}{/block}
 
@@ -56,7 +53,6 @@
         {/if}
     {/block}
 
-    {* show search result listing if there are results found or if there are no results because of the current filter *}
     {if $sSearchResults.sArticles}
         {* Listing variables *}
         {block name="frontend_search_variables"}
@@ -72,12 +68,6 @@
             <h1 class="search-headline mbl text-center">
                 {s name='SearchHeadline'}{/s}
             </h1>
-        {/block}
-
-        {block name="frontend_search_sidebar"}
-            {if !$theme.sidebarFilter}
-                {include file='frontend/listing/sidebar.tpl'}
-            {/if}
         {/block}
 
         {block name="frontend_search_results"}
