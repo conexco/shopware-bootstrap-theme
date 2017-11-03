@@ -4043,7 +4043,7 @@ class Theme extends \Shopware\Components\Theme
                     'attributes' =>
                         array(
                             'boxLabel' =>
-                                'Wenn aktiv, wird auf dem Smartphone der Offcanvas Warenkorb angezeigt, wenn ein Artikel in den Warenkorb gelegt wird.',
+                                'Wenn aktiv, wird der Offcanvas Warenkorb anstelle des Modals angezeigt, wenn ein Artikel in den Warenkorb gelegt wird.',
                         ),
                 )
             )
@@ -4443,7 +4443,7 @@ class Theme extends \Shopware\Components\Theme
             'modal-gallery' => true,
             'modal-gallery-size' => 'modal-full',
             'ajaxVariantSwitch' => true,
-            'detailOffcanvasCart' => false,
+            'detailOffcanvasCart' => true,
             'checkoutHeader' => true,
             'infinite-scrolling' => false,
             'infinite-threshold' => '4',
