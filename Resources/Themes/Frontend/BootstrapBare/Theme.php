@@ -3759,21 +3759,6 @@ class Theme extends \Shopware\Components\Theme
         );
 
         $fieldset->addElement(
-            $this->createCheckboxField(
-                'mega-menu',
-                'Mega-Menü aktivieren',
-                $this->themeDefaults['mega-menu'],
-                array(
-                    'attributes' =>
-                        array(
-                            'boxLabel' =>
-                                'Wenn aktiv, wird das Standard-Menü durch ein Menü ersetzt, welches über die gesamte Seitenbreite geht.',
-                        ),
-                )
-            )
-        );
-
-        $fieldset->addElement(
             $this->createSelectField(
                 'mega-menu-col-width',
                 'Mega-Menü: Spalten pro Zeile',
@@ -4216,6 +4201,21 @@ class Theme extends \Shopware\Components\Theme
             'swf-navbar-default-link-hover-bg' => 'transparent',
             'swf-navbar-default-link-hover-color' => '#333',
             'swf-navbar-height' => '50px',
+            'swf-navbar-border-radius' => '@swf-border-radius-base',
+            'swf-navbar-default-link-disabled-color' => '#ccc',
+            'swf-navbar-default-link-disabled-bg' => 'transparent',
+            'swf-navbar-default-toggle-hover-bg' => '#ddd',
+            'swf-navbar-default-toggle-icon-bar-bg' => '#888',
+            'swf-navbar-link-separator-color' => '@swf-navbar-default-bg',
+            'swf-navbar-submenu-border-color' => '@swf-gray-lighter',
+            'swf-navbar-submenu-bg-color' => '#fff',
+            'swf-navbar-off-canvas-width' => '300px',
+            'swf-navbar-off-canvas-indent' => '25px',
+            'swf-navbar-off-canvas-bg-color' => '#fff',
+            'swf-navbar-off-canvas-submenu-bg-color' => '@swf-gray-lighter',
+            'swf-navbar-off-canvas-arrow-color' => '@swf-gray-light',
+            'swf-navbar-off-canvas-close-icon-color' => '#fff',
+            'swf-navbar-off-canvas-close-icon-color-hover' => '@swf-brand-primary',
             'swf-padding-base-vertical' => '6px',
             'swf-padding-base-horizontal' => '12px',
             'swf-padding-large-vertical' => '10px',
@@ -4289,14 +4289,6 @@ class Theme extends \Shopware\Components\Theme
             'swf-abbr-border-color' => '@swf-gray-light',
             'swf-headings-small-color' => '@swf-gray-light',
             'swf-page-header-border-color' => '@swf-gray-lighter',
-            'swf-navbar-border-radius' => '@swf-border-radius-base',
-            'swf-navbar-default-link-disabled-color' => '#ccc',
-            'swf-navbar-default-link-disabled-bg' => 'transparent',
-            'swf-navbar-default-toggle-hover-bg' => '#ddd',
-            'swf-navbar-default-toggle-icon-bar-bg' => '#888',
-            'swf-navbar-link-separator-color' => '@swf-navbar-default-bg',
-            'swf-navbar-submenu-border-color' => '@swf-gray-lighter',
-            'swf-navbar-submenu-bg-color' => '#fff',
             'swf-pagination-color' => '@swf-link-color',
             'swf-pagination-hover-color' => '@swf-link-hover-color',
             'swf-pagination-hover-border' => '#ddd',
@@ -4418,13 +4410,6 @@ class Theme extends \Shopware\Components\Theme
             'swf-dl-horizontal-offset' => '@swf-component-offset-horizontal',
             'swf-caret-width-base' => '4px',
             'swf-caret-width-large' => '5px',
-            'swf-navbar-off-canvas-width' => '300px',
-            'swf-navbar-off-canvas-indent' => '25px',
-            'swf-navbar-off-canvas-bg-color' => '#fff',
-            'swf-navbar-off-canvas-submenu-bg-color' => '@swf-gray-lighter',
-            'swf-navbar-off-canvas-arrow-color' => '@swf-gray-light',
-            'swf-navbar-off-canvas-close-icon-color' => '#fff',
-            'swf-navbar-off-canvas-close-icon-color-hover' => '@swf-brand-primary',
             'desktopLogo' => 'frontend/_public/src/img/logos/logo.png',
             'mobileLogo' => 'frontend/_public/src/img/logos/logo-mobile.png',
             'favicon' => 'frontend/_public/src/img/favicon.png',
@@ -4452,7 +4437,6 @@ class Theme extends \Shopware\Components\Theme
             'notify-modal-in-listing' => false,
             'sidebarFilter' => true,
             'fixed-navbar' => false,
-            'mega-menu' => true,
             'mega-menu-col-width' => '3',
             'mega-menu-new-col' => '3',
             'mega-menu-depth' => '3',

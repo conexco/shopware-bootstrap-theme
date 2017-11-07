@@ -2,7 +2,7 @@
 
 {block name="frontend_index_sidebar"}
     {if $theme.sidebarFilter}
-        <div id="sidebarFilterOffcanvas">
+        <div id="sidebarFilterOffcanvas" class="offcanvas-has-panel">
             {block name='frontend_listing_sidebar_offcanvas'}
                 <div class="buttons-off-canvas{if $class} {$class}{else} offcanvas-default{/if}">
                     {block name='frontend_listing_sidebar_offcanvas_inner'}
@@ -18,7 +18,7 @@
                 </div>
             {/block}
             {block name='frontend_listing_sidebar'}
-                <div class="listing-sidebar">
+                <div class="listing-sidebar mtm-xs mtm-sm">
                     {$smarty.block.parent}
 
                     <div class="sidebar-filter">

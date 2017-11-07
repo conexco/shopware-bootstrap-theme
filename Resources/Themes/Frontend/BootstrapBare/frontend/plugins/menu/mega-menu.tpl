@@ -27,10 +27,10 @@
                 {foreach from=$categories item=category name=categoryloop}
                     {block name="frontend_index_navigation_mega_menu_main_category"}
                         {if !$category.hidetop}
-                            {* show separator *}
-                            <p class="title{if $category.sub} subs-active{/if}">
+                            <div class="main-nav-sub-head{if $category.sub} subs-active{/if}">
                                 <a {if !empty($category.flag)} class="active"{/if} href="{$category.link}">{$category.name}</a>
-                            </p>
+                            </div>
+                            
                             {if $category.sub}
                                 {call name=categories_top categories=$category.sub level=$level+1}
                             {/if}
@@ -81,7 +81,7 @@
             {/if}
         {elseif $level == 1}
             {if !$category.hidetop}
-                <ul class="link-list">
+                <ul class="main-nav-sub-list">
                     {foreach from=$categories item=category}
                         {if !$category.hidetop}
                             <li {if !empty($category.flag)} class="active"{/if}>

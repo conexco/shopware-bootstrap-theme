@@ -48,7 +48,9 @@
     // Shopware plugin-base
     window.StateManager
         // Menu 
-        .addPlugin('[data-wsmenu="true"]', 'wsMenu')
+        .addPlugin('[data-main-nav="true"]', 'mainNavigation')
+
+        .addPlugin('#navToggle', 'swOffcanvasMenu', ['xs', 's'])
 
         // Product compare menu
         .addPlugin('*[data-product-compare-menu="true"]', 'swProductCompareMenu', {
@@ -170,7 +172,7 @@
         .addPlugin('*[data-filter-type]', 'swFilterComponent')
 
         // Sidebar Filter
-        .addPlugin('.sidebar-filter-offcanvas [data-offcanvas="true"]', 'swOffcanvasMenu', ['xs', 's', 'm'])
+        .addPlugin('.sidebar-filter-offcanvas [data-offcanvas="true"]', 'swOffcanvasMenu', ['xs', 's'])
 
     ;   // window.StateManager addPlugin end
 
