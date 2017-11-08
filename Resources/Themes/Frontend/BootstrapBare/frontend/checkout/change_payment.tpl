@@ -5,7 +5,7 @@
 {block name='frontend_checkout_payment_content'}
     <div class="payment--method-list sw5-plugin">{* heidelpay compatibility *}
         {foreach $sPayments as $payment_mean}
-            <div class="payment-method">
+            <div class="payment-method payment--method sw5-plugin">{* heidelpay compatibility *}
                 {* Method Name *}
                 {block name='frontend_checkout_payment_fieldset_input_label'}
                     <div class="radio">
