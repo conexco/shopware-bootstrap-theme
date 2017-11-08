@@ -15,7 +15,13 @@
     {else}
         {* Welcome text *}
         {block name="frontend_account_orders_welcome"}
-            <h1>{s name="OrdersHeader"}{/s}</h1>
+            {block name="frontend_account_orders_welcome_headline"}
+                <h1>{s name="OrdersHeader"}{/s}</h1>
+            {/block}
+
+            {block name="frontend_account_orders_welcome_content"}
+                <p>{s name="OrdersWelcomeText"}{/s}</p>
+            {/block}
         {/block}
         {* Orders overview *}
         {block name="frontend_account_orders_overview"}
@@ -68,9 +74,12 @@
                         {assign var=sPage value=$page.value}
                     {/if}
                 {/foreach}
-                {if $sNumberPages > 1}
-                    {include file="frontend/listing/actions/action-pagination.tpl" pages=$sNumberPages}
-                {/if}
+
+                {block name='frontend_account_orders_actions_paging_count'}
+                    {if $sNumberPages > 1}
+                        {include file="frontend/listing/actions/action-pagination.tpl" pages=$sNumberPages}
+                    {/if}
+                {/block}
             {/block}
         {/block}
     {/if}

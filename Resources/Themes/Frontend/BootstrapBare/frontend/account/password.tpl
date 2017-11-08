@@ -23,7 +23,7 @@
         {/block}
     {else}
         {* Recover password form *}
-        {block name='frontend_account_password_form'}
+        {block name="frontend_account_password_reset"}
             <form name="frmRegister" method="post" class="form-horizontal" action="{url action=password}">
                 <fieldset>
                     {block name="frontend_account_password_reset_headline"}

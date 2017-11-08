@@ -79,12 +79,14 @@
                             <input name="sAddAccessoriesQuantity[]" type="hidden" value="{$article.quantity|escape}"/>
                         {/if}{/foreach}
 
-                        <div class="hidden-xs">
-                            <input type="submit" class="btn btn-xs btn-primary btn-block" value="{s name='OrderLinkRepeat'}{/s}"/>
-                        </div>
-                        <div class="visible-xs">
-                            <input type="submit" class="btn btn-xs btn-primary btn-block" value="{s name='OrderLinkRepeat'}{/s}" style="white-space:normal !important; word-wrap:break-word;"/>
-                        </div>
+                        {block name="frontend_account_order_item_repeat_button"}
+                            <div class="hidden-xs">
+                                <input type="submit" class="btn btn-xs btn-primary btn-block" value="{s name='OrderLinkRepeat'}{/s}"/>
+                            </div>
+                            <div class="visible-xs">
+                                <input type="submit" class="btn btn-xs btn-primary btn-block" value="{s name='OrderLinkRepeat'}{/s}" style="white-space:normal !important; word-wrap:break-word;"/>
+                            </div>
+                        {/block}
                     </form>
                 {/block}
             </td>

@@ -7,9 +7,8 @@
                 <legend>{s name="BlogHeaderWriteComment"}{/s}</legend>
             {/block}
 
-            {if $sAction == "rating"}
-                {* Output errors *}
-                {block name='frontend_blog_comments_error_messages'}
+            {block name='frontend_blog_comments_form_errors'}
+                {if $sAction == "rating"}
                     {if $sErrorFlag}
                         {include file="frontend/_includes/messages.tpl" type="danger" content="{s name='BlogInfoFailureFields'}{/s}"}
                     {else}
@@ -19,8 +18,8 @@
                             {include file="frontend/_includes/messages.tpl" type="success" content="{s name='BlogInfoSuccess'}{/s}"}
                         {/if}
                     {/if}
-                {/block}
-            {/if}
+                {/if}
+            {/block}
 
             {* Name *}
             {block name='frontend_blog_comments_input_name'}
@@ -116,8 +115,11 @@
             {block name='frontend_blog_comments_input_submit'}
                 <div class="form-group">
                     <div class="{$FormLabelOffset} {$FormInputSize}">
-                        <span class="help-block">{s name="BlogInfoFields"}{/s}</span>
-                        <input class="btn btn-primary" type="submit" name="Submit" value="{s name='BlogLinkSaveComment'}{/s}"
+                        {block name='frontend_blog_comments_input_notice'}
+                            <span class="help-block">{s name="BlogInfoFields"}{/s}</span>
+                        {/block}
+                        
+                        <input class="btn btn-primary" type="submit" name="Submit" value="{s name='BlogLinkSaveComment'}{/s}" />
                     </div>
                 </div>
             {/block}

@@ -49,7 +49,9 @@
                         {* Article Description *}
                         {block name='frontend_blog_col_description'}
                             <p>
-                                {if $sArticle.shortDescription}{$sArticle.shortDescription|nl2br}{else}{$sArticle.shortDescription}{/if}
+                                {block name='frontend_blog_col_description_short'}
+                                    {if $sArticle.shortDescription}{$sArticle.shortDescription|nl2br}{else}{$sArticle.shortDescription}{/if}
+                                {/block}
                             </p>
                         {/block}
                         {* Tags *}
@@ -94,6 +96,8 @@
                                             {/block}
                                         {/if}
                                     {/block}
+
+                                    {block name='frontend_blog_col_meta_data_description'}{/block}
 
                                     {* Comments *}
                                     {block name='frontend_blog_col_meta_data_comments'}

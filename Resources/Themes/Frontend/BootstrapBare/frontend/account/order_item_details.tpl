@@ -36,70 +36,72 @@
                                         {block name="frontend_account_order_item_detail_table_row"}
                                             <tr>
                                                 <td>
-                                                    {* Name *}
-                                                    {block name='frontend_account_order_item_name'}
-                                                        <p>
-                                                            {* Mode 10 = Bundle Product *}
-                                                            {if $article.modus == 10}
-                                                                {s name='OrderItemInfoBundle'}{/s}
-                                                            {else}
-                                                                {$article.name}
-                                                            {/if}
-                                                        </p>
-                                                    {/block}
-
-                                                    {* Unit price *}
-                                                    {block name='frontend_account_order_item_unitprice'}
-                                                        {include file="frontend/listing/product-box/product-price-unit.tpl" sArticle=$article}
-                                                    {/block}
-
-                                                    {* Current price *}
-                                                    {block name='frontend_account_order_item_currentprice'}
-                                                        {if $article.currentPrice}
+                                                    {block name="frontend_account_order_item_info"}
+                                                        {* Name *}
+                                                        {block name='frontend_account_order_item_name'}
                                                             <p>
-                                                                <small>
-                                                                    {block name="frontend_account_order_item_currentprice_label"}
-                                                                        {s name="OrderItemInfoCurrentPrice"}{/s}:
-                                                                    {/block}
-                                                                    {block name="frontend_account_order_item_pseudo_price"}
-                                                                        {block name="frontend_account_order_item_pseudo_price_before"}
-                                                                            {s name="priceDiscountLabel" namespace="frontend/detail/data"}{/s}
-                                                                        {/block}
-                                                                        {if $article.currentPseudoprice}
-                                                                            {s name="reducedPrice" namespace="frontend/listing/box_article"}{/s} {$article.currentPseudoprice|currency} {s name="Star" namespace="frontend/listing/box_article"}{/s}
-                                                                        {/if}
-                                                                        {block name="frontend_account_order_item_pseudo_price_after"}
-                                                                            {s name="priceDiscountInfo" namespace="frontend/detail/data"}{/s}
-                                                                        {/block}
-                                                                    {/block}
-                                                                    {block name="frontend_account_order_item_currentprice_value"}
-                                                                        {$article.currentPrice|currency} {s name="Star" namespace="frontend/listing/box_article"}{/s}
-                                                                    {/block}
-                                                                </small>
+                                                                {* Mode 10 = Bundle Product *}
+                                                                {if $article.modus == 10}
+                                                                    {s name='OrderItemInfoBundle'}{/s}
+                                                                {else}
+                                                                    {$article.name}
+                                                                {/if}
                                                             </p>
-                                                        {/if}
-                                                    {/block}
+                                                        {/block}
 
-                                                    {* availability warning *}
-                                                    {block name='frontend_account_order_item_availability'}
-                                                        {if $article.modus == 0 && ($article.active == 0 || !$article.article.isAvailable)}
-                                                            {* show warning if article is not active or not available *}
-                                                            {include file="frontend/_includes/messages.tpl" type="error" content="{s name='OrderItemInfoNotAvailable'}{/s}"}
-                                                        {/if}
-                                                    {/block}
+                                                        {* Unit price *}
+                                                        {block name='frontend_account_order_item_unitprice'}
+                                                            {include file="frontend/listing/product-box/product-price-unit.tpl" sArticle=$article}
+                                                        {/block}
 
-                                                    {* If ESD-Article *}
-                                                    {block name='frontend_account_order_item_downloadlink'}
-                                                        {if $article.esdarticle && $offerPosition.cleared|in_array:$sDownloadAvailablePaymentStatus}
-                                                            <a href="{$article.esdLink}" class="btn btn-primary btn-xs">
-                                                                <i class="fa fa-cloud-download mrs"></i> {s name="OrderItemInfoInstantDownload"}{/s}
-                                                            </a>
-                                                        {/if}
-                                                        {if $article.esdarticle && !$offerPosition.cleared|in_array:$sDownloadAvailablePaymentStatus}
-                                                            <a href="#" class="btn btn-default btn-xs" disabled="disabled">
-                                                                <i class="fa fa-cloud-download fa-lg"></i> {s name="OrderItemInfoInstantDownload"}{/s}
-                                                            </a>
-                                                        {/if}
+                                                        {* Current price *}
+                                                        {block name='frontend_account_order_item_currentprice'}
+                                                            {if $article.currentPrice}
+                                                                <p>
+                                                                    <small>
+                                                                        {block name="frontend_account_order_item_currentprice_label"}
+                                                                            {s name="OrderItemInfoCurrentPrice"}{/s}:
+                                                                        {/block}
+                                                                        {block name="frontend_account_order_item_pseudo_price"}
+                                                                            {block name="frontend_account_order_item_pseudo_price_before"}
+                                                                                {s name="priceDiscountLabel" namespace="frontend/detail/data"}{/s}
+                                                                            {/block}
+                                                                            {if $article.currentPseudoprice}
+                                                                                {s name="reducedPrice" namespace="frontend/listing/box_article"}{/s} {$article.currentPseudoprice|currency} {s name="Star" namespace="frontend/listing/box_article"}{/s}
+                                                                            {/if}
+                                                                            {block name="frontend_account_order_item_pseudo_price_after"}
+                                                                                {s name="priceDiscountInfo" namespace="frontend/detail/data"}{/s}
+                                                                            {/block}
+                                                                        {/block}
+                                                                        {block name="frontend_account_order_item_currentprice_value"}
+                                                                            {$article.currentPrice|currency} {s name="Star" namespace="frontend/listing/box_article"}{/s}
+                                                                        {/block}
+                                                                    </small>
+                                                                </p>
+                                                            {/if}
+                                                        {/block}
+
+                                                        {* availability warning *}
+                                                        {block name='frontend_account_order_item_availability'}
+                                                            {if $article.modus == 0 && ($article.active == 0 || !$article.article.isAvailable)}
+                                                                {* show warning if article is not active or not available *}
+                                                                {include file="frontend/_includes/messages.tpl" type="error" content="{s name='OrderItemInfoNotAvailable'}{/s}"}
+                                                            {/if}
+                                                        {/block}
+
+                                                        {* If ESD-Article *}
+                                                        {block name='frontend_account_order_item_downloadlink'}
+                                                            {if $article.esdarticle && $offerPosition.cleared|in_array:$sDownloadAvailablePaymentStatus}
+                                                                <a href="{$article.esdLink}" class="btn btn-primary btn-xs">
+                                                                    <i class="fa fa-cloud-download mrs"></i> {s name="OrderItemInfoInstantDownload"}{/s}
+                                                                </a>
+                                                            {/if}
+                                                            {if $article.esdarticle && !$offerPosition.cleared|in_array:$sDownloadAvailablePaymentStatus}
+                                                                <a href="#" class="btn btn-default btn-xs" disabled="disabled">
+                                                                    <i class="fa fa-cloud-download fa-lg"></i> {s name="OrderItemInfoInstantDownload"}{/s}
+                                                                </a>
+                                                            {/if}
+                                                        {/block}
                                                     {/block}
                                                 </td>
                                                 <td>
@@ -151,81 +153,85 @@
                     
                     <div class="row">
                         <div class="col-lg-5">
-                            <dl class="dl-horizontal">
-                                {* Order date *}
-                                {block name="frontend_account_order_item_label_date"}
-                                    <dt>{s name="OrderItemColumnDate"}{/s}</dt>
-                                {/block}
-                                {block name='frontend_account_order_item_date'}
-                                    <dd>{$offerPosition.datum|date}</dd>
-                                {/block}
+                            {block name="frontend_account_order_item_detail_info_data"}
+                                <dl class="dl-horizontal">
+                                    {* Order date *}
+                                    {block name="frontend_account_order_item_label_date"}
+                                        <dt>{s name="OrderItemColumnDate"}{/s}</dt>
+                                    {/block}
+                                    {block name='frontend_account_order_item_date'}
+                                        <dd>{$offerPosition.datum|date}</dd>
+                                    {/block}
 
-                                {* Order number *}
-                                {block name="frontend_account_order_item_label_ordernumber"}
-                                    <dt>{s name="OrderItemColumnId"}{/s}</dt>
-                                {/block}
-                                {block name='frontend_account_order_item_ordernumber'}
-                                    <dd>{$offerPosition.ordernumber}</dd>
-                                {/block}
+                                    {* Order number *}
+                                    {block name="frontend_account_order_item_label_ordernumber"}
+                                        <dt>{s name="OrderItemColumnId"}{/s}</dt>
+                                    {/block}
+                                    {block name='frontend_account_order_item_ordernumber'}
+                                        <dd>{$offerPosition.ordernumber}</dd>
+                                    {/block}
 
-                                {* Shipping method *}
-                                {block name="frontend_account_order_item_label_dispatch"}
-                                    {if $offerPosition.dispatch}
-                                        <dt>{s name="OrderItemColumnDispatch"}{/s}</dt>
-                                    {/if}
-                                {/block}
-                                {block name='frontend_account_order_item_dispatch'}
-                                    {if $offerPosition.dispatch}
-                                        <dd>{$offerPosition.dispatch.name}</dd>
-                                    {/if}
-                                {/block}
-
-                                {* Package tracking code *}
-                                {block name="frontend_account_order_item_label_trackingcode"}
-                                    {if $offerPosition.trackingcode}
-                                        <dt>{s name="OrderItemColumnTracking"}{/s}</dt>
-                                    {/if}
-                                {/block}
-                                {block name='frontend_account_order_item_trackingcode'}
-                                    {if $offerPosition.trackingcode}
-                                        {if $offerPosition.dispatch.status_link}
-                                            <dd>
-                                                <a href="{$offerPosition.dispatch.status_link}"
-                                                    title="{$offerPosition.dispatch.name}"
-                                                    onclick="return !window.open(this.href, 'popup', 'width=500,height=600,left=20,top=20');"
-                                                    target="_blank">{$offerPosition.trackingcode}
-                                                </a>
-                                            </dd>
-                                        {else}
-                                            <dd>{$offerPosition.trackingcode}</dd>
+                                    {* Shipping method *}
+                                    {block name="frontend_account_order_item_label_dispatch"}
+                                        {if $offerPosition.dispatch}
+                                            <dt>{s name="OrderItemColumnDispatch"}{/s}</dt>
                                         {/if}
-                                    {/if}
-                                {/block}
+                                    {/block}
+                                    {block name='frontend_account_order_item_dispatch'}
+                                        {if $offerPosition.dispatch}
+                                            <dd>{$offerPosition.dispatch.name}</dd>
+                                        {/if}
+                                    {/block}
 
-                                {block name="frontend_account_order_item_detail_shipping_costs_label"}
-                                    <dt>{s name="OrderItemShippingcosts"}{/s}</dt>
-                                {/block}
+                                    {* Package tracking code *}
+                                    {block name="frontend_account_order_item_label_trackingcode"}
+                                        {if $offerPosition.trackingcode}
+                                            <dt>{s name="OrderItemColumnTracking"}{/s}</dt>
+                                        {/if}
+                                    {/block}
+                                    {block name='frontend_account_order_item_trackingcode'}
+                                        {if $offerPosition.trackingcode}
+                                            {if $offerPosition.dispatch.status_link}
+                                                <dd>
+                                                    <a href="{$offerPosition.dispatch.status_link}"
+                                                        title="{$offerPosition.dispatch.name}"
+                                                        onclick="return !window.open(this.href, 'popup', 'width=500,height=600,left=20,top=20');"
+                                                        target="_blank">{$offerPosition.trackingcode}
+                                                    </a>
+                                                </dd>
+                                            {else}
+                                                <dd>{$offerPosition.trackingcode}</dd>
+                                            {/if}
+                                        {/if}
+                                    {/block}
 
-                                {block name="frontend_account_order_item_shippingamount"}
-                                    <dd>{$offerPosition.invoice_shipping} {$offerPosition.currency_html}</dd>
-                                {/block}
+                                    {block name="frontend_account_order_item_detail_summary_data"}
+                                        {block name="frontend_account_order_item_detail_shipping_costs_label"}
+                                            <dt>{s name="OrderItemShippingcosts"}{/s}</dt>
+                                        {/block}
 
-                                {block name="frontend_account_order_item_detail_shipping_costs"}
-                                    {if $offerPosition.taxfree}
-                                        <dt>{s name="OrderItemNetTotal"}{/s}</dt>
-                                    {else}
-                                        <dt>{s name="OrderItemTotal"}{/s}</dt>
-                                    {/if}
-                                {/block}
+                                        {block name="frontend_account_order_item_shippingamount"}
+                                            <dd>{$offerPosition.invoice_shipping} {$offerPosition.currency_html}</dd>
+                                        {/block}
 
-                                {block name="frontend_acccount_order_item_amount"}
-                                    {if $offerPosition.taxfree}
-                                        <dd>{$offerPosition.invoice_amount_net} {$offerPosition.currency_html}</dd>
-                                    {else}
-                                        <dd>{$offerPosition.invoice_amount} {$offerPosition.currency_html}</dd>
-                                    {/if}
-                                {/block}
-                            </dl>
+                                        {block name="frontend_account_order_item_detail_shipping_costs"}
+                                            {if $offerPosition.taxfree}
+                                                <dt>{s name="OrderItemNetTotal"}{/s}</dt>
+                                            {else}
+                                                <dt>{s name="OrderItemTotal"}{/s}</dt>
+                                            {/if}
+                                        {/block}
+
+                                        {block name="frontend_acccount_order_item_amount"}
+                                            {if $offerPosition.taxfree}
+                                                <dd>{$offerPosition.invoice_amount_net} {$offerPosition.currency_html}</dd>
+                                            {else}
+                                                <dd>{$offerPosition.invoice_amount} {$offerPosition.currency_html}</dd>
+                                            {/if}
+                                        {/block}
+                                    {/block}
+                                </dl>
+                            {/block}
                         </div>
 
                         {if $offerPosition.customercomment || $offerPosition.comment}
