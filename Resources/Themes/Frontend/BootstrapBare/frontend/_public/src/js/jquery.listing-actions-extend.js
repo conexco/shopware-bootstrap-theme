@@ -163,7 +163,9 @@ $.overridePlugin('swListingActions', {
             me.updateListing(response);
 
             if (me.showInstantFilterResult) {
-                $(me.opts.listingSelector).equalHeight();
+                $(me.opts.listingSelector + '[data-equalheight="true"]').equalHeight();
+
+                lazyLoadImages();
 
                 if ($offcanvas.length > 0) {
                     me.$filterForm.loader('hide');

@@ -13,16 +13,26 @@
                             {$desc = $sArticle.image.description|escape}
                         {/if}
                         {block name='frontend_listing_box_article_image_picture_element'}
-                            <img srcset="{$sArticle.image.thumbnails[0].sourceSet}"
-                                 alt="{$desc}"
-                                 title="{$desc|truncate:160:""}"
-                                 class="img-responsive img-center" />
+                            <img alt="{$desc}"
+                                 title="{$desc|truncate:160:''}"
+                                 {if $boxIndex >= 6}
+                                 data-srcset="{$sArticle.image.thumbnails[0].sourceSet}"
+                                 src="{link file='frontend/_public/src/img/lazy-img-loading.gif'}"
+                                 {else}
+                                 srcset="{$sArticle.image.thumbnails[0].sourceSet}"
+                                 {/if}
+                                 class="{if $boxIndex >= 6}js-lazy-image {/if}img-responsive img-center" />                        
                         {/block}
                     {else}
-                        <img src="{link file='frontend/_public/src/img/no-picture.png'}"
-                             alt="{$desc}"
+                        <img alt="{$desc}"
                              title="{$desc|truncate:160:""}"
-                             class="img-responsive img-center" />
+                             {if $boxIndex >= 6}
+                             data-src="{link file='frontend/_public/src/img/no-picture.png'}"
+                             src="{link file='frontend/_public/src/img/lazy-img-loading.gif'}"
+                             {else}
+                             src="{link file='frontend/_public/src/img/no-picture.png'}"
+                             {/if}
+                             class="{if $boxIndex >= 6}js-lazy-image {/if}img-responsive img-center" />
                     {/if}
                 {/block}
             </div>

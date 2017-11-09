@@ -56,15 +56,17 @@ class Theme extends \Shopware\Components\Theme
             'bootstrap.js',
             'jquery.ui.widget-factory.js',
             'jquery.selectBoxIt.js',
-            'picturefill.js',
             'slick.js',
-            'imagesloaded.js',
             'jquery.elevatezoom.js',
             'jquery.clingify.js',
             'jscrollpane/jquery.mousewheel.js',
             'jscrollpane/mwheelIntent.js',
             'jscrollpane/jquery.jscrollpane.js',
             'jquery.bootstrap-strength.js',
+            'images/picturefill.js',
+            'images/imagesloaded.js',
+            'images/intersection-observer-polyfill.js',
+            'images/iolazy.min.js',
         ];
 
         $shopwareJavascripts = [

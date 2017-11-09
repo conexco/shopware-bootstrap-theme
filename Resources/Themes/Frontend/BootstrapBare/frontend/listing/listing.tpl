@@ -79,7 +79,7 @@
                                     {* Actual listing *}
                                     {block name="frontend_listing_list_inline"}
                                         {foreach $sArticles as $sArticle}
-                                            {include file="frontend/listing/box_article.tpl"}
+                                            {include file="frontend/listing/box_article.tpl" boxIndex=$sArticle@index}
                                         {/foreach}
                                     {/block}
                                 </ul>

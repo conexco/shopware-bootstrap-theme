@@ -168,3 +168,10 @@ function applyMoveHelper() {
         $elementToMoveBack.removeClass('moved').detach().appendTo('[data-moved-to="' + destination + '"]');
     });
 }
+
+// image lazy loading
+function lazyLoadImages(selector) {
+    new IOlazy({
+       image: selector || '.js-lazy-image'
+    });
+}

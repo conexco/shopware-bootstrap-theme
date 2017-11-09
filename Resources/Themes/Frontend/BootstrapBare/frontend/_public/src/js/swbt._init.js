@@ -1,5 +1,8 @@
 (function($, window) {
 
+    // lazy load images
+    lazyLoadImages();
+
     // calculate and set breakpoints: 1rem = 16px
     window.StateManager.init([
         {
