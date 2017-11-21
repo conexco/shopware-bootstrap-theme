@@ -53,12 +53,14 @@
                     {if $sArticle.tags}
                         <div class="text-right mtl mbl">
                             <strong>{s name="BlogInfoTags" namespace='frontend/blog/box'}Tags:{/s}</strong>
-                            {foreach $sArticle.tags as $tag}
-                                <a href="{url controller=blog sCategory=$sArticle.categoryId sFilterTags=$tag.name}" title="{$tag.name}"
-                                   class="btn btn-default btn-xs">
-                                    <i class="fa fa-tag mrs"></i>{$tag.name}
-                                </a>
-                            {/foreach}
+                            {block name='frontend_blog_detail_tags'}    
+                                {foreach $sArticle.tags as $tag}
+                                    <a href="{url controller=blog sCategory=$sArticle.categoryId sFilterTags=$tag.name}" title="{$tag.name}"
+                                       class="btn btn-default btn-xs">
+                                        <i class="fa fa-tag mrs"></i>{$tag.name}
+                                    </a>
+                                {/foreach}
+                            {/block}
                         </div>
                     {/if}
                 {/block}
@@ -67,38 +69,40 @@
                     <div class="row">
                         {block name='frontend_blog_detail_box_content_article_footer_info'}
                             <div class="col-md-6">
-                                <div class="mtm">
-                                    {* Author *}
-                                    {block name='frontend_blog_detail_author'}
-                                        {if $sArticle.author.name}
-                                            &nbsp;{s name="BlogInfoFrom" namespace='frontend/blog/box'}{/s}: {$sArticle.author.name}
-                                            {block name='frontend_blog_detail_author_separator'}
-                                                {s name="BlogInfoSeparator" namespace='frontend/blog/box'} | {/s}
-                                            {/block}
-                                        {/if}
-                                    {/block}
-
-                                    {* Date *}
-                                    {block name='frontend_blog_detail_date'}
-                                        {$sArticle.displayDate|date_format:"%d.%m.%Y %H:%M"}
-                                    {/block}
-
-                                    {* Comments *}
-                                    {block name='frontend_blog_detail_comments_count'}
-                                        {* @deprecated - will be removed, use block frontend_blog_detail_comments_list *}
-                                        {block name='frontend_blog_detail_comments'}
-                                            {if $sArticle.sVoteAverage|round != "0"}
-                                                {block name='frontend_blog_detail_date_separator'}
+                                {block name='frontend_blog_detail_metadata'}
+                                    <div class="mtm">
+                                        {* Author *}
+                                        {block name='frontend_blog_detail_author'}
+                                            {if $sArticle.author.name}
+                                                &nbsp;{s name="BlogInfoFrom" namespace='frontend/blog/box'}{/s}: {$sArticle.author.name}
+                                                {block name='frontend_blog_detail_author_separator'}
                                                     {s name="BlogInfoSeparator" namespace='frontend/blog/box'} | {/s}
                                                 {/block}
-                                                <a href="#commentcontainer" class="text-primary" title="{s name="BlogLinkComments"}{/s}">
-                                                    ({if $sArticle.comments|count}{$sArticle.comments|count}{else}0 {/if})
-                                                    {s name="BlogInfoComments" namespace='frontend/blog/box'}{/s}
-                                                </a>
                                             {/if}
                                         {/block}
-                                    {/block}
-                                </div>
+
+                                        {* Date *}
+                                        {block name='frontend_blog_detail_date'}
+                                            {$sArticle.displayDate|date_format:"%d.%m.%Y %H:%M"}
+                                        {/block}
+
+                                        {* Comments *}
+                                        {block name='frontend_blog_detail_comments_count'}
+                                            {* @deprecated - will be removed, use block frontend_blog_detail_comments_list *}
+                                            {block name='frontend_blog_detail_comments'}
+                                                {if $sArticle.sVoteAverage|round != "0"}
+                                                    {block name='frontend_blog_detail_date_separator'}
+                                                        {s name="BlogInfoSeparator" namespace='frontend/blog/box'} | {/s}
+                                                    {/block}
+                                                    <a href="#commentcontainer" class="text-primary" title="{s name="BlogLinkComments"}{/s}">
+                                                        ({if $sArticle.comments|count}{$sArticle.comments|count}{else}0 {/if})
+                                                        {s name="BlogInfoComments" namespace='frontend/blog/box'}{/s}
+                                                    </a>
+                                                {/if}
+                                            {/block}
+                                        {/block}
+                                    </div>
+                                {/block}
                             </div>
                         {/block}
 

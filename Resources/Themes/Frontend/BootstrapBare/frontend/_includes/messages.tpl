@@ -66,31 +66,36 @@
 		{block name="frontend_global_messages_content"}
             <div class="alert alert-{if $type == 'error'}danger{else}{$type}{/if}">
                 <div class="row">
-                    {if $iconCls}
-                        <div class="hidden-xs col-sm-1">
-                            <i class="fa fa-lg {$iconCls}"></i>
+                    {block name="frontend_global_messages_icon"}
+                        {if $iconCls}
+                            <div class="hidden-xs col-sm-1">
+                                <i class="fa fa-lg {$iconCls}"></i>
+                            </div>
+                        {/if}
+                    {/block}
+
+                    {block name="frontend_global_messages_text"}
+                        <div class="col-xs-12{if $iconCls} col-sm-11{/if}">
+                            {if $content && !$list}
+                                {$content}
+                            {elseif $list|@count === 1}
+                                {$list[0]}
+                            {else}
+                                <ul>
+                                    {foreach $list as $entry}
+                                        {if $entry != ''}
+                                            <li>
+                                                {$entry}
+                                            </li>
+                                        {/if}
+                                    {/foreach}
+                                </ul>
+                            {/if}
+                            {if $dismiss}
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {/if}
                         </div>
-                    {/if}
-                    <div class="col-xs-12{if $iconCls} col-sm-11{/if}">
-                        {if $content && !$list}
-                            {$content}
-                        {elseif $list|@count === 1}
-                            {$list[0]}
-                        {else}
-                            <ul>
-                                {foreach $list as $entry}
-                                    {if $entry != ''}
-                                        <li>
-                                            {$entry}
-                                        </li>
-                                    {/if}
-                                {/foreach}
-                            </ul>
-                        {/if}
-                        {if $dismiss}
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        {/if}
-                    </div>
+                    {/block}
                 </div>
             </div>
         {/block}
