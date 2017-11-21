@@ -158,7 +158,7 @@
                         plugin.ajaxOffcanvasLoaded = true;
                         plugin.openMenu();
 
-                        plugin.$offCanvas.initScrollpaneSelectboxit();
+                        plugin.$offCanvas.initSelectboxit();
                     }
 
                     if (opts.showModal) {    // show add article modal

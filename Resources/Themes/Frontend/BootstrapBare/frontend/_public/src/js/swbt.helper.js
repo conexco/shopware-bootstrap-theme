@@ -96,40 +96,9 @@ $.fn.equalHeight = function () {
     }
 };
 
-// initializes jscrollpane and/or selectboxit combined
-$.fn.initScrollpaneSelectboxit = function () {
-    var $wrapper = $(this),
-        selectboxitOptions = swfCustomSelectOptions;
-
-    // init scrollpane before selectboxit
-    if (swfAjaxCartScrollbar) {
-        var $scrollPane = $wrapper.find('.scroll-pane');
-
-        $scrollPane.jScrollPane(swfAjaxCartScrollbarOptions);
-        var scrollPaneData = $scrollPane.data('jsp');
-
-        // set scrollpane as viewport for selectboxit
-        selectboxitOptions = $.extend({}, selectboxitOptions, {
-            viewport: $scrollPane
-        });
-    }
-
-    // init selectboxit after scrollpane
-    if (swfCustomSelects) {
-        $wrapper.find('select:not([data-no-custom-select="true"])').selectBoxIt(selectboxitOptions);
-
-        // refresh scrollpane after selectboxit init
-        if (scrollPaneData && scrollPaneData.getContentHeight() > $scrollPane.height()) {
-            scrollPaneData.reinitialise();
-        }
-    }
-
-    // refresh scrollpane after images loaded
-    if (scrollPaneData) {
-        $wrapper.imagesLoaded(function () {
-            scrollPaneData.reinitialise();
-        });
-    }
+// initializes selectboxit with custom options
+$.fn.initSelectboxit = function () {
+    $(this).find('select:not([data-no-custom-select="true"])').selectBoxIt(swfCustomSelectOptions);
 };
 
 // move elements on specific viewports

@@ -50,6 +50,19 @@
     text-align: left;
 }
 
+.off-canvas, .popover.cart {
+    .ajax-cart-item-wrapper {
+        .row {
+            .unitize(margin-left, -5);
+            .unitize(margin-right, -5);
+            [class^="col-"] {
+                .unitize(padding-left, 5);
+                .unitize(padding-right, 5);
+            }
+        }
+    }
+}
+
 @media (min-width: @swf-screen-md-min) {
     .address-form-submit-wrapper {
         text-align: right;

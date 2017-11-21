@@ -61,9 +61,6 @@ class Theme extends \Shopware\Components\Theme
             'imagesloaded.js',
             'jquery.elevatezoom.js',
             'jquery.clingify.js',
-            'jscrollpane/jquery.mousewheel.js',
-            'jscrollpane/mwheelIntent.js',
-            'jscrollpane/jquery.jscrollpane.js',
             'jquery.bootstrap-strength.js',
         ];
 
