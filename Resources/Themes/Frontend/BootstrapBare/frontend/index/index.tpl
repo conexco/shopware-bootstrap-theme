@@ -235,6 +235,7 @@
                 {block name="frontend_index_header_javascript_inline"}
                     var timeNow = {time() nocache},
                         swfCustomSelects = '{$theme['custom-selects']}',
+                        swfCustomSelectOptions = {ldelim}'theme': 'bootstrap', 'downArrowIcon': 'fa'{rdelim},
                         swfAjaxCartScrollbar = true,
                         swfShowHidePwd = '{$theme['pwd-show-hide']}',
                         swfShowPwdStrength = '{$theme['pwd-strength']}',
