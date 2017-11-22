@@ -182,7 +182,7 @@
 
         $('[data-equalheight="true"]:not([data-mode="ajax"]):visible').equalHeight();
 
-        $('[data-fixed-navbar="true"]').clingify({breakpoint: swfDefaultBreakpointSM || 767});
+        $('[data-fixed-navbar="true"]').clingify({breakpointWidth: swfDefaultBreakpointSM || 767});
 
         // selectboxit init
         swfCustomSelectOptions = {theme: 'bootstrap', downArrowIcon: 'fa'};

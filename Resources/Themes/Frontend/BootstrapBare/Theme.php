@@ -4433,7 +4433,7 @@ class Theme extends \Shopware\Components\Theme
             'infinite-threshold' => '4',
             'notify-modal-in-listing' => false,
             'sidebarFilter' => true,
-            'fixed-navbar' => false,
+            'fixed-navbar' => true,
             'mega-menu-col-width' => '3',
             'mega-menu-new-col' => '3',
             'mega-menu-depth' => '3',
