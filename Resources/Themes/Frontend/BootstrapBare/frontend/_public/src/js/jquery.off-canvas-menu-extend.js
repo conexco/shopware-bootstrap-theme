@@ -67,10 +67,10 @@ $.overridePlugin('swOffcanvasMenu', {
                     // needed for IE11
                     picturefill();
 
-                    // insert new content before initSelectboxit function call
+                    // insert new content before swSelectboxReplacement function call
                     $.publish('plugin/swOffcanvasMenu/onOpenMenuAjax', [ me ]);
 
-                    me.$offCanvas.initSelectboxit();
+                    me.$offCanvas.swSelectboxReplacement();
 
                     me.$offCanvas.find('.slick').slickWrapper();
                     me.$offCanvas.find('[data-equalheight="true"]:not([data-mode="ajax"]):visible').equalHeight();

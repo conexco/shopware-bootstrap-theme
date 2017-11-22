@@ -56,9 +56,9 @@ $.overridePlugin('swAddressEditor', {
      * @private
      */
     _registerPlugins: function() {
-        window.StateManager.addPlugin('div[data-register="true"]', 'swRegister');
+        window.StateManager.addPlugin('div[data-register="true"]', 'swRegister'); 
 
-        if (swfCustomSelects) $('select:not([data-no-custom-select="true"])').selectBoxIt(swfCustomSelectOptions);    
+        $('body').swSelectboxReplacement();
 
         $.publish('plugin/swAddressEditor/onRegisterPlugins', [ this ]);
     },

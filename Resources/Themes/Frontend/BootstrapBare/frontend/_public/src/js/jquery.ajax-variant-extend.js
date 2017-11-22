@@ -101,8 +101,7 @@ $.overridePlugin('swAjaxVariant', {
 
                 $productDetailsOriginal.find('.slick').slickWrapper();
 
-                if (swfCustomSelects)
-                    $productDetailsOriginal.find('select').selectBoxIt(swfCustomSelectOptions);
+                $productDetailsOriginal.swSelectboxReplacement();
 
                 // call move elements helper
                 applyMoveHelper();

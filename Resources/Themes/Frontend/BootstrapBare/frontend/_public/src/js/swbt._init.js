@@ -186,13 +186,7 @@
 
         // selectboxit init
         swfCustomSelectOptions = {theme: 'bootstrap', downArrowIcon: 'fa'};
-        if (swfCustomSelects) $('select:not([data-no-custom-select="true"])').selectBoxIt(swfCustomSelectOptions);
-        // shopware fallback
-        $.fn.swSelectboxReplacement = function() {
-            if (swfCustomSelects) {
-                $(this).filter(':not([data-no-custom-select="true"])').selectBoxIt(swfCustomSelectOptions);
-            }
-        };
+        $('body').swSelectboxReplacement();
 
         if (swfShowHidePwd) {
             window.StateManager.addPlugin('input[type="password"]', 'passwordInputViewer');

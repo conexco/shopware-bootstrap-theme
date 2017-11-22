@@ -158,7 +158,7 @@
                         plugin.ajaxOffcanvasLoaded = true;
                         plugin.openMenu();
 
-                        plugin.$offCanvas.initSelectboxit();
+                        plugin.$offCanvas.swSelectboxReplacement();
                     }
 
                     if (opts.showModal) {    // show add article modal
