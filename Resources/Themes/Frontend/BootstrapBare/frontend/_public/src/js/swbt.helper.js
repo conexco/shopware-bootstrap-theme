@@ -171,7 +171,9 @@ function applyMoveHelper() {
 
 // image lazy loading
 function lazyLoadImages(selector) {
-    new IOlazy({
-       image: selector || '.js-lazy-image'
-    });
+    if (swfListingLazyLoadImages) {
+        new IOlazy({
+           image: selector || '.js-lazy-image'
+        });
+    }
 }

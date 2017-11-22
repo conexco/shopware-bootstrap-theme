@@ -3903,6 +3903,36 @@ class Theme extends \Shopware\Components\Theme
             )
         );
 
+        $fieldset->addElement(
+            $this->createCheckboxField(
+                'listing-lazy-images',
+                'Produktbilder nachladen',
+                $this->themeDefaults['listing-lazy-images'],
+                array(
+                    'attributes' =>
+                        array(
+                            'boxLabel' =>
+                                'Produktbilder auf der Listing werden nur geladen, wenn sie auch sichtbar sind.',
+                        ),
+                )
+            )
+        );
+
+        $fieldset->addElement(
+            $this->createNumberField(
+                'listing-lazy-images-preload',
+                'Produktbilder immer laden',
+                $this->themeDefaults['listing-lazy-images-preload'],
+                array(
+                    'attributes' =>
+                        array(
+                            'boxLabel' =>
+                                'Anzahl der Produktbilder die immer geladen werden sollen.',
+                        ),
+                )
+            )
+        );
+
         return $fieldset;
     }
 
@@ -4453,6 +4483,8 @@ class Theme extends \Shopware\Components\Theme
             'infinite-threshold' => '4',
             'notify-modal-in-listing' => false,
             'sidebarFilter' => true,
+            'listing-lazy-images' => true,
+            'listing-lazy-images-preload' => 6,
             'fixed-navbar' => false,
             'mega-menu' => true,
             'mega-menu-col-width' => '3',

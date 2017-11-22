@@ -27,7 +27,7 @@
         {$boxSize = "`$boxSize` col-lg-`$theme['articles-col-width-lg']`"}
     {/if}
     {block name='frontend_listing_box_article_item_start'}
-        <li class="{$boxSize} mbl product-box box-{$productBoxLayout} sw5-plugin"
+        <li class="{$boxSize} product-box box-{$productBoxLayout} sw5-plugin"
             data-page-index="{$pageIndex}"
             data-ordernumber="{$sArticle.ordernumber}">
             <div class="thumbnail pam">

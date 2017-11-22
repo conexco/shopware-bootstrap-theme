@@ -18,16 +18,26 @@
                             {$desc = $sArticle.image.description|escape}
                         {/if}
                         {block name='frontend_listing_box_article_image_picture_element'}
-                            <img srcset="{$sArticle.image.thumbnails[1].sourceSet}"
-                                 alt="{$desc}"
-                                 title="{$desc|truncate:160:""}"
-                                 class="img-responsive img-center" />
+                            <img alt="{$desc}"
+                                 title="{$desc|truncate:160:''}"
+                                 {if $theme['listing-lazy-images'] && $boxIndex >= $theme['listing-lazy-images-preload']}
+                                 data-srcset="{$sArticle.image.thumbnails[1].sourceSet}"
+                                 src="{link file='frontend/_public/src/img/lazy-img.gif'}"
+                                 {else}
+                                 srcset="{$sArticle.image.thumbnails[1].sourceSet}"
+                                 {/if}
+                                 class="{if $theme['listing-lazy-images'] && $boxIndex >= $theme['listing-lazy-images-preload']}js-lazy-image {/if}img-responsive img-center" />      
                         {/block}
                     {else}
-                        <img src="{link file='frontend/_public/src/img/no-picture.png'}"
-                             alt="{$desc}"
+                        <img alt="{$desc}"
                              title="{$desc|truncate:160:""}"
-                             class="img-responsive img-center" />
+                             {if $theme['listing-lazy-images'] && $boxIndex >= $theme['listing-lazy-images-preload']}
+                             data-src="{link file='frontend/_public/src/img/no-picture.png'}"
+                             src="{link file='frontend/_public/src/img/lazy-img.gif'}"
+                             {else}
+                             src="{link file='frontend/_public/src/img/no-picture.png'}"
+                             {/if}
+                             class="{if $theme['listing-lazy-images'] && $boxIndex >= $theme['listing-lazy-images-preload']}js-lazy-image {/if}img-responsive img-center" />
                     {/if}
                 {/block}
             </div>

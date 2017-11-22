@@ -40,6 +40,11 @@
 }
 
 .product-box {
+    .unitize(margin-bottom, 30);
+
+    .thumbnail {
+        margin-bottom: 0;
+    }
     .title-wrapper {
         font-size: @swf-font-size-h4;
     }
@@ -58,10 +63,7 @@
             }
         }
         .js-lazy-image.visible {
-            animation-name: fadeInLazyImg;
-            animation-duration: 1s;
-            animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
-            animation-fill-mode: forwards;
+            .animation(fadeInLazyImg 1s cubic-bezier(0, 0, 0.4, 1) forwards);
         }
     }
 }

@@ -238,7 +238,8 @@
                         swfBlogOffcanvasViewports = ['xs', 's'],
                         swfAccountOffcanvasViewports = ['xs', 's'],
                         swfAjaxCartOffcanvasViewports = ['xs', 's', 'm', 'l', 'xl'],
-                        swfAjaxCartPopoverViewports = [];
+                        swfAjaxCartPopoverViewports = [],
+                        swfListingLazyLoadImages = '{$theme['listing-lazy-images']}';
 
                     var asyncCallbacks = [];
 
