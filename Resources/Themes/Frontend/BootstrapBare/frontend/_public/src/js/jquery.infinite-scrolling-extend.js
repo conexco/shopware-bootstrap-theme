@@ -63,6 +63,8 @@ $.overridePlugin('swInfiniteScrolling', {
 
         me.$el.equalHeight();
 
+        lazyLoadImages();
+
         $indicator.remove();
 
         $.publish('plugin/swInfiniteScrolling/onCloseLoadingIndicator', me);

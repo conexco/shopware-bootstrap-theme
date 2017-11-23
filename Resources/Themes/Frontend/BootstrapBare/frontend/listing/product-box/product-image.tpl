@@ -8,6 +8,12 @@
 
                     {$desc = $sArticle.articleName|escape}
 
+                    {if $theme['listing-lazy-images'] && 
+                            ($boxIndex >= $theme['listing-lazy-images-preload'] || 
+                                ($theme['infinite-scrolling'] && !isset($boxIndex)))}
+                        {$lazy = true}
+                    {/if}
+
                     {if isset($sArticle.image.thumbnails)}
                         {if $sArticle.image.description}
                             {$desc = $sArticle.image.description|escape}
@@ -15,24 +21,24 @@
                         {block name='frontend_listing_box_article_image_picture_element'}
                             <img alt="{$desc}"
                                  title="{$desc|truncate:160:''}"
-                                 {if $theme['listing-lazy-images'] && $boxIndex >= $theme['listing-lazy-images-preload']}
+                                 {if $lazy}
                                  data-srcset="{$sArticle.image.thumbnails[0].sourceSet}"
                                  src="{link file='frontend/_public/src/img/lazy-img.gif'}"
                                  {else}
                                  srcset="{$sArticle.image.thumbnails[0].sourceSet}"
                                  {/if}
-                                 class="{if $theme['listing-lazy-images'] && $boxIndex >= $theme['listing-lazy-images-preload']}js-lazy-image {/if}img-responsive img-center" />                        
+                                 class="{if $lazy}js-lazy-image {/if}img-responsive img-center" />                        
                         {/block}
                     {else}
                         <img alt="{$desc}"
                              title="{$desc|truncate:160:""}"
-                             {if $theme['listing-lazy-images'] && $boxIndex >= $theme['listing-lazy-images-preload']}
+                             {if $lazy}
                              data-src="{link file='frontend/_public/src/img/no-picture.png'}"
                              src="{link file='frontend/_public/src/img/lazy-img.gif'}"
                              {else}
                              src="{link file='frontend/_public/src/img/no-picture.png'}"
                              {/if}
-                             class="{if $theme['listing-lazy-images'] && $boxIndex >= $theme['listing-lazy-images-preload']}js-lazy-image {/if}img-responsive img-center" />
+                             class="{if $lazy}js-lazy-image {/if}img-responsive img-center" />
                     {/if}
                 {/block}
             </div>
