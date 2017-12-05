@@ -53,6 +53,7 @@ class Theme extends \Shopware\Components\Theme
         $vendorsJavascripts = [
             'modernizr/modernizr.custom.35977.js',
             'jquery.js',
+            'popper.js',
             'bootstrap.js',
             'jquery.ui.widget-factory.js',
             'jquery.selectBoxIt.js',
@@ -4188,7 +4189,7 @@ class Theme extends \Shopware\Components\Theme
             'swf-legend-color' => '@swf-gray-dark',
             'swf-line-height-base' => '1.428571429',
             'swf-link-color' => '@swf-brand-primary',
-            'swf-link-hover-color' => 'darken(@link-color, 15%);',
+            'swf-link-hover-color' => 'darken(@swf-link-color, 15%);',
             'swf-link-hover-decoration' => 'underline',
             'swf-list-group-active-bg' => '@swf-component-active-bg',
             'swf-list-group-active-border' => '@swf-component-active-bg',

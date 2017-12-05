@@ -40,7 +40,7 @@
         .unitize(padding-bottom, 10);
         .unitize(margin-bottom, 10);
         text-align: left;
-        border-bottom: 1px solid @panel-default-border;
+        border-bottom: 1px solid @swf-panel-default-border;
         i {
             .unitize(margin-right, 5);
         }
@@ -68,13 +68,13 @@
             &.panel-default {
                 & > .panel-heading {
                     background-color: transparent;
-                    border-bottom: 1px solid @panel-inner-border;
-                    border-top: 1px solid @panel-inner-border;
+                    border-bottom: 1px solid @swf-panel-default-border;
+                    border-top: 1px solid @swf-panel-default-border;
                 }
                 .list-group-item {
                     &.active {
                         color: @swf-brand-primary;
-                        background-color: @list-group-bg;
+                        background-color: @swf-list-group-bg;
                     }
                 }
             }
@@ -99,12 +99,5 @@
     display: none;
     &.is-open.is-active {
         display: block;
-    }
-}
-
-// fixes: menu panels in an offcanvas are no longer visible for a short time on page load
-@media (max-width: @screen-sm-max) {
-    .offcanvas-has-panel:not(.is-active) .panel {
-        display: none;
     }
 }

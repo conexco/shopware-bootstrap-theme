@@ -74,17 +74,17 @@ The styling includes the state styles, the styling with multiple calendars and t
     height: 100%;
 }
 .ui-datepicker {
-    border-radius: @border-radius-base;
+    border-radius: @swf-border-radius-base;
     width: 17em;
     padding: .2em .2em 0;
-    background: @gray-light;
-    border: 1px solid @gray-dark;
+    background: @swf-gray-light;
+    border: 1px solid @swf-gray-dark;
     display: none;
     z-index: @swf-zindex-datepicker!important;
 
     .ui-datepicker-header {
         background-color: @swf-brand-primary;
-        border-radius: @border-radius-base;
+        border-radius: @swf-border-radius-base;
         font-size: 12px;
         position: relative;
         padding: .2em 0;
@@ -175,19 +175,19 @@ The styling includes the state styles, the styling with multiple calendars and t
 
         span,
         a {
-            border-radius: @border-radius-base;
+            border-radius: @swf-border-radius-base;
             display: block;
             padding: .2em;
             text-align: right;
             text-decoration: none;
-            background: @gray-lighter;
-            border: 1px solid @gray-dark;
-            color: @text-color;
+            background: @swf-gray-lighter;
+            border: 1px solid @swf-gray-dark;
+            color: @swf-text-color;
         }
 
         &.ui-datepicker-current-day a {
             font-weight: bold;
-            color: @gray-dark;
+            color: @swf-gray-dark;
         }
 
         &.ui-datepicker-today a {
@@ -195,7 +195,7 @@ The styling includes the state styles, the styling with multiple calendars and t
         }
 
         &.ui-datepicker-week-end a {
-            color: @gray-dark;
+            color: @swf-gray-dark;
         }
     }
 

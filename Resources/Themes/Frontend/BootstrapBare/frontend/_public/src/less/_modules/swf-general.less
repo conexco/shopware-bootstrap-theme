@@ -52,29 +52,29 @@ body {
     background: @swf-body-bg;
 }
 
-@media (max-width: @screen-xs-max) {
-    body.bg-img-sm {
-        background: @swf-body-bg !important;
-    }
-}
+// @media (max-width: @screen-xs-max) {
+//     body.bg-img-sm {
+//         background: @swf-body-bg !important;
+//     }
+// }
 
-@media (max-width: @screen-sm-max) {
-    body.bg-img-hd {
-        background: @swf-body-bg !important;
-    }
-}
+// @media (max-width: @screen-sm-max) {
+//     body.bg-img-hd {
+//         background: @swf-body-bg !important;
+//     }
+// }
 
-@media (max-width: @screen-hd-max) {
-    body.bg-img-md {
-        background: @swf-body-bg !important;
-    }
-}
+// @media (max-width: @screen-hd-max) {
+//     body.bg-img-md {
+//         background: @swf-body-bg !important;
+//     }
+// }
 
-@media (max-width: @screen-md-max) {
-    body.bg-img-lg {
-        background: @swf-body-bg !important;
-    }
-}
+// @media (max-width: @screen-md-max) {
+//     body.bg-img-lg {
+//         background: @swf-body-bg !important;
+//     }
+// }
 
 .container {
     .unitize(padding-top, 15);
@@ -87,12 +87,12 @@ body {
 }
 
 .label {
-    border-radius: @border-radius-base;
+    border-radius: @swf-border-radius-base;
 }
 
 // blockquotes with smaller font-size
 blockquote p {
-    .unitize(font-size, ceil(@font-size-base * 1.1));
+    .unitize(font-size, ceil(@swf-font-size-base * 1.1));
     font-weight: 300;
     line-height: 1.1;
 }
@@ -103,24 +103,24 @@ blockquote p {
 
 // Price Styles
 .price {
-    .unitize(font-size, ceil(@font-size-base * 1.3));
+    .unitize(font-size, ceil(@swf-font-size-base * 1.3));
     font-weight: bold;
 }
 
 .price-small {
-    .unitize(font-size, ceil(@font-size-base * 0.85));
+    .unitize(font-size, ceil(@swf-font-size-base * 0.85));
 }
 
 .price-medium {
-    .unitize(font-size, ceil(@font-size-base * 1.4));
+    .unitize(font-size, ceil(@swf-font-size-base * 1.4));
 }
 
 .price-large {
-    .unitize(font-size, ceil(@font-size-base * 1.57));
+    .unitize(font-size, ceil(@swf-font-size-base * 1.57));
 }
 
 .price-saving {
-    .unitize(font-size, ceil(@font-size-base * 1.15));
+    .unitize(font-size, ceil(@swf-font-size-base * 1.15));
 }
 
 .price-default {
@@ -168,12 +168,12 @@ blockquote p {
 }
 
 // remove padding-left from list-inline
-.list-inline {
-    .list-unstyled();
-    > li {
-        padding-left: 0;
-    }
-}
+// .list-inline {
+//     .list-unstyled();
+//     > li {
+//         padding-left: 0;
+//     }
+// }
 
 // add hover effect to thumbnail
 .thumbnail {
@@ -250,7 +250,7 @@ i.rating {
     .list-group-item {
         .unitize(padding-left, 25);
         &:first-child {
-            border-top: 1px solid @list-group-border;
+            border-top: 1px solid @swf-list-group-border;
         }
     }
 }
