@@ -1,5 +1,5 @@
 /*
- * Clingify v1.0.1
+ * Clingify v1.0.2
  *
  * A jQuery 1.7+ plugin for sticky elements
  * http://github.com/theroux/clingify
@@ -16,20 +16,17 @@
     var pluginName = 'clingify',
         defaults = {
             breakpoint: 0,
-            // Media query width breakpoint in pixels.
+            // Media query width breakpoint in pixels. 
             // Below this value, Clingify behavior is disabled. (Useful for small screens.)
             // Use 0 if you want Clingify to work at all screen widths.
 
             extraClass: '',
-            // Add an additional class of your choosing to the sticky element
+            // Add an additional class of your choosing to the sticky element 
             // and its parent wrapper & placeholder divs
 
             throttle: 100,
             // Delay Clingify functions, in milliseconds, when scrolling/resizing.
             // Too fast is bad for performance, especially on older browsers/machines.
-
-            topOffset: 0,
-            // Offset when clingify should fire
 
             // Callback functions
             detached: $.noop, // Fires before element is detached
@@ -99,13 +96,12 @@
 
         //Other functions below
         checkCoords: function() {
-            var cling = this;
             var coords = {
                 windowWidth: $window.width(),
                 windowOffset: $window.scrollTop(),
                 // Y-position for Clingify placeholder
                 // needs to be recalculated in DOM has shifted
-                placeholderOffset: this.findPlaceholder().offset().top-cling.options.topOffset
+                placeholderOffset: this.findPlaceholder().offset().top
             };
             return coords;
         },

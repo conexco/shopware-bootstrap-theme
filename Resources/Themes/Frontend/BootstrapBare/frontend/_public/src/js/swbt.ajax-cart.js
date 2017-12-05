@@ -117,7 +117,7 @@
                     // needed for IE11
                     picturefill();
 
-                    $content.initScrollpaneSelectboxit();
+                    $content.swSelectboxReplacement();
                     $content.find('.slick').slickWrapper();
                     $content.find('[data-equalheight="true"]:not([data-mode="ajax"]):visible').equalHeight();
 

@@ -21,13 +21,11 @@
         {block name='frontend_checkout_ajax_cart_item_container'}
             {block name='frontend_checkout_ajax_cart_item_container_inner'}
                 <div class="ajax-cart-item-wrapper mbl">
-                    <div class="scroll-pane sw5-plugin">
-                        {foreach name=ajaxbasket from=$sBasket.content item=sBasketItem}
-                            {block name='frontend_checkout_ajax_cart_row'}
-                                {include file="frontend/checkout/ajax_cart_item.tpl" basketItem=$sBasketItem}
-                            {/block}
-                        {/foreach}
-                    </div>
+                    {foreach name=ajaxbasket from=$sBasket.content item=sBasketItem}
+                        {block name='frontend_checkout_ajax_cart_row'}
+                            {include file="frontend/checkout/ajax_cart_item.tpl" basketItem=$sBasketItem}
+                        {/block}
+                    {/foreach}
                 </div>
             {/block}
         {/block}
