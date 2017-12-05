@@ -49,7 +49,7 @@
                 {include file="frontend/register/login.tpl"}
                 {* Register advantages *}
                 {block name='frontend_register_index_advantages'}
-                    <div class="panel panel-default visible-md visible-lg">
+                    <div class="panel panel-default d-block d-lg-none d-xl-none">
                         {block name='frontend_register_index_advantages_title'}
                             <div class="panel-heading">
                                 {s name='RegisterInfoAdvantagesTitle'}Meine Vorteile{/s}

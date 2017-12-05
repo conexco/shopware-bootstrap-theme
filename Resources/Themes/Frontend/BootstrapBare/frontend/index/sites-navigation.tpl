@@ -6,7 +6,7 @@
         {block name='frontend_index_left_menu_inner'}
             {block name='frontend_index_left_menu_before'}{/block}
             {block name='frontend_index_left_menu_content'}
-                <div class="panel panel-default visible-lg visible-md">
+                <div class="panel panel-default d-block d-xl-none d-lg-none">
                     {block name='frontend_index_left_menu_headline'}
                         <div class="panel-heading">{s name="MenuLeftHeading"}Informationen{/s}</div>
                     {/block}

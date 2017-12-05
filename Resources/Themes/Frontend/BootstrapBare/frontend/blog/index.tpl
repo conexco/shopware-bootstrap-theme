@@ -22,7 +22,7 @@
     {block name='frontend_blog_listing_sidebar'}
         <div class="off-canvas-blog sw5-plugin">
             {block name='frontend_blog_listing_sidebar_offcanvas_open'}
-                <a href="#" class="btn btn-default btn-block blog-filter-offcanvas-btn mbl visible-xs visible-sm" data-offcanvas="true" data-offCanvasSelector="#blogSidebar" title="{s name="BlogOffcanvasButton"}Filter{/s}">
+                <a href="#" class="btn btn-default btn-block blog-filter-offcanvas-btn mbl d-block d-sm-none d-md-none" data-offcanvas="true" data-offCanvasSelector="#blogSidebar" title="{s name="BlogOffcanvasButton"}Filter{/s}">
                     <i class="fa fa-filter mrs"></i>
                     {s name="BlogOffcanvasButton"}{/s}
                     <i class="fa fa-angle-right offcanvas-btn-angle"></i>
@@ -30,7 +30,7 @@
             {/block}
             {block name='frontend_blog_listing_sidebar_offcanvas_active_filter'}
                 {if $sFilterDate|@count > 1 || $sFilterAuthor|@count > 1 || $sFilterTags|@count > 1}
-                    <div class="visible-xs visible-sm mbl">
+                    <div class="d-block d-sm-none d-md-none mbl">
                         {* active date filter *}
                         {if $sFilterDate && $sFilterDate|@count > 1}
                             {if $smarty.get.sFilterDate==$date.dateFormatDate}

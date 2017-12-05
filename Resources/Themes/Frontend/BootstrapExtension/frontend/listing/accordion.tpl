@@ -1,5 +1,5 @@
 {block name="frontend_bonus_accordion"}
-    <div class="panel panel-default mtl visible-lg visible-md">
+    <div class="panel panel-default mtl d-block d-xl-none d-lg-none">
         {block name="frontend_bonus_accordion_header"}
             <div class="panel-heading">
                 <h4 class="panel-title">{s name="BonusArticles" namespace="frontend/plugins/bonus_system/index"}Bonusartikel{/s}</h4>

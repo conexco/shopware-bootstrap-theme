@@ -2,7 +2,7 @@
     <div class="list-container-article-table sw5-plugin">
         <div class="article-table" data-compare-ajax="true">
             {block name="frontend_wishlist_index_list_articles_header"}
-                <div class="article-table-header sw5-plugin row visible-lg">
+                <div class="article-table-header sw5-plugin row d-block d-xl-none">
                     <div class="col-lg-9">
                         {block name="frontend_wishlist_index_list_articles_header_article"}
                             <div class="column-article page-header">

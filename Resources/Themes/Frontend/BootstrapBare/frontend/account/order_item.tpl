@@ -68,7 +68,7 @@
                 <div class="hidden-xs">
                     <a class="btn btn-xs btn-default btn-block mbs" title="{s name='OrderActionSlide'}{/s} {$offerPosition.ordernumber}" data-toggle="collapse" data-target="#order{$offerPosition.ordernumber}">{s name="OrderActionSlide"}{/s}</a>
                 </div>
-                <div class="visible-xs">
+                <div class="d-block d-sm-none">
                     <a class="btn btn-xs btn-default btn-block mbs" title="{s name='OrderActionSlide'}{/s} {$offerPosition.ordernumber}" data-toggle="collapse" data-target="#order{$offerPosition.ordernumber}">{s name="OrderActionSlide"}{/s}</a>
                 </div>
                 {* Repeat order *}
@@ -83,7 +83,7 @@
                             <div class="hidden-xs">
                                 <input type="submit" class="btn btn-xs btn-primary btn-block" value="{s name='OrderLinkRepeat'}{/s}"/>
                             </div>
-                            <div class="visible-xs">
+                            <div class="d-block d-sm-none">
                                 <input type="submit" class="btn btn-xs btn-primary btn-block" value="{s name='OrderLinkRepeat'}{/s}" style="white-space:normal !important; word-wrap:break-word;"/>
                             </div>
                         {/block}

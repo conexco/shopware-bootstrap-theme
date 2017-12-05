@@ -49,7 +49,7 @@
                                     {block name='frontend_index_header_row'}
                                         <div class="row" id="header-row">
                                             {block name="frontend_index_navigation_nav_toggle"}
-                                                <div class="col-xs-3 visible-xs visible-sm">
+                                                <div class="col-xs-3 d-block d-sm-none d-md-none">
                                                     {if !$theme.checkoutHeader || $theme.checkoutHeader && !({controllerAction} == 'confirm' || {controllerAction} == 'shippingPayment' || {controllerAction} == 'finish')}
                                                         <button id="navToggle" 
                                                                 class="btn btn-link nav-toggle"
@@ -73,7 +73,7 @@
                                             {/block}
 
                                             {block name='frontend_index_header_hr'}
-                                                <div class="col-xs-12 visible-xs">
+                                                <div class="col-xs-12 d-block d-sm-none">
                                                     <hr class="mts mbm">
                                                 </div>
                                             {/block}
@@ -108,7 +108,7 @@
                 {/block}
 
                 {block name='frontend_index_scrollup'}
-                    <div class="visible-lg">
+                    <div class="d-block d-xl-none">
                         {block name='frontend_index_scrollup_inner'}
                             <a href="#" class="scroll-up btn btn-primary" title="{s name='IndexScrollUpTitle'}Nach oben{/s}" data-scroll-up="true">
                                 {block name='frontend_index_scrollup_icon'}

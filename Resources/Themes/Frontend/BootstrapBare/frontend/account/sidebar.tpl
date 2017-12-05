@@ -5,7 +5,7 @@
                 {if !{config name=useSltCookie}}
                     {block name="frontend_account_offcanvas_button"}
                         <a href="#"
-                           class="btn btn-default visible-xs visible-sm mbl"
+                           class="btn btn-default d-block d-sm-none d-md-none mbl"
                            data-offcanvas="true"
                            data-offCanvasSelector="#accountSidebar"
                            title="{s name="AccountLinkTitle"}{/s}">
@@ -152,7 +152,7 @@
                                                 {block name="frontend_account_menu_logout_personalized_link"}
                                                     <a href="{url controller='account' action='logout'}"
                                                        title="{s name="AccountLogout"}{/s}"
-                                                       class="mtm navigation-link link-logout navigation-personalized account-logout visible-xs visible-sm{if !$inHeader} mbm btn btn-danger btn-block{else} text-center{/if}">
+                                                       class="mtm navigation-link link-logout navigation-personalized account-logout d-block d-sm-none d-md-none{if !$inHeader} mbm btn btn-danger btn-block{else} text-center{/if}">
                                                         {block name="frontend_account_menu_logout_personalized"}
                                                             {block name="frontend_account_menu_logout_personalized_link_user_info"}
                                                                 <span class="navigation-logout-personalized">
@@ -177,7 +177,7 @@
                                                     {block name="frontend_account_menu_link_logout_standard_link"}
                                                         <a href="{url module='frontend' controller='account' action='logout'}"
                                                            title="{s name="AccountLinkLogout2"}{/s}"
-                                                           class="mtm navigation-link link-logout account-logout btn btn-danger btn-block mbm visible-xs visible-sm"
+                                                           class="mtm navigation-link link-logout account-logout btn btn-danger btn-block mbm d-block d-sm-none d-md-none"
                                                            rel="nofollow">
                                                             {block name="frontend_account_menu_link_logout_standard_link_text"}
                                                                 {s name="AccountLinkLogout2"}{/s}

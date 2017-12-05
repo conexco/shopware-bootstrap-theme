@@ -317,7 +317,7 @@
 
     {* Logout on mobile *}
     {block name="frontend_account_index_mobile_actions"}
-        <a href="{url controller='account' action='logout'}" class="btn btn-danger btn-block visible-xs visible-sm mbm">
+        <a href="{url controller='account' action='logout'}" class="btn btn-danger btn-block d-block d-sm-none d-md-none mbm">
             <strong>{s name="AccountLinkLogout" namespace="frontend/account/sidebar"}{/s}</strong>
         </a>
     {/block}

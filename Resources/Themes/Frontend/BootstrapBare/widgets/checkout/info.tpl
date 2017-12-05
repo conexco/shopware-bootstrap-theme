@@ -50,7 +50,7 @@
                                         <div class="account-dropdown-navigation">
 
                                             {block name="frontend_index_checkout_actions_account_navigation_smartphone"}
-                                                <div class="navigation-smartphone visible-xs visible-sm">
+                                                <div class="navigation-smartphone d-block d-sm-none d-md-none">
                                                     <div class="entry-close-off-canvas">
                                                         <a href="#close-account-menu"
                                                            class="account-close-off-canvas"
@@ -113,12 +113,12 @@
                     {action module=widgets controller=index action=shopMenu}
                 {/block}
                 {block name='frontend_index_checkout_actions_notepad_xs'}
-                    <a href="{url controller='note' action='index'}" class="btn btn-default visible-xs visible-sm" title="{s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}">
+                    <a href="{url controller='note' action='index'}" class="btn btn-default d-block d-sm-none d-md-none" title="{s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}">
                         <i class="fa fa-list fa-lg"></i>
                         {if $sNotesQuantity > 0}<span class="badge mls">{$sNotesQuantity}</span>{/if}
                     </a>
                 {/block}
-                <div class="btn-group visible-xs visible-sm">
+                <div class="btn-group d-block d-sm-none d-md-none">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="{s name='IndexLinkService'}Service/Hilfe{/s}">
                         <i class="fa fa-question fa-lg"></i>
                     </button>
@@ -128,10 +128,10 @@
                 </div>
 
                 {if {config name=useSltCookie}}
-                    <div class="btn-group visible-xs visible-sm">
+                    <div class="btn-group d-block d-sm-none d-md-none">
                         <div class="off-canvas-account sw5-plugin">
                             <a href="#"
-                                class="btn btn-default visible-xs visible-sm"
+                                class="btn btn-default d-block d-sm-none d-md-none"
                                 data-offcanvas="true"
                                 data-offCanvasSelector="#accountSidebar"
                                 title="{s name='AccountHeaderNavigation' namespace='frontend/account/sidebar'}{/s}">
@@ -146,7 +146,7 @@
                         </div>
                     </div>
                 {else}
-                    <a href="{url controller='account'}" class="btn btn-default visible-xs visible-sm" title="{s namespace='frontend/index/checkout_actions' name='IndexLinkAccount'}{/s}">
+                    <a href="{url controller='account'}" class="btn btn-default d-block d-sm-none d-md-none" title="{s namespace='frontend/index/checkout_actions' name='IndexLinkAccount'}{/s}">
                         <i class="fa fa-user fa-lg"></i>
                     </a>
                 {/if}
@@ -164,7 +164,7 @@
                             data-ajaxUrl="{url controller='checkout' action='ajax_cart'}"
                             data-popoverclass="cart"
                             data-container="body">
-                        <span class="visible-xs visible-sm">
+                        <span class="d-block d-sm-none d-md-none">
                             <i class="fa fa-shopping-cart fa-lg"></i>
                             {if $sBasketQuantity && $sBasketQuantity < 10}
                                 <span class="cart-quantity">{$sBasketQuantity}</span>
@@ -174,7 +174,7 @@
                             <i class="fa fa-shopping-cart fa-lg"></i>
                             <span class="cart-quantity mls">{$sBasketQuantity}</span>
                             <span> {s name='IndexTextCart' namespace='frontend/index/checkout_actions'}Artikel{/s}</span>
-                            <span class="visible-lg-inline">
+                            <span class="d-block d-xl-none-inline">
                                 <span class="cart-amount{if $sBasketAmount>=100} hidden{/if}">({$sBasketAmount|currency}*)</span>
                             </span>
                         </span>
