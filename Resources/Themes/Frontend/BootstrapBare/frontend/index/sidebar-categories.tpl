@@ -32,7 +32,7 @@
     {/function}
 {/block}
 {block name='frontend_index_left_categories_content'}
-    <div class="mbl d-block d-xl-none d-lg-none" id="categoriesLeft">
+    <div class="mbl d-none d-md-block" id="categoriesLeft">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">{s name='CategoriesLeftHeading'}Kategorien{/s}</h4>

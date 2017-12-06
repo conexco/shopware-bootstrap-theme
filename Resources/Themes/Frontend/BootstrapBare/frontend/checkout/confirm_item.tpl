@@ -50,7 +50,7 @@
     <div class="col-xs-12 col-sm-2 col-sm-pull-4 col-md-pull-3 text-right">
 	    {if $sUserData.additional.charge_vat}
 	    	<div class="mtm-xs">
-		    	<span class="d-block d-sm-none-inline-block pull-left">{s name='CheckoutColumnTaxFix' namespace="frontend/checkout/confirm_header"}MwSt.{/s}</span>
+		    	<span class="d-sm-none pull-left">{s name='CheckoutColumnTaxFix' namespace="frontend/checkout/confirm_header"}MwSt.{/s}</span>
 	    		{$sBasketItem.tax|currency}
 	    	</div>	
 	    {/if}
@@ -59,7 +59,7 @@
 {block name='frontend_checkout_cart_item_total_sum'}
     <div class="col-xs-12 col-sm-2 col-md-push-1 text-right">
         <div class="mtm-xs">
-            <strong class="d-block d-sm-none-inline-block pull-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
+            <strong class="d-sm-none pull-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
             <strong>{$sBasketItem.amount|currency}*</strong>
         </div>
     </div>

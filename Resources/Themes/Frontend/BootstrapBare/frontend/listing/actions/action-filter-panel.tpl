@@ -21,7 +21,7 @@
                       class="{if $listingMode != 'full_page_reload'}is-instant-filter{/if}">
 
                     {if $listingMode === 'full_page_reload'}
-                        {include file="frontend/listing/actions/filter-apply-button.tpl" clsSuffix='filter-actions-top d-block d-sm-none d-md-none'}
+                        {include file="frontend/listing/actions/filter-apply-button.tpl" clsSuffix='filter-actions-top d-sm-none'}
                     {/if}
 
                     {block name="frontend_listing_actions_filter_form_page"}

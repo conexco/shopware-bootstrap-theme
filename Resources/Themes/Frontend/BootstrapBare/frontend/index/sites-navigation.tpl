@@ -6,7 +6,7 @@
         {block name='frontend_index_left_menu_inner'}
             {block name='frontend_index_left_menu_before'}{/block}
             {block name='frontend_index_left_menu_content'}
-                <div class="panel panel-default d-block d-xl-none d-lg-none">
+                <div class="panel panel-default d-none d-md-block">
                     {block name='frontend_index_left_menu_headline'}
                         <div class="panel-heading">{s name="MenuLeftHeading"}Informationen{/s}</div>
                     {/block}
@@ -37,7 +37,7 @@
             {block name='frontend_index_left_menu_after'}{/block}
             {block name='frontend_index_left_menu_small'}
                 {if $Controller != 'listing'}
-                    <div class="dropdown text-right mbl hidden-md hidden-lg">
+                    <div class="dropdown text-right mbl d-md-none">
                         <button class="btn btn-default dropdown-toggle" type="button" id="leftMenuGoTo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             {s name="LeftMenuGoto"}Gehe zu{/s}
                             <span class="caret"></span>

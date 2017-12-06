@@ -11,15 +11,15 @@
 				{block name='frontend_index_logo'}
 					<div class="col-xs-12 col-hd-3 col-md-3 col-lg-2 col-hd-height col-middle">
 						<a href="{url controller='index'}" title="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}">
-	                        <img src="{link file=$theme.desktopLogo}" alt="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}" class="img-responsive hidden-xs hidden-sm"/>
-	                        <img src="{link file=$theme.mobileLogo}" alt="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}" class="img-responsive d-block d-sm-none d-md-none center-block mbm"/>
+	                        <img src="{link file=$theme.desktopLogo}" alt="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}" class="img-responsive d-none d-md-block"/>
+	                        <img src="{link file=$theme.mobileLogo}" alt="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}" class="img-responsive d-md-none center-block mbm"/>
 	                    </a>
 					</div>
 				{/block}
 
 				<div class="col-xs-12 col-hd-9 col-md-9 col-lg-10 col-hd-height col-middle">
 					<div class="row">
-						<div class="col-hd-8 col-md-offset-2 col-md-6 col-lg-offset-3 hidden-xs hidden-sm">
+						<div class="col-hd-8 col-md-offset-2 col-md-6 col-lg-offset-3 d-none d-md-block">
 							{* Support Info *}
 							{block name='frontend_index_logo_supportinfo'}
 								{s name='RegisterSupportInfo' namespace='frontend/register/index'}{/s}

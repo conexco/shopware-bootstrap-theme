@@ -1,7 +1,7 @@
 {if $sUserLoggedIn}
 	{block name="frontend_bonus_sidebar"}
         <div class="bonussystem-sidebar sw5-plugin">
-            <div class="panel panel-default d-block d-xl-none d-lg-none">
+            <div class="panel panel-default d-none d-md-block">
                 {block name="frontend_bonus_sidebar_header"}
                     <div class="panel-heading">
                         <h4 class="panel-title">

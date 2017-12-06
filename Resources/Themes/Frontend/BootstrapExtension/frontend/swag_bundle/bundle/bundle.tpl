@@ -36,7 +36,7 @@
 
 								{* Short description *}
 								{block name="panel_content_description_short"}
-									<div class="teaser-text-short d-block d-sm-none">
+									<div class="teaser-text-short d-sm-none">
 										{$bundle.description|strip_tags|truncate:200}
 										<a href="#" id="bundle-offcanvas-btn" data-offcanvas="true" data-offCanvasSelector="#bundle-teaser" data-fullscreen="true" title="{"{s namespace="frontend/listing/listing" name="ListingActionsOpenOffCanvas"}{/s}"|escape}">
 											{s namespace="frontend/listing/listing" name="ListingActionsOpenOffCanvas"}{/s} &raquo;

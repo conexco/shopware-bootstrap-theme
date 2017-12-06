@@ -29,7 +29,7 @@
                                     <li>
                                         <a href="#" class="btn pan product-navigation-prev sw5-plugin" data-trigger="hover" data-popoverclass="product-navigation">
                                             <i class="fa fa-long-arrow-left mrs"></i>
-                                            <small class="d-block d-lg-none-inline d-xl-none-inline">{s name="DetailPreviousArticleLinkText"}Vorheriger{/s}</small>
+                                            <small class="d-none d-md-inline">{s name="DetailPreviousArticleLinkText"}Vorheriger{/s}</small>
                                         </a>
                                     </li>
                                 {/block}
@@ -37,7 +37,7 @@
                                 {block name='frontend_detail_article_next'}
                                     <li>
                                         <a href="#" class="btn pan product-navigation-next sw5-plugin" data-trigger="hover" data-popoverclass="product-navigation">
-                                            <small class="d-block d-lg-none-inline d-xl-none-inline">{s name="DetailNextArticleLinkText"}Nächster{/s}</small>
+                                            <small class="d-none d-md-inline">{s name="DetailNextArticleLinkText"}Nächster{/s}</small>
                                             <i class="fa fa-long-arrow-right mls"></i>
                                         </a>
                                     </li>

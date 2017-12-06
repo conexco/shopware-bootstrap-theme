@@ -23,7 +23,7 @@
                             <li class="main-nav-category{if !empty($sCategory.flag)} active{/if}">
                                 {block name="frontend_index_main_navigation_arrow"}
                                     {if $sCategory.sub}
-                                        <span class="main-nav-arrow d-block d-sm-none d-md-none{if !empty($sCategory.flag)} active{/if}">
+                                        <span class="main-nav-arrow d-sm-none{if !empty($sCategory.flag)} active{/if}">
                                             <i class="fa fa-angle-down"></i>
                                         </span>
                                     {/if}

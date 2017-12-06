@@ -7,14 +7,12 @@
 {/if}
 
 {block name='frontend_checkout_cart_item_details_title_mobile'}
-    <div class="row mtm d-block d-sm-none">
-        <div class="col-xs-12">
-            {block name='frontend_checkout_cart_item_details_title_mobile'}
-                <a href="{$sBasketItem.linkDetails}" title="{$sBasketItem.articlename|strip_tags}">
-                    {$sBasketItem.articlename|strip_tags|truncate:60}
-                </a>
-            {/block}
-        </div>
+    <div class="mtm d-sm-none">
+        {block name='frontend_checkout_cart_item_details_title_mobile'}
+            <a href="{$sBasketItem.linkDetails}" title="{$sBasketItem.articlename|strip_tags}">
+                {$sBasketItem.articlename|strip_tags|truncate:60}
+            </a>
+        {/block}
     </div>
 {/block}
 
@@ -128,7 +126,7 @@
                             {if !$sBasketItem.modus}
                                 <div class="mtm-xs">
                                     {block name='frontend_checkout_cart_item_unit_price_label'}
-                                        <span class="d-block d-sm-none-inline-block pull-left">{s name="CartColumnPrice" namespace="frontend/checkout/cart_header"}St&uuml;ckpreis{/s}</span>
+                                        <span class="d-sm-none pull-left">{s name="CartColumnPrice" namespace="frontend/checkout/cart_header"}St&uuml;ckpreis{/s}</span>
                                     {/block}
                                     {$sBasketItem.price|currency}{block name='frontend_checkout_cart_tax_symbol'}{s name="Star" namespace="frontend/listing/box_article"}{/s}{/block}
                                 </div>
@@ -141,7 +139,7 @@
                         <div class="col-xs-12 col-sm-2 col-sm-pull-2 col-md-pull-1 text-right">
                             <div class="mtm-xs">
                                 {block name='frontend_checkout_cart_item_total_price_label'}
-                                    <strong class="d-block d-sm-none-inline-block pull-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
+                                    <strong class="d-sm-none pull-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
                                 {/block}
                                 <strong>{$sBasketItem.amount|currency}{block name='frontend_checkout_cart_tax_symbol'}{s name="Star" namespace="frontend/listing/box_article"}{/s}{/block}</strong>
                             </div>

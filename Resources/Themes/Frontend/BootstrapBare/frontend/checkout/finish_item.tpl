@@ -14,7 +14,7 @@
 {block name='frontend_checkout_cart_item_total_sum'}
     <div class="col-xs-12 col-sm-6 text-right">
         <div class="mtm-xs">
-            <strong class="d-block d-sm-none-inline-block pull-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
+            <strong class="d-sm-none pull-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
             <strong>{$sBasketItem.amount|currency}*</strong>
         </div>
     </div>

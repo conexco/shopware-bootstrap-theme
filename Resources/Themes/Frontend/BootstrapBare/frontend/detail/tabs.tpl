@@ -40,7 +40,7 @@
 
                 {* Offcanvas Tabs *}
                 {block name="frontend_detail_tabs_navigation_offcanvas"}
-                    <div class="off-canvas-tabs d-block d-sm-none">
+                    <div class="off-canvas-tabs d-sm-none">
                         {* Description offcanvas tab *}
                         {block name="frontend_detail_tabs_description_offcanvas"}
                             <div class="panel panel-default">
