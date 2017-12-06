@@ -4,7 +4,7 @@
     <div class="panel-header">
         {block name="frontend_listing_actions_filter_button"}
             <a href="#FilterContainer"
-               class="btn btn-default mam collapsed"
+               class="btn btn-secondary mam collapsed"
                role="button"
                data-toggle="collapse"
                aria-expanded="false"

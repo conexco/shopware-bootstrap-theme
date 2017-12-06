@@ -97,7 +97,7 @@
                                                                 </a>
                                                             {/if}
                                                             {if $article.esdarticle && !$offerPosition.cleared|in_array:$sDownloadAvailablePaymentStatus}
-                                                                <a href="#" class="btn btn-default btn-xs" disabled="disabled">
+                                                                <a href="#" class="btn btn-secondary btn-xs" disabled="disabled">
                                                                     <i class="fa fa-cloud-download fa-lg"></i> {s name="OrderItemInfoInstantDownload"}{/s}
                                                                 </a>
                                                             {/if}

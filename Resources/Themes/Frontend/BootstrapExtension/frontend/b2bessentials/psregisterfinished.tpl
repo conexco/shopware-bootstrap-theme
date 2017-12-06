@@ -14,7 +14,7 @@
 			{/block}
 
 			{block name='business_essentials_confirm_link'}
-				<a href="{url controller='index' action='index'}" class="btn btn-default">
+				<a href="{url controller='index' action='index'}" class="btn btn-secondary">
 					{block name='business_essentials_confirm_link_icon'}
 						{s name="AccountLogoutButton" namespace="frontend/account/ajax_logout"}Zurück{/s}
 					{/block}

@@ -70,7 +70,7 @@
                                         <div class="custom-products-option-actions">
 
                                             {block name="frontend_detail_swag_custom_products_options_reset_action"}
-                                                <span class="btn btn-default btn-xs custom-products-option-reset" data-custom-products-reset="true">
+                                                <span class="btn btn-secondary btn-xs custom-products-option-reset" data-custom-products-reset="true">
                                                     <i class="fa fa-times mrs"></i>    
                                                     {s name="detail/index/reset_values"}{/s}
                                                 </span>
@@ -118,7 +118,7 @@
                 <div class="panel-footer pam">
                     {* Global form actions *}
                     {block name="frontend_detail_custom_products_actions"}
-                        <span class="btn btn-default btn-sm mbm custom-products-global-reset sw5-plugin">
+                        <span class="btn btn-secondary btn-sm mbm custom-products-global-reset sw5-plugin">
                             <span class="fa fa-times mrs"></span>
                             {s name="detail/index/reset_configuration"}{/s}
                         </span>

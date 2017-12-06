@@ -40,7 +40,7 @@
         {block name='frontend_checkout_ajax_cart_button_container'}
             {block name='frontend_checkout_ajax_cart_button_container_inner'}
                 {block name='frontend_checkout_ajax_cart_open_basket'}
-                    <a href="{url controller='checkout' action='cart'}" class="btn btn-default btn-block btn-sm" title="{s name='AjaxCartLinkBasket'}{/s}">
+                    <a href="{url controller='checkout' action='cart'}" class="btn btn-secondary btn-block btn-sm" title="{s name='AjaxCartLinkBasket'}{/s}">
                         {s name='AjaxCartLinkBasket'}{/s}
                     </a>
                 {/block}

@@ -84,7 +84,7 @@
                                         <td>
                                             {block name='frontend_account_downloads_link'}
                                                 {if !$offerPosition.cleared|in_array:$sDownloadAvailablePaymentStatus}
-                                                    <a href="#" title="{s name='DownloadsLink'}{/s} {$article.name}" class="btn btn-default" disabled="disabled">
+                                                    <a href="#" title="{s name='DownloadsLink'}{/s} {$article.name}" class="btn btn-secondary" disabled="disabled">
                                                         <i class="fa fa-cloud-download fa-lg"></i> {s name="DownloadsLink"}{/s}
                                                     </a>
                                                 {else}

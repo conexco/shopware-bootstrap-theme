@@ -134,7 +134,7 @@
                 {/block}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{s name="CompareModalClose"}Schließen{/s}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{s name="CompareModalClose"}Schließen{/s}</button>
             </div>
         </div>
     </div>

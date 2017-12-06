@@ -31,7 +31,7 @@
                             <div class="col-12 col-sm-4">
                                 <div class="sidebar-filter-offcanvas d-sm-none">
                                     <a href="#"
-                                       class="btn btn-default btn-block"
+                                       class="btn btn-secondary btn-block"
                                        data-offcanvas="true"
                                        data-offCanvasSelector="#sidebarFilterOffcanvas"
                                        data-filter-trigger="true">

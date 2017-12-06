@@ -77,7 +77,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-1 col-md-1">
-                        <button type="submit" class="btn btn-default">{s name="PartnerStatisticSubmitFilter"}{/s}</button>
+                        <button type="submit" class="btn btn-secondary">{s name="PartnerStatisticSubmitFilter"}{/s}</button>
                     </div>
                 </div>
             </form>

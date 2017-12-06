@@ -135,7 +135,7 @@
                                         <form action="{url controller='compare' action='add_article' articleID=$sBasketItem.articleID}" method="post">
                                             <button type="submit"
                                                data-product-compare-add="true"
-                                               class="compare--link btn btn-default btn-block phm d-none d-md-block"
+                                               class="compare--link btn btn-secondary btn-block phm d-none d-md-block"
                                                title="{"{s name='ListingBoxLinkCompare'}{/s}"|escape}">
                                                 <i class="fa fa-exchange mrs"></i> {s name='ListingBoxLinkCompare'}{/s}
                                             </button>

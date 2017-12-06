@@ -47,7 +47,7 @@
                                     {/block}
 
                                     {block name="frontend_advisor_content_sidebar_button_reset"}
-                                        <a class="advisor-reset-advisor-btn sw5-plugin btn-block btn btn-default" title="{s name="ResetAdvisorBtnText" namespace="frontend/advisor/main"}Reset advisor{/s}" href="{$advisorResetUrl}">
+                                        <a class="advisor-reset-advisor-btn sw5-plugin btn-block btn btn-secondary" title="{s name="ResetAdvisorBtnText" namespace="frontend/advisor/main"}Reset advisor{/s}" href="{$advisorResetUrl}">
                                             {s name="ResetAdvisorBtnText" namespace="frontend/advisor/main"}Reset advisor{/s}
                                         </a>
                                     {/block}

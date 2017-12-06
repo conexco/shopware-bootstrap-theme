@@ -92,7 +92,7 @@
                                 <div class="col-12 col-sm-6 col-lg-4">
                                     {block name="frontend_advisor_content_wizard_actions_back"}
                                         {block name="frontend_advisor_content_wizard_back_button"}
-                                            <a class="advisor-wizard-back btn btn-default btn-block mbm-xs" href="{$advisorPreviousQuestion}" title="{s name="WizardBackButtonText"}Back{/s}">
+                                            <a class="advisor-wizard-back btn btn-secondary btn-block mbm-xs" href="{$advisorPreviousQuestion}" title="{s name="WizardBackButtonText"}Back{/s}">
                                                 {s name="WizardBackButtonText"}Back{/s}
                                             </a>
                                         {/block}
@@ -102,7 +102,7 @@
                             <div class="col-12 col-sm-6 col-lg-4">
                                 {* The reset-advisor button *}
                                 {block name="frontend_advisor_content_wizard_actions_reset"}
-                                    <a class="advisor-reset-advisor-btn sw5-plugin btn btn-default btn-block" title="{s name="ResetAdvisorBtnText"}Reset advisor{/s}" href="{$advisorResetUrl}">
+                                    <a class="advisor-reset-advisor-btn sw5-plugin btn btn-secondary btn-block" title="{s name="ResetAdvisorBtnText"}Reset advisor{/s}" href="{$advisorResetUrl}">
                                         {s name="ResetAdvisorBtnText" namespace="frontend/advisor/main"}Reset advisor{/s}
                                     </a>
                                 {/block}

@@ -8,7 +8,7 @@
              data-field-name="{$facet->getFieldName()|escape:'htmlall'}">
 
             {block name="frontend_listing_filter_facet_boolean_flyout"}
-                <div class="filter-panel--input btn btn-default btn-block man">
+                <div class="filter-panel--input btn btn-secondary btn-block man">
                     {block name="frontend_listing_filter_facet_boolean_title"}
                         <input type="checkbox"
                                id="{$facet->getFieldName()|escape:'htmlall'}"

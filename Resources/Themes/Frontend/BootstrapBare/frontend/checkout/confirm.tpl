@@ -155,7 +155,7 @@
                                                                        data-address-selection="true"
                                                                        data-sessionKey="checkoutBillingAddressId,checkoutShippingAddressId"
                                                                        data-id="{$activeBillingAddressId}"
-                                                                       class="btn btn-default btn-sm">
+                                                                       class="btn btn-secondary btn-sm">
                                                                         {s name="ConfirmAddressSelectLink"}{/s}
                                                                     </a>
                                                                 {/block}
@@ -260,7 +260,7 @@
                                                        data-sessionKey="checkoutBillingAddressId"
                                                        data-id="{$activeBillingAddressId}"
                                                        title="{s name="ConfirmAddressSelectLink"}Andere{/s}"
-                                                       class="btn btn-default btn-sm">
+                                                       class="btn btn-secondary btn-sm">
                                                         {s name="ConfirmAddressSelectLink"}{/s}
                                                     </a>
                                                 {/block}
@@ -344,7 +344,7 @@
                                                        data-sessionKey="checkoutShippingAddressId"
                                                        data-id="{$activeShippingAddressId}"
                                                        title="{s name="ConfirmAddressSelectLink"}Andere{/s}"
-                                                       class="btn btn-default btn-sm">
+                                                       class="btn btn-secondary btn-sm">
                                                         {s name="ConfirmAddressSelectLink"}{/s}
                                                     </a>
                                                 {/block}
@@ -545,7 +545,7 @@
                                                         {/block}
                                                         {block name='frontend_checkout_confirm_add_voucher_button'}
                                                             <span class="input-group-btn">
-                                                                <button class="btn btn-default" type="submit">
+                                                                <button class="btn btn-secondary" type="submit">
                                                                     <i class="fa fa-plus"></i>
                                                                 </button>
                                                             </span>
@@ -565,7 +565,7 @@
                                                         {/block}
                                                         {block name='frontend_checkout_confirm_add_product_button'}
                                                             <span class="input-group-btn">
-                                                                <button class="btn btn-default" type="submit">
+                                                                <button class="btn btn-secondary" type="submit">
                                                                     <i class="fa fa-plus"></i>
                                                                 </button>
                                                             </span>

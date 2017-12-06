@@ -7,7 +7,7 @@
             {/if}
         {/foreach}
         <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
                 {$currencySymbol}
             </button>
             <ul class="dropdown-menu">
@@ -35,7 +35,7 @@
             {if $language->getId() === $shop->getId()}{assign "currentLanguage" $language->getName() scope="global"}{/if}
         {/foreach}
         <div class="btn-group dropdown-sm">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
                 <img src="{link file='frontend/_public/src/img/flags/'}{$shop->getLocale()->toString()}.png" class="img-fluid" alt="{$currentLanguage}">
             </button>
             <ul class="dropdown-menu">

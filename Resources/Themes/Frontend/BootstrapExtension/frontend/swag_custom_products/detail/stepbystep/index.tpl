@@ -5,7 +5,7 @@
     {* the button to open the modal with the wizard *}
     {block name="frontend_detail_swag_custom_products_wizard_open_button"}
         <div class="phm pbm">
-            <a href="#" class="btn btn-default btn-block custom-products--open-wizard sw5-plugin" data-toggle="modal" data-target="#customProductsWizard" data-backdrop="static" title="{s name="detail/index/btn/configure"}Configure now{/s}">
+            <a href="#" class="btn btn-secondary btn-block custom-products--open-wizard sw5-plugin" data-toggle="modal" data-target="#customProductsWizard" data-backdrop="static" title="{s name="detail/index/btn/configure"}Configure now{/s}">
                 {s name="detail/index/btn/configure"}Configure now{/s}
             </a>
         </div>    
@@ -80,7 +80,7 @@
                                                             <div class="custom-product-interactive-bar mvs">
                                                                 <div class="custom-products-option-actions">
                                                                     {block name="frontend_detail_swag_custom_products_options_reset_action"}
-                                                                        <span class="btn btn-default btn-xs custom-products-option-reset"
+                                                                        <span class="btn btn-secondary btn-xs custom-products-option-reset"
                                                                               data-custom-products-reset="true">
                                                                             <i class="fa fa-times mrs"></i>
                                                                             {s name="detail/index/reset_values"}reset{/s}
@@ -122,13 +122,13 @@
                                     </div>
                                     <div class="col-6 text-right">
                                         {block name="frontend_detail_swag_custom_products_wizard_modal_content_navigation_back"}
-                                            <button type="button" class="btn btn-default custom-products-navigation-btn-left sw5-plugin">
+                                            <button type="button" class="btn btn-secondary custom-products-navigation-btn-left sw5-plugin">
                                                 <i class="fa fa-angle-left mrs"></i> {s name="detail/index/wizard/navigation/back"}Back{/s}
                                             </button>
                                         {/block}
 
                                         {block name="frontend_detail_swag_custom_products_wizard_modal_content_navigation_next"}
-                                            <button type="button" class="btn btn-default custom-products-navigation-btn-right sw5-plugin">
+                                            <button type="button" class="btn btn-secondary custom-products-navigation-btn-right sw5-plugin">
                                                 {s name="detail/index/wizard/navigation/next"}Next{/s} <i class="fa fa-angle-right mls"></i>
                                             </button>
                                         {/block}

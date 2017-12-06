@@ -60,7 +60,7 @@
                                 {s name="FinishButtonBackToShop"}{/s}
                             </a>
                             {* Print button *}
-                            <a href="#" class="btn btn-default mtm-xs" onclick="self.print()" title="{s name='FinishLinkPrint'}{/s}">
+                            <a href="#" class="btn btn-secondary mtm-xs" onclick="self.print()" title="{s name='FinishLinkPrint'}{/s}">
                                 {s name="FinishLinkPrint"}{/s}
                             </a>
                         {/block}

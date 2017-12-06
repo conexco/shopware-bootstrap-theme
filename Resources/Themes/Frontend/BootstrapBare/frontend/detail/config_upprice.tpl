@@ -37,7 +37,7 @@
             {/foreach}
             {block name='frontend_detail_configurator_noscript_action'}
                 <noscript>
-                    <button name="recalc" type="submit" class="btn btn-sm btn-default">
+                    <button name="recalc" type="submit" class="btn btn-sm btn-secondary">
                         {s name='DetailConfigActionSubmit'}{/s}
                     </button>
                 </noscript>

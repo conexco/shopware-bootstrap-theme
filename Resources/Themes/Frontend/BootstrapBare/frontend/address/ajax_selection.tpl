@@ -55,7 +55,7 @@
                                                             {/block}
 
                                                             {block name="frontend_address_selection_modal_container_item_select_button"}
-                                                                <button class="btn btn-sm btn-default"
+                                                                <button class="btn btn-sm btn-secondary"
                                                                         type="submit"
                                                                         data-checkFormIsValid="false">
                                                                     {s name="SelectAddressButton"}Use this address{/s}

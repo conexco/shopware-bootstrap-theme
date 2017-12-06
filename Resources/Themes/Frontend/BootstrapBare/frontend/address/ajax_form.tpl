@@ -19,7 +19,7 @@
         {if $formData.id}
             {block name="frontend_address_action_button_send"}
                 <div class="{$FormLabelSize} address-form-submit-wrapper">
-                    <button class="btn btn-default mbm-xs mbm-sm mbm-hd address-form-submit sw5-plugin" data-value="update" data-checkFormIsValid="false">{s name="AddressesActionButtonSend"}{/s}</button>
+                    <button class="btn btn-secondary mbm-xs mbm-sm mbm-hd address-form-submit sw5-plugin" data-value="update" data-checkFormIsValid="false">{s name="AddressesActionButtonSend"}{/s}</button>
                 </div>
             {/block}
         {/if}

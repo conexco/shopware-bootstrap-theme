@@ -15,7 +15,7 @@
     {block name="frontend_listing_product_box_button_detail_container"}
         <div class="product-detail-btn">
             {block name="frontend_listing_product_box_button_detail_anchor"}
-                <a href="{$url}" class="mvm buybox-button btn btn-default btn-block" title="{$label} - {$title}">
+                <a href="{$url}" class="mvm buybox-button btn btn-secondary btn-block" title="{$label} - {$title}">
                     {block name="frontend_listing_product_box_button_detail_text"}
                         {$label}
                     {/block}

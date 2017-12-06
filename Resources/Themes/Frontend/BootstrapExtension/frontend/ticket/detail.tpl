@@ -74,7 +74,7 @@
                                             </div>
                                             <div class="col-4 text-right">
                                                 <a href="{url controller=ticket action=download attachment=$userAttachment.hash}" title="" class="btn btn-primary btn-xs">{s namespace='frontend/ticket/detail' name="TicketDetailAttachmentDownload"}Download{/s}</a>
-                                                <a href="{url controller=ticket action=delete attachment=$userAttachment.hash}" title="" class="btn btn-default btn-xs">{s namespace='frontend/ticket/detail' name="TicketDetailAttachmentDelete"}Delete{/s}</a>
+                                                <a href="{url controller=ticket action=delete attachment=$userAttachment.hash}" title="" class="btn btn-secondary btn-xs">{s namespace='frontend/ticket/detail' name="TicketDetailAttachmentDelete"}Delete{/s}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -211,7 +211,7 @@
         {/if}
 
         {block name='ticketsystem_back_button'}
-            <a href="{url controller='ticket' action='listing'}" class="btn btn-default mbm">{s name='TicketDetailLinkBack'}{/s}</a>
+            <a href="{url controller='ticket' action='listing'}" class="btn btn-secondary mbm">{s name='TicketDetailLinkBack'}{/s}</a>
         {/block}
     {/block}
 {/block}

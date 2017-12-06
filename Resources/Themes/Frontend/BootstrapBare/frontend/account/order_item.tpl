@@ -66,10 +66,10 @@
         {block name="frontend_account_order_item_actions"}
             <td>
                 <div class="d-none d-sm-block">
-                    <a class="btn btn-xs btn-default btn-block mbs" title="{s name='OrderActionSlide'}{/s} {$offerPosition.ordernumber}" data-toggle="collapse" data-target="#order{$offerPosition.ordernumber}">{s name="OrderActionSlide"}{/s}</a>
+                    <a class="btn btn-xs btn-secondary btn-block mbs" title="{s name='OrderActionSlide'}{/s} {$offerPosition.ordernumber}" data-toggle="collapse" data-target="#order{$offerPosition.ordernumber}">{s name="OrderActionSlide"}{/s}</a>
                 </div>
                 <div class="d-sm-none">
-                    <a class="btn btn-xs btn-default btn-block mbs" title="{s name='OrderActionSlide'}{/s} {$offerPosition.ordernumber}" data-toggle="collapse" data-target="#order{$offerPosition.ordernumber}">{s name="OrderActionSlide"}{/s}</a>
+                    <a class="btn btn-xs btn-secondary btn-block mbs" title="{s name='OrderActionSlide'}{/s} {$offerPosition.ordernumber}" data-toggle="collapse" data-target="#order{$offerPosition.ordernumber}">{s name="OrderActionSlide"}{/s}</a>
                 </div>
                 {* Repeat order *}
                 {block name="frontend_account_order_item_repeat_order"}

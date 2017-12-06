@@ -50,7 +50,7 @@
     {/function}
 
     <div class="btn-group dropdown-lg">
-        <button type="button" class="btn btn-default dropdown-toggle shop-selector-btn" data-toggle="dropdown">
+        <button type="button" class="btn btn-secondary dropdown-toggle shop-selector-btn" data-toggle="dropdown">
             <span class="shop-name">{$shop->getCategory()->getName()}</span>
             <i class="fa fa-angle-down pls"></i>
         </button>

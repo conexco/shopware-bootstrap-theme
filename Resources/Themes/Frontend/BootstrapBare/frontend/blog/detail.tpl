@@ -56,7 +56,7 @@
                             {block name='frontend_blog_detail_tags'}    
                                 {foreach $sArticle.tags as $tag}
                                     <a href="{url controller=blog sCategory=$sArticle.categoryId sFilterTags=$tag.name}" title="{$tag.name}"
-                                       class="btn btn-default btn-xs">
+                                       class="btn btn-secondary btn-xs">
                                         <i class="fa fa-tag mrs"></i>{$tag.name}
                                     </a>
                                 {/foreach}
