@@ -6,7 +6,7 @@
             {* Badge *}
             {block name='frontend_checkout_cart_item_voucher_badge'}
                 <div class="image-wrapper pts hidden-xs hidden-sm">
-                    <span class="label label-danger">
+                    <span class="badge badge-danger">
                         {s name='CartVoucherBadgeText'}Gutschein{/s}
                     </span>
                 </div>

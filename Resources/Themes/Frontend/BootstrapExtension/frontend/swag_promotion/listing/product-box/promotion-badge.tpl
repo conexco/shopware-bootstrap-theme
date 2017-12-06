@@ -5,7 +5,7 @@
         {foreach item=prom from=$promotionStruct->promotions}
             {if $prom->showBadge && $hasBadge == false}
                 {$hasBadge = true}
-                <span class="label label-warning img-label" title="{$prom->badgeText|strip_tags}">
+                <span class="badge badge-warning img-label" title="{$prom->badgeText|strip_tags}">
                     {if $prom->badgeText}
                         {$prom->badgeText|strip_tags}
                     {else}
@@ -15,6 +15,6 @@
             {/if}
         {/foreach}
     {else}
-        <span class="label label-danger price-saving img-label" title="{$description|strip_tags}">{s name="promotionBadge" namespace="frontend/swag_promotion/main"}{/s}</span>
+        <span class="badge badge-danger price-saving img-label" title="{$description|strip_tags}">{s name="promotionBadge" namespace="frontend/swag_promotion/main"}{/s}</span>
     {/if}
 {/if}

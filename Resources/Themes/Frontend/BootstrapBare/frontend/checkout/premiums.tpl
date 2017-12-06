@@ -23,9 +23,9 @@
                                                             {block name='frontend_checkout_premium_bonus_price'}
                                                                 <div class="label-container">
                                                                     {if $premium.available}
-                                                                        <span class="label label-success img-label">{s name="PremiumInfoFreeProduct"}Gratis: Jetzt Pr&auml;mie sichern{/s}</span>
+                                                                        <span class="badge badge-success img-label">{s name="PremiumInfoFreeProduct"}Gratis: Jetzt Pr&auml;mie sichern{/s}</span>
                                                                     {else}
-                                                                        <span class="label label-default img-label">{s name="PremiumsInfoAtAmount"}{/s} {$premium.startprice|currency} {s name="PremiumsInfoDifference"}{/s} {$premium.sDifference|currency}</span>
+                                                                        <span class="badge badge-default img-label">{s name="PremiumsInfoAtAmount"}{/s} {$premium.startprice|currency} {s name="PremiumsInfoDifference"}{/s} {$premium.sDifference|currency}</span>
                                                                     {/if}
                                                                 </div>
                                                             {/block}

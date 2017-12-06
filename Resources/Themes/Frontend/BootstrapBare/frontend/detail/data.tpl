@@ -42,7 +42,7 @@
                                     {s name="priceDiscountLabel"}{/s}
                                 {/block}
                                 <p class="text-right">
-                                    <span class="label label-danger price-saving">{$sArticle.pseudopricePercent.float|number_format:1:',': '.'}% {s name="DetailDataInfoSavePercent"}{/s}</span>
+                                    <span class="badge badge-danger price-saving">{$sArticle.pseudopricePercent.float|number_format:1:',': '.'}% {s name="DetailDataInfoSavePercent"}{/s}</span>
                                 </p>
                                 {block name='frontend_detail_data_pseudo_price_discount_after'}
                                     {s name="priceDiscountInfo"}{/s}
