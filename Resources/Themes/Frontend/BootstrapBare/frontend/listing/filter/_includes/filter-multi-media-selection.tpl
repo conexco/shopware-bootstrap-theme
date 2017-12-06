@@ -7,7 +7,7 @@
                 {block name="frontend_listing_filter_facet_media_list_list"}
                     {foreach $facet->getValues() as $option}
                         {block name="frontend_listing_filter_facet_media_list_option"}
-                            <li>
+                            <li class="list-inline-item">
                                 {block name="frontend_listing_filter_facet_media_list_option_container"}
                                     <div class="card card-body">
                                         {block name="frontend_listing_filter_facet_media_list_input"}
