@@ -65,7 +65,7 @@
                             {block name="frontend_wishlist_index_list_content_header_share"}
                                 <div class="header-sharing-container sw5-plugin mbl{if !$wishList.published} list-container-disabled sw5-plugin{/if}">
                                     <p>{s name='LinkToShare'}Link zum Teilen{/s}:</p>
-                                    <div class="list-container-share-link-wrapper well well-sm mbm">
+                                    <div class="list-container-share-link-wrapper card card-body mbm">
                                         {block name="frontend_wishlist_index_list_content_header_share_input"}
                                             <span class="list-container-share-link">{url controller=wishlist action=public id=$wishList.hash}</span>
                                         {/block}

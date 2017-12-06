@@ -73,7 +73,7 @@
                                                     {if $article.serial && $offerPosition.cleared|in_array:$sDownloadAvailablePaymentStatus}
                                                         <p class="text-muted">
                                                             {s name="DownloadsSerialnumber"}{/s} 
-                                                            <div class="well well-sm">
+                                                            <div class="card card-body">
                                                                 <strong>{$article.serial}</strong>
                                                             </div>
                                                         </p>

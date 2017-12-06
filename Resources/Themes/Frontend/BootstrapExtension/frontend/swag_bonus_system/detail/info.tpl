@@ -1,5 +1,5 @@
 {if $bonusArticle}
-    <div class="bonussystem-info sw5-plugin well well-sm mtm text-center{if !$sBonusSystem.settings.bonus_system_active} hidden{/if}"
+    <div class="bonussystem-info sw5-plugin card card-body mtm text-center{if !$sBonusSystem.settings.bonus_system_active} hidden{/if}"
          data-detail-url="{url module=widgets controller=SwagBonusSystem action=articlePoints}"
          data-article-id="{$sArticle.articleID}"
             {if $sArticle.sBlockPrices}

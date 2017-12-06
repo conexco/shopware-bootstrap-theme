@@ -1,6 +1,6 @@
 {* This ist the bonus system voucher slider component, which allows the user to convert the bonus points into a voucher *}
 {block name="frontend_checkout_bonussystem_slider_container"}
-    <div class="well well-sm bonus-basket-slider sw5-plugin">
+    <div class="card card-body bonus-basket-slider sw5-plugin">
 		{block name="frontend_checkout_bonussystem_slider_container_headline"}
             <h4>{s namespace="frontend/plugins/bonus_system/slider" name="BasketBonusVoucherHeadline"}{/s}</h4>
 		{/block}

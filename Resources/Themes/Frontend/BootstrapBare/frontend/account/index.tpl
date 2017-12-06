@@ -29,7 +29,7 @@
 
     {* Welcome text *}
     {block name="frontend_account_index_welcome"}
-        <div class="well">
+        <div class="card card-body">
             {block name="frontend_account_index_welcome_headline"}
                 <h1 class="mtn">
                     {s name='AccountHeaderWelcome'}{/s},
