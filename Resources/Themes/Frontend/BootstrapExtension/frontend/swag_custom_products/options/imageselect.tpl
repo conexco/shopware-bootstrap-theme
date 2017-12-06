@@ -10,7 +10,7 @@
     <div id="custom-products-option-{$key}" class="wizard-input custom-products-color-selection-wrapper" data-group-field="true"{if $option['required']} data-validate-group="true" data-validate-message="{s name='detail/validate/image_selection'}{/s}"{/if}>
         {foreach $option['values'] as $value}
             {block name="frontend_detail_swag_custom_products_options_imageselection_element"}
-                <div class="custom-products-image-selection thumbnail pam mbm">
+                <div class="custom-products-image-selection card card-body mbm">
 
                     {block name="frontend_detail_swag_custom_products_options_imageselection_hidden_input"}
                         <input type="{$type}" id="custom-products-color-selection-{$key}-{$value@index}"

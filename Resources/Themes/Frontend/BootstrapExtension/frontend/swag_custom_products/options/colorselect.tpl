@@ -4,7 +4,7 @@
     <div id="custom-products-option-{$key}" class="wizard-input custom-products-color-selection-wrapper" data-group-field="true"{if $option['required']} data-validate-group="true" data-validate-message="{s name='detail/validate/color_selection'}{/s}"{/if}>
         {foreach $option['values'] as $value}
             {block name="frontend_detail_swag_custom_products_options_colorselection_element"}
-                <div class="custom-products-color-selection thumbnail pam mbm">
+                <div class="custom-products-color-selection card card-body mbm">
 
                     {block name="frontend_detail_swag_custom_products_options_colorselection_hidden_input"}
                         <input type="radio" id="custom-products-color-selection-{$key}-{$value@index}"

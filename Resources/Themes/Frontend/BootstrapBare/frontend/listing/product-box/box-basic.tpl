@@ -30,7 +30,7 @@
         <li class="{$boxSize} mbl product-box box-{$productBoxLayout} sw5-plugin"
             data-page-index="{$pageIndex}"
             data-ordernumber="{$sArticle.ordernumber}">
-            <div class="thumbnail pam">
+            <div class="card card-body">
     {/block}
     {block name='frontend_listing_box_article_item_wrapper'}
         <div class="item-wrapper" data-equal="item">

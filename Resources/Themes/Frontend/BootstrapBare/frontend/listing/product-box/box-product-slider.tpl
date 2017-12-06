@@ -13,7 +13,7 @@
 
 {block name="frontend_listing_box_article_item_start"}
     <div class="phm product-box box-{$productBoxLayout}">
-        <div class="thumbnail">
+        <div class="card card-body">
 {/block}
 
 {block name="frontend_listing_box_article_item_end"}

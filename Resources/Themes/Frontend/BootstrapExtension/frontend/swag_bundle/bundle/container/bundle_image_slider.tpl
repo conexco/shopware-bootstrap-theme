@@ -29,7 +29,7 @@
 			{foreach from=$bundle.articles key=index item=article}
 				{block name='container_item'}
 					<div class="bundle-thumb-wrapper" data-original-index="{$index}">
-						<div class="thumbnail" data-equal="item" data-bundleImageArticleId="{if $article.bundleArticleId}{$article.bundleArticleId}{else}0{/if}">
+						<div class="card card-body" data-equal="item" data-bundleImageArticleId="{if $article.bundleArticleId}{$article.bundleArticleId}{else}0{/if}">
 							{* product image *}
 							{block name='item_image'}
 								<div class="item-wrapper" data-equal="item">

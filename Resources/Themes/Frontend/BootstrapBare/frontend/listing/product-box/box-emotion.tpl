@@ -3,7 +3,7 @@
 
 {block name="frontend_listing_box_article_item_start"}
 <div class="phm product-box box-{$productBoxLayout}" data-ordernumber="{$sArticle.ordernumber}">
-    <div class="thumbnail">
+    <div class="card card-body">
 {/block}
 
 {block name='frontend_listing_box_article_content'}

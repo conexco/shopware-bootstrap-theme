@@ -2,7 +2,7 @@
 {namespace name="frontend/listing/box_blog"}
 
 {block name="frontend_listing_box_article_item_start"}
-    <div class="thumbnail mam product-box box-{$productBoxLayout}">
+    <div class="card card-body mam product-box box-{$productBoxLayout}">
 {/block}
 
 {block name='frontend_listing_box_article_badges'}{/block}

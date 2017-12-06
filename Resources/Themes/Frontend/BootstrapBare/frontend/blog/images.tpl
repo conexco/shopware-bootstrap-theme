@@ -98,7 +98,7 @@
                         {if $sArticleMedia.description}
                             {$alt = $sArticleMedia.description}
                         {/if}
-                        <div class="mhs thumbnail">
+                        <div class="mhs card card-body">
                             <img srcset="{$sArticleMedia.thumbnails[0].sourceSet}"
                                  alt="{s name="BlogThumbnailText" namespace="frontend/blog/detail"}{/s}: {$alt}"
                                  class="img-fluid img-center"
