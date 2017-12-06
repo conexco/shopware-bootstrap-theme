@@ -37,7 +37,7 @@
                 <label for="custom-products-option-{$key}" class="custom-products-upload-label pal">
                     <p>{s name="upload/drag_drop_label"}{/s}</p>
                     <p><strong class="upload-divider">{s name="upload/drag_drop_divider_label"}{/s}</strong></p>
-                    <button class="btn btn-secondary btn-sm upload-btn-select">{s name="upload/btn_label"}{/s}</button>
+                    <button class="btn btn-outline-secondary btn-sm upload-btn-select">{s name="upload/btn_label"}{/s}</button>
                 </label>
             {/block}
 

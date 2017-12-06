@@ -133,7 +133,7 @@
                                             {/block}
                                             {block name="frontend_wishlist_index_list_articles_buttons_add"}
                                                 <span class="input-group-btn">
-                                                    <button class="add-article-button sw5-plugin btn btn-secondary" type="button" title="{s name='Add'}Hinzufügen{/s}">
+                                                    <button class="add-article-button sw5-plugin btn btn-outline-secondary" type="button" title="{s name='Add'}Hinzufügen{/s}">
                                                         <i class="fa fa-plus"></i>
                                                     </button>
                                                 </span>
@@ -177,7 +177,7 @@
                                         {block name="frontend_wishlist_index_manage_buttons"}
                                             <div class="cart-manage-container">
                                                 {block name="frontend_wishlist_index_buttons_rename"}
-                                                    <label for="name-field{$wishList.basketID}" class="manage-container-rename sw5-plugin btn btn-secondary" title="{s name='Rename'}Umbenennen{/s}">
+                                                    <label for="name-field{$wishList.basketID}" class="manage-container-rename sw5-plugin btn btn-outline-secondary" title="{s name='Rename'}Umbenennen{/s}">
                                                         {block name="frontend_wishlist_index_buttons_rename_icon"}
                                                             <i class="fa fa-pencil cart-rename-icon mrs"></i>
                                                         {/block}

@@ -9,7 +9,7 @@
         {if $element.type === "is--primary"}
             {$btnType="btn-primary"}
         {else}
-            {$btnType="btn-secondary"}
+            {$btnType="btn-outline-secondary"}
         {/if}
         {$classes = "{$classes} {$btnType}"}
     {/if}

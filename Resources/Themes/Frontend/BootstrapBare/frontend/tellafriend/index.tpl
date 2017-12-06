@@ -107,7 +107,7 @@
                         {block name='frontend_tellafriend_captcha_code_actions'}
                             <div class="form-group">
                                 <div class="{$FormLabelOffset} {$FormInputSize}">
-                                    <a href="{$sArticle.linkDetails}" class="btn btn-secondary">{s name='TellAFriendLinkBack'}{/s}</a>
+                                    <a href="{$sArticle.linkDetails}" class="btn btn-outline-secondary">{s name='TellAFriendLinkBack'}{/s}</a>
                                     <input type="submit" value="{s name='TellAFriendActionSubmit'}{/s}" class="btn btn-primary"/>
                                 </div>
                             </div>

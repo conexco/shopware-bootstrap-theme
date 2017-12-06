@@ -5,7 +5,7 @@
 
 	    {if $bottom && !$sMinimumSurcharge && ($sInquiry || $sDispatchNoOrder)}
 	        {block name="frontend_checkout_actions_inquiry"}
-				<a href="{$sInquiryLink}" title="{s name='CheckoutActionsLinkOffer'}{/s}" class="btn btn-secondary checkout-action-btn mlm mln-xs">{s name="CheckoutActionsLinkOffer"}{/s}</a>
+				<a href="{$sInquiryLink}" title="{s name='CheckoutActionsLinkOffer'}{/s}" class="btn btn-outline-secondary checkout-action-btn mlm mln-xs">{s name="CheckoutActionsLinkOffer"}{/s}</a>
 	        {/block}
 	    {/if}
 	</div>

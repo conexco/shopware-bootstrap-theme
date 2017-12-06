@@ -18,7 +18,7 @@
         {block name='frontend_account_password_success'}
             {include file="frontend/_includes/messages.tpl" type="success" content="{s name='PasswordInfoSuccess'}{/s}"}
             <p>
-                <a href="javascript:history.back();" class="btn btn-secondary"><span>{s name="LoginBack"}{/s}</span></a>
+                <a href="javascript:history.back();" class="btn btn-outline-secondary"><span>{s name="LoginBack"}{/s}</span></a>
             </p>
         {/block}
     {else}
@@ -50,7 +50,7 @@
                             <div class="form-group">
                                 <div class="{$FormInputSize} {$FormLabelOffset}">
                                     <button type="submit" class="btn btn-primary">{s name="PasswordSendAction"}{/s}</button>
-                                    <a href="{url controller='account'}" class="btn btn-secondary">{s name="PasswordLinkBack"}{/s}</a>
+                                    <a href="{url controller='account'}" class="btn btn-outline-secondary">{s name="PasswordLinkBack"}{/s}</a>
                                 </div>
                             </div>
                         {/block}

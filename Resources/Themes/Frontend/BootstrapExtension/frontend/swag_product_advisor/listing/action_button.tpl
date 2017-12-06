@@ -1,6 +1,6 @@
 {if $productBoxLayout == 'advisor-tophit'}
     {block name="frontend_advisor_listing_tophit_action"}
-    <a class="advisor-tophit-buy btn btn-secondary mbm" href="{$sArticle.linkDetails}">
+    <a class="advisor-tophit-buy btn btn-outline-secondary mbm" href="{$sArticle.linkDetails}">
             {s name="TopHitActionText" namespace="frontend/advisor/main"}View product now{/s}
             <i class="icon--arrow-right"></i>
         </a>

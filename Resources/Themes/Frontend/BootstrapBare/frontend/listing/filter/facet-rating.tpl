@@ -7,7 +7,7 @@
              data-facet-name="{$facet->getFacetName()}"
              data-field-name="{$facet->getFieldName()|escape:'htmlall'}">
 
-            <a id="facet_{$facet->getFacetName()}_{$index}" href="#" class="btn btn-secondary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a id="facet_{$facet->getFacetName()}_{$index}" href="#" class="btn btn-outline-secondary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {block name="frontend_listing_filter_facet_rating_title"}
                     <span class="filter-panel-title sw5-plugin">{$facet->getLabel()|escape}</span>
                 {/block}

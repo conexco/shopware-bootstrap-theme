@@ -113,13 +113,13 @@
                     {action module=widgets controller=index action=shopMenu}
                 {/block}
                 {block name='frontend_index_checkout_actions_notepad_xs'}
-                    <a href="{url controller='note' action='index'}" class="btn btn-secondary d-sm-none" title="{s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}">
+                    <a href="{url controller='note' action='index'}" class="btn btn-outline-secondary d-sm-none" title="{s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}">
                         <i class="fa fa-list fa-lg"></i>
                         {if $sNotesQuantity > 0}<span class="badge badge-pill mls">{$sNotesQuantity}</span>{/if}
                     </a>
                 {/block}
                 <div class="btn-group d-sm-none">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" title="{s name='IndexLinkService'}Service/Hilfe{/s}">
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" title="{s name='IndexLinkService'}Service/Hilfe{/s}">
                         <i class="fa fa-question fa-lg"></i>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
@@ -131,7 +131,7 @@
                     <div class="btn-group d-sm-none">
                         <div class="off-canvas-account sw5-plugin">
                             <a href="#"
-                                class="btn btn-secondary"
+                                class="btn btn-outline-secondary"
                                 data-offcanvas="true"
                                 data-offCanvasSelector="#accountSidebar"
                                 title="{s name='AccountHeaderNavigation' namespace='frontend/account/sidebar'}{/s}">
@@ -146,14 +146,14 @@
                         </div>
                     </div>
                 {else}
-                    <a href="{url controller='account'}" class="btn btn-secondary d-sm-none" title="{s namespace='frontend/index/checkout_actions' name='IndexLinkAccount'}{/s}">
+                    <a href="{url controller='account'}" class="btn btn-outline-secondary d-sm-none" title="{s namespace='frontend/index/checkout_actions' name='IndexLinkAccount'}{/s}">
                         <i class="fa fa-user fa-lg"></i>
                     </a>
                 {/if}
                 {*! Cart / Checkout *}
                 {block name="frontend_index_checkout_actions_cart"}
                     <button type="button"
-                            class="btn {if $sBasketQuantity}btn-primary{else}btn-secondary{/if}"
+                            class="btn {if $sBasketQuantity}btn-primary{else}btn-outline-secondary{/if}"
                             id="carty"
                             aria-label="{"{s namespace='frontend/index/checkout_actions' name='IndexLinkCart'}{/s}"|escape}"
                             data-ajax-cart="true"

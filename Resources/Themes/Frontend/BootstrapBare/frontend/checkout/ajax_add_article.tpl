@@ -79,7 +79,7 @@
                         {* Contiune shopping *}
                         {block name='checkout_ajax_add_actions_continue'}
                             <div class="col-12 col-sm-4">
-                                <button class="btn btn-secondary btn-block mts" data-dismiss="modal" aria-hidden="true">{s name="AjaxAddLinkBack"}Zurück{/s}</button>
+                                <button class="btn btn-outline-secondary btn-block mts" data-dismiss="modal" aria-hidden="true">{s name="AjaxAddLinkBack"}Zurück{/s}</button>
                             </div>
                         {/block}
                         {* Forward to the checkout *}

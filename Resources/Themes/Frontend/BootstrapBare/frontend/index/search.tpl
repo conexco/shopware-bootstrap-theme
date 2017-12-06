@@ -20,7 +20,7 @@
             {* Search input *}
             {block name='frontend_index_search_field_submit'}
                 <span class="input-group-btn">
-                    <button class="btn btn-secondary ajax-search-button" type="submit" aria-label="{s name='IndexSearchFieldSubmit'}{/s}">
+                    <button class="btn btn-outline-secondary ajax-search-button" type="submit" aria-label="{s name='IndexSearchFieldSubmit'}{/s}">
                         {* Search icon *}
                         {block name='frontend_index_search_icon'}
                             <i class="fa fa-search fa-lg"></i>

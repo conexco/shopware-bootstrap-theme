@@ -5,7 +5,7 @@
     {$cancelMessage = "{s name='PaypalCancelMessage'}{/s}"}
     {include file="frontend/_includes/messages.tpl" type="info" content="{$cancelMessage}"}
 
-    <a class="btn btn-secondary"
+    <a class="btn btn-outline-secondary"
        href="{url controller=checkout action=cart}"
        title="{s name='PaypalLinkChangeCart'}{/s}">
         {s name='PaypalLinkChangeCart'}{/s}

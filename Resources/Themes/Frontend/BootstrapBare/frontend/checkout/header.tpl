@@ -30,7 +30,7 @@
 							{block name='frontend_index_logo_trusted_shops'}
 								{if $theme.checkoutHeader}
 							        <a href="{url controller='index'}"
-							           class="btn btn-secondary btn-sm"
+							           class="btn btn-outline-secondary btn-sm"
 							           title="{"{s name='FinishButtonBackToShop' namespace='frontend/checkout/finish'}{/s}"|escape}">
 							            {s name="FinishButtonBackToShop" namespace="frontend/checkout/finish"}{/s}
 							        </a>

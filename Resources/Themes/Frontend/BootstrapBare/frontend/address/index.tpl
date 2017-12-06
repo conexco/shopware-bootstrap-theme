@@ -97,7 +97,7 @@
                                                         {if $sUserData.additional.user.default_shipping_address_id != $address.id}
                                                             <form action="{url controller="address" action="setDefaultShippingAddress"}" method="post">
                                                                 <input type="hidden" name="addressId" value="{$address.id}" />
-                                                                <button type="submit" class="btn btn-secondary btn-sm mtm">{s name="AddressesSetAsDefaultShippingAction"}{/s}</button>
+                                                                <button type="submit" class="btn btn-outline-secondary btn-sm mtm">{s name="AddressesSetAsDefaultShippingAction"}{/s}</button>
                                                             </form>
                                                         {/if}
                                                     {/block}
@@ -106,7 +106,7 @@
                                                         {if $sUserData.additional.user.default_billing_address_id != $address.id}
                                                             <form action="{url controller="address" action="setDefaultBillingAddress"}" method="post">
                                                                 <input type="hidden" name="addressId" value="{$address.id}" />
-                                                                <button type="submit" class="btn btn-secondary btn-sm mtm">{s name="AddressesSetAsDefaultBillingAction"}{/s}</button>
+                                                                <button type="submit" class="btn btn-outline-secondary btn-sm mtm">{s name="AddressesSetAsDefaultBillingAction"}{/s}</button>
                                                             </form>
                                                         {/if}
                                                     {/block}

@@ -52,7 +52,7 @@
                 <form action="{url controller=address action=delete id=$address.id}" method="post" class="mtl">
 
                     {block name="frontend_address_delete_actions_cancel"}
-                        <a href="{url controller=address action=index}" title="{s name="AddressesDeleteCancelText"}Cancel{/s}" class="btn btn-secondary">
+                        <a href="{url controller=address action=index}" title="{s name="AddressesDeleteCancelText"}Cancel{/s}" class="btn btn-outline-secondary">
                             {s name="AddressesDeleteCancelText"}Cancel{/s}
                         </a>
                     {/block}

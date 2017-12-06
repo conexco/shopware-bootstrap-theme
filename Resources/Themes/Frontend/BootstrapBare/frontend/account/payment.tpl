@@ -36,7 +36,7 @@
                             {/block}
                             {block name="frontend_account_payment_action_button_back"}
                                 {if $sTarget}
-                                    <a class="btn btn-secondary mbl" href="{url controller=$sTarget}" title="{s name='PaymentLinkBack'}{/s}">
+                                    <a class="btn btn-outline-secondary mbl" href="{url controller=$sTarget}" title="{s name='PaymentLinkBack'}{/s}">
                                         {s name="PaymentLinkBack"}{/s}
                                     </a>
                                 {/if}

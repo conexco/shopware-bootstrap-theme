@@ -31,7 +31,7 @@
 
                         {block name="widgets_index_actions_bonus_points"}
                             {block name="widgets_index_actions_bonus_points_link"}
-                                <a class="btn btn-secondary btn-block" href="{url controller=BonusSystem action=points forceSecure}" title="{"{s namespace="widgets/index/shop_menu" name="DisplayUserPointAccount"}Ihr Punktekonto{/s}"|escape}">
+                                <a class="btn btn-outline-secondary btn-block" href="{url controller=BonusSystem action=points forceSecure}" title="{"{s namespace="widgets/index/shop_menu" name="DisplayUserPointAccount"}Ihr Punktekonto{/s}"|escape}">
                                     {block name="widgets_index_actions_bonus_points_link_text"}
                                         {s namespace="widgets/index/shop_menu" name="DisplayUserPointAccount"}Ihr Punktekonto{/s}
                                     {/block}
@@ -42,7 +42,7 @@
                         {block name="widgets_index_actions_bonus_articles"}
                             {if $sBonusSystem.settings.bonus_articles_active}
                                 {block name="widgets_index_actions_bonus_articles_link"}
-                                    <a class="btn btn-secondary btn-block" href="{url controller=BonusSystem forceSecure}" title="{"{s namespace="widgets/index/shop_menu" name="DisplayAllBonusArticlesTitle"}Zu den Bonus-Artikeln{/s}"|escape}">
+                                    <a class="btn btn-outline-secondary btn-block" href="{url controller=BonusSystem forceSecure}" title="{"{s namespace="widgets/index/shop_menu" name="DisplayAllBonusArticlesTitle"}Zu den Bonus-Artikeln{/s}"|escape}">
                                         {block name="widgets_index_actions_bonus_articles_link_text"}
                                             {s namespace="widgets/index/shop_menu" name="DisplayAllBonusArticlesTitle"}Zu den Bonus-Artikeln{/s}
                                         {/block}

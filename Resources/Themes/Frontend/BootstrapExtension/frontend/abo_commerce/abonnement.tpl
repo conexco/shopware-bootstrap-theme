@@ -43,7 +43,7 @@
 {* Abonnement actions *}
 {block name="frontend_account_abonnement_item_actions"}
 	<td>
-		<a class="btn btn-xs btn-secondary btn-block mbs"
+		<a class="btn btn-xs btn-outline-secondary btn-block mbs"
 		   title="{"{s name="AboCommerceOrdersShowDetailsOnly"}Details{/s}"|escape}"
 		   data-toggle="collapse"
 		   data-target="#order{$order.lastOrder.number}{$order.id}">

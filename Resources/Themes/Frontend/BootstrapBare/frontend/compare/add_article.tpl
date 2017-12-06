@@ -17,7 +17,7 @@
                 {/block}
 			</div>
 			<div class="modal-footer">
-	        	<button type="button" class="btn btn-secondary modal-close" data-dismiss="modal">{s name="CompareModalClose"}Schließen{/s}</button>
+	        	<button type="button" class="btn btn-outline-secondary modal-close" data-dismiss="modal">{s name="CompareModalClose"}Schließen{/s}</button>
 			</div>
 		</div>
 	</div>

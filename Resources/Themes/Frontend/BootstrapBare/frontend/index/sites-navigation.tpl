@@ -38,7 +38,7 @@
             {block name='frontend_index_left_menu_small'}
                 {if $Controller != 'listing'}
                     <div class="dropdown text-right mbl d-md-none">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="leftMenuGoTo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="leftMenuGoTo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             {s name="LeftMenuGoto"}Gehe zu{/s}
                             <span class="caret"></span>
                         </button>

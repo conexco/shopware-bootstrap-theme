@@ -14,7 +14,7 @@
                                         {/block}
                                         {block name='frontend_checkout_cart_footer_add_voucher_button'}
                                             <span class="input-group-btn">
-                                                <button class="btn btn-secondary" type="submit">
+                                                <button class="btn btn-outline-secondary" type="submit">
                                                     <i class="fa fa-plus"></i>
                                                 </button>
                                             </span>
@@ -34,7 +34,7 @@
                                         {/block}
                                         {block name='frontend_checkout_cart_footer_add_product_button'}
                                             <span class="input-group-btn">
-                                                <button class="btn btn-secondary" type="submit">
+                                                <button class="btn btn-outline-secondary" type="submit">
                                                     <i class="fa fa-plus"></i>
                                                 </button>
                                             </span>

@@ -60,7 +60,7 @@
                                 <p class="text-right">
                                     <strong>{s name='BlogInfoTags' namespace='frontend/blog/box'}Tags:{/s}</strong>
                                     {foreach $sArticle.tags as $tag}
-                                        <a href="{$tag.link}" title="{$tag.name}" class="btn btn-secondary btn-xs">
+                                        <a href="{$tag.link}" title="{$tag.name}" class="btn btn-outline-secondary btn-xs">
                                             <i class="fa fa-tag mrs"></i>{$tag.name}</a>
                                     {/foreach}
                                 </p>

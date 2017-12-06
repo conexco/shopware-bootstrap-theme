@@ -16,7 +16,7 @@
             {/if}
             {$order.shipping.zip} {$order.shipping.city}<br/>
             {$order.shipping.country}<br/>
-            <a class="btn btn-secondary right mvm" href="{url controller=address action=edit id=$order.shipping.fallbackId orderId=$order.lastOrder.id}">{s name="ChangeShippingAddress" namespace="frontend/abo_commerce/index"}Change shipping address{/s}</a>
+            <a class="btn btn-outline-secondary right mvm" href="{url controller=address action=edit id=$order.shipping.fallbackId orderId=$order.lastOrder.id}">{s name="ChangeShippingAddress" namespace="frontend/abo_commerce/index"}Change shipping address{/s}</a>
             <br>
         {/block}
     </tr>

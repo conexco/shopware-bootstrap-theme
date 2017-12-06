@@ -22,7 +22,7 @@
     {block name='frontend_blog_listing_sidebar'}
         <div class="off-canvas-blog sw5-plugin">
             {block name='frontend_blog_listing_sidebar_offcanvas_open'}
-                <a href="#" class="btn btn-secondary btn-block blog-filter-offcanvas-btn mbl d-md-none" data-offcanvas="true" data-offCanvasSelector="#blogSidebar" title="{s name="BlogOffcanvasButton"}Filter{/s}">
+                <a href="#" class="btn btn-outline-secondary btn-block blog-filter-offcanvas-btn mbl d-md-none" data-offcanvas="true" data-offCanvasSelector="#blogSidebar" title="{s name="BlogOffcanvasButton"}Filter{/s}">
                     <i class="fa fa-filter mrs"></i>
                     {s name="BlogOffcanvasButton"}{/s}
                     <i class="fa fa-angle-right offcanvas-btn-angle"></i>
@@ -39,7 +39,7 @@
                             {foreach name=filter from=$sFilterDate item=date}
                                 {if !$date.removeProperty}
                                     {if $smarty.get.sFilterDate==$date.dateFormatDate}
-                                        <a href="{$sFilterDate[1].link}" class="btn btn-xs btn-secondary mrm" title="{s name='DeleteFilter' namespace='frontend/listing/filter_properties'}Filter l&ouml;schen{/s}">
+                                        <a href="{$sFilterDate[1].link}" class="btn btn-xs btn-outline-secondary mrm" title="{s name='DeleteFilter' namespace='frontend/listing/filter_properties'}Filter l&ouml;schen{/s}">
                                             <i class="fa fa-times text-primary"></i>
                                             {$date.dateFormatDate}
                                         </a>
@@ -55,7 +55,7 @@
                             {foreach name=filterAuthor from=$sFilterAuthor item=author}
                                 {if !$author.removeProperty}
                                     {if $smarty.get.sFilterAuthor==$author.name|urlencode}
-                                        <a href="{$sFilterAuthor[1].link}" class="btn btn-xs btn-secondary mrm" title="{s name='DeleteFilter' namespace='frontend/listing/filter_properties'}Filter l&ouml;schen{/s}">
+                                        <a href="{$sFilterAuthor[1].link}" class="btn btn-xs btn-outline-secondary mrm" title="{s name='DeleteFilter' namespace='frontend/listing/filter_properties'}Filter l&ouml;schen{/s}">
                                             <i class="fa fa-times text-primary"></i>
                                             {$author.name}
                                         </a>
@@ -71,7 +71,7 @@
                             {foreach name=filterTags from=$sFilterTags item=tag}
                                 {if !$tag.removeProperty}
                                     {if $smarty.get.sFilterTags==$tag.name|urlencode}
-                                        <a href="{$sFilterTags[1].link}" class="btn btn-xs btn-secondary mrm" title="{s name='DeleteFilter' namespace='frontend/listing/filter_properties'}Filter l&ouml;schen{/s}">
+                                        <a href="{$sFilterTags[1].link}" class="btn btn-xs btn-outline-secondary mrm" title="{s name='DeleteFilter' namespace='frontend/listing/filter_properties'}Filter l&ouml;schen{/s}">
                                             <i class="fa fa-times text-primary"></i>
                                             {$tag.name}
                                         </a>

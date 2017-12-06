@@ -26,7 +26,7 @@
         {* Newsletter detail buttons *}
         {block name="frontend_newsletter_detail_buttons"}
             {block name="frontend_newsletter_detail_buttons_backlink"}
-                <a href="{$sBackLink}" class="btn btn-secondary">{s name='NewsletterDetailLinkBack'}{/s}</a>
+                <a href="{$sBackLink}" class="btn btn-outline-secondary">{s name='NewsletterDetailLinkBack'}{/s}</a>
             {/block}    
 
             {block name="frontend_newsletter_detail_buttons_window"}    

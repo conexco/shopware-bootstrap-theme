@@ -33,7 +33,7 @@
 										<input type="text" class="table-content-text-field form-control" name="name" placeholder="{s name='WishlistPlaceholder'}Name für die neue Wunschliste...{/s}">
 										<span class="input-group-btn">
 											{block name="frontend_wishlist_index_container_body_form_button"}
-												<button type="submit" class="table-content-create-button btn btn-secondary" type="button" title="{s name='CreateWishlist'}Wunschliste erstellen{/s}">
+												<button type="submit" class="table-content-create-button btn btn-outline-secondary" type="button" title="{s name='CreateWishlist'}Wunschliste erstellen{/s}">
 													<i class="fa fa-plus"></i>
 												</button>
 											{/block}

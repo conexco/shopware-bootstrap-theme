@@ -24,7 +24,7 @@
             {block name="frontend_listing_filter_facet_multi_selection_flyout"}
 
                 {block name="frontend_listing_filter_facet_multi_selection_title"}
-                    <a id="facet_{$facet->getFacetName()}_{$index}" href="#" class="btn btn-secondary" role="button"
+                    <a id="facet_{$facet->getFacetName()}_{$index}" href="#" class="btn btn-outline-secondary" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {block name="frontend_listing_filter_facet_value_list_title"}
                             <span class="filter-panel-title sw5-plugin">{$facet->getLabel()|escape}</span>

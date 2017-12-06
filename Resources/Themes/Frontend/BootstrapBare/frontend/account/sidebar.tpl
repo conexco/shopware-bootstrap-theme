@@ -5,7 +5,7 @@
                 {if !{config name=useSltCookie}}
                     {block name="frontend_account_offcanvas_button"}
                         <a href="#"
-                           class="btn btn-secondary d-md-none mbl"
+                           class="btn btn-outline-secondary d-md-none mbl"
                            data-offcanvas="true"
                            data-offCanvasSelector="#accountSidebar"
                            title="{s name="AccountLinkTitle"}{/s}">
