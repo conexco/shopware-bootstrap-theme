@@ -11,7 +11,7 @@
                         <picture>
                             <source srcset="{$sBanner.media.thumbnails[1].sourceSet}" media="(min-width: {$theme['swf-screen-hd-min']})">
 
-                            <img srcset="{$sBanner.media.thumbnails[0].sourceSet}" alt="{$sBanner.description|escape}" class="img-center img-responsive" />
+                            <img srcset="{$sBanner.media.thumbnails[0].sourceSet}" alt="{$sBanner.description|escape}" class="img-center img-fluid" />
                         </picture>
                     {/block}
                 {else}
@@ -21,7 +21,7 @@
                             <picture>
                                 <source srcset="{$sBanner.media.thumbnails[1].sourceSet}" media="(min-width: {$theme['swf-screen-hd-min']})">
 
-                                <img srcset="{$sBanner.media.thumbnails[0].sourceSet}" alt="{$sBanner.description|escape}" class="img-center img-responsive" />
+                                <img srcset="{$sBanner.media.thumbnails[0].sourceSet}" alt="{$sBanner.description|escape}" class="img-center img-fluid" />
                             </picture>
                         </a>
                     {/block}

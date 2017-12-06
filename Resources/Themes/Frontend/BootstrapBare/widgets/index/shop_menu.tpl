@@ -36,7 +36,7 @@
         {/foreach}
         <div class="btn-group dropdown-sm">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                <img src="{link file='frontend/_public/src/img/flags/'}{$shop->getLocale()->toString()}.png" class="img-responsive" alt="{$currentLanguage}">
+                <img src="{link file='frontend/_public/src/img/flags/'}{$shop->getLocale()->toString()}.png" class="img-fluid" alt="{$currentLanguage}">
             </button>
             <ul class="dropdown-menu">
                 <form method="post" class="language-form">

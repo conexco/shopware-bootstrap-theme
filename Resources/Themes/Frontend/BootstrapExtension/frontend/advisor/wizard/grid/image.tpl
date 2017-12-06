@@ -62,7 +62,7 @@
                         {/if}
                     {/block}
                 {/if}
-                <img class="img-responsive" src="{$baseSource}" sizes="{$colSize}vw" class="banner--image"{if $advisor['name']} alt="{$label|escapeHtml}"{/if} />
+                <img class="img-fluid" src="{$baseSource}" sizes="{$colSize}vw" class="banner--image"{if $advisor['name']} alt="{$label|escapeHtml}"{/if} />
             </picture>
         </div>
     {/block}

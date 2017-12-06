@@ -26,13 +26,13 @@
                                          {/if}
                                          alt="{$alt}"
                                          itemprop="image"
-                                         class="img-responsive img-center item" />
+                                         class="img-fluid img-center item" />
                                 {/block}
                             {else}
                                 {block name='frontend_detail_image_fallback'}
                                     <img src="{link file='frontend/_public/src/img/no-picture.png'}"
                                          alt="{$alt}"
-                                         class="img-responsive img-center item"/>
+                                         class="img-fluid img-center item"/>
                                 {/block}
                             {/if}
                         </a>

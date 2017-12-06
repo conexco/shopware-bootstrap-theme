@@ -33,12 +33,12 @@
                                 {if isset($sArticle.media.thumbnails)}
                                     <img srcset="{$sArticle.media.thumbnails[0].sourceSet}"
                                          alt="{$sArticle.title|escape}"
-                                         class="img-responsive mbm"
+                                         class="img-fluid mbm"
                                          title="{$sArticle.title|escape|truncate:160:""}" />
                                 {else}
                                     <img src="{link file='frontend/_public/src/img/no-picture.png'}"
                                          alt="{$sArticle.title|escape}"
-                                         class="img-responsive mbm"
+                                         class="img-fluid mbm"
                                          title="{$sArticle.title|escape|truncate:160:""}" />
                                 {/if}
                             </a>

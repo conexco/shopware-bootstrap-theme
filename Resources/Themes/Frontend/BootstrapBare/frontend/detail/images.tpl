@@ -46,11 +46,11 @@
                                          {/if}
                                          alt="{$alt}"
                                          itemprop="image"
-                                         class="img-responsive img-center item" />
+                                         class="img-fluid img-center item" />
                                 {/block}
                             {else}
                                 {block name='frontend_detail_image_fallback'}
-                                    <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$alt}" class="img-responsive img-center item"/>
+                                    <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$alt}" class="img-fluid img-center item"/>
                                 {/block}
                             {/if}
                         </a>
@@ -80,11 +80,11 @@
                                              {/if}
                                              alt="{$alt}"
                                              itemprop="image"
-                                             class="img-responsive img-center item"/>
+                                             class="img-fluid img-center item"/>
                                     {/block}
                                 {else}
                                     {block name='frontend_detail_images_fallback'}
-                                        <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$alt}" class="img-responsive img-center item"/>
+                                        <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$alt}" class="img-fluid img-center item"/>
                                     {/block}
                                 {/if}
                              </a>
@@ -146,7 +146,7 @@
                                             <img srcset="{$sArticle.image.thumbnails[0].sourceSet}"
                                                  alt="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt}"
                                                  title="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt|truncate:160:""}"
-                                                 class="img-responsive img-center item" />
+                                                 class="img-fluid img-center item" />
                                         {/block}
                                     </div>
                                 {/if}
@@ -165,7 +165,7 @@
                                                 <img srcset="{$image.thumbnails[0].sourceSet}"
                                                      alt="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt}"
                                                      title="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt|truncate:160:""}"
-                                                     class="img-responsive img-center item" />
+                                                     class="img-fluid img-center item" />
                                             {/block}
                                         </div>
                                     {/block}

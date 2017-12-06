@@ -33,7 +33,7 @@
                                 <a href="https://www.trustedshops.com/shop/certificate.php?shop_id={$tsid}" title="{s name='WidgetsTrustedLogo' namespace='frontend/plugins/trusted_shops/logo'}{/s}" target="_blank">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-3">
-                                            <img src="{link file='frontend/_public/src/img/logos/trusted-shops-logo.png'}" alt="{s name='WidgetsTrustedLogo' namespace='frontend/plugins/trusted_shops/logo'}{/s}" class="img-responsive"/>
+                                            <img src="{link file='frontend/_public/src/img/logos/trusted-shops-logo.png'}" alt="{s name='WidgetsTrustedLogo' namespace='frontend/plugins/trusted_shops/logo'}{/s}" class="img-fluid"/>
                                         </div>
                                         <div class="hidden-sm col-md-9">
                                             <p>

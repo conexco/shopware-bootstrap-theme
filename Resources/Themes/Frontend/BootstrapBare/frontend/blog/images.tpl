@@ -34,7 +34,7 @@
                     <img srcset="{$sArticle.preview.thumbnails[1].sourceSet}"
                          src="{$sArticle.preview.thumbnails[1].source}"
                          alt="{$alt}"
-                         class="img-responsive img-center"
+                         class="img-fluid img-center"
                          title="{$alt|truncate:160:""}" 
                          itemprop="image"/>
                 </a>
@@ -54,7 +54,7 @@
                            data-title="{$alt}" >
                             <img srcset="{$sArticleMedia.thumbnails[1].sourceSet}"
                                  alt="{$alt}"
-                                 class="img-responsive img-center"/>
+                                 class="img-fluid img-center"/>
                         </a>
                     {/if}
                 {/foreach}
@@ -101,7 +101,7 @@
                         <div class="mhs thumbnail">
                             <img srcset="{$sArticleMedia.thumbnails[0].sourceSet}"
                                  alt="{s name="BlogThumbnailText" namespace="frontend/blog/detail"}{/s}: {$alt}"
-                                 class="img-responsive img-center"
+                                 class="img-fluid img-center"
                                  title="{s name="BlogThumbnailText" namespace="frontend/blog/detail"}{/s}: {$alt|truncate:25:""}" />
                         </div>
                     {/foreach}
@@ -119,7 +119,7 @@
            data-title="{$alt}">
             <img srcset="{$sArticle.preview.thumbnails[1].sourceSet}"
                  alt="{$alt}"
-                 class="img-responsive mbl"
+                 class="img-fluid mbl"
                  title="{$alt|truncate:160:""}" />
         </a>
     {/if}

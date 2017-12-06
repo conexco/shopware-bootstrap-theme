@@ -16,7 +16,7 @@
                                     <source srcset="{link file=$thumbnails[2]->getSource()}" media="(min-width: 78em)">
                                     <source srcset="{link file=$thumbnails[1]->getSource()}" media="(min-width: 48em)">
 
-                                    <img class="fuzzy-synonym-media img-responsive" srcset="{link file=$thumbnails[0]->getSource()}" alt="{$synonymGroup.groupName|escape|truncate:155}"/>
+                                    <img class="fuzzy-synonym-media img-fluid" srcset="{link file=$thumbnails[0]->getSource()}" alt="{$synonymGroup.groupName|escape|truncate:155}"/>
                                 </picture>
                             {/if}
                         {/block}

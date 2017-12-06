@@ -62,7 +62,7 @@
     {* Vendor content e.g. description and logo *}
     {block name="frontend_listing_list_filter_supplier_content"}
         {if $manufacturer->getCoverFile()}
-            <img class="img-responsive" src="{$manufacturer->getCoverFile()}" alt="{$manufacturer->getName()|escape}">
+            <img class="img-fluid" src="{$manufacturer->getCoverFile()}" alt="{$manufacturer->getName()|escape}">
         {/if}
 
         {if $manufacturer->getDescription()}

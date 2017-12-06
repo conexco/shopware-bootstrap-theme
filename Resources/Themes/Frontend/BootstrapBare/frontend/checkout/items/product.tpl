@@ -38,10 +38,10 @@
                                             {if $image.description}
                                                 {$desc = $image.description|escape}
                                             {/if}
-                                            <img srcset="{$image.thumbnails[0].sourceSet}" alt="{$desc}" class="img-responsive img-center" title="{$desc|truncate:160:""}" />
+                                            <img srcset="{$image.thumbnails[0].sourceSet}" alt="{$desc}" class="img-fluid img-center" title="{$desc|truncate:160:""}" />
                                         </a>
                                     {else}
-                                        <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$desc}" title="{$desc|truncate:160:""}" class="img-responsive img-center" />
+                                        <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$desc}" title="{$desc|truncate:160:""}" class="img-fluid img-center" />
                                     {/if}
                                 {/block}
                             {/block}

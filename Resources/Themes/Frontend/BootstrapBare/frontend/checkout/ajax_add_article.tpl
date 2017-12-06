@@ -30,10 +30,10 @@
                                     {/if}
 
                                     {if isset($image.thumbnails)}
-                                        <img srcset="{$image.thumbnails[0].sourceSet}" alt="{$alt}" title="{$alt|truncate:160:""}" class="img-responsive img-center" />
+                                        <img srcset="{$image.thumbnails[0].sourceSet}" alt="{$alt}" title="{$alt|truncate:160:""}" class="img-fluid img-center" />
                                     {else}
                                         {block name='frontend_detail_image_fallback'}
-                                            <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$alt}" title="{$alt|truncate:160:""}" class="img-responsive img-center">
+                                            <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$alt}" title="{$alt|truncate:160:""}" class="img-fluid img-center">
                                         {/block}
                                     {/if}
                                 </td>

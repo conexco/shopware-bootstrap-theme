@@ -27,11 +27,11 @@
                                                             {if $freeGood.image.thumbnails}
                                                                 <img srcset="{$freeGood.image.thumbnails[0].sourceSet}"
                                                                      alt="{$freeGood.articleName|escape}"
-                                                                     class="img-responsive" />
+                                                                     class="img-fluid" />
                                                             {else}
                                                                 <img src="{link file='frontend/_public/src/img/no-picture.png'}"
                                                                      alt="{"{s name="ListingBoxNoPicture" namespace="frontend/listing/box_article"}{/s}"|escape}"
-                                                                     class="img-responsive">
+                                                                     class="img-fluid">
                                                             {/if}
                                                         </div>
                                                     {/block}

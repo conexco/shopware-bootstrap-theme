@@ -32,11 +32,11 @@
                                                             {block name='frontend_checkout_premium_image_element'}
                                                                 {if $premium.sArticle.image.thumbnails}
                                                                     <img srcset="{$premium.sArticle.image.thumbnails[0].sourceSet}"
-                                                                         class="img-responsive img-center"
+                                                                         class="img-fluid img-center"
                                                                          alt="{$premium.sArticle.articleName|escape}" />
                                                                 {else}
                                                                     <img src="{link file='frontend/_public/src/img/no-picture.png'}"
-                                                                         class="img-responsive img-center"
+                                                                         class="img-fluid img-center"
                                                                          alt="{"{s name="PremiumInfoNoPicture"}{/s}"|escape}">
                                                                 {/if}
                                                             {/block}

@@ -33,9 +33,9 @@
                                                         <span class="image--element">
                                                             <span class="image--media">
                                                                 {if isset($media.thumbnails)}
-                                                                    <img srcset="{$media.thumbnails[0].sourceSet}" alt="{$option.optionname}" class="img-responsive" />
+                                                                    <img srcset="{$media.thumbnails[0].sourceSet}" alt="{$option.optionname}" class="img-fluid" />
                                                                 {else}
-                                                                    <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$option.optionname}" class="img-responsive">
+                                                                    <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$option.optionname}" class="img-fluid">
                                                                 {/if}
                                                             </span>
                                                         </span>

@@ -21,7 +21,7 @@
                                                     <source srcset="{link file=$thumbnails[2]->getSource()}" media="(min-width: 78em)">
                                                     <source srcset="{link file=$thumbnails[1]->getSource()}" media="(min-width: 48em)">
 
-                                                    <img class="img-responsive fuzzy-synonym-media" srcset="{link file=$thumbnails[0]->getSource()}" alt="{$synonymGroup.groupName|escape|truncate:155}"/>
+                                                    <img class="img-fluid fuzzy-synonym-media" srcset="{link file=$thumbnails[0]->getSource()}" alt="{$synonymGroup.groupName|escape|truncate:155}"/>
                                                 </picture>
                                             {/if}
                                         {/block}
@@ -77,9 +77,9 @@
                             {block name="search_ajax_list_entry_media"}
                                 <div class="col-xs-4">
                                     {if $search_result.image.thumbnails[0]}
-                                        <img srcset="{$search_result.image.thumbnails[0].sourceSet}" alt="{$search_result.name|escape}" class="img-responsive img-center">
+                                        <img srcset="{$search_result.image.thumbnails[0].sourceSet}" alt="{$search_result.name|escape}" class="img-fluid img-center">
                                     {else}
-                                        <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$sArticle.articleName|escape}" class="img-responsive img-center"/>
+                                        <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$sArticle.articleName|escape}" class="img-fluid img-center"/>
                                     {/if}
                                 </div>
                             {/block}

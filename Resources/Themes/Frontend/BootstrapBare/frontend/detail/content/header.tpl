@@ -14,7 +14,7 @@
                 {if $sArticle.supplierImg}
                     <div class="hidden-xs col-sm-3">
                         <a href="{url controller='listing' action='manufacturer' sSupplier=$sArticle.supplierID}" title="{"{s name="DetailDescriptionLinkInformation" namespace="frontend/detail/description"}{/s}"|escape}">
-                            <img src="{$sArticle.supplierImg}" alt="{$sArticle.supplierName|escape}" class="img-responsive mtl mbl">
+                            <img src="{$sArticle.supplierImg}" alt="{$sArticle.supplierName|escape}" class="img-fluid mtl mbl">
                         </a>
                     </div>
                 {/if}

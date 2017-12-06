@@ -46,7 +46,7 @@
                                                         <div class="product-supplier mbm">
                                                             <a href="{url controller='supplier' sSupplier=$sArticle.supplierID}"
                                                                title="{"{s name="DetailDescriptionLinkInformation" namespace="frontend/detail/description"}{/s}"|escape}">
-                                                                <img src="{$sArticle.supplierImg}" class="img-responsive" alt="{$sArticle.supplierName|escape}">
+                                                                <img src="{$sArticle.supplierImg}" class="img-fluid" alt="{$sArticle.supplierName|escape}">
                                                             </a>
                                                         </div>
                                                     {/if}

@@ -36,10 +36,10 @@
                                     {foreach $thumbnails as $image}
                                         {$srcSet = "{if $image@index !== 0}{$srcSet}, {/if}{$image['source']} {$image['maxWidth']}w"}
                                     {/foreach}
-                                    <img srcset="{$srcSet}" alt="{$templateMedia['name']|escapeHtml}" itemprop="image" class="img-responsive" />
+                                    <img srcset="{$srcSet}" alt="{$templateMedia['name']|escapeHtml}" itemprop="image" class="img-fluid" />
                                 {else}
                                     {$baseSource = $templateMedia['file']}
-                                    <img src="{$baseSource}" alt="{$templateMedia['name']|escapeHtml}" itemprop="image" class="img-responsive" />
+                                    <img src="{$baseSource}" alt="{$templateMedia['name']|escapeHtml}" itemprop="image" class="img-fluid" />
                                 {/if}
                             </div>
                         {/if}

@@ -11,8 +11,8 @@
 				{block name='frontend_index_logo'}
 					<div class="col-xs-12 col-hd-3 col-md-3 col-lg-2 col-hd-height col-middle">
 						<a href="{url controller='index'}" title="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}">
-	                        <img src="{link file=$theme.desktopLogo}" alt="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}" class="img-responsive d-none d-md-block"/>
-	                        <img src="{link file=$theme.mobileLogo}" alt="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}" class="img-responsive d-md-none mx-auto mbm"/>
+	                        <img src="{link file=$theme.desktopLogo}" alt="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}" class="img-fluid d-none d-md-block"/>
+	                        <img src="{link file=$theme.mobileLogo}" alt="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}" class="img-fluid d-md-none mx-auto mbm"/>
 	                    </a>
 					</div>
 				{/block}

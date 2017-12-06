@@ -46,7 +46,7 @@
                                         {block name="frontend_index_navigation_mega_menu_main_category_teaser"}
                                             {if $category.media.thumbnails[0]}
                                                 <a href="{$category.link}" title="{$category.name|escape}">
-                                                    <img srcset="{$category.media.thumbnails[0].sourceSet}" alt="{$category.description|escape}" class="img-responsive" />
+                                                    <img srcset="{$category.media.thumbnails[0].sourceSet}" alt="{$category.description|escape}" class="img-fluid" />
                                                 </a>
                                             {/if}
                                         {/block}

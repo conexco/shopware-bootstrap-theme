@@ -16,7 +16,7 @@
                             {if $sBasketItem.image.description}
                                 {$desc = $sBasketItem.image.description|escape}
                             {/if}
-                            <img src="{$sBasketItem.image.src.2}" alt="{$desc}" title="{$desc|truncate:160:""}" class="img-responsive img-center" />
+                            <img src="{$sBasketItem.image.src.2}" alt="{$desc}" title="{$desc|truncate:160:""}" class="img-fluid img-center" />
                         </a>
                     {/block}
                 {/if}

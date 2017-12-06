@@ -24,7 +24,7 @@
 									</div>
 								{/if}
 							{/block}
-							<img src="{if $article.cover.src.0}{$article.cover.src.0}{else}{link file='frontend/_public/src/img/no-picture.png'}{/if}" alt="{$article.articleName|escape}" class="img-responsive img-center">
+							<img src="{if $article.cover.src.0}{$article.cover.src.0}{else}{link file='frontend/_public/src/img/no-picture.png'}{/if}" alt="{$article.articleName|escape}" class="img-fluid img-center">
 						</div>
 					{/block}
 
