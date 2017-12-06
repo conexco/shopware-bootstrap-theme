@@ -30,7 +30,7 @@
                                         <a class="list-group-item" href="{$date.link}" title="{$date.dateFormatDate}">
                                             <i class="fa fa-square-o mrs"></i>
                                             {$date.dateFormatDate}
-                                            <span class="badge">{$date.dateCount}</span>
+                                            <span class="badge badge-pill">{$date.dateCount}</span>
                                         </a>
                                     {/if}
                                 {/if}
@@ -68,7 +68,7 @@
                                         <a class="list-group-item" href="{$author.link}" title="{$author.name}">
                                             <i class="fa fa-square-o mrs"></i>
                                             {$author.name}
-                                            <span class="badge">{$author.authorCount}</span>
+                                            <span class="badge badge-pill">{$author.authorCount}</span>
                                         </a>
                                     {/if}
                                 {/if}
@@ -105,7 +105,7 @@
                                         <a class="list-group-item" href="{$tag.link}" title="{$tag.name}">
                                             <i class="fa fa-square-o mrs"></i>
                                             {$tag.name}
-                                            <span class="badge">{$tag.tagsCount}</span>
+                                            <span class="badge badge-pill">{$tag.tagsCount}</span>
                                         </a>
                                     {/if}
                                 {/if}

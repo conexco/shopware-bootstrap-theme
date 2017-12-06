@@ -19,7 +19,7 @@
                                     <a href="#comments" data-toggle="tab" id="tabcomments">
                                         {s name='DetailTabsRating'}{/s}
                                         {block name="frontend_detail_tabs_navigation_rating_count"}
-                                            <span class="badge">{$sArticle.sVoteAverange.count}</span>
+                                            <span class="badge badge-pill">{$sArticle.sVoteAverange.count}</span>
                                         {/block}
                                     </a>
                                 </li>
@@ -30,7 +30,7 @@
                             {if $sArticle.sRelatedArticles && !$sArticle.crossbundlelook}
                                 <li>
                                     <a data-toggle="tab" href="#related">
-                                        {s name='DetailTabsAccessories'}Zubehör{/s} <span class="badge">{$sArticle.sRelatedArticles|@count}</span>
+                                        {s name='DetailTabsAccessories'}Zubehör{/s} <span class="badge badge-pill">{$sArticle.sRelatedArticles|@count}</span>
                                     </a>
                                 </li>
                             {/if}
@@ -56,7 +56,7 @@
                                 <div class="panel panel-default">
                                     <a class="{if $sErrorFlag}has-error{/if}" href="#" data-offcanvas="true" data-offCanvasSelector="#comments" data-fullscreen="true" title="{s name='DetailTabsRating'}{/s}">
                                         {s name='DetailTabsRating'}{/s}
-                                        <span class="badge">{$sArticle.sVoteAverange.count}</span>
+                                        <span class="badge badge-pill">{$sArticle.sVoteAverange.count}</span>
                                         <i class="fa fa-angle-right float-right"></i>
                                     </a>
                                 </div>
@@ -68,7 +68,7 @@
                                 <div class="panel panel-default">
                                     <a href="#" data-offcanvas="true" data-offCanvasSelector="#related" data-fullscreen="true" title="{s name='DetailTabsAccessories'}{/s}">
                                         {s name='DetailTabsAccessories'}{/s}
-                                        <span class="badge">{$sArticle.sRelatedArticles|@count}</span>
+                                        <span class="badge badge-pill">{$sArticle.sRelatedArticles|@count}</span>
                                         <i class="fa fa-angle-right float-right"></i>
                                     </a>
                                 </div>

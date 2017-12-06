@@ -2,7 +2,7 @@
     {block name='frontend_top_navigation_menu_entry'}
         <a data-toggle="popover" href="#" data-contentselector=".compare-list">
             {s name="CompareInfoHeaderItem"}Vergleich{/s}
-            <span class="badge compare-quantity">{$sComparisons|@count}</span>
+            <span class="badge badge-pill compare-quantity">{$sComparisons|@count}</span>
         </a>
     {/block}
     {block name='frontend_compare_product_list_dropdown'}

@@ -83,7 +83,7 @@
                         <li class="entry-notepad sw5-plugin" role="menuitem">
                             <a href="{url controller='note'}" title="{s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}">
                                 {s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}
-                                <span class="badge notes-quantity sw5-plugin{if $sNotesQuantity <= 0} hidden{/if}">{$sNotesQuantity}</span>
+                                <span class="badge badge-pill notes-quantity sw5-plugin{if $sNotesQuantity <= 0} hidden{/if}">{$sNotesQuantity}</span>
                             </a>
                         </li>
                     {/block}
@@ -115,7 +115,7 @@
                 {block name='frontend_index_checkout_actions_notepad_xs'}
                     <a href="{url controller='note' action='index'}" class="btn btn-default d-sm-none" title="{s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}">
                         <i class="fa fa-list fa-lg"></i>
-                        {if $sNotesQuantity > 0}<span class="badge mls">{$sNotesQuantity}</span>{/if}
+                        {if $sNotesQuantity > 0}<span class="badge badge-pill mls">{$sNotesQuantity}</span>{/if}
                     </a>
                 {/block}
                 <div class="btn-group d-sm-none">
