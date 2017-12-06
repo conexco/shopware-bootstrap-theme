@@ -5,7 +5,7 @@
         	{block name='frontend_checkout_cart_item_promotion_voucher_delete_link'}
 	            <a href="{url action='deletePromotionVoucher' controller='SwagPromotion' voucherId=$promotionVoucherIds[$sBasketItem.id] sTargetAction=$sTargetAction}"
 	              title="{"{s name='CartItemLinkDelete' namespace='frontend/checkout/cart_item'}{/s}"|escape}"
-	              data-use="deleteArticle" class="btn btn-danger pull-right">
+	              data-use="deleteArticle" class="btn btn-danger float-right">
 	              {s name='CartItemLinkDelete' namespace='frontend/checkout/cart_item'}{/s}
 	              <i class="fa fa-trash-o"></i>
 	            </a>

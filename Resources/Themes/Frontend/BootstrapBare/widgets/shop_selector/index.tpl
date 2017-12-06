@@ -16,7 +16,7 @@
                     </span>
 
                     {if $subshop.image}
-                        <span class="pull-right">
+                        <span class="float-right">
                             <img src="{$subshop.image}" alt="{$subshop.name}">
                         </span>
                     {/if}

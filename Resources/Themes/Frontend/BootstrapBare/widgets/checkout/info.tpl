@@ -4,7 +4,7 @@
             <div class="hidden-xs hidden-sm col-md-8">
         {/block}
         {block name="frontend_index_checkout_actions_my_options_left_inner"}
-            <ul class="nav nav-pills pull-right checkout-actions">
+            <ul class="nav nav-pills float-right checkout-actions">
                 {* Top bar navigation *}
                 {block name="frontend_index_top_bar_nav"}
                     {block name='frontend_index_navigation_inline'}

@@ -46,7 +46,7 @@
                             <div class="panel panel-default">
                                 <a href="#" data-offcanvas="true" data-offCanvasSelector="#description" data-fullscreen="true" title="{s name='DetailTabsDescription'}{/s}">
                                     {s name='DetailTabsDescription'}{/s}
-                                    <i class="fa fa-angle-right pull-right"></i>
+                                    <i class="fa fa-angle-right float-right"></i>
                                 </a>
                             </div>
                         {/block}
@@ -57,7 +57,7 @@
                                     <a class="{if $sErrorFlag}has-error{/if}" href="#" data-offcanvas="true" data-offCanvasSelector="#comments" data-fullscreen="true" title="{s name='DetailTabsRating'}{/s}">
                                         {s name='DetailTabsRating'}{/s}
                                         <span class="badge">{$sArticle.sVoteAverange.count}</span>
-                                        <i class="fa fa-angle-right pull-right"></i>
+                                        <i class="fa fa-angle-right float-right"></i>
                                     </a>
                                 </div>
                             {/if}
@@ -69,7 +69,7 @@
                                     <a href="#" data-offcanvas="true" data-offCanvasSelector="#related" data-fullscreen="true" title="{s name='DetailTabsAccessories'}{/s}">
                                         {s name='DetailTabsAccessories'}{/s}
                                         <span class="badge">{$sArticle.sRelatedArticles|@count}</span>
-                                        <i class="fa fa-angle-right pull-right"></i>
+                                        <i class="fa fa-angle-right float-right"></i>
                                     </a>
                                 </div>
                             {/if}

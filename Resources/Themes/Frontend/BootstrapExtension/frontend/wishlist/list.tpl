@@ -34,7 +34,7 @@
             {/block}
 
             {block name="frontend_wishlist_index_list_row_collapse_icon"}
-                <span class="list-container-icon-container pull-right">
+                <span class="list-container-icon-container float-right">
                     <i class="list-container-icon sw5-plugin fa fa-angle-down"></i>
                 </span>
             {/block}

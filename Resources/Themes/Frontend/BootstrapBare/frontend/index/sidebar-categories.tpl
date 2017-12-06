@@ -15,7 +15,7 @@
                         {$category.description}
 
                         {if $category.childrenCount}
-                            <i class="fa fa-angle-{if $category.subcategories}down{else}right{/if} fa-lg mts pull-right"></i>
+                            <i class="fa fa-angle-{if $category.subcategories}down{else}right{/if} fa-lg mts float-right"></i>
                         {/if}
                     </a>
 

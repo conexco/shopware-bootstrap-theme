@@ -22,7 +22,7 @@
                 {* Product navigation - Previous and next arrow button *}
                 {block name="frontend_detail_index_navigation"}
                     {if !{config name=disableArticleNavigation}}
-                        <li class="article-navigation pull-right">
+                        <li class="article-navigation float-right">
                             <ul class="list-inline">
                                 {* Previous product *}
                                 {block name='frontend_detail_article_back'}

@@ -37,7 +37,7 @@
                                        data-filter-trigger="true">
                                         <i class="fa fa-filter"></i>
                                         {s name='ListingFilterButton'}{/s}
-                                        <span class="action-collapse-icon text-primary sw5-plugin pull-right"></span>
+                                        <span class="action-collapse-icon text-primary sw5-plugin float-right"></span>
                                         <i class="fa fa-angle-right"></i>
                                     </a>
                                 </div>

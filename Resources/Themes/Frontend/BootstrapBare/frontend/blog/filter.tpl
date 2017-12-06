@@ -12,7 +12,7 @@
                 <div class="list-group group">
                     {* Filter headline *}
                     {block name="frontend_blog_filter_date_headline"}
-                        <a class="list-group-item{if !$filterDateActive} active{/if}"{if $filterDateActive} data-toggle="collapse" href="#filterDate"{/if}><i class="fa fa-calendar mrs"></i> {s name="BlogHeaderFilterDate"}{/s}{if $filterDateActive}<i class="fa fa-lg fa-angle-down pull-right"></i>{/if}</a>
+                        <a class="list-group-item{if !$filterDateActive} active{/if}"{if $filterDateActive} data-toggle="collapse" href="#filterDate"{/if}><i class="fa fa-calendar mrs"></i> {s name="BlogHeaderFilterDate"}{/s}{if $filterDateActive}<i class="fa fa-lg fa-angle-down float-right"></i>{/if}</a>
                     {/block}
 
                     {* Filter content *}
@@ -24,7 +24,7 @@
                                         <a class="list-group-item" href="{$sFilterDate[1].link}" title="{s name='DeleteFilter' namespace='frontend/listing/filter_properties'}Filter l&ouml;schen{/s}">
                                             <i class="fa fa-check-square-o mrs"></i>
                                             {$date.dateFormatDate}
-                                            <i class="fa fa-trash-o pull-right"></i>
+                                            <i class="fa fa-trash-o float-right"></i>
                                         </a>
                                     {else}
                                         <a class="list-group-item" href="{$date.link}" title="{$date.dateFormatDate}">
@@ -50,7 +50,7 @@
                 <div class="list-group group">
                     {* Filter headline *}
                     {block name="frontend_blog_filter_author_headline"}
-                        <a class="list-group-item{if !$filterAuthorActive} active{/if}"{if $filterAuthorActive} data-toggle="collapse" href="#filterAuthor"{/if}><i class="fa fa-user mrs"></i> {s name="BlogHeaderFilterAuthor"}Author{/s}{if $filterAuthorActive}<i class="fa fa-lg fa-angle-down pull-right"></i>{/if}</a>
+                        <a class="list-group-item{if !$filterAuthorActive} active{/if}"{if $filterAuthorActive} data-toggle="collapse" href="#filterAuthor"{/if}><i class="fa fa-user mrs"></i> {s name="BlogHeaderFilterAuthor"}Author{/s}{if $filterAuthorActive}<i class="fa fa-lg fa-angle-down float-right"></i>{/if}</a>
                     {/block}
 
                     {* Filter content *}
@@ -62,7 +62,7 @@
                                         <a class="list-group-item" href="{$sFilterAuthor[1].link}" title="{s name='DeleteFilter'}Filter l&ouml;schen{/s}">
                                             <i class="fa fa-check-square-o mrs"></i>
                                             {$author.name}
-                                            <i class="fa fa-trash-o pull-right"></i>
+                                            <i class="fa fa-trash-o float-right"></i>
                                         </a>
                                     {else}
                                         <a class="list-group-item" href="{$author.link}" title="{$author.name}">
@@ -88,7 +88,7 @@
                 <div class="list-group group">
                     {* Filter headline *}
                     {block name="frontend_blog_filter_tags_headline"}
-                        <a class="list-group-item{if !$filterTagsActive} active{/if}"{if $filterTagsActive} data-toggle="collapse" href="#filterTags"{/if}><i class="fa fa-tag mrs"></i> {s name="BlogHeaderFilterTags"}Schlagwörtern{/s}{if $filterTagsActive}<i class="fa fa-lg fa-angle-down pull-right"></i>{/if}</a>
+                        <a class="list-group-item{if !$filterTagsActive} active{/if}"{if $filterTagsActive} data-toggle="collapse" href="#filterTags"{/if}><i class="fa fa-tag mrs"></i> {s name="BlogHeaderFilterTags"}Schlagwörtern{/s}{if $filterTagsActive}<i class="fa fa-lg fa-angle-down float-right"></i>{/if}</a>
                     {/block}
                     {* Filter content *}
                     {block name="frontend_blog_filter_tags_content"}
@@ -99,7 +99,7 @@
                                         <a class="list-group-item" href="{$sFilterTags[1].link}" title="{s name='DeleteFilter'}Filter l&ouml;schen{/s}">
                                             <i class="fa fa-check-square-o mrs"></i>
                                             {$tag.name}
-                                            <i class="fa fa-trash-o pull-right"></i>
+                                            <i class="fa fa-trash-o float-right"></i>
                                         </a>
                                     {else}
                                         <a class="list-group-item" href="{$tag.link}" title="{$tag.name}">

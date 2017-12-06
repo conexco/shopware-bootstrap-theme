@@ -55,7 +55,7 @@
                                     {/block}
                                 {/if}
 
-                                <i class="fa fa-angle-up pull-right"></i>
+                                <i class="fa fa-angle-up float-right"></i>
                             </label>
                         {/block}
 

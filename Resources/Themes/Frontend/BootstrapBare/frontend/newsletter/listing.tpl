@@ -22,7 +22,7 @@
                                 {/block}
                                 {* Newsletter entry button *}
                                 {block name="frontend_newsletter_listing_entry_button"}
-                                    <a href="{$sContentItem.link}" class="btn btn-primary btn-sm pull-right">{s name='NewsletterListingLinkDetails'}{/s}</a>
+                                    <a href="{$sContentItem.link}" class="btn btn-primary btn-sm float-right">{s name='NewsletterListingLinkDetails'}{/s}</a>
                                     <div class="clearfix"></div>
                                 {/block}
                             </li>
