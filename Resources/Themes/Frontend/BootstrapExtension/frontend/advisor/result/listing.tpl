@@ -1,14 +1,14 @@
 {block name="frontend_advisor_listing_wizard_actions"}
     {if $advisor['mode'] === 'wizard_mode'}
         <div class="row">
-            <div class="col-12 col-hd-4 col-lg-2 mbm mbn-lg">
+            <div class="col-12 col-sm-4 col-lg-2 mbm mbn-lg">
                 {block name="frontend_advisor_listing_wizard_actions_last_question"}
                     <a href="{$advisor['lastQuestionUrl']}" class="btn btn-default btn-block">
                         {s name="LastQuestionBtnText" namespace="frontend/advisor/main"}Return to last question{/s}
                     </a>
                 {/block}
             </div>
-            <div class="col-12 col-hd-4 col-lg-2">
+            <div class="col-12 col-sm-4 col-lg-2">
                 {block name="frontend_advisor_listing_wizard_actions_reset"}
                     <a class="btn btn-default btn-block" title="{s name="ResetAdvisorBtnText" namespace="frontend/advisor/main"}Reset advisor{/s}" href="{$advisorResetUrl}">
                         {s name="ResetAdvisorBtnText" namespace="frontend/advisor/main"}Reset advisor{/s}

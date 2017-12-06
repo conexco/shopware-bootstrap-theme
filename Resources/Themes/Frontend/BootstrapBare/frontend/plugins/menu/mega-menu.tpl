@@ -20,7 +20,7 @@
                 {else}
                     <div class="row">
                 {/if}
-                <div class="col-12 col-hd-{$columnWidth}">
+                <div class="col-12 col-sm-{$columnWidth}">
             {/if}
 
             {block name="frontend_index_navigation_mega_menu_main_categories"}
@@ -42,7 +42,7 @@
                                     {else}
                                         {$imageColumnWidth=$columnWidth}
                                     {/if}
-                                    <div class="col-12 col-hd-{$imageColumnWidth}">
+                                    <div class="col-12 col-sm-{$imageColumnWidth}">
                                         {block name="frontend_index_navigation_mega_menu_main_category_teaser"}
                                             {if $category.media.thumbnails[0]}
                                                 <a href="{$category.link}" title="{$category.name|escape}">
@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-12 col-hd-{$columnWidth}">
+                                    <div class="col-12 col-sm-{$columnWidth}">
                             {else}
                                 {if $smarty.foreach.categoryloop.iteration % $categoriesPerColumn == 0}
                                     {assign var=columnCounter value=$columnCounter + $columnWidth}
@@ -63,10 +63,10 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-12 col-hd-{$columnWidth}">
+                                            <div class="col-12 col-sm-{$columnWidth}">
                                     {else}
                                             </div>
-                                        <div class="col-12 col-hd-{$columnWidth}">
+                                        <div class="col-12 col-sm-{$columnWidth}">
                                     {/if}
                                 {/if}
                             {/if}

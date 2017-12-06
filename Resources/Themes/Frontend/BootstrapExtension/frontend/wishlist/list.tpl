@@ -150,7 +150,7 @@
                                 <hr class="mtm">
                                 <div class="article-table-add-cart sw5-plugin text-right{if $wishList.items|count < 1} hidden{/if}">
                                     <div class="row">
-                                        <div class="col-12 col-hd-offset-6 col-hd-6 col-lg-offset-8 col-lg-4">
+                                        <div class="col-12 col-sm-offset-6 col-sm-6 col-lg-offset-8 col-lg-4">
                                             {include file="frontend/wishlist/restore_button.tpl"}
                                         </div>
                                     </div>
@@ -173,7 +173,7 @@
                         <div class="list-container-manage-container">
                             <div class="list-container-manage-buttons sw5-plugin">
                                 <div class="row">
-                                    <div class="col-12 col-hd-8 mbm-sm mbm-xs">
+                                    <div class="col-12 col-sm-8 mbm-sm mbm-xs">
                                         {block name="frontend_wishlist_index_manage_buttons"}
                                             <div class="cart-manage-container">
                                                 {block name="frontend_wishlist_index_buttons_rename"}
@@ -206,7 +206,7 @@
                                             </div>
                                         {/block}
                                     </div>
-                                    <div class="col-12 col-hd-4">
+                                    <div class="col-12 col-sm-4">
                                         <div class="text-right">
                                             {include file="frontend/wishlist/restore_button.tpl"}
                                         </div>

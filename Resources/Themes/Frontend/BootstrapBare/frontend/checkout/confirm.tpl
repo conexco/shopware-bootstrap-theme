@@ -98,7 +98,7 @@
                                             {block name='frontend_checkout_confirm_information_addresses_equal_panel_body'}
                                                 <div class="row">
                                                     {block name='frontend_checkout_confirm_information_addresses_equal_panel_billing'}
-                                                        <div class="col-hd-6">
+                                                        <div class="col-sm-6">
                                                             <address>
                                                                 {if $sUserData.billingaddress.company}
                                                                     <strong>{$sUserData.billingaddress.company|escapeHtml}
@@ -164,7 +164,7 @@
                                                     {/block}
 
                                                     {block name='frontend_checkout_confirm_information_addresses_equal_panel_shipping'}
-                                                        <div class="col-hd-6">
+                                                        <div class="col-sm-6">
                                                             {block name='frontend_checkout_confirm_information_addresses_equal_panel_shipping_add_address'}
                                                                 <a href="{url controller=address}"
                                                                    class="btn btn-primary btn-sm mtm-xs mtm-sm"

@@ -6,7 +6,7 @@
     {if $listingMode == 'filter_ajax_reload'}
         {$type = 'value-tree-single'}
     {/if}
-    <div class="filter-col{if !$theme.sidebarFilter} col-hd-6 col-md-4{/if}">
+    <div class="filter-col{if !$theme.sidebarFilter} col-sm-6 col-md-4{/if}">
         <div class="filter-panel filter-panel--input sw5-plugin filter-property facet-{$facet->getFacetName()|escape:'htmlall'} dropdown"
              data-filter-type="{$type}"
              data-facet-name="{$facet->getFacetName()}"

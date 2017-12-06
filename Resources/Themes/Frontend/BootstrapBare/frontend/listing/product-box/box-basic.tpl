@@ -17,7 +17,7 @@
         {/if}
 
         {if $theme['articles-col-width-hd'] != $theme['articles-col-width-md']}
-            {$boxSize = "`$boxSize` col-hd-`$theme['articles-col-width-hd']`"}
+            {$boxSize = "`$boxSize` col-sm-`$theme['articles-col-width-hd']`"}
         {/if}
 
         {if $theme['articles-col-width-md'] != $theme['articles-col-width-lg']}

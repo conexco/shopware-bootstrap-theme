@@ -9,7 +9,7 @@
 
 				{* Main shop logo *}
 				{block name='frontend_index_logo'}
-					<div class="col-12 col-hd-3 col-md-3 col-lg-2 col-hd-height col-middle">
+					<div class="col-12 col-sm-3 col-lg-2 col-sm-height col-middle">
 						<a href="{url controller='index'}" title="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}">
 	                        <img src="{link file=$theme.desktopLogo}" alt="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}" class="img-fluid d-none d-md-block"/>
 	                        <img src="{link file=$theme.mobileLogo}" alt="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}" class="img-fluid d-md-none mx-auto mbm"/>
@@ -17,15 +17,15 @@
 					</div>
 				{/block}
 
-				<div class="col-12 col-hd-9 col-md-9 col-lg-10 col-hd-height col-middle">
+				<div class="col-12 col-sm-9 col-lg-10 col-sm-height col-middle">
 					<div class="row">
-						<div class="col-hd-8 col-md-offset-2 col-md-6 col-lg-offset-3 d-none d-md-block">
+						<div class="col-sm-8 col-md-offset-2 col-md-6 col-lg-offset-3 d-none d-md-block">
 							{* Support Info *}
 							{block name='frontend_index_logo_supportinfo'}
 								{s name='RegisterSupportInfo' namespace='frontend/register/index'}{/s}
 							{/block}
 						</div>
-						<div class="col-hd-4 col-lg-3 text-right">
+						<div class="col-sm-4 col-lg-3 text-right">
 							{* Trusted Shops *}
 							{block name='frontend_index_logo_trusted_shops'}
 								{if $theme.checkoutHeader}

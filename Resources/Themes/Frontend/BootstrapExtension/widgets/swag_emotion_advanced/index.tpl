@@ -17,14 +17,14 @@
                     <div class="modal-body pll prl">
                         <div class="row">
                             {block name="emotion_advanced_quick_view_image_container"}
-                                <div class="col-12 col-hd-7">
+                                <div class="col-12 col-sm-7">
                                     <div class="quickview-image-slider mbm">
                                         {include file="frontend/detail/image.tpl"}
                                     </div>
                                 </div>
                             {/block}    
                             {block name="emotion_advanced_quick_view_buy_button_container"}
-                                <div class="col-12 col-hd-5">
+                                <div class="col-12 col-sm-5">
                                     {block name="emotion_advanced_quick_view_container_inner"}
                                         <div class="row">
                                             {block name="emotion_advanced_quick_view_rating_content"}

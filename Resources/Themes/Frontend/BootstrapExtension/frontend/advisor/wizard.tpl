@@ -86,10 +86,10 @@
             {* Contains the wizard-actions, e.g. the next- and back-button *}
             {block name="frontend_advisor_content_wizard_actions"}
                 <div class="advisor-wizard-actions mbm row">
-                    <div class="col-12 col-hd-6">
+                    <div class="col-12 col-sm-6">
                         <div class="row">
                             {if $advisor['currentQuestionIndex'] != 1}
-                                <div class="col-12 col-hd-6 col-lg-4">
+                                <div class="col-12 col-sm-6 col-lg-4">
                                     {block name="frontend_advisor_content_wizard_actions_back"}
                                         {block name="frontend_advisor_content_wizard_back_button"}
                                             <a class="advisor-wizard-back btn btn-default btn-block mbm-xs" href="{$advisorPreviousQuestion}" title="{s name="WizardBackButtonText"}Back{/s}">
@@ -99,7 +99,7 @@
                                     {/block}
                                 </div>
                             {/if}
-                            <div class="col-12 col-hd-6 col-lg-4">
+                            <div class="col-12 col-sm-6 col-lg-4">
                                 {* The reset-advisor button *}
                                 {block name="frontend_advisor_content_wizard_actions_reset"}
                                     <a class="advisor-reset-advisor-btn sw5-plugin btn btn-default btn-block" title="{s name="ResetAdvisorBtnText"}Reset advisor{/s}" href="{$advisorResetUrl}">
@@ -110,9 +110,9 @@
                         </div>
 
                     </div>
-                    <div class="col-12 col-hd-6">
+                    <div class="col-12 col-sm-6">
                         <div class="row">
-                            <div class="col-12 col-hd-6 col-lg-offset-4 col-lg-4 pvm-xs">
+                            <div class="col-12 col-sm-6 col-lg-offset-4 col-lg-4 pvm-xs">
 
                                 {block name="frontend_advisor_content_wizard_actions_skip"}
                                     <select class="wizard-actions-question-select sw5-plugin" data-class="wizard-actions--question-js-select">
@@ -136,7 +136,7 @@
                                     </select>
                                 {/block}
                             </div>
-                            <div class="col-12 col-hd-6 col-lg-4">
+                            <div class="col-12 col-sm-6 col-lg-4">
                                 {* The next-question button *}
                                 {block name="frontend_advisor_content_wizard_actions_next"}
                                     {$disableButton = false}

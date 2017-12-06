@@ -9,7 +9,7 @@
             {block name="frontend_note_item_info"}
                 {* Article picture *}
                 {block name="frontend_note_item_image"}
-                    <div class="col-12 col-hd-6 col-lg-2 mbl mbn-lg">
+                    <div class="col-12 col-sm-6 col-lg-2 mbl mbn-lg">
                         {$desc = $sBasketItem.articlename|escape}
                         {if $sBasketItem.image.thumbnails[0]}
                             {if $sBasketItem.image.description}
@@ -27,7 +27,7 @@
                 {/block}
                 {* Article details *}
                 {block name="frontend_note_item_details"}
-                    <div class="col-12 col-hd-6 col-lg-7">
+                    <div class="col-12 col-sm-6 col-lg-7">
                         <div class="row">
                             <div class="col-12 col-lg-9">
                                 {* Article name *}
@@ -90,7 +90,7 @@
                 {block name="frontend_note_item_sale"}
                     <div class="col-12 col-lg-3">
                         <div class="row">
-                            <div class="col-12 col-hd-offset-6 col-hd-6 col-lg-12 col-lg-offset-0">
+                            <div class="col-12 col-sm-offset-6 col-sm-6 col-lg-12 col-lg-offset-0">
                                 <div class="row mbl">
                                     {* Item price *}
                                     {block name="frontend_note_item_price"}
@@ -119,7 +119,7 @@
                         {* Additional links *}
                         {block name="frontend_note_item_actions"}
                             <div class="row">
-                                <div class="col-12 col-hd-6 col-hd-push-6 col-lg-12 col-lg-push-0 mbm-lg">
+                                <div class="col-12 col-sm-6 col-sm-push-6 col-lg-12 col-lg-push-0 mbm-lg">
                                     {block name="frontend_note_item_actions_add_article"}
                                         {* Place article in basket *}
                                         {if !$sBasketItem.sConfigurator && !$sBasketItem.sVariantArticle}
@@ -129,7 +129,7 @@
                                         {/if}
                                     {/block}
                                 </div>
-                                <div class="col-12 col-hd-6 col-hd-pull-6 col-lg-12 col-lg-pull-0">
+                                <div class="col-12 col-sm-6 col-sm-pull-6 col-lg-12 col-lg-pull-0">
                                     {* Compare article *}
                                     {if {config name="compareShow"}}
                                         <form action="{url controller='compare' action='add_article' articleID=$sBasketItem.articleID}" method="post">

@@ -64,7 +64,7 @@
                                             {/block}
 
                                             {block name='frontend_index_header_row_left'}
-                                                <div class="col-9 col-hd-5 col-md-3">
+                                                <div class="col-9 col-sm-5 col-md-3">
                                                     {*! Shop logo *}
                                                     {block name='frontend_index_logo_container'}
                                                         {include file="frontend/index/logo-container.tpl"}
@@ -79,7 +79,7 @@
                                             {/block}
 
                                             {block name='frontend_index_header_row_right'}
-                                                <div class="col-12 col-hd-7 col-md-9">
+                                                <div class="col-12 col-sm-7 col-md-9">
                                                     {* Shop navigation *}
                                                     {block name='frontend_index_shop_navigation'}
                                                         {include file="frontend/index/shop-navigation.tpl"}

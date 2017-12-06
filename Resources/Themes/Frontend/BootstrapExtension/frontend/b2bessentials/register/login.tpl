@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-md-4 control-label">{s name="LoginLabelPassword"}{/s}</label>
-                        <div class="col-hd-6">
+                        <div class="col-sm-6">
                             <input name="password" type="password" tabindex="2" id="passwort" class="register-login-field form-control{if $sErrorFlag.password} has-error{/if}" />
                             {block name='frontend_register_login_input_lostpassword'}
                                 <div class="register-login-lostpassword">

@@ -23,7 +23,7 @@
 
                 {block name='paypal_plus_main_content_container'}
                     <div class="content-instruction-details row">
-                        <div class="col-12 col-hd-offset-1 col-hd-10 col-lg-offset-2 col-lg-8">
+                        <div class="col-12 col-sm-offset-1 col-sm-10 col-lg-offset-2 col-lg-8">
                             {block name='paypal_plus_main_content_container_table'}
                                 <table class="table table-striped table-responsive instruction-details-table">
                                     {block name='paypal_plus_main_content_table_receiver'}

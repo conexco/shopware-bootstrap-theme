@@ -1,7 +1,7 @@
 {namespace name="frontend/listing/listing_actions"}
 
 {block name="frontend_listing_filter_facet_boolean"}
-    <div class="filter-col{if !$theme.sidebarFilter} col-hd-6 col-md-4{/if}">
+    <div class="filter-col{if !$theme.sidebarFilter} col-sm-6 col-md-4{/if}">
         <div class="filter-panel filter-panel--input sw5-plugin filter-boolean filter-value facet-{$facet->getFacetName()|escape:'htmlall'}"
              data-filter-type="value"
              data-facet-name="{$facet->getFacetName()}"

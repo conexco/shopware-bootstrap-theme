@@ -49,7 +49,7 @@
 											{/block}
 										</div>
 										<div class="row">
-											<div class="col-12 col-hd-6">
+											<div class="col-12 col-sm-6">
 												{block name="frontend_detail_index_modal_inner_form_loggedin_lists"}
 													<div class="inner-current-wishlists cart-modal-container">
 														<strong>{s name="ExistingList"}Vorhandene Wunschlisten{/s}:</strong>
@@ -71,7 +71,7 @@
 													</div>
 												{/block}
 											</div>
-											<div class="col-12 col-hd-6">
+											<div class="col-12 col-sm-6">
 												{block name="frontend_detail_index_modal_inner_form_loggedin_create"}
 													<div class="inner-add-wishlist cart-modal-container">
 														<label class="add-wishlist-label mbm"
