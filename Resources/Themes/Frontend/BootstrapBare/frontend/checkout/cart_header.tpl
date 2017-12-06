@@ -1,4 +1,4 @@
-<div class="table-head hidden-xs">
+<div class="table-head d-none d-sm-block">
 	<div class="row">
 	    {block name='frontend_checkout_cart_header_field_labels'}
 	    	<div class="col-sm-2">

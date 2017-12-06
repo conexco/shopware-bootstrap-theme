@@ -65,7 +65,7 @@
         {block name='frontend_blog_images_thumbnails'}
             {assign var="countSlides" value=$sArticle.media|@count}
             <div id="ThumbsWrapper" class="blog-slider-thumbnail-wrapper">
-                <div id="thumbs" class="hidden-xs hidden-sm slick"
+                <div id="thumbs" class="d-none d-md-block slick"
                      data-arrows="1"
                      data-slidesToShow="4"
                      data-slidesToScroll="4"

@@ -1,6 +1,6 @@
 {* Step box *}
 {block name='frontend_register_steps'}
-    <ul class="nav nav-tabs nav-justified mbl hidden-sm hidden-xs">
+    <ul class="nav nav-tabs nav-justified mbl d-none d-md-block">
         {block name='frontend_register_steps_basket'}
             <li class="step-basket{if $sStepActive == 'address'} active{elseif $sStepActive == 'paymentShipping' || $sStepActive == 'finished'} disabled{/if}">              
                 <a href="{url controller=checkout action=confirm}" title="{s name='CheckoutStepAddressText'}{/s}">

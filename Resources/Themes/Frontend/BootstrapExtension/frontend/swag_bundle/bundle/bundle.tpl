@@ -29,7 +29,7 @@
 							<div class="bundle-description mbl sw5-plugin">
 								{* Long description *}
 								{block name="panel_content_description_long"}
-									<div class="teaser-text-long hidden-xs">
+									<div class="teaser-text-long d-none d-sm-block">
 										{$bundle.description}
 									</div>
 								{/block}
@@ -46,7 +46,7 @@
 
 								{* Off Canvas Container *}
 								{block name="panel_content_description_off_canvas"}
-									<div id="bundle-teaser" class="hidden-sm hidden-hd hidden-md hidden-lg">
+									<div id="bundle-teaser" class="d-sm-none">
 										{* Close Button *}
 										<div class="buttons-off-canvas offcanvas-bundle">
 											<a href="#" title="{"{s namespace="frontend/listing/listing" name="ListingActionsCloseOffCanvas"}{/s}"|escape}" class="close-off-canvas sw5-plugin">

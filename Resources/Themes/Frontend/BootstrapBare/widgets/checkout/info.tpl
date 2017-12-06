@@ -1,7 +1,7 @@
 {block name="frontend_index_checkout_actions_my_options"}
     {block name="frontend_index_checkout_actions_my_options_left"}
         {block name="frontend_index_checkout_actions_my_options_left_div_open"}
-            <div class="hidden-xs hidden-sm col-md-8">
+            <div class="d-none d-md-block col-md-8">
         {/block}
         {block name="frontend_index_checkout_actions_my_options_left_inner"}
             <ul class="nav nav-pills float-right checkout-actions">

@@ -33,7 +33,7 @@
                                     <a href="{$sCategory.link}" title="{$sCategory.name}" class="main-nav-link{if !empty($sCategory.flag)} active{/if}" itemprop="url">
                                         <span itemprop="name">{$sCategory.name}</span>
                                         {if $sCategory.sub}
-                                            <i class="fa fa-angle-down mls hidden-xs hidden-sm"></i>
+                                            <i class="fa fa-angle-down mls d-none d-md-block"></i>
                                         {/if}
                                     </a>
                                 {/block}

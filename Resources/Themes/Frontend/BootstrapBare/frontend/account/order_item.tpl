@@ -12,7 +12,7 @@
 
         {* Order id *}
         {block name="frontend_account_order_item_number"}
-            <td class="hidden-xs">
+            <td class="d-none d-sm-block">
                 {block name="frontend_account_order_item_number_label"}{/block}
                 {block name="frontend_account_order_item_number_value"}
                     {$offerPosition.ordernumber}
@@ -65,7 +65,7 @@
         {* Order actions *}
         {block name="frontend_account_order_item_actions"}
             <td>
-                <div class="hidden-xs">
+                <div class="d-none d-sm-block">
                     <a class="btn btn-xs btn-default btn-block mbs" title="{s name='OrderActionSlide'}{/s} {$offerPosition.ordernumber}" data-toggle="collapse" data-target="#order{$offerPosition.ordernumber}">{s name="OrderActionSlide"}{/s}</a>
                 </div>
                 <div class="d-sm-none">
@@ -80,7 +80,7 @@
                         {/if}{/foreach}
 
                         {block name="frontend_account_order_item_repeat_button"}
-                            <div class="hidden-xs">
+                            <div class="d-none d-sm-block">
                                 <input type="submit" class="btn btn-xs btn-primary btn-block" value="{s name='OrderLinkRepeat'}{/s}"/>
                             </div>
                             <div class="d-sm-none">

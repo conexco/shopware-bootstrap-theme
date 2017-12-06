@@ -4,7 +4,7 @@
         {block name="frontend_detail_tabs_inner"}
             {*! Tabsnavigation *}
             {block name="frontend_detail_tabs_navigation"}
-                <ul class="nav nav-tabs hidden-xs">
+                <ul class="nav nav-tabs d-none d-sm-block">
                     {block name="frontend_detail_tabs_navigation_inner"}
                         {* Description tab *}
                         {block name="frontend_detail_tabs_description"}

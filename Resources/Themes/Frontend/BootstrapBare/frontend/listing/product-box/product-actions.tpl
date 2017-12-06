@@ -7,7 +7,7 @@
             {* Compare button *}
             {block name='frontend_listing_box_article_actions_compare'}
                 {if {config name="compareShow"}}
-                    <div class="hidden-xs hidden-sm col-sm-12 col-lg-6">
+                    <div class="d-none d-md-block col-12 col-lg-6">
                         <form action="{url controller='compare' action='add_article' articleID=$sArticle.articleID _seo=false}" method="post">
                             <button type="submit"
                                title="{s name='ListingBoxLinkCompare'}{/s}"

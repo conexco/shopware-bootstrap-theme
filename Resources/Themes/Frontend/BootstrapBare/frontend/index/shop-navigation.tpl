@@ -22,7 +22,7 @@
                 {/block}
                 {block name='frontend_index_trusted'}
                     {*! Trusted Shops *}
-                    <div class="hidden-xs hidden-sm col-md-4">
+                    <div class="d-none d-md-block col-md-4">
                         {block name='frontend_index_trusted_inner'}
                             {if $sTrustedShops.id}
                                 {assign var="tsid" value=$sTrustedShops.id}
@@ -35,7 +35,7 @@
                                         <div class="col-sm-12 col-md-3">
                                             <img src="{link file='frontend/_public/src/img/logos/trusted-shops-logo.png'}" alt="{s name='WidgetsTrustedLogo' namespace='frontend/plugins/trusted_shops/logo'}{/s}" class="img-fluid"/>
                                         </div>
-                                        <div class="hidden-sm col-md-9">
+                                        <div class="d-sm-none d-md-block col-md-9">
                                             <p>
                                                 <small>{s name='WidgetsTrustedLogoText2'}<span><strong>Sicher</strong> einkaufen</span><br/>Trusted Shops zertifiziert{/s}</small>
                                             </p>

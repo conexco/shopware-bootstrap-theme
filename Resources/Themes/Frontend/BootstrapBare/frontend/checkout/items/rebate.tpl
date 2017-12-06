@@ -2,7 +2,7 @@
 
 <div class="table-row">
     <div class="row">
-        <div class="hidden-xs col-sm-2">
+        <div class="d-none d-sm-block col-sm-2">
             {* Badge *}
             {block name='frontend_checkout_cart_item_rebate_badge'}{/block}
         </div>

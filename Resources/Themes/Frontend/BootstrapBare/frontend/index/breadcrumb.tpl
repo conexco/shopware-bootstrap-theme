@@ -1,4 +1,4 @@
-<ul class="breadcrumb hidden-sm hidden-xs" itemscope itemtype="http://schema.org/BreadcrumbList">
+<ul class="breadcrumb d-none d-md-block" itemscope itemtype="http://schema.org/BreadcrumbList">
     {block name="frontend_index_breadcrumb_prefix"}
         {if $sShopname}
             <li><a href="{url controller='index'}">{$sShopname}</a></li>

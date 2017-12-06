@@ -19,7 +19,7 @@
                         <div class="account-menu panel panel-default{if {config name=useSltCookie} && $userInfo && $inHeader} mbn{/if}">
                             {* Sidebar navigation headline *}
                             {block name="frontend_account_menu_title"}
-                                <div class="panel-heading hidden-xs hidden-sm">
+                                <div class="panel-heading d-none d-md-block">
                                     {if {config name=useSltCookie} && $userInfo}
                                         <h2 class="panel-title navigation-headline">
                                             {block name="frontend_account_menu_greeting"}

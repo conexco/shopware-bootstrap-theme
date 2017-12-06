@@ -36,7 +36,7 @@
                                     </th>
                                 {/block}
                                 {block name="frontend_account_orders_table_head_id"}
-                                    <th class="hidden-xs">
+                                    <th class="d-none d-sm-block">
                                         {s name="OrderColumnId"}{/s}
                                     </th>
                                 {/block}

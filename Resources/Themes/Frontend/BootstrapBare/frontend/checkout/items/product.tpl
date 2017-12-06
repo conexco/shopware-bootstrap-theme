@@ -57,7 +57,7 @@
                             {block name='frontend_checkout_cart_item_details'}
                                 {* Product name *}
                                 {block name='frontend_checkout_cart_item_details_title'}
-                                    <a class="hidden-xs" href="{$detailLink}" title="{$sBasketItem.articlename|strip_tags|escape}"
+                                    <a class="d-none d-sm-block" href="{$detailLink}" title="{$sBasketItem.articlename|strip_tags|escape}"
                                         {if {config name=detailmodal} && {controllerAction} === 'confirm'}
                                             data-toggle="ajax-modal"
                                             data-href="{url controller=detail action=productQuickView ordernumber={$sBasketItem.ordernumber} fullPath}"

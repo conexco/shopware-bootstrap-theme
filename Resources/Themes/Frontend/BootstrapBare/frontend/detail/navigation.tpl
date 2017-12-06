@@ -1,6 +1,6 @@
 {* Breadcrumb / Article navigation *}
 {block name='frontend_detail_menu_top'}
-    <div class="hidden-sm hidden-xs">
+    <div class="d-none d-md-block">
         {block name="frontend_detail_breadcrumb_overview"}
             <ul class="breadcrumb">
                 {$breadCrumbBackLink = $sBreadcrumb[count($sBreadcrumb) - 1]['link']}

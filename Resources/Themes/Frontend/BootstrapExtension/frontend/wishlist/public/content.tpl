@@ -86,12 +86,12 @@
                     {if $wishlist.items}
                         <div class="article-table-header sw5-plugin">
                             <div class="row">
-                                <div class="hidden-xs hidden-sm col-sm-6 col-lg-9">
+                                <div class="d-none d-sm-block col-sm-6 col-lg-9">
                                     {block name="frontend_wishlist_public_content_table_header_article"}
                                         <h4>{s name='Article' namespace="frontend/plugins/swag_advanced_cart/plugin"}Artikel{/s}</h4>
                                     {/block}
                                 </div>
-                                <div class="hidden-xs hidden-sm col-sm-6 col-lg-3">
+                                <div class="d-none d-sm-block col-sm-6 col-lg-3">
                                     {block name="frontend_wishlist_public_content_table_header_price"}
                                         <h4>{s name='Price' namespace="frontend/plugins/swag_advanced_cart/plugin"}Preis{/s}</h4>
                                     {/block}

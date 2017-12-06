@@ -68,7 +68,7 @@
                 <div class="row">
                     {block name="frontend_global_messages_icon"}
                         {if $iconCls}
-                            <div class="hidden-xs col-sm-1">
+                            <div class="d-none d-sm-block col-sm-1">
                                 <i class="fa fa-lg {$iconCls}"></i>
                             </div>
                         {/if}

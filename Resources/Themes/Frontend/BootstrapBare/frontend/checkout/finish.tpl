@@ -45,7 +45,7 @@
 {block name="frontend_index_content"}
     {* Finish teaser message *}
     {block name='frontend_checkout_finish_teaser'}
-        <div class="hidden-print">
+        <div class="d-print-none">
             <div class="panel panel-default">
                 <div class="panel-body">
                     {block name='frontend_checkout_finish_teaser_title'}

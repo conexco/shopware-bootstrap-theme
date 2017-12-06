@@ -50,7 +50,7 @@
 
     {block name='frontend_detail_actions_compare'}
         {if {config name="compareShow"}}
-            <li class="hidden-xs hidden-sm">
+            <li class="d-none d-md-block">
                 <form action="{url controller='compare' action='add_article' articleID=$sArticle.articleID}" method="post">
                     <button type="submit" data-product-compare-add="true" title="{"{s name='DetailActionLinkCompare'}{/s}"|escape}" class="btn btn-link pan">
                         <i class="fa fa-exchange mrs"></i> {s name="DetailActionLinkCompare"}{/s}

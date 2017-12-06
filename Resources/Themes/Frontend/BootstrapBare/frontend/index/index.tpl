@@ -42,7 +42,7 @@
                 {block name='frontend_index_navigation'}
                     <header>
                         {block name='frontend_index_header_navigation'}
-                            <div class="container hidden-print" id="header">
+                            <div class="container d-print-none" id="header">
                                 {block name='frontend_index_header_container_inner'}
 
                                     {*! Shop header *}
@@ -195,7 +195,7 @@
 
                 {*! FOOTER *}
                 {block name="frontend_index_footer"}
-                    <footer class="hidden-print">
+                    <footer class="d-print-none">
                         {block name="frontend_index_footer_container"}
                             <div class="container">
                                 {block name="frontend_index_footer_container_inner"}

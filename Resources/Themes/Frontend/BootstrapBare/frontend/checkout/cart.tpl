@@ -71,7 +71,7 @@
                 {* Product table footer *}
                 {block name='frontend_checkout_cart_cart_footer'}
                     {include file="frontend/checkout/cart_footer.tpl"}
-                    <hr class="hidden-xs hidden-sm">
+                    <hr class="d-none d-md-block">
                 {/block}
             {/block}
 

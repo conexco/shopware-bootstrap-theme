@@ -1,5 +1,5 @@
 {block name="frontend_index_minimal_footer"}
-    <footer class="footer-minimal hidden-print">
+    <footer class="footer-minimal d-print-none">
         <div class="container">
 
             {* Service menu *}

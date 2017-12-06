@@ -102,7 +102,7 @@
                                     {* Comments *}
                                     {block name='frontend_blog_col_meta_data_comments'}
                                         <a href="{url controller=blog action=detail sCategory=$sArticle.categoryId blogArticle=$sArticle.id}#commentcontainer"
-                                           title="{$sArticle.articleName}" class="text-primary">({if $sArticle.numberOfComments}{$sArticle.numberOfComments}{else}0{/if}) <span class="hidden-xs hidden-sm">{s name="BlogInfoComments" namespace='frontend/blog/box'}Kommentare{/s}<span></span></a>
+                                           title="{$sArticle.articleName}" class="text-primary">({if $sArticle.numberOfComments}{$sArticle.numberOfComments}{else}0{/if}) <span class="d-none d-md-block">{s name="BlogInfoComments" namespace='frontend/blog/box'}Kommentare{/s}<span></span></a>
                                     {/block}
                                 </p>
                             </div>

@@ -105,7 +105,7 @@
             </tr>
             </tfoot>
         </table>
-        <div id="holder" class="hidden-xs"></div>
+        <div id="holder" class="d-none d-sm-block"></div>
         {block name="frontend_account_statistic_overview_table"}
             <div class="partner_statistic_overview_active">
                 <div class="table-responsive">
