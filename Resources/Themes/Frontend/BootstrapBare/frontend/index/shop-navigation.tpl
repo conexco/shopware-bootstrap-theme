@@ -13,7 +13,7 @@
         <div class="row mvm">
             {block name='frontend_index_search_trusted_inner'}
                 {block name='frontend_index_search'}
-                    <div class="col-xs-12 col-md-8">
+                    <div class="col-12 col-md-8">
                         {*! Search *}
                         {block name='frontend_index_search_inner'}
                             {include file="frontend/index/search.tpl"}

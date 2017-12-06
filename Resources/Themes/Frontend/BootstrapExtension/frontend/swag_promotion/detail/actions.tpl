@@ -18,7 +18,7 @@
                             <div class="alert alert-info mtl container-xs-height">
                                 <div class="row row-xs-height">
                                     {block name="frontend_detail_index_actions_promotion_short_description_alert_text"}
-                                        <div class="col-xs-11 col-xs-height">
+                                        <div class="col-11 col-height">
                                             <div class='promotion-description'>
                                                 <b>{s name="promotionAttention" namespace="frontend/swag_promotion/main"}Attention:{/s}</b>
                                                 {eval var=$promotion->description|strip_tags}{$index}
@@ -26,7 +26,7 @@
                                         </div>
                                     {/block}
                                     {block name="frontend_detail_index_actions_promotion_short_description_alert_icon"}
-                                        <div class="col-xs-1 col-xs-height col-middle text-right">
+                                        <div class="col-1 col-height col-middle text-right">
                                             <i class="fa fa-angle-right"></i>
                                         </div>
                                     {/block}

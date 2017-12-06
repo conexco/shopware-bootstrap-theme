@@ -5,9 +5,9 @@
 
         {block name='paypal_plus_main_header'}
             <div class="finish-main-ppp-header row">
-                <div class="col-xs-4 col-lg-5 text-right ppp-header-left"><h3>{$payPalPlusInvoiceInstruction.amount_value|currency}</h3></div>
-                <div class="col-xs-4 col-lg-2 text-center ppp-header-center"><img class="" src="{link file='frontend/_public/src/img/PP_PLUS_PUI_ArrowGraphic.png'}"></div>
-                <div class="col-xs-4 col-lg-5 ppp-header-right"><img class="" src="{link file='frontend/_public/src/img/PP_PLUS_PUI_logo.png'}"/></div>
+                <div class="col-4 col-lg-5 text-right ppp-header-left"><h3>{$payPalPlusInvoiceInstruction.amount_value|currency}</h3></div>
+                <div class="col-4 col-lg-2 text-center ppp-header-center"><img class="" src="{link file='frontend/_public/src/img/PP_PLUS_PUI_ArrowGraphic.png'}"></div>
+                <div class="col-4 col-lg-5 ppp-header-right"><img class="" src="{link file='frontend/_public/src/img/PP_PLUS_PUI_logo.png'}"/></div>
             </div>
         {/block}
 
@@ -23,7 +23,7 @@
 
                 {block name='paypal_plus_main_content_container'}
                     <div class="content-instruction-details row">
-                        <div class="col-xs-12 col-hd-offset-1 col-hd-10 col-lg-offset-2 col-lg-8">
+                        <div class="col-12 col-hd-offset-1 col-hd-10 col-lg-offset-2 col-lg-8">
                             {block name='paypal_plus_main_content_container_table'}
                                 <table class="table table-striped table-responsive instruction-details-table">
                                     {block name='paypal_plus_main_content_table_receiver'}

@@ -12,7 +12,7 @@
             {* Actual newsletter *}
             {block name='frontend_newsletter_listing_iframe'}
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <iframe src="{$sContentItem.link}" width="100%" height="600" scrolling="yes" marginheight="0" marginwidth="0" frameborder="0"></iframe>
                     </div>
                 </div>

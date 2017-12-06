@@ -4,7 +4,7 @@
         {$label = $answer['label']}
     {/if}
 
-    <div class="question-checkbox question-filter{if $answer['css']} {$answer['css']|escapeHtmlAttr}{/if} col-xs-12 col-md-offset-4 col-md-4 phn-xs phn-sm phn-hd">
+    <div class="question-checkbox question-filter{if $answer['css']} {$answer['css']|escapeHtmlAttr}{/if} col-12 col-md-offset-4 col-md-4 phn-xs phn-sm phn-hd">
         {block name="frontend_advisor_wizard_question_checkbox_input"}
             <input type="checkbox"
                 id="answer{$answer['answerId']|escapeHtml}"

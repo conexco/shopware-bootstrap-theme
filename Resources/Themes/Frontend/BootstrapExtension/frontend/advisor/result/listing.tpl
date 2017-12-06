@@ -1,14 +1,14 @@
 {block name="frontend_advisor_listing_wizard_actions"}
     {if $advisor['mode'] === 'wizard_mode'}
         <div class="row">
-            <div class="col-xs-12 col-hd-4 col-lg-2 mbm mbn-lg">
+            <div class="col-12 col-hd-4 col-lg-2 mbm mbn-lg">
                 {block name="frontend_advisor_listing_wizard_actions_last_question"}
                     <a href="{$advisor['lastQuestionUrl']}" class="btn btn-default btn-block">
                         {s name="LastQuestionBtnText" namespace="frontend/advisor/main"}Return to last question{/s}
                     </a>
                 {/block}
             </div>
-            <div class="col-xs-12 col-hd-4 col-lg-2">
+            <div class="col-12 col-hd-4 col-lg-2">
                 {block name="frontend_advisor_listing_wizard_actions_reset"}
                     <a class="btn btn-default btn-block" title="{s name="ResetAdvisorBtnText" namespace="frontend/advisor/main"}Reset advisor{/s}" href="{$advisorResetUrl}">
                         {s name="ResetAdvisorBtnText" namespace="frontend/advisor/main"}Reset advisor{/s}
@@ -45,11 +45,11 @@
                             {/block}
                         {elseif $advisor['listingLayout'] == 'show_matches_and_misses'}
                             {block name="frontend_advisor_listing_tophit_hits_misses"}
-                                {include file="frontend/swag_product_advisor/listing/product-box/box-misses.tpl" product=$topHit sArticle=$topHit productBoxLayout='advisor-tophit' size="col-xs-12"}
+                                {include file="frontend/swag_product_advisor/listing/product-box/box-misses.tpl" product=$topHit sArticle=$topHit productBoxLayout='advisor-tophit' size="col-12"}
                             {/block}
                         {else}
                             {block name="frontend_advisor_listing_tophit_basic"}
-                                {include file="frontend/listing/product-box/box-basic.tpl" sArticle=$topHit productBoxLayout='advisor-tophit' size="col-xs-12"}
+                                {include file="frontend/listing/product-box/box-basic.tpl" sArticle=$topHit productBoxLayout='advisor-tophit' size="col-12"}
                             {/block}
                         {/if}
                     </ul>
@@ -106,7 +106,7 @@
 
                                 {* Single article box *}
                                 {block name="frontend_advisor_listing_article"}
-                                    {include file="frontend/listing/box_article.tpl" sArticle=$product productBoxLayout=$advisor['listingLayout'] size="col-lg-4 col-md-6 col-sm-6 col-xs-12"}
+                                    {include file="frontend/listing/box_article.tpl" sArticle=$product productBoxLayout=$advisor['listingLayout'] size="col-lg-4 col-md-6 col-sm-6 col-12"}
                                 {/block}
                             {/foreach}
                         </div>

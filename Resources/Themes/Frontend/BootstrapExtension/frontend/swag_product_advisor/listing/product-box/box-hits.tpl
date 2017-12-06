@@ -10,7 +10,7 @@
            {$advisorAttribute = $product['attributes']['advisor']}
 
             {if $advisorAttribute->getMatches()}
-                <div class="col-xs-12 col-lg-6">
+                <div class="col-12 col-lg-6">
                     {block name="frontend_advisor_listing_hits_ct_matches"}
                         <ul class="advisor-matches-list list-unstyled mvm">
                             {foreach $advisorAttribute->getMatches() as $match}
@@ -28,7 +28,7 @@
             {/if}
 
             {if $advisorAttribute->getMisses()}
-                <div class="col-xs-12 col-lg-6">
+                <div class="col-12 col-lg-6">
                     {block name="frontend_advisor_listing_hits_ct_misses"}
                         {block name="frontend_listing_box_advisor_misses_ct"}{/block}
                     {/block}

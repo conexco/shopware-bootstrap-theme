@@ -27,7 +27,7 @@
     	{/if}
         	<div class="cart-option-wrapper sw5-plugin pam mbl{if $isEmpty} cart-empty-basket{/if}{if !count($wishlists) OR $isEmpty} cart-half-option{/if}">
         		<div class="row row-hd-height">
-					<div class="col-xs-12 {if $sUserLoggedIn}col-hd-4 col-lg-4{else}col-hd-6 col-lg-6{/if} col-hd-height col-middle mvl-xs mvl-sm">
+					<div class="col-12 {if $sUserLoggedIn}col-hd-4 col-lg-4{else}col-hd-6 col-lg-6{/if} col-hd-height col-middle mvl-xs mvl-sm">
 						{block name="frontend_wishlist_cart_header_icons"}
 							<div class="cart-option-container">
 								{block name="frontend_wishlist_cart_header_icons_container"}
@@ -41,7 +41,7 @@
 						{/block}
 					</div>
 					{if $sUserLoggedIn}
-						<div class="col-xs-12 col-hd-4 col-lg-4 col-hd-height mbl-xs mbl-sm">
+						<div class="col-12 col-hd-4 col-lg-4 col-hd-height mbl-xs mbl-sm">
 							{block name="frontend_wishlist_cart_header_load"}
 								{if count($wishlists)}
 									<div class="cart-option-container container-load-wishlist">
@@ -72,7 +72,7 @@
 						</div>
 					{/if}
 					{if !$isEmpty}
-						<div class="col-xs-12 {if $sUserLoggedIn}col-hd-4 col-lg-4{else}col-hd-6 col-lg-6{/if} col-hd-height mbm-xs mbm-sm">
+						<div class="col-12 {if $sUserLoggedIn}col-hd-4 col-lg-4{else}col-hd-6 col-lg-6{/if} col-hd-height mbm-xs mbm-sm">
 							{block name="frontend_wishlist_cart_header_save"}
 									{if $sUserLoggedIn}
 										<div class="cart-option-container option-container-save-wishlist">
@@ -87,7 +87,7 @@
 											{block name="frontend_wishlist_cart_header_save_input_container"}
 												<div class="save-wishlist-button-container sw5-plugin">
 													<div class="row">
-														<div class="col-xs-12">
+														<div class="col-12">
 															<div class="input-group">
 																{block name="frontend_wishlist_cart_header_save_input_text"}
 																	<input name="name" 

@@ -14,7 +14,7 @@
                 {include file="frontend/advisor/wizard/options/checkbox.tpl"}
             {/block}
         {elseif $template == 'range_slider'}
-            <div class="col-xs-12 col-md-offset-4 col-md-4 phn-xs">
+            <div class="col-12 col-md-offset-4 col-md-4 phn-xs">
                 {block name="frontend_advisor_content_wizard_question_option_range"}
                     {include file="frontend/advisor/range_slider.tpl"}
                 {/block}

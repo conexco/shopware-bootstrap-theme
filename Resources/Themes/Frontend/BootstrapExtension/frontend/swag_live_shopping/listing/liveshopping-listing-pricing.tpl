@@ -3,7 +3,7 @@
     <div class="row price-wrapper" data-equal="price">
 		{* Default price *}
 		{block name="frontend_liveshopping_listing_price"}
-            <div class="col-xs-7 col-sm-12">
+            <div class="col-7 col-sm-12">
                 <div class="text-right">
                     <p class="price price-large price-discount liveshopping-price sw5-plugin">
                         {$liveShopping.currentPrice|currency}
@@ -15,7 +15,7 @@
 
 		{* Pseudo price *}
 		{block name="frontend_liveshopping_listing_pseudoprice"}
-            <div class="col-xs-5 col-sm-12">
+            <div class="col-5 col-sm-12">
                 <div class="pseudo-wrapper">
                     <p class="price price-small price-pseudo">
                         {if $liveShopping.type === 1 || $liveShopping.type === 2}

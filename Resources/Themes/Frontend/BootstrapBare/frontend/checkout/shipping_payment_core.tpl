@@ -17,7 +17,7 @@
     {block name='frontend_checkout_shipping_payment_core_fields'}
         <div class="row">
             {* Payment method *}
-            <div class="col-xs-12">
+            <div class="col-12">
                 {block name='frontend_checkout_shipping_payment_core_payment_fields'}
                     {include file='frontend/checkout/change_payment.tpl' form_data=$sFormData error_flags=$sErrorFlag payment_means=$sPaymentMeans}
                 {/block}
@@ -25,7 +25,7 @@
 
             {* Shipping method *}
             {if $sDispatches}
-                <div class="col-xs-12">
+                <div class="col-12">
                     {block name='frontend_checkout_shipping_payment_core_shipping_fields'}
                         {include file="frontend/checkout/change_shipping.tpl"}
                     {/block}

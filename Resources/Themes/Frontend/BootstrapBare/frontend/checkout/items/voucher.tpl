@@ -12,11 +12,11 @@
                 </div>
             {/block}
         </div>
-        <div class="col-xs-12 col-sm-10">
+        <div class="col-12 col-sm-10">
             <div class="row">
                 {* Product information *}
                 {block name='frontend_checkout_cart_item_voucher_details'}
-                    <div class="col-xs-8 col-sm-6 col-md-7">
+                    <div class="col-8 col-sm-6 col-md-7">
                         <p>
                             {* Product name *}
                             {block name='frontend_checkout_cart_item_voucher_details_title'}
@@ -43,7 +43,7 @@
 
                 {*! Product price *}
                 {block name='frontend_checkout_cart_item_voucher_price'}
-                    <div class="col-xs-4 col-sm-2 text-right">
+                    <div class="col-4 col-sm-2 text-right">
                         {block name='frontend_checkout_cart_item_voucher_price_display'}
                             {if $sBasketItem.itemInfo}
                                 <strong>{$sBasketItem.itemInfo}</strong>

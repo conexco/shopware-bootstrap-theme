@@ -9,7 +9,7 @@
 
     <div class="row mbm">
         {block name='frontend_checkout_ajax_cart_articleimage'}
-            <div class="col-xs-3">
+            <div class="col-3">
                 {block name='frontend_checkout_ajax_cart_articleimage_product'}
                     {if $sBasketItem.modus == 0 || $sBasketItem.modus == 1}
                         {$desc = $sBasketItem.articlename|escapeHtml}
@@ -27,10 +27,10 @@
         {/block}
 
         {block name='frontend_checkout_ajax_cart_articlename'}
-            <div class="col-xs-9">
+            <div class="col-9">
                 <div class="row mbm">    
                     {block name="frontend_checkout_ajax_cart_articlename_name"}
-                        <div class="col-xs-10">
+                        <div class="col-10">
                             <a href="{$detailLink}" class="small" title="{$sBasketItem.articlename|strip_tags}">
                                 {$sBasketItem.articlename|truncate:30|escapeHtml}
                             </a>
@@ -38,7 +38,7 @@
                     {/block}
 
                     {block name='frontend_checkout_ajax_cart_actions'}
-                        <div class="col-xs-2 text-right">
+                        <div class="col-2 text-right">
                             {$deleteUrl = {url controller="checkout" action="ajaxDeleteArticleCart" sDelete=$basketItem.id}}
 
                             {if $basketItem.modus == 2}
@@ -60,7 +60,7 @@
                 <div class="row">
                     {block name="frontend_checkout_ajax_cart_articlename_quantity"}
                         {if $sBasketItem.modus == 0}
-                            <div class="col-xs-6">
+                            <div class="col-6">
                                 {block name="frontend_checkout_modify_ajax_cart_change_quantity"}
                                     <form class="change-quantity" id="change-quantity-{$sBasketItem.id}" name="change-quantity-{$sBasketItem.id}">
                                         <select class="form-control" name="sQuantity">
@@ -76,7 +76,7 @@
                     {/block}
 
                     {block name="frontend_checkout_ajax_cart_articlename_price"}
-                        <div class="{if $sBasketItem.modus == 0}col-xs-6{else}col-xs-12{/if} text-right">
+                        <div class="{if $sBasketItem.modus == 0}col-6{else}col-12{/if} text-right">
                             <p class="price price-small price-default">
                                 {if $sBasketItem.amount}
                                     {$sBasketItem.amount|currency}

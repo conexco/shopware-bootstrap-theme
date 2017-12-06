@@ -55,7 +55,7 @@
                         {/block}
                     </ul>
                 {else}
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <div class="text-center">
                             {include file="frontend/_includes/messages.tpl" type="info" content="{s name='ListingInfoNoArticles'}Keine Artikel gefunden{/s}"}
                         </div>

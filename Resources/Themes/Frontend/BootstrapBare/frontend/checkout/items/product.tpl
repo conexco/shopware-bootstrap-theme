@@ -19,7 +19,7 @@
 {block name='frontend_checkout_cart_item_wrapper'}
     <div class="table-row">
         <div class="row">
-            <div class="col-xs-3 col-sm-2">
+            <div class="col-3 col-sm-2">
                 {* Product image *}
                 {block name='frontend_checkout_cart_item_image'}
                     <div class="image-wrapper">
@@ -49,11 +49,11 @@
                     </div>
                 {/block}
             </div>
-            <div class="col-xs-9 col-sm-10">
+            <div class="col-9 col-sm-10">
                 <div class="row">
                     {* Product information *}
                     {block name='frontend_checkout_cart_item_details_column'}
-                        <div class="col-xs-12 col-sm-4 col-md-5">
+                        <div class="col-12 col-sm-4 col-md-5">
                             {block name='frontend_checkout_cart_item_details'}
                                 {* Product name *}
                                 {block name='frontend_checkout_cart_item_details_title'}
@@ -89,7 +89,7 @@
 
                     {* Product quantity *}
                     {block name='frontend_checkout_cart_item_quantity'}
-                        <div class="col-xs-6 col-sm-2">
+                        <div class="col-6 col-sm-2">
                             <form name="basket_change_quantity{$sBasketItem.id}" method="post" action="{url action='changeQuantity' sTargetAction=$sTargetAction}">
                                 <input type="hidden" name="sArticle" value="{$sBasketItem.id}"/>
                                 {block name='frontend_checkout_cart_item_quantity_selection'}
@@ -111,7 +111,7 @@
 
                     {* Remove product from basket *}
                     {block name='frontend_checkout_cart_item_delete_article'}
-                        <div class="col-xs-6 col-sm-2 col-sm-push-4 col-md-1 text-right">
+                        <div class="col-6 col-sm-2 col-sm-push-4 col-md-1 text-right">
                             {block name='frontend_checkout_cart_item_delete_article_button'}
                                 <a href="{url action='deleteArticle' sDelete=$sBasketItem.id sTargetAction=$sTargetAction}" class="btn btn-danger" title="{s name='CartItemLinkDelete'}L&ouml;schen{/s}" data-use="deleteArticle">
                                     <i class="fa fa-trash-o"></i>
@@ -122,7 +122,7 @@
 
                     {* Product unit price *}
                     {block name='frontend_checkout_cart_item_price'}
-                        <div class="col-xs-12 col-sm-2 col-sm-pull-2 col-md-pull-1 text-right">
+                        <div class="col-12 col-sm-2 col-sm-pull-2 col-md-pull-1 text-right">
                             {if !$sBasketItem.modus}
                                 <div class="mtm-xs">
                                     {block name='frontend_checkout_cart_item_unit_price_label'}
@@ -136,7 +136,7 @@
 
                     {* Accumulated product price *}
                     {block name='frontend_checkout_cart_item_total_sum'}
-                        <div class="col-xs-12 col-sm-2 col-sm-pull-2 col-md-pull-1 text-right">
+                        <div class="col-12 col-sm-2 col-sm-pull-2 col-md-pull-1 text-right">
                             <div class="mtm-xs">
                                 {block name='frontend_checkout_cart_item_total_price_label'}
                                     <strong class="d-sm-none float-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>

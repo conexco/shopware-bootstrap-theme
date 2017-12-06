@@ -111,7 +111,7 @@
                             {* the navigation bar *}
                             {block name="frontend_detail_swag_custom_products_wizard_modal_content_navigation"}
                                 <div class="row wizard-container-navigation">
-                                    <div class="col-xs-6">
+                                    <div class="col-6">
                                         {block name="frontend_detail_swag_custom_products_wizard_modal_content_navigation_select"}
                                             <select class="form-control navigation-select sw5-plugin">
                                                 {foreach $options as $option}
@@ -120,7 +120,7 @@
                                             </select>
                                         {/block}
                                     </div>
-                                    <div class="col-xs-6 text-right">
+                                    <div class="col-6 text-right">
                                         {block name="frontend_detail_swag_custom_products_wizard_modal_content_navigation_back"}
                                             <button type="button" class="btn btn-default custom-products-navigation-btn-left sw5-plugin">
                                                 <i class="fa fa-angle-left mrs"></i> {s name="detail/index/wizard/navigation/back"}Back{/s}

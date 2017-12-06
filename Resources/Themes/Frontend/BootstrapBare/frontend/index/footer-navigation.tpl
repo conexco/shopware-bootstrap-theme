@@ -6,7 +6,7 @@
         {block name="frontend_index_menu_footer_inner"}
             {block name="frontend_index_footer_column_service_hotline"}
                 {block name="frontend_index_menu_footer_service_line"}
-                    <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="col-12 col-sm-6 col-md-3">
                         {block name="frontend_index_menu_footer_service_line_inner"}
                             {block name="frontend_index_footer_column_service_hotline_headline"}
                                 <p class="lead">{s name="sFooterServiceHotlineHead"}Service Hotline{/s}</p>
@@ -20,7 +20,7 @@
             {/block}
             {block name="frontend_index_footer_column_service_menu"}
                 {block name="frontend_index_menu_footer_shop_service"}
-                    <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="col-12 col-sm-6 col-md-3">
                         {block name="frontend_index_menu_footer_shop_service_inner"}
                             {block name="frontend_index_footer_column_service_menu_headline"}
                                 <p class="lead">{s name="sFooterShopNavi1"}Shop Service{/s}</p>
@@ -46,7 +46,7 @@
             {/block}
             {block name="frontend_index_footer_column_information_menu"}
                 {block name="frontend_index_menu_footer_information"}
-                    <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="col-12 col-sm-6 col-md-3">
                         {block name="frontend_index_menu_footer_information_inner"}
                             {block name="frontend_index_footer_column_information_menu_headline"}
                                 <p class="lead">{s name="sFooterShopNavi2"}Informationen{/s}</p>
@@ -72,7 +72,7 @@
             {/block}
             {block name="frontend_index_footer_column_newsletter"}
                 {block name="frontend_index_menu_footer_newsletter"}
-                    <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="col-12 col-sm-6 col-md-3">
                         {block name="frontend_index_menu_footer_newsletter_inner"}
                             {block name="frontend_index_footer_column_newsletter_headline"}
                                 <p class="lead">{s name="sFooterNewsletterHead"}Newsletter{/s}</p>

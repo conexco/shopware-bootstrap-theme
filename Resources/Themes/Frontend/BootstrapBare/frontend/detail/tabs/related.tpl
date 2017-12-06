@@ -9,7 +9,7 @@
     </div>
     <ul class="thumbnails list-unstyled" data-equalheight="true">
         {foreach from=$sArticle.sRelatedArticles item=sArticleSub key=key name="counter"}
-            {include file="frontend/listing/box_article.tpl" sArticle=$sArticleSub size='col-xs-12 col-md-6'}
+            {include file="frontend/listing/box_article.tpl" sArticle=$sArticleSub size='col-12 col-md-6'}
         {/foreach}
     </ul>
 {/block}

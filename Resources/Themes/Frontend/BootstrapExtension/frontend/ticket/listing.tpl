@@ -36,10 +36,10 @@
                     {block name="frontend_ticketsystem_actions_paging"}
                         {if $sNumberPages > 1}
                             <div class="row mtl">
-                                <div class="col-xs-12 col-sm-6 text-left">
+                                <div class="col-12 col-sm-6 text-left">
                                     Seite <span class="paging--display"><strong>{$sPage}</strong> von <strong>{$sNumberPages}</strong></span>
                                 </div>
-                                <div class="col-xs-12 col-sm-6 text-right">
+                                <div class="col-12 col-sm-6 text-right">
                                     <ul class="pagination man">
                                         <li>
                                             {* link first page *}

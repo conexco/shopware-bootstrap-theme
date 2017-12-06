@@ -116,7 +116,7 @@
                                     <div class="{$FormInputSize}">
                                         <div class="row compressed-cols">
                                             {block name="frontend_account_profile_profile_input_birthday_day"}
-                                                <div class="col-xs-3">
+                                                <div class="col-3">
                                                     <div class="profile-birthday">
                                                         <select name="profile[birthday][day]"
                                                                 id="register_personal_birthdate"
@@ -134,7 +134,7 @@
                                             {/block}
 
                                             {block name="frontend_account_profile_profile_input_birthday_month"}
-                                                <div class="col-xs-3">
+                                                <div class="col-3">
                                                     <div class="profile-birthmonth">
                                                         <select name="profile[birthday][month]"
                                                                 {if {config name=requireBirthdayField}} required="required" aria-required="true"{/if}
@@ -151,7 +151,7 @@
                                             {/block}
 
                                             {block name="frontend_account_profile_profile_input_birthday_year"}
-                                                <div class="col-xs-6">
+                                                <div class="col-6">
                                                     <div class="profile-birthyear">
                                                         <select name="profile[birthday][year]"
                                                                 {if {config name=requireBirthdayField}} required="required" aria-required="true"{/if}

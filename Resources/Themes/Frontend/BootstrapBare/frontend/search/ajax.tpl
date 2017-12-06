@@ -14,7 +14,7 @@
                             <div class="row">
                                 {* Product image *}
                                 {block name="search_ajax_list_entry_media"}
-                                    <div class="col-xs-4">
+                                    <div class="col-4">
                                         {if $search_result.image.thumbnails[0]}
                                             <img srcset="{$search_result.image.thumbnails[0].sourceSet}" alt="{$search_result.name|escape}" class="img-fluid img-center">
                                         {else}
@@ -22,7 +22,7 @@
                                         {/if}
                                     </div>
                                 {/block}
-                                <div class="col-xs-8">
+                                <div class="col-8">
                                     {* Product name *}
                                     {block name="search_ajax_list_entry_name"}
                                         <h4 class="list-group-item-heading">{$search_result.name|escapeHtml}</h4>

@@ -32,7 +32,7 @@
             <div class="row" data-equalheight="true">
                 {foreach $addresses as $address}
                     {block name="frontend_address_item_content"}
-                        <div class="col-xs-12 col-md-6">
+                        <div class="col-12 col-md-6">
                             {block name="frontend_address_item_content_body"}
                                 <div class="panel panel-default address-content-item mtm">
                                     <div class="panel-body">

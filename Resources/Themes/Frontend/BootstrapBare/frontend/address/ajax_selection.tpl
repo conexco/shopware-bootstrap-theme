@@ -29,7 +29,7 @@
                             <div class="row" data-equalheight="true">
                                 {foreach $addresses as $address}
                                     {block name='frontend_address_selection_modal_container_item'}
-                                        <div class="col-xs-12 col-hd-6">
+                                        <div class="col-12 col-hd-6">
                                             <div class="panel panel-default">
                                                 <div class="panel-body">
                                                     {block name='frontend_address_selection_modal_container_item_body'}

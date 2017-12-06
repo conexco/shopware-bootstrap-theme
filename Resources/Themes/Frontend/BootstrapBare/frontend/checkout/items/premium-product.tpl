@@ -2,7 +2,7 @@
 
 <div class="table-row">
     <div class="row">
-        <div class="col-xs-3 col-sm-2">
+        <div class="col-3 col-sm-2">
             {* Product image *}
             {block name='frontend_checkout_cart_item_premium_image'}
                 {if $sBasketItem.image.src.2}
@@ -22,11 +22,11 @@
                 {/if}
             {/block}
         </div>
-        <div class="col-xs-9 col-sm-10">
+        <div class="col-9 col-sm-10">
             <div class="row">
                 {* Product information *}
                 {block name='frontend_checkout_cart_item_premium_details'}
-                    <div class="col-xs-8 col-sm-6 col-md-7">
+                    <div class="col-8 col-sm-6 col-md-7">
                         {* Product name *}
                         {block name='frontend_checkout_cart_item_premium_premium_details_title'}
                             <a href="{$sBasketItem.linkDetails}" title="{$sBasketItem.articlename|strip_tags}"
@@ -51,7 +51,7 @@
 
                 {* Accumulated product price *}
                 {block name='frontend_checkout_cart_item_premium_total_sum'}
-                    <div class="col-xs-4 col-sm-2 text-right">
+                    <div class="col-4 col-sm-2 text-right">
                         {block name='frontend_checkout_cart_item_premium_total_sum_display'}
                             <p>{s name="CartItemInfoFree" namespace='frontend/checkout/cart_item'}{/s}</p>
                         {/block}

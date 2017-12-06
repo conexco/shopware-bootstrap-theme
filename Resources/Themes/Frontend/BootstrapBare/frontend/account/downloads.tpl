@@ -42,13 +42,13 @@
                     <thead>
                         <tr>
                             {block name="frontend_account_downloads_table_head_date"}
-                                <th class="col-xs-2">{s name="DownloadsColumnDate"}{/s}</th>
+                                <th class="col-2">{s name="DownloadsColumnDate"}{/s}</th>
                             {/block}
                             {block name="frontend_account_downloads_table_head_info"}
-                                <th class="col-xs-8">{s name="DownloadsColumnName"}{/s}</th>
+                                <th class="col-8">{s name="DownloadsColumnName"}{/s}</th>
                             {/block}
                             {block name="frontend_account_downloads_table_head_actions"}
-                                <th class="col-xs-2">{s name="DownloadsColumnLink"}{/s}</th>
+                                <th class="col-2">{s name="DownloadsColumnLink"}{/s}</th>
                             {/block}
                         </tr>
                     </thead>

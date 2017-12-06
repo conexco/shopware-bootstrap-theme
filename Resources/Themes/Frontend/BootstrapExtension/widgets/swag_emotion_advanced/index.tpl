@@ -17,18 +17,18 @@
                     <div class="modal-body pll prl">
                         <div class="row">
                             {block name="emotion_advanced_quick_view_image_container"}
-                                <div class="col-xs-12 col-hd-7">
+                                <div class="col-12 col-hd-7">
                                     <div class="quickview-image-slider mbm">
                                         {include file="frontend/detail/image.tpl"}
                                     </div>
                                 </div>
                             {/block}    
                             {block name="emotion_advanced_quick_view_buy_button_container"}
-                                <div class="col-xs-12 col-hd-5">
+                                <div class="col-12 col-hd-5">
                                     {block name="emotion_advanced_quick_view_container_inner"}
                                         <div class="row">
                                             {block name="emotion_advanced_quick_view_rating_content"}
-                                                <div class="col-xs-8">
+                                                <div class="col-8">
                                                     {if !{config name=VoteDisable}}
                                                         <div class="product-rating-container">
                                                             <a href="{url controller='detail' sArticle=$sArticle.articleID}"
@@ -41,7 +41,7 @@
                                                 </div>
                                             {/block}
                                             {block name="emotion_advanced_quick_view_supplier_info"}
-                                                <div class="col-xs-4">
+                                                <div class="col-4">
                                                     {if $sArticle.supplierImg}
                                                         <div class="product-supplier mbm">
                                                             <a href="{url controller='supplier' sSupplier=$sArticle.supplierID}"
@@ -53,21 +53,21 @@
                                                 </div>
                                             {/block}    
                                             {block name="emotion_advanced_quick_view_data"}    
-                                                <div class="col-xs-12">
+                                                <div class="col-12">
                                                     <div class="product-data">
                                                         {include file="frontend/detail/data.tpl" sArticle=$sArticle sView=1}
                                                     </div>
                                                 </div>
                                             {/block}
                                             {block name="emotion_advanced_quick_view_description"}
-                                                <div class="col-xs-12">
+                                                <div class="col-12">
                                                     <div class="product-short-description mbl">
                                                         {$sArticle.description_long|strip_tags|truncate:240}
                                                     </div>
                                                 </div>
                                             {/block}
                                             {block name="emotion_advanced_quick_view_actions_notepad"}
-                                                <div class="col-xs-6">
+                                                <div class="col-6">
                                                     <form action="{url controller='note' action='add' ordernumber=$sArticle.ordernumber}" method="post">
                                                         <button type="submit"
                                                            class="link-notepad sw5-plugin btn btn-link pan"
@@ -82,7 +82,7 @@
                                                 </div>
                                             {/block}
                                             {block name="emotion_advanced_quick_view_buy_button"}
-                                                <div class="col-xs-6 text-right">
+                                                <div class="col-6 text-right">
                                                     <a href="{url controller='detail' sArticle=$sArticle.articleID}" class="btn btn-primary">
                                                         {s name="ListingBoxLinkDetails" namespace="frontend/listing/box_article"}{/s}
                                                     </a>

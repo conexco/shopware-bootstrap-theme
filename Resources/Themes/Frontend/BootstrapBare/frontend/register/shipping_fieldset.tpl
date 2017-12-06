@@ -160,7 +160,7 @@
 
                         <div class="{$FormInputSize}">
                             <div class="row compressed-cols">
-                                <div class="col-xs-4{if !{config name=showZipBeforeCity}} col-xs-push-8{/if}">
+                                <div class="col-4{if !{config name=showZipBeforeCity}} col-push-8{/if}">
                                     <input autocomplete="section-shipping shipping postal-code"
                                            name="register[shipping][zipcode]"
                                            type="text"
@@ -169,7 +169,7 @@
                                            class="form-control is-required"
                                            required="required" aria-required="true" />
                                 </div>
-                                <div class="col-xs-8{if !{config name=showZipBeforeCity}} col-xs-pull-4{/if}">
+                                <div class="col-8{if !{config name=showZipBeforeCity}} col-pull-4{/if}">
                                     <input autocomplete="section-shipping shipping address-level2"
                                            name="register[shipping][city]"
                                            type="text"

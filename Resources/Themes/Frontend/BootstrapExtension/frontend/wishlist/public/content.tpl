@@ -5,7 +5,7 @@
         {block name="frontend_wishlist_public_header"}
             <div class="public-list-header mtl">
                 <div class="row">
-                    <div class="col-xs-12 col-lg-6">
+                    <div class="col-12 col-lg-6">
                         {block name="frontend_wishlist_public_header_info"}
                             <div class="public-list-info">
                                 {block name="frontend_wishlist_public_header_info_name"}
@@ -31,7 +31,7 @@
                             </div>
                         {/block}
                     </div>
-                    <div class="col-xs-12 col-lg-6 text-right">
+                    <div class="col-12 col-lg-6 text-right">
                         {block name="frontend_wishlist_public_header_actions"}
                             <div class="public-list-action">
                                 {block name="frontend_wishlist_public_header_actions_like"}

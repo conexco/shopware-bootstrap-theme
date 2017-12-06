@@ -50,13 +50,13 @@
                             {block name="ticketsystem_attachments_table_header"}
                                 <div class="table-head">
                                     <div class="row">
-                                        <div class="col-xs-4">
+                                        <div class="col-4">
                                             {s namespace='frontend/ticket/detail' name='TicketAttachment'}Attachment{/s}
                                         </div>
-                                        <div class="col-xs-4">
+                                        <div class="col-4">
                                             {s namespace='frontend/ticket/detail' name='TicketAttachmentDate'}Attachment date{/s}
                                         </div>
-                                        <div class="col-xs-4">
+                                        <div class="col-4">
                                             {s namespace='frontend/ticket/detail' name='TicketAttachmentAction'}Action{/s}
                                         </div>
                                     </div>
@@ -66,13 +66,13 @@
                                 {block name="ticketsystem_attachment_item"}
                                     <div class="table-row">
                                         <div class="row">
-                                            <div class="col-xs-4">
+                                            <div class="col-4">
                                                 {$userAttachment.filename}
                                             </div>
-                                            <div class="col-xs-4">
+                                            <div class="col-4">
                                                 {$userAttachment.date|date_format:"%d.%m.%Y %H:%M:%S"}
                                             </div>
-                                            <div class="col-xs-4 text-right">
+                                            <div class="col-4 text-right">
                                                 <a href="{url controller=ticket action=download attachment=$userAttachment.hash}" title="" class="btn btn-primary btn-xs">{s namespace='frontend/ticket/detail' name="TicketDetailAttachmentDownload"}Download{/s}</a>
                                                 <a href="{url controller=ticket action=delete attachment=$userAttachment.hash}" title="" class="btn btn-default btn-xs">{s namespace='frontend/ticket/detail' name="TicketDetailAttachmentDelete"}Delete{/s}</a>
                                             </div>
@@ -196,7 +196,7 @@
                         <div class="row">
                             {foreach $ticketDetails.additional as $additionalData}
                                 {if $additionalData.value}
-                                    <div class="col-xs-3">
+                                    <div class="col-3">
                                         {if $additionalData.value}
                                             <strong>{$additionalData.label}:</strong>
                                             <p>{$additionalData.value}</p>

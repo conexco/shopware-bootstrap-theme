@@ -75,7 +75,7 @@
                 {block name='frontend_blog_col_bottom_row'}
                     <div class="row">
                         {block name='frontend_blog_col_meta_data_col'}
-                            <div class="col-xs-12 col-hd-9 col-hd-push-3 text-right">
+                            <div class="col-12 col-hd-9 col-hd-push-3 text-right">
                                 <p class="mtm">
                                     {* Author *}
                                     {block name='frontend_blog_col_meta_data_name'}
@@ -108,7 +108,7 @@
                             </div>
                         {/block}
                         {block name='frontend_blog_col_read_more_col'}
-                            <div class="col-xs-12 col-hd-3 col-hd-pull-9">
+                            <div class="col-12 col-hd-3 col-hd-pull-9">
                                 {* Read more button *}
                                 {block name='frontend_blog_col_read_more'}
                                     <a href="{url controller=blog action=detail sCategory=$sArticle.categoryId blogArticle=$sArticle.id}"

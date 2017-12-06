@@ -78,7 +78,7 @@
 
                                 {block name="frontend_account_index_info_actions"}
                                     <div class="row" data-equal="accountactions">
-                                        <div class="col-xs-12">
+                                        <div class="col-12">
                                             <a href="{url controller=account action=profile}" class="btn btn-primary mts" title="{s name='AccountLinkChangeProfile'}{/s}">
                                                 {s name='AccountLinkChangeProfile'}Profil anpassen{/s}
                                             </a>
@@ -116,7 +116,7 @@
 
                                 {block name="frontend_account_index_payment_method_actions"}
                                     <div class="row" data-equal="accountactions">
-                                        <div class="col-xs-12">
+                                        <div class="col-12">
                                             <a href="{url controller='account' action='payment'}" title="{s name='AccountLinkChangePayment'}{/s}" class="btn btn-primary mts">{s name='AccountLinkChangePayment'}{/s}</a>
                                         </div>
                                     </div>
@@ -191,14 +191,14 @@
 
                                 {block name="frontend_account_index_primary_billing_actions"}
                                     <div class="row">
-                                        <div class="col-xs-12">
+                                        <div class="col-12">
                                             <a href="{url controller=address action=edit id=$sUserData.additional.user.default_billing_address_id sTarget=account}"
                                                title="{s name='AccountLinkChangeBilling'}{/s}"
                                                class="btn btn-primary mbs">
                                                 {s name="AccountLinkChangeBilling"}{/s}
                                             </a>
                                         </div>
-                                        <div class="col-xs-12">
+                                        <div class="col-12">
                                             <a href="{url controller=address}"
                                                data-address-selection="true"
                                                data-setDefaultBillingAddress="1"
@@ -272,7 +272,7 @@
                                     {if $activeBillingAddressId == $activeShippingAddressId}
                                         {block name="frontend_account_index_primary_shipping_choose_seperate_address"}
                                             <div class="row">
-                                                <div class="col-xs-12">
+                                                <div class="col-12">
                                                     <a href="{url controller=address}"
                                                        class="btn btn-primary choose-different-address"
                                                        data-address-selection="true"
@@ -287,7 +287,7 @@
                                     {else}
                                         {block name="frontend_account_index_primary_shipping_add_select_address"}
                                             <div class="row">
-                                                <div class="col-xs-12">
+                                                <div class="col-12">
                                                     <a href="{url controller=address action=edit id=$sUserData.additional.user.default_shipping_address_id sTarget=account}"
                                                        title="{s name='AccountLinkChangeShipping'}{/s}"
                                                        class="btn btn-primary mbs">

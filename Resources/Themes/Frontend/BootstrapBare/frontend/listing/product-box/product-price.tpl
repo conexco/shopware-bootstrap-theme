@@ -3,7 +3,7 @@
 {block name='frontend_listing_box_article_price_inner'}
     <div class="row">
         {block name='frontend_listing_box_article_price_discount_wrapper'}
-            <div class="col-xs-5 col-sm-12">
+            <div class="col-5 col-sm-12">
                 <div class="pseudo-wrapper" data-equal="pseudo">
                     {* Discount price *}
                     {block name='frontend_listing_box_article_price_discount'}
@@ -23,7 +23,7 @@
             </div>
         {/block}
         {block name='frontend_listing_box_article_price_default_wrapper'}
-            <div class="{if $sArticle.pseudoprice}col-xs-7 col-sm-12{else}col-xs-12{/if}">
+            <div class="{if $sArticle.pseudoprice}col-7 col-sm-12{else}col-12{/if}">
                 <div class="price-wrapper" data-equal="price">
                     {* Default price *}
                     {block name='frontend_listing_box_article_price_default'}

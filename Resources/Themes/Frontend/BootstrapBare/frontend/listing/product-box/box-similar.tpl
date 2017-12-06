@@ -2,7 +2,7 @@
 {namespace name="frontend/listing/box_article"}
 
 {block name="frontend_listing_box_article_item_start"}
-    <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 product-box box-{$productBoxLayout}">
+    <div class="col-lg-12 col-md-6 col-sm-6 col-12 product-box box-{$productBoxLayout}">
 {/block}
 
 {block name='frontend_listing_box_article_content'}

@@ -28,7 +28,7 @@
                 {if $facets|count > 0}
                     {if $theme.sidebarFilter}
                         <div class="row mbm">
-                            <div class="col-xs-12 col-sm-4">
+                            <div class="col-12 col-sm-4">
                                 <div class="sidebar-filter-offcanvas d-sm-none">
                                     <a href="#"
                                        class="btn btn-default btn-block"

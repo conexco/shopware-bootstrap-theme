@@ -1,5 +1,5 @@
 {block name="frontend_widgets_captcha_custom_captcha"}
-    <div class="col-xs-12{if $captchaName !== 'honeypot' && $captchaName !== 'nocaptcha' } col-md-6 col-md-offset-4 mbm{/if}">
+    <div class="col-12{if $captchaName !== 'honeypot' && $captchaName !== 'nocaptcha' } col-md-6 col-md-offset-4 mbm{/if}">
 
         {block name="frontend_widgets_captcha_custom_captcha_placeholder"}
             <div class="captcha-placeholder"

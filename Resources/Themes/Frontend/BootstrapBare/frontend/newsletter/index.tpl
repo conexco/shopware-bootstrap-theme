@@ -154,7 +154,7 @@
                                                 <label for="street" class="control-label {$FormLabelSize}">{s name="NewsletterRegisterBillingPlaceholderStreet"}{/s}</label>
                                                 <div class="{$FormInputSize}">
                                                     <div class="row">
-                                                        <div class="col-xs-12">
+                                                        <div class="col-12">
                                                             <input name="street" type="text" id="street" value="{$_POST.street|escape}" class="form-control"/>
                                                         </div>
                                                     </div>
@@ -168,10 +168,10 @@
                                                 <label for="zipcode" class="control-label {$FormLabelSize}">{s name="NewsletterRegisterBillingPlaceholderZipcode"}{/s}{s name='RegisterBillingPlaceholderCityZipcodeDivider' namespace='frontend/register/billing_fieldset'}{/s}{s name="NewsletterRegisterBillingPlaceholderCityname"}{/s}</label>
                                                 <div class="{$FormInputSize}">
                                                     <div class="row">
-                                                        <div class="col-xs-4{if !{config name=showZipBeforeCity}} col-xs-push-8{/if}">
+                                                        <div class="col-4{if !{config name=showZipBeforeCity}} col-push-8{/if}">
                                                             <input name="zipcode" type="text" id="zipcode" value="{$_POST.zipcode|escape}" maxlength="5" class="form-control"/>
                                                         </div>
-                                                        <div class="col-xs-8{if !{config name=showZipBeforeCity}} col-xs-pull-4{/if}">
+                                                        <div class="col-8{if !{config name=showZipBeforeCity}} col-pull-4{/if}">
                                                             <input name="city" type="text" id="city" value="{$_POST.city|escape}" size="25" class="form-control"/>
                                                         </div>
                                                     </div>

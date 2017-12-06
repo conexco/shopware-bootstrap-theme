@@ -3,7 +3,7 @@
         {block name='frontend_detail_index_header_inner'}
             {* Product name *}
             {block name='frontend_detail_index_name'}
-                <div class="col-xs-12{if $sArticle.supplierImg} col-sm-9{/if}">
+                <div class="col-12{if $sArticle.supplierImg} col-sm-9{/if}">
                     <h1 itemprop="name">
                         {$sArticle.articleName}
                     </h1>

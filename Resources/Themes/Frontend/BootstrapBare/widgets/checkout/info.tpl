@@ -104,7 +104,7 @@
     {/block}
     {block name="frontend_index_checkout_actions_my_options_right"}
         {block name="frontend_index_checkout_actions_my_options_right_div_open"}
-            <div class="col-xs-12 col-md-4 text-right">
+            <div class="col-12 col-md-4 text-right">
         {/block}
         {block name="frontend_index_checkout_actions_my_options_right_inner"}
             <div class="btn-group">

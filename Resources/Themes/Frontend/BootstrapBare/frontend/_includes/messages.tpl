@@ -75,7 +75,7 @@
                     {/block}
 
                     {block name="frontend_global_messages_text"}
-                        <div class="col-xs-12{if $iconCls} col-sm-11{/if}">
+                        <div class="col-12{if $iconCls} col-sm-11{/if}">
                             {if $content && !$list}
                                 {$content}
                             {elseif $list|@count === 1}

@@ -75,7 +75,7 @@
 					{block name="panel_content_header"}
 						<div class="row content-bundle-header">
 							{block name="panel_content_header_slider"}
-								<div class="col-xs-12 col-md-8">
+								<div class="col-12 col-md-8">
 									{* image slider *}
 									{block name='content_image_slider'}
 										{include file='frontend/swag_bundle/bundle/container/bundle_image_slider.tpl'}
@@ -84,7 +84,7 @@
 							{/block}
 
 							{block name="panel_content_header_price"}
-								<div class="col-xs-12 col-md-4">
+								<div class="col-12 col-md-4">
 									{* bundle price *}
 									{block name='content_price'}
 										{include file='frontend/swag_bundle/bundle/container/bundle_price.tpl'}

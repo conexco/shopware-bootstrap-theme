@@ -14,7 +14,7 @@
                     {foreach $freeGoods as $freeGood}
                         {* Product slider item *}
                         {block name='frontend_checkout_promotion_free_goods_slider_item'}
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                 <div class="panel panel-primary">
                                     <div class="panel-body" data-ordernumber="{$freeGood.ordernumber}">
                                         <div class="item-wrapper" data-equal="item">

@@ -78,13 +78,13 @@
                     <div class="row">
                         {* Contiune shopping *}
                         {block name='checkout_ajax_add_actions_continue'}
-                            <div class="col-xs-12 col-sm-4">
+                            <div class="col-12 col-sm-4">
                                 <button class="btn btn-default btn-block mts" data-dismiss="modal" aria-hidden="true">{s name="AjaxAddLinkBack"}Zurück{/s}</button>
                             </div>
                         {/block}
                         {* Forward to the checkout *}
                         {block name='checkout_ajax_add_actions_checkout'}
-                            <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+                            <div class="col-12 col-sm-4 col-sm-offset-4">
                                 <a class="btn btn-primary btn-block mts" href="{url action='cart'}">{s name="AjaxAddLinkCart"}Zum Warenkorb{/s}</a>
                             </div>
                         {/block}

@@ -235,7 +235,7 @@
                         </div>
 
                         {if $offerPosition.customercomment || $offerPosition.comment}
-                            <div class="col-xs-12">
+                            <div class="col-12">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">{s name="OrderCommentTitle"}Kommentare zur Bestellung{/s}</div>
                                     <div class="panel-body">

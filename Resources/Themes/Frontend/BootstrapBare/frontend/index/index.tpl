@@ -49,7 +49,7 @@
                                     {block name='frontend_index_header_row'}
                                         <div class="row" id="header-row">
                                             {block name="frontend_index_navigation_nav_toggle"}
-                                                <div class="col-xs-3 d-md-none">
+                                                <div class="col-3 d-md-none">
                                                     {if !$theme.checkoutHeader || $theme.checkoutHeader && !({controllerAction} == 'confirm' || {controllerAction} == 'shippingPayment' || {controllerAction} == 'finish')}
                                                         <button id="navToggle" 
                                                                 class="btn btn-link nav-toggle"
@@ -64,7 +64,7 @@
                                             {/block}
 
                                             {block name='frontend_index_header_row_left'}
-                                                <div class="col-xs-9 col-hd-5 col-md-3">
+                                                <div class="col-9 col-hd-5 col-md-3">
                                                     {*! Shop logo *}
                                                     {block name='frontend_index_logo_container'}
                                                         {include file="frontend/index/logo-container.tpl"}
@@ -73,13 +73,13 @@
                                             {/block}
 
                                             {block name='frontend_index_header_hr'}
-                                                <div class="col-xs-12 d-sm-none">
+                                                <div class="col-12 d-sm-none">
                                                     <hr class="mts mbm">
                                                 </div>
                                             {/block}
 
                                             {block name='frontend_index_header_row_right'}
-                                                <div class="col-xs-12 col-hd-7 col-md-9">
+                                                <div class="col-12 col-hd-7 col-md-9">
                                                     {* Shop navigation *}
                                                     {block name='frontend_index_shop_navigation'}
                                                         {include file="frontend/index/shop-navigation.tpl"}

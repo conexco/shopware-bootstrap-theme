@@ -8,7 +8,7 @@
 
 {block name="frontend_checkout_abocommerce_quantity"}
 	{if $sBasketItem.modus == 0}
-		<div class="col-xs-6 col-sm-2">
+		<div class="col-6 col-sm-2">
 			<form name="basket_change_quantity{$sBasketItem.id}" method="post" action="{url action='changeQuantity' sTargetAction=$sTargetAction}">
 				<input type="hidden" name="sArticle" value="{$sBasketItem.id}"/>
                 <select name="sQuantity" class="form-control" data-auto-submit="true">

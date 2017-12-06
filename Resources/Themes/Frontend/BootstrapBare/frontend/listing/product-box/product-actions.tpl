@@ -22,7 +22,7 @@
 
             {* Note button *}
             {block name='frontend_listing_box_article_actions_save'}
-                <div class="col-xs-12 col-lg-6">
+                <div class="col-12 col-lg-6">
                     <form action="{url controller='note' action='add' ordernumber=$sArticle.ordernumber _seo=false}" method="post">
                         <button type="submit"
                            title="{"{s name='DetailLinkNotepad' namespace='frontend/detail/actions'}{/s}"|escape}"

@@ -13,7 +13,7 @@
                         <div class="list-group-item">
                             <div class="row">
                                 {block name="frontend_bonus_accordion_block_item_image"}
-                                    <div class="col-xs-4">
+                                    <div class="col-4">
                                         <a href="{$item.linkDetails}" title="{$item.articleName|escape}">
                                             {if $item.image.source}
                                                 <img class="img-fluid img-center" src="{$item.image.source}" alt="{$item.articleName|escape}" />
@@ -24,7 +24,7 @@
                                     </div>
                                 {/block}
                                 {block name="frontend_bonus_accordion_block_item_detail"}
-                                    <div class="col-xs-8">
+                                    <div class="col-8">
                                         {block name="frontend_bonus_accordion_block_item_detail_name"}
                                             <a href="{$item.linkDetails}" title="{$item.articleName|escape}">
                                                 {$item.articleName|truncate:25:"...":true}

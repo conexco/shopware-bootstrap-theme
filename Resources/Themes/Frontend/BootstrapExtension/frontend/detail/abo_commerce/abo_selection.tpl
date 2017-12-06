@@ -1,7 +1,7 @@
 {namespace name="frontend/listing/box_article"}
 
 {block name='abo_commerce_abo_selection_price'}
-	<div class="{if $aboCommerce.hasDiscount}col-xs-6{else}col-xs-12{/if}">
+	<div class="{if $aboCommerce.hasDiscount}col-6{else}col-12{/if}">
 	    <div class="radio mts">
 		    {if !$aboCommerce.isExclusive}
 		    <label for="abo-delivery-input">
@@ -27,7 +27,7 @@
 {* discount *}
 {block name='abo_commerce_abo_selection_discount'}
 	{if $aboCommerce.hasDiscount}
-        <div class="col-xs-6">
+        <div class="col-6">
             <div class="abo-pseudo-price mts mbm text-right sw5-plugin{if $aboPrice.discountPercentage == 0} hidden{/if}">
                 {block name="abo_commerce_abo_selection_discount_reduced"}
                     <span class="price-pseudo">

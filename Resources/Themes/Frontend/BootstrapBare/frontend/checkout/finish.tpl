@@ -120,7 +120,7 @@
 
                         {* Separate Billing & Shipping *}
                         {block name='frontend_checkout_finish_information_addresses_billing'}
-                            <div class="col-xs-12 col-sm-6">
+                            <div class="col-12 col-sm-6">
                                 {* Billing address *}
                                 {block name='frontend_checkout_finish_information_addresses_billing_panel'}
                                     <div class="panel panel-default">
@@ -159,7 +159,7 @@
                         {/block}
 
                         {block name='frontend_checkout_finish_information_addresses_shipping'}
-                            <div class="col-xs-12 col-sm-6">
+                            <div class="col-12 col-sm-6">
                                 {block name='frontend_checkout_finish_information_addresses_shipping_panel'}
                                     <div class="panel panel-default">
                                         <div class="panel-body">

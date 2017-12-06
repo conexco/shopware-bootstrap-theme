@@ -13,7 +13,7 @@
                         {block name='frontend_checkout_premium_slider_container'}
                             {foreach from=$sPremiums item=premium key=key}
                                 {block name='frontend_checkout_premium_slider_item'}
-                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                         <div class="panel {if $premium.available}panel-primary{else}panel-default{/if}" data-ordernumber="{$premium.sArticle.ordernumber}">
                                             <div class="panel-body">
                                                 <div class="item-wrapper" data-equal="item">

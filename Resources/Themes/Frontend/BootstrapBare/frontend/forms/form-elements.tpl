@@ -40,19 +40,19 @@
                                     <div class="{$FormInputSize}">
                                         {if $field|strstr:"class=\"strasse"}
                                             <div class="row">
-                                                <div class="col-xs-9">
+                                                <div class="col-9">
                                                     <input class="form-control required" value="" id="strasse;" name="strasse" type="text">
                                                 </div>
-                                                <div class="col-xs-3">
+                                                <div class="col-3">
                                                     <input class="form-control required" value="" id="strasse;" name="" type="text">
                                                 </div>
                                             </div>
                                         {elseif $field|strstr:"class=\"plz"}
                                             <div class="row">
-                                                <div class="col-xs-4">
+                                                <div class="col-4">
                                                     <input class="form-control required" value="" id="plz;ort" name="plz" type="text">
                                                 </div>
-                                                <div class="col-xs-8">
+                                                <div class="col-8">
                                                     <input class="form-control required" value="" id="plz;ort" name="ort" type="text">
                                                 </div>
                                             </div>
@@ -92,10 +92,10 @@
                     <div class="form-group{if $sSupport.sErrors.e.sCaptcha} has-error{/if} captcha">
                         <div class="{$FormLabelOffset} {$FormInputSize}">
                             <div class="row">
-                                <div class="col-xs-12">
+                                <div class="col-12">
                                     <div class="captcha-placeholder" data-src="{url module=widgets controller=Captcha action=refreshCaptcha}"></div>
                                 </div>
-                                <div class="col-xs-12">
+                                <div class="col-12">
                                     <p class="mtm"><small>{s name='SupportLabelCaptcha'}{/s}</small></p>
                                     <input type="text" name="sCaptcha" class="form-control mtm is-required" required="required" aria-required="true" />
                                 </div>

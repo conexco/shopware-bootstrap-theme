@@ -227,7 +227,7 @@
 
                   <div class="{$FormInputSize}">
                       <div class="row compressed-cols">
-                          <div class="col-xs-4{if !{config name=showZipBeforeCity}} col-xs-push-8{/if}">
+                          <div class="col-4{if !{config name=showZipBeforeCity}} col-push-8{/if}">
                               <input autocomplete="section-billing billing postal-code"
                                      name="{$inputPrefix}[zipcode]"
                                      type="text"
@@ -237,7 +237,7 @@
                                      value="{$formData.zipcode|escape}"
                                      class="form-control address-field-zipcode is-required"/>
                           </div>
-                          <div class="col-xs-8{if !{config name=showZipBeforeCity}} col-xs-pull-4{/if}">
+                          <div class="col-8{if !{config name=showZipBeforeCity}} col-pull-4{/if}">
                               <input autocomplete="section-billing billing address-level2"
                                      name="{$inputPrefix}[city]"
                                      type="text"

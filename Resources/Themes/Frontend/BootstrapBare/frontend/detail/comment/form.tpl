@@ -106,13 +106,13 @@
             <div class="{$FormLabelOffset} {$FormInputSize}">
                     {if {config name=captchaMethod} === 'legacy'}
                         <div class="row">
-                            <div class="col-xs-12">
+                            <div class="col-12">
                                 {* Deferred loading of the captcha image*}
                                 {block name='frontend_detail_comment_input_captcha_placeholder'}
                                     <div class="captcha-placeholder" {if $sErrorFlag.sCaptcha} data-hasError="true"{/if} data-src="{url module=widgets controller=Captcha action=refreshCaptcha}"></div>
                                 {/block}
                             </div>
-                            <div class="col-xs-12">
+                            <div class="col-12">
                                 {block name='frontend_detail_comment_input_captcha_label'}
                                     <p class="mtm">
                                         <small>{s name="DetailCommentLabelCaptcha"}{/s}</small>

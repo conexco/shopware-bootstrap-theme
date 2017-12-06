@@ -10,14 +10,14 @@
 {if $sBasketItem.customProductMode == $IS_CUSTOM_PRODUCT_MAIN}
     {block name="frontend_checkout_cart_item_details_inline_swag_custom_products_surcharges"}
         <div class="{if $action == 'cart' || $action == 'confirm'|| $action == 'finish'}table-row{/if} row custom-products-basket-overview">
-            <div class="{if $action != 'ajax_cart'}col-xs-9 col-xs-offset-3 col-sm-10 col-sm-offset-2{else}col-xs-12{/if}">
+            <div class="{if $action != 'ajax_cart'}col-9 col-offset-3 col-sm-10 col-sm-offset-2{else}col-12{/if}">
                 {* Surcharges headline *}
                 {block name="frontend_checkout_cart_item_details_inline_swag_custom_products_surcharges_title"}
                     <div class="row mbs">
-                        <div class="col-xs-8">
+                        <div class="col-8">
                             <strong class="custom-product-overview-title">{s name="basket/surcharges"}Surcharges{/s}</strong>
                         </div>
-                        <div class="col-xs-4 text-right">
+                        <div class="col-4 text-right">
                             {strip}<strong class="custom-product-price-surcharges">{$sBasketItem.custom_product_prices.surchargesTotal|currency}
                             {if !$isCheckoutConfirm}{s name="Star" namespace="frontend/listing/box_article"}{/s}{/if}</strong>{/strip}
                         </div>        
@@ -120,10 +120,10 @@
                     {/if}
 
                     <div class="row mts">
-                        <div class="col-xs-8">
+                        <div class="col-8">
                             <strong>{s name="basket/total_sum"}Total sum{/s}</strong>
                         </div>
-                        <div class="col-xs-4 text-right">
+                        <div class="col-4 text-right">
                             <strong class="surcharges-total-display">
                                 {$sBasketItem.custom_product_prices.total|currency}{if $action !== 'confirm'}{/if}{strip}
                                 {if !$isCheckoutConfirm}

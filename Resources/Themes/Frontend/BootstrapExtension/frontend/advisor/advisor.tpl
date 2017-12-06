@@ -4,7 +4,7 @@
 
         {* Intended to be double included *}
         {if $isSideBarMode}
-            <div class="col-xs-12 col-md-4 col-lg-3">
+            <div class="col-12 col-md-4 col-lg-3">
                 {block name="frontend_advisor_content_sidebar_upper"}
                     {include file="frontend/advisor/sidebar.tpl" position='upper'}
                 {/block}
@@ -14,9 +14,9 @@
         {* The main advisor content *}
         {block name="frontend_advisor_content_main"}
             {if $isSideBarMode}
-                <div class="col-xs-12 col-md-8 col-lg-9">
+                <div class="col-12 col-md-8 col-lg-9">
             {else}
-                <div class="col-xs-12">
+                <div class="col-12">
             {/if}
                 <div class="advisor-content-inner
                     {if $isSideBarMode} advisor-sidebar-content{/if}

@@ -1,6 +1,6 @@
 <div class="well well-sm mtm">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
             <p>{s namespace="frontend/checkout/cart" name="BasketPointsForBasketTextResponsive"}Sie erhalten f&uuml;r diese Bestellung{/s}</p>
             <p>
                 <span class="fa-stack bonussystem-info-orb">

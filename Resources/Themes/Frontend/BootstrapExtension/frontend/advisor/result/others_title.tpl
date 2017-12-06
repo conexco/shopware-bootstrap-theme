@@ -11,7 +11,7 @@
             data-threshold="{$theme.infiniteThreshold}"
             data-ajaxUrl="{url controller=advisor action=ajaxResult advisorParams=$advisorParams}"
         {/if}>
-    <div class="advisor-others-title sw5-plugin col-xs-12">
+    <div class="advisor-others-title sw5-plugin col-12">
         {block name="frontend_advisor_listing_others_title_inner"}
             <h4 class="others-title-inner page-header">
                 {$advisor['remainingPostsTitle']|truncate:80}

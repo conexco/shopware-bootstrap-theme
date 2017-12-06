@@ -1,5 +1,5 @@
 {foreach $question['steps'] as $step}
-    <div class="question-radio sw5-plugin question-filter{if $step['css']} {$step['css']|escapeHtmlAttr}{/if} col-xs-12 col-md-offset-4 col-md-4 phn-xs phn-sm phn-hd">
+    <div class="question-radio sw5-plugin question-filter{if $step['css']} {$step['css']|escapeHtmlAttr}{/if} col-12 col-md-offset-4 col-md-4 phn-xs phn-sm phn-hd">
         {block name="frontend_advisor_wizard_question_price_radio_input"}
             <input type="radio"
                 id="answer{$step['answerId']|escapeHtml}"

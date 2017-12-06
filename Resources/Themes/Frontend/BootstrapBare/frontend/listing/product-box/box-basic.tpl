@@ -2,14 +2,14 @@
 
 {block name="frontend_listing_box_article"}
     {if $productBoxLayout eq 'list'}
-        {assign "boxSize" "col-xs-12"}
+        {assign "boxSize" "col-12"}
     {elseif $size}
         {assign "boxSize" $size}
     {else}
         {$boxSize = ''}
 
         {if $theme['articles-col-width-xs'] != $theme['articles-col-width-sm']}
-            {$boxSize = "col-xs-`$theme['articles-col-width-xs']`"}
+            {$boxSize = "col-`$theme['articles-col-width-xs']`"}
         {/if}
 
         {if $theme['articles-col-width-sm'] != $theme['articles-col-width-hd']}

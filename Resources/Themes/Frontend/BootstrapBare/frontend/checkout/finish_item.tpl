@@ -12,7 +12,7 @@
 {block name='frontend_checkout_cart_item_voucher_delete_article'}{/block}
 
 {block name='frontend_checkout_cart_item_total_sum'}
-    <div class="col-xs-12 col-sm-6 text-right">
+    <div class="col-12 col-sm-6 text-right">
         <div class="mtm-xs">
             <strong class="d-sm-none float-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
             <strong>{$sBasketItem.amount|currency}*</strong>
@@ -21,7 +21,7 @@
 {/block}
 
 {block name='frontend_checkout_cart_item_premium_total_sum'}
-    <div class="col-xs-4 text-right">
+    <div class="col-4 text-right">
         {block name='frontend_checkout_cart_item_premium_total_sum_display'}
             <p>{s name="CartItemInfoFree" namespace='frontend/checkout/cart_item'}{/s}</p>
         {/block}
@@ -29,7 +29,7 @@
 {/block}
 
 {block name='frontend_checkout_cart_item_voucher_price'}
-    <div class="col-xs-4 text-right">
+    <div class="col-4 text-right">
         {block name='frontend_checkout_cart_item_voucher_price_display'}
             {if $sBasketItem.itemInfo}
                 <strong>{$sBasketItem.itemInfo}</strong>
@@ -41,7 +41,7 @@
 {/block}
 
 {block name='frontend_checkout_cart_item_rebate_price'}
-    <div class="col-xs-4 text-right">
+    <div class="col-4 text-right">
         {block name='frontend_checkout_cart_item_rebate_price_display'}
             {if $sBasketItem.itemInfo}
                 <strong>{$sBasketItem.itemInfo}</strong>

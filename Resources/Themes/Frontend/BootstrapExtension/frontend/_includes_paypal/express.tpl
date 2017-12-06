@@ -1,5 +1,5 @@
 {if $PaypalShowButton}
-    <div class="col-xs-12 text-right mtm paypal-express">
+    <div class="col-12 text-right mtm paypal-express">
         {* PayPal express button *}
         <a href="{url controller=payment_paypal action=express forceSecure}"
            title="{s name='PaypalButtonLinkTitleText'}{/s}"

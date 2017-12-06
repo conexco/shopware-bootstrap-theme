@@ -8,7 +8,7 @@
         <div class="cookie-permission-container">
             <div class="container-xs-height">
                 <div class="row row-sm-height">
-                    <div class="col-xs-12 col-sm-9 col-sm-height col-middle">
+                    <div class="col-12 col-sm-9 col-sm-height col-middle">
                         {block name="cookie_permission_content"}
                             <div class="cookie-permission-content">
                                 {block name="cookie_permission_content_text"}
@@ -28,7 +28,7 @@
                             </div>
                         {/block}
                     </div>
-                    <div class="col-xs-12 col-sm-3 col-sm-height col-middle">
+                    <div class="col-12 col-sm-3 col-sm-height col-middle">
                         {block name="cookie_permission_accept_button"}
                             <div class="cookie-permission-button text-right">
                                 <a href="" class="cookie-permission--accept-button sw5-plugin btn btn-primary">
