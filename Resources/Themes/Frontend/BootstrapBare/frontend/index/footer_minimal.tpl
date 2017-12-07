@@ -1,7 +1,6 @@
 {block name="frontend_index_minimal_footer"}
-    <footer class="footer-minimal d-print-none">
+    <footer class="footer-main footer-minimal d-print-none">
         <div class="container">
-
             {* Service menu *}
             {block name="frontend_index_minimal_footer_menu"}
                 <div class="footer-service-menu text-center">
@@ -15,24 +14,20 @@
             {if !$hideCopyrightNotice}
                 {block name='frontend_index_minimal_footer_vat_info'}
                     <div class="footer-vat-info">
-                        <p class="text-center">
-                            <small>
-                                {if $sOutputNet}
-                                    {s name='FooterInfoExcludeVat' namespace="frontend/index/footer"}{/s}
-                                {else}
-                                    {s name='FooterInfoIncludeVat' namespace="frontend/index/footer"}{/s}
-                                {/if}
-                            </small>
-                        </p>
+                        <div class="small text-center">
+                            {if $sOutputNet}
+                                {s name='FooterInfoExcludeVat' namespace="frontend/index/footer"}{/s}
+                            {else}
+                                {s name='FooterInfoIncludeVat' namespace="frontend/index/footer"}{/s}
+                            {/if}
+                        </div>
                     </div>
                 {/block}
 
                 {block name="frontend_index_minimal_footer_bootstrap_link"}
-                    <p class="text-center">
-                        <small>
-                            {s name="IndexFooterBootstrapLink" namespace="frontend/index/index"}{/s}
-                        </small>
-                    </p>
+                    <div class="small text-center">
+                        {s name="IndexFooterBootstrapLink" namespace="frontend/index/index"}{/s}
+                    </div>
                 {/block}
             {/if}
         </div>

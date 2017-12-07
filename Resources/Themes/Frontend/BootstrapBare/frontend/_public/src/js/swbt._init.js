@@ -205,7 +205,7 @@
                 'class': 'alert alert-warning no-cookies',
                 'html': message
             })
-            .append('<i class="fa fa-times mtx pull-right"></i>')
+            .append('<i class="fa fa-times mtx float-right"></i>')
             .on('click', function() {
                 $(this).closest('.no-cookies').hide();
             })

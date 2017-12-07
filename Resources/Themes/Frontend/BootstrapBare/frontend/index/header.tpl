@@ -1,13 +1,11 @@
 <head>
-    {*! Http-Tags *}
+    {* Http-Tags *}
     {block name="frontend_index_header_meta_http_tags"}
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        {* The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags *}
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {/block}
 
-    {*! Meta-Tags *}
+    {* Meta-Tags *}
     {block name='frontend_index_header_meta_tags'}
         <meta name="author" content="{s name='IndexMetaAuthor'}{/s}"/>
         <meta name="copyright" content="{s name='IndexMetaCopyright'}{/s}"/>
@@ -58,7 +56,7 @@
         <link rel="shortcut icon" href="{link file=$theme.favicon}">
     {/block}
 
-    {*! Internet Explorer 9 specific meta tags *}
+    {* Internet Explorer 9 specific meta tags *}
     {block name='frontend_index_header_meta_tags_ie9'}
         <meta name="msapplication-navbutton-color" content="{s name='IndexMetaMsNavButtonColor'}#dd4800{/s}" />{*! Navbutton color *}
         <meta name="application-name" content="{{config name=shopName}|escapeHtml}" />{* Pinned name *}
@@ -66,10 +64,10 @@
         <meta name="icon" content="width=1024;height=768"/>
     {/block}
 
-    {*! Canonical link *}
+    {* Canonical link *}
     {block name='frontend_index_header_canonical'}{/block}
 
-    {*! RSS and Atom feeds *}
+    {* RSS and Atom feeds *}
     {block name="frontend_index_header_feeds"}{/block}
 
     {* Page title *}

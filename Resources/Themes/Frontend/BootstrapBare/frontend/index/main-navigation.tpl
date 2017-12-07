@@ -2,7 +2,11 @@
     {include file="frontend/plugins/menu/mega-menu.tpl"}
 
     {block name='frontend_index_main_navigation_categories_top_menu'}
-        <nav id="mainNavigation" class="main-nav" data-main-nav="true" role="navigation"{if $theme['fixed-navbar']} data-fixed-navbar="true"{/if}>
+        <nav id="mainNavigation" 
+             class="main-nav" 
+             data-main-nav="true" 
+             role="navigation"
+             {if $theme['fixed-navbar']} data-fixed-navbar="true"{/if}>
 
             {block name='frontend_index_main_navigation_offcanvas_close'}
                 {include file="frontend/_includes/close-offcanvas.tpl" class="main-nav-close"}
@@ -11,8 +15,12 @@
             <ul class="main-nav-list">
                 {block name='frontend_index_navigation_categories_top_link_home'}
                     <li class="main-nav-home main-nav-category">
-                        <a href="{url controller='index'}" class="main-nav-link{if $sCategoryCurrent == $sCategoryStart && $Controller == 'index'} active{/if}" title="{s name='IndexLinkHome' namespace='frontend/index/categories_top'}{/s}">
-                            <span itemprop="name">{s name='IndexLinkHome' namespace='frontend/index/categories_top'}{/s}</span>
+                        <a href="{url controller='index'}" 
+                           class="main-nav-link{if $sCategoryCurrent == $sCategoryStart && $Controller == 'index'} active{/if}" 
+                           title="{s name='IndexLinkHome' namespace='frontend/index/categories_top'}{/s}">
+                            <span itemprop="name">
+                                {s name='IndexLinkHome' namespace='frontend/index/categories_top'}{/s}
+                            </span>
                         </a>
                     </li>
                 {/block}
@@ -30,8 +38,13 @@
                                 {/block}
 
                                 {block name="frontend_index_main_navigation_button_category"}
-                                    <a href="{$sCategory.link}" title="{$sCategory.name}" class="main-nav-link{if !empty($sCategory.flag)} active{/if}" itemprop="url">
-                                        <span itemprop="name">{$sCategory.name}</span>
+                                    <a href="{$sCategory.link}" 
+                                       title="{$sCategory.name}" 
+                                       class="main-nav-link{if !empty($sCategory.flag)} active{/if}" 
+                                       itemprop="url">
+                                        <span itemprop="name">
+                                            {$sCategory.name}
+                                        </span>
                                         {if $sCategory.sub}
                                             <i class="fa fa-angle-down mls d-none d-md-inline-block"></i>
                                         {/if}

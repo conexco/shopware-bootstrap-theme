@@ -1,0 +1,33 @@
+.price {
+    .unitize(font-size, ceil(@swf-font-size-base * 1.3));
+    font-weight: bold;
+}
+
+.price-small {
+    .unitize(font-size, ceil(@swf-font-size-base * 0.85));
+}
+
+.price-medium {
+    .unitize(font-size, ceil(@swf-font-size-base * 1.4));
+}
+
+.price-large {
+    .unitize(font-size, ceil(@swf-font-size-base * 1.57));
+}
+
+.price-saving {
+    .unitize(font-size, ceil(@swf-font-size-base * 1.15));
+}
+
+.price-default {
+    color: @swf-price-default-color;
+}
+
+.price-discount {
+    color: @swf-price-discount-color;
+}
+
+.price-pseudo {
+    color: @swf-price-pseudo-color;
+    text-decoration: line-through;
+}

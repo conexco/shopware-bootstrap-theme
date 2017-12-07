@@ -5,7 +5,7 @@
 {/block}
 
 {block name="gridconfig"}
-    {include file='frontend/_public/src/config.tpl'}
+    {include file='frontend/_includes/config.tpl'}
 {/block}
 
 {block name='frontend_index_html'}
@@ -33,7 +33,10 @@
                 {* Message if javascript is disabled *}
                 {block name="frontend_index_no_script_message"}
                     <noscript class="noscript-main">
-                        {include file="frontend/_includes/messages.tpl" type="danger" dismiss="true" content="{s name="IndexNoscriptNotice"}{/s}"}
+                        {include file="frontend/_includes/messages.tpl" 
+                                 type="danger" 
+                                 dismiss="true" 
+                                 content="{s name="IndexNoscriptNotice"}{/s}"}
                     </noscript>
                 {/block}
 
@@ -42,15 +45,19 @@
                 {block name='frontend_index_navigation'}
                     <header>
                         {block name='frontend_index_header_navigation'}
-                            <div class="container d-print-none" id="header">
+                            <div id="header" class="container d-print-none p-3">
                                 {block name='frontend_index_header_container_inner'}
-
-                                    {*! Shop header *}
+                                    {* Shop header *}
                                     {block name='frontend_index_header_row'}
                                         <div class="row" id="header-row">
                                             {block name="frontend_index_navigation_nav_toggle"}
                                                 <div class="col-3 d-md-none">
-                                                    {if !$theme.checkoutHeader || $theme.checkoutHeader && !({controllerAction} == 'confirm' || {controllerAction} == 'shippingPayment' || {controllerAction} == 'finish')}
+                                                    {if !$theme.checkoutHeader || 
+                                                        $theme.checkoutHeader && 
+                                                            !({controllerAction} == 'confirm' || 
+                                                            {controllerAction} == 'shippingPayment' || 
+                                                            {controllerAction} == 'finish')}
+
                                                         <button id="navToggle" 
                                                                 class="btn btn-link nav-toggle"
                                                                 type="button"
@@ -65,7 +72,7 @@
 
                                             {block name='frontend_index_header_row_left'}
                                                 <div class="col-9 col-sm-5 col-md-3">
-                                                    {*! Shop logo *}
+                                                    {* Shop logo *}
                                                     {block name='frontend_index_logo_container'}
                                                         {include file="frontend/index/logo-container.tpl"}
                                                     {/block}
@@ -89,7 +96,7 @@
                                         </div>
                                     {/block}
 
-                                    {*! Maincategories navigation top *}
+                                    {* Maincategories navigation top *}
                                     {block name='frontend_index_navigation_categories_top'}
                                         {block name="frontend_index_navigation_categories_top_include"}
                                             {include file='frontend/index/main-navigation.tpl'}
@@ -110,7 +117,10 @@
                 {block name='frontend_index_scrollup'}
                     <div class="d-none d-md-block">
                         {block name='frontend_index_scrollup_inner'}
-                            <a href="#" class="scroll-up btn btn-primary" title="{s name='IndexScrollUpTitle'}Nach oben{/s}" data-scroll-up="true">
+                            <a href="#" 
+                               class="scroll-up btn btn-primary" 
+                               title="{s name='IndexScrollUpTitle'}Nach oben{/s}" 
+                               data-scroll-up="true">
                                 {block name='frontend_index_scrollup_icon'}
                                     <span class="fa fa-angle-up fa-lg"></span>
                                 {/block}
@@ -123,7 +133,7 @@
                     <section class="{block name="frontend_index_content_main_classes"}content-main{/block}">
                         {block name='frontend_index_main_section'}
                             {block name='frontend_index_content_container'}
-                                {*! Content section *}
+                                {* Content section *}
                                 <div id="content" class="container">
                                     {block name='frontend_index_content_container_inner'}
                                         <div class="content-container">
@@ -136,28 +146,30 @@
                                                 {/if}
                                             {/block}
 
-                                            {*! Content top container *}
+                                            {* Content top container *}
                                             {block name="frontend_index_content_top"}{/block}
 
                                             {block name='frontend_index_main_content'}
                                                 <div class="row">
                                                     {block name='frontend_index_main_content_inner'}
+                                                        {* Sidebar left *}
                                                         {block name='frontend_index_content_left_wrapper'}
-                                                            {*! Sidebar left *}
                                                             {$gridLeftStart|unescape:'html'}
                                                             {block name='frontend_index_content_left'}
                                                                 {include file='frontend/index/sidebar.tpl'}
                                                             {/block}
                                                             {$gridLeftEnd|unescape:'html'}
                                                         {/block}
+
+                                                        {* Main content *} 
                                                         {block name='frontend_index_content_wrapper'}
-                                                            {*! Main content *}
                                                             {$gridCenterStart|unescape:'html'}
                                                             {block name='frontend_index_content'}{/block}
                                                             {$gridCenterEnd|unescape:'html'}
                                                         {/block}
+
+                                                        {* Sidebar right *}
                                                         {block name='frontend_index_content_right_wrapper'}
-                                                            {*! Sidebar right *}
                                                             {$gridRightStart|unescape:'html'}
                                                             {block name='frontend_index_content_right'}{/block}
                                                             {$gridRightEnd|unescape:'html'}
@@ -180,9 +192,13 @@
                                             {/block}
                                             <div class="last-seen-products hidden" data-last-seen-products="true">
                                                 <div class="last-seen-products-title page-header">
-                                                    <h3>{s namespace="frontend/plugins/index/viewlast" name='WidgetsRecentlyViewedHeadline'}{/s}</h3>
+                                                    <h3>
+                                                        {s namespace="frontend/plugins/index/viewlast" name='WidgetsRecentlyViewedHeadline'}{/s}
+                                                    </h3>
                                                 </div>
-                                                <div class="row last-seen-products-container sw5-plugin" data-equalheight="true" data-mode="ajax">
+                                                <div class="row last-seen-products-container sw5-plugin" 
+                                                     data-equalheight="true" 
+                                                     data-mode="ajax">
                                                 </div>
                                             </div>
                                         </div>
@@ -193,9 +209,9 @@
                     </section>
                 {/block}
 
-                {*! FOOTER *}
+                {* Footer *}
                 {block name="frontend_index_footer"}
-                    <footer class="d-print-none">
+                    <footer class="footer-main d-print-none p-3 mt-3">
                         {block name="frontend_index_footer_container"}
                             <div class="container">
                                 {block name="frontend_index_footer_container_inner"}
@@ -204,11 +220,16 @@
                                     {/block}
                                     
                                     {block name="frontend_index_footer_bootstrap_link"}
-                                        <p class="text-center">
-                                            <small>
-                                                {s name="IndexFooterBootstrapLink"}<a href="http://www.bootstrap.de" target="_blank" title="Shopware Bootstrap Theme" rel="">Shopware Bootstrap Theme</a>{/s}
-                                            </small>
-                                        </p>
+                                        <div class="small text-center">
+                                            {s name="IndexFooterBootstrapLink"}
+                                                <a href="http://www.bootstrap.de" 
+                                                   target="_blank" 
+                                                   title="Shopware Bootstrap Theme" 
+                                                   rel="">
+                                                    Shopware Bootstrap Theme
+                                                </a>
+                                            {/s}
+                                        </div>
                                     {/block}
                                 {/block}
                             </div>
@@ -220,7 +241,7 @@
             </div>
         {/block}
 
-        {* If required add the cookiePermission hint *}
+        {* Cookie permission hint *}
         {block name='frontend_index_cookie_permission'}
             {if {config name="show_cookie_note"}}
                 {include file="frontend/_includes/cookie_permission_note.tpl"}
@@ -320,13 +341,13 @@
         {/block}
 
         {block name="frontend_index_header_javascript_jquery"}
-            {* Add the partner statistics widget, if configured *}
+            {* Partner statistics widget *}
             {if !{config name=disableShopwareStatistics} }
                 {include file='widgets/index/statistic_include.tpl'}
             {/if}
         {/block}
 
-        {* Include jQuery and all other javascript files at the bottom of the page *}
+        {* jQuery and all other compiled javascript files *}
         {block name="frontend_index_header_javascript_jquery_lib"}
             {compileJavascript timestamp={themeTimestamp} output="javascriptFiles"}
             {foreach $javascriptFiles as $file}

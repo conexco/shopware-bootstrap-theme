@@ -1,9 +1,7 @@
 <div class="alert alert-default no-cookies is--hidden sw5-plugin"
     data-cookie-permission="true"
     data-urlPrefix="{url controller=index action=index}"
-    {if $Shop}
-        data-shopId="{$Shop->getId()}"{/if}
-    >
+    {if $Shop}data-shopId="{$Shop->getId()}"{/if}>
     {block name="cookie_permission_container"}
         <div class="cookie-permission-container">
             <div class="container-xs-height">

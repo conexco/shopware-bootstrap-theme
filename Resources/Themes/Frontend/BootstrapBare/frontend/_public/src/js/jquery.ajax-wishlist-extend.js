@@ -32,7 +32,7 @@ $.overridePlugin('swAjaxWishlist', {
             originalIcon = $icon[0].className,
             $text = $target.find('.action-text');
 
-        me.$counter.removeClass('hidden');
+        me.$counter.removeClass('d-none');
         $target.addClass(me.opts.savedCls);
         $text.html($target.attr('data-text') || me.opts.text);
         $icon.removeClass(originalIcon).addClass(me.opts.iconCls);

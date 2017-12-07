@@ -13,7 +13,7 @@ $.overridePlugin('swProductCompareMenu', {
         modalContentInnerSelector: '.modal-dialog',
         compareEntriesSelector: '.popover-content .compare-list .compare-entry',
         compareEntrySelector: '.compare-entry',
-        hiddenCls: 'hidden',
+        hiddenCls: 'd-none',
         // new swbt plugin options
         originalCompareListSelector: '.compare-popover-original',
         modalClass: 'compare-modal',
@@ -91,7 +91,7 @@ $.overridePlugin('swProductCompareMenu', {
         $originalCompareList.find(me.opts.compareEntrySelector).remove();
         // close popover and hide btn
         $popover.popover('destroy');
-        $menuBtn.addClass('hidden');
+        $menuBtn.addClass('d-none');
 
         $.ajax({
             'url': deleteUrl,
@@ -144,7 +144,7 @@ $.overridePlugin('swProductCompareMenu', {
         } else {
             // close popover and hide btn
             $popover.popover('destroy');
-            $menuBtn.addClass('hidden');
+            $menuBtn.addClass('d-none');
         }
 
         // remove product silent in the background
