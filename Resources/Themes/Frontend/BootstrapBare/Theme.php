@@ -53,6 +53,7 @@ class Theme extends \Shopware\Components\Theme
         $vendorsJavascripts = [
             'modernizr/modernizr.custom.35977.js',
             'jquery.js',
+            'jquery-migrate.js',
             'popper.js',
             'bootstrap.js',
             // 'jquery.ui.widget-factory.js',
