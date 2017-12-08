@@ -16,13 +16,13 @@
                             <img srcset="{$sArticle.image.thumbnails[0].sourceSet}"
                                  alt="{$desc}"
                                  title="{$desc|truncate:160:""}"
-                                 class="img-fluid img-center" />
+                                 class="img-fluid mx-auto d-block" />
                         {/block}
                     {else}
                         <img src="{link file='frontend/_public/src/img/no-picture.png'}"
                              alt="{$desc}"
                              title="{$desc|truncate:160:""}"
-                             class="img-fluid img-center" />
+                             class="img-fluid mx-auto d-block" />
                     {/if}
                 {/block}
             </div>

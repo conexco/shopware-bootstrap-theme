@@ -33,7 +33,7 @@
                                             {/if}
 
                                             <label for="__{$facet->getFieldName()|escape:'htmlall'}__{$option->getId()|escape:'htmlall'}">
-                                                <img class="img-fluid img-center"
+                                                <img class="img-fluid mx-auto d-block"
                                                      src="{$mediaFile}"
                                                      alt="{$option->getLabel()|escape:'htmlall'}" />
                                             </label>

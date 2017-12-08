@@ -34,7 +34,7 @@
                     <img srcset="{$sArticle.preview.thumbnails[1].sourceSet}"
                          src="{$sArticle.preview.thumbnails[1].source}"
                          alt="{$alt}"
-                         class="img-fluid img-center"
+                         class="img-fluid mx-auto d-block"
                          title="{$alt|truncate:160:""}" 
                          itemprop="image"/>
                 </a>
@@ -54,7 +54,7 @@
                            data-title="{$alt}" >
                             <img srcset="{$sArticleMedia.thumbnails[1].sourceSet}"
                                  alt="{$alt}"
-                                 class="img-fluid img-center"/>
+                                 class="img-fluid mx-auto d-block"/>
                         </a>
                     {/if}
                 {/foreach}
@@ -101,7 +101,7 @@
                         <div class="mhs card card-body">
                             <img srcset="{$sArticleMedia.thumbnails[0].sourceSet}"
                                  alt="{s name="BlogThumbnailText" namespace="frontend/blog/detail"}{/s}: {$alt}"
-                                 class="img-fluid img-center"
+                                 class="img-fluid mx-auto d-block"
                                  title="{s name="BlogThumbnailText" namespace="frontend/blog/detail"}{/s}: {$alt|truncate:25:""}" />
                         </div>
                     {/foreach}

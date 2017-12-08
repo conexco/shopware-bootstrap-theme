@@ -31,10 +31,10 @@
                                                         <span class="image-element">
                                                             {if $article.image.thumbnails}
                                                                 <img srcset="{$article.image.thumbnails[0].sourceSet}"
-                                                                     alt="{$article.articleName|escape}" class="img-fluid img-center" />
+                                                                     alt="{$article.articleName|escape}" class="img-fluid mx-auto d-block" />
                                                             {else}
                                                                 <img src="{link file='frontend/_public/src/img/no-picture.png'}"
-                                                                     alt="{"{s name="PremiumInfoNoPicture"}{/s}"|escape}" class="img-fluid img-center">
+                                                                     alt="{"{s name="PremiumInfoNoPicture"}{/s}"|escape}" class="img-fluid mx-auto d-block">
                                                             {/if}
                                                         </span>
                                                     {/block}

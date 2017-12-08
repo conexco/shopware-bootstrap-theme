@@ -36,9 +36,9 @@
 									{block name='item_image_element'}
 										<a href="{url controller=detail sArticle=$article.articleId}">
 											{if isset($article.cover.src)}
-												<img class="img-fluid img-center" srcset="{$article.cover.src[0]}" alt="{$article.name|escape:'html'}" />
+												<img class="img-fluid mx-auto d-block" srcset="{$article.cover.src[0]}" alt="{$article.name|escape:'html'}" />
 											{else}
-												<img class="img-fluid img-center" srcset="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$article.name|escape:'html'}" />
+												<img class="img-fluid mx-auto d-block" srcset="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$article.name|escape:'html'}" />
 											{/if}
 										</a>
 									{/block}

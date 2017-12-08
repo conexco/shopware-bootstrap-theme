@@ -16,9 +16,9 @@
                                     <div class="col-4">
                                         <a href="{$item.linkDetails}" title="{$item.articleName|escape}">
                                             {if $item.image.source}
-                                                <img class="img-fluid img-center" src="{$item.image.source}" alt="{$item.articleName|escape}" />
+                                                <img class="img-fluid mx-auto d-block" src="{$item.image.source}" alt="{$item.articleName|escape}" />
                                             {else}
-                                                <img class="img-fluid img-center" src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{s namespace="frontend/plugins/index/topseller" name='WidgetsTopsellerNoPicture'}{/s}"/>
+                                                <img class="img-fluid mx-auto d-block" src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{s namespace="frontend/plugins/index/topseller" name='WidgetsTopsellerNoPicture'}{/s}"/>
                                             {/if}
                                         </a>
                                     </div>

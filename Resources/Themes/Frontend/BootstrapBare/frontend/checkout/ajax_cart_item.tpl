@@ -17,9 +17,9 @@
                             {if $sBasketItem.additional_details.image.description}
                                 {$desc = $sBasketItem.additional_details.image.description|escape}
                             {/if}
-                            <img srcset="{$sBasketItem.additional_details.image.thumbnails[0].sourceSet}" alt="{$desc}" title="{$desc|truncate:160:""}" class="img-center img-fluid" />
+                            <img srcset="{$sBasketItem.additional_details.image.thumbnails[0].sourceSet}" alt="{$desc}" title="{$desc|truncate:160:""}" class="mx-auto d-block img-fluid" />
                         {elseif $sBasketItem.image.src.0}
-                            <img src="{$sBasketItem.image.src.0}" alt="{$desc}" title="{$desc|truncate:160:""}" class="img-center img-fluid" />
+                            <img src="{$sBasketItem.image.src.0}" alt="{$desc}" title="{$desc|truncate:160:""}" class="mx-auto d-block img-fluid" />
                         {/if}
                     {/if}
                 {/block}

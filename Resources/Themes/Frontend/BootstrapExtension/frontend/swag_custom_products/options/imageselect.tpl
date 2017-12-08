@@ -34,10 +34,10 @@
                                         {foreach $thumbnails as $image}
                                             {$srcSet = "{if $image@index !== 0}{$srcSet}, {/if}{$image['source']} {$image['maxWidth']}w"}
                                         {/foreach}
-                                        <img class="color-selection-display-image img-fluid img-center" srcset="{$srcSet}" alt="{if $value['seo_title']}{$value['seo_title']|escapeHtml}{else}{$valueMedia['name']|escapeHtml}{/if}" itemprop="image" />
+                                        <img class="color-selection-display-image img-fluid mx-auto d-block" srcset="{$srcSet}" alt="{if $value['seo_title']}{$value['seo_title']|escapeHtml}{else}{$valueMedia['name']|escapeHtml}{/if}" itemprop="image" />
                                     {else}
                                         {$baseSource = $valueMedia['file']}
-                                        <img class="color-selection-display-image img-fluid img-center" src="{$baseSource}" alt="{$valueMedia['name']|escapeHtml}" itemprop="image" />
+                                        <img class="color-selection-display-image img-fluid mx-auto d-block" src="{$baseSource}" alt="{$valueMedia['name']|escapeHtml}" itemprop="image" />
                                     {/if}
                                 {/if}
                             {/block}

@@ -16,11 +16,11 @@
                                 {$desc = $sBasketItem.image.description|escape}
                             {/if}
                             <a href="{$detailLink}" title="{$sBasketItem.articlename|escape}">
-                                <img srcset="{$sBasketItem.image.thumbnails[0].sourceSet}" alt="{$desc}" title="{$desc|truncate:160:""}" class="img-fluid img-center" />
+                                <img srcset="{$sBasketItem.image.thumbnails[0].sourceSet}" alt="{$desc}" title="{$desc|truncate:160:""}" class="img-fluid mx-auto d-block" />
                             </a>
                         {else}
                             <a href="{$detailLink}" title="{$sBasketItem.articlename|escape}">
-                                <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$desc}" title="{$desc|truncate:160:""}" class="img-fluid img-center" />
+                                <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$desc}" title="{$desc|truncate:160:""}" class="img-fluid mx-auto d-block" />
                             </a>
                         {/if}
                     </div>

@@ -20,10 +20,10 @@
                                         {/if}
                                         {block name='frontend_detail_product_quick_view_image_inner'}
                                             {if $sArticle.image.thumbnails}
-                                                <img srcset="{$sArticle.image.thumbnails[1].sourceSet}" alt="{$alt}" class="img-fluid img-center"/>
+                                                <img srcset="{$sArticle.image.thumbnails[1].sourceSet}" alt="{$alt}" class="img-fluid mx-auto d-block"/>
                                             {else}
                                                 {block name='product_quick_view_image_fallback'}
-                                                <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$alt}" class="img-fluid img-center">
+                                                <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$alt}" class="img-fluid mx-auto d-block">
                                                 {/block}
                                             {/if}
                                         {/block}

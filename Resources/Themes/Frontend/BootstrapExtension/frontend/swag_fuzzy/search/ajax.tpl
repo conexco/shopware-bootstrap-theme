@@ -77,9 +77,9 @@
                             {block name="search_ajax_list_entry_media"}
                                 <div class="col-4">
                                     {if $search_result.image.thumbnails[0]}
-                                        <img srcset="{$search_result.image.thumbnails[0].sourceSet}" alt="{$search_result.name|escape}" class="img-fluid img-center">
+                                        <img srcset="{$search_result.image.thumbnails[0].sourceSet}" alt="{$search_result.name|escape}" class="img-fluid mx-auto d-block">
                                     {else}
-                                        <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$sArticle.articleName|escape}" class="img-fluid img-center"/>
+                                        <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$sArticle.articleName|escape}" class="img-fluid mx-auto d-block"/>
                                     {/if}
                                 </div>
                             {/block}

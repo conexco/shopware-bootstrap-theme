@@ -53,7 +53,7 @@
                                         <a href="{$supplier.link}" title="{$supplier.name}" class="manufacturer-link">
                                             {if $supplier.image}
                                                 {block name="frontend_widgets_manufacturer_slider_item_image"}
-                                                    <img src="{$supplier.image}" class="img-fluid img-center manufacturer-image" alt="{$supplier.name}"/> </a>
+                                                    <img src="{$supplier.image}" class="img-fluid mx-auto d-block manufacturer-image" alt="{$supplier.name}"/> </a>
                                                 {/block}
                                             {else}
                                                 {block name="frontend_widgets_manufacturer_slider_item_text"}
