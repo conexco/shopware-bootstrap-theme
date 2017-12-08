@@ -60,7 +60,7 @@
                                             {* Article price *}
                                             {block name='checkout_ajax_add_information_price'}
                                                 <div class="col-lg-6 col-offset-2 text-right">
-                                                    <p class="price price-default price-medium">{$sArticle.price|currency}{s name="Star" namespace="frontend/listing/box_article"}{/s}</p>
+                                                    <p class="price price-default">{$sArticle.price|currency}{s name="Star" namespace="frontend/listing/box_article"}{/s}</p>
                                                 </div>
                                             {/block}
                                         </div>

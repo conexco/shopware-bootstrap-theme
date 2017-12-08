@@ -32,7 +32,7 @@
                     {/if}
                 </div>
                 <div class="price-wrapper text-right" data-equal="price">
-                <span class="price price-medium {if !$sArticle.pseudoprice}price-default{else}price-discount{/if}">
+                <span class="price{if !$sArticle.pseudoprice} price-default{else} price-discount{/if}">
                     {if $article.priceStartingFrom && !$article.liveshoppingData}
                         {s name='ListingBoxArticleStartsAt'}ab{/s}
                     {/if}

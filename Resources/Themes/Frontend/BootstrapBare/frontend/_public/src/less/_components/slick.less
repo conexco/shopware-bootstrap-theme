@@ -2,7 +2,6 @@
     position: relative;
     display: block;
     .box-sizing(border-box);
-    .touch-callout(none);
     .user-select(none);
     -ms-touch-action: pan-y;
     touch-action: pan-y;
@@ -60,17 +59,19 @@
     float: left;
     height: 100%;
     .unitize-min-height(1);
+    display: none;
+
     [dir="rtl"] & {
         float: right;
     }
+
     img {
         display: block;
     }
+
     &.slick-loading img {
         display: none;
     }
-
-    display: none;
 
     &.dragging img {
         pointer-events: none;
@@ -90,6 +91,7 @@
         border: 1px solid transparent;
     }
 }
+
 .slick-arrow.slick-hidden {
     display: none;
 }
@@ -112,6 +114,7 @@
     padding: 0;
     border: none;
     outline: none;
+
     &:hover, &:focus {
         outline: none;
         background: transparent;
@@ -120,6 +123,7 @@
             opacity: @swf-slick-opacity-on-hover;
         }
     }
+
     &.slick-disabled:before {
         opacity: @swf-slick-opacity-not-active;
     }
@@ -137,10 +141,12 @@
 
 .slick-prev {
     .unitize(left, -25);
+
     [dir="rtl"] & {
         left: auto;
         .unitize(right, -25);
     }
+
     &:before {
         content: @swf-slick-prev-character;
         [dir="rtl"] & {
@@ -151,10 +157,12 @@
 
 .slick-next {
     .unitize(right, -25);
+
     [dir="rtl"] & {
         .unitize(left, -25);
         right: auto;
     }
+
     &:before {
         content: @swf-slick-next-character;
         [dir="rtl"] & {
@@ -176,6 +184,7 @@
     text-align: center;
     padding: 0;
     width: 100%;
+
     li {
         position: relative;
         display: inline-block;
@@ -184,6 +193,7 @@
         .unitize-margin(0, 5, 0, 5);
         padding: 0;
         cursor: pointer;
+
         button {
             border: 0;
             background: transparent;
@@ -196,12 +206,14 @@
             color: transparent;
             .unitize(padding, 5);
             cursor: pointer;
+
             &:hover, &:focus {
                 outline: none;
                 &:before {
                     opacity: @swf-slick-opacity-on-hover;
                 }
             }
+
             &:before {
                 position: absolute;
                 top: 0;
@@ -219,6 +231,7 @@
                 -moz-osx-font-smoothing: grayscale;
             }
         }
+
         &.slick-active button:before {
             color: @swf-slick-dot-color-active;
             opacity: @swf-slick-opacity-default;
@@ -231,6 +244,7 @@
     opacity: 0;
     transition: opacity .5s ease;
     visibility: hidden;
+    
     &.slick-ready {
         opacity: 1;
         visibility: visible;
@@ -241,6 +255,7 @@
         outline: none;
     }
 }
+
 .slick-dots {
     .unitize(bottom, -15);
     li button {
