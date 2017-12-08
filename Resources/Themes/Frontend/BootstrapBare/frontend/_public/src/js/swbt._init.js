@@ -186,13 +186,6 @@
 
         $('body').swSelectboxReplacement();
 
-        if (swfShowHidePwd) {
-            window.StateManager.addPlugin('input[type="password"]', 'passwordInputViewer');
-        }
-        if (swfShowPwdStrength) {
-            window.StateManager.addPlugin('.register-form input[type="password"]', 'passwordStrengthWrapper', $.extend({}, swfShowPwdStrengthConfig));
-        }
-
         $.subscribe('plugin/swAddArticle/onAddArticle', cartRefresh);
 
         // Check if cookies are disabled and show notification
