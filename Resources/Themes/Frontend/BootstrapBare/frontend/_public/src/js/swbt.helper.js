@@ -6,8 +6,7 @@ function cartRefresh() {
     var ajaxCartRefresh = controller.ajax_cart_refresh,
         $cartAmount = $('.cart-amount'),
         $cartQuantity = $('.cart-quantity'),
-        $cartBtn = $('[data-ajax-cart="true"]'),
-        cartBtnChangeColor = $cartBtn.data('changeColor');
+        $cartBtn = $('[data-ajax-cart="true"]');
 
     if (!ajaxCartRefresh.length) {
         return;
@@ -19,14 +18,6 @@ function cartRefresh() {
     }).done(function(response) {
         var cart = JSON.parse(response);
 
-        if (cartBtnChangeColor) {
-            if (cart.quantity != 0) {
-                $cartBtn.removeClass('btn-default').addClass('btn-primary');
-            } else {
-                $cartBtn.removeClass('btn-primary').addClass('btn-default');
-            }
-        }
-
         if(!cart.amount || !cart.quantity) {
             return;
         }
@@ -36,10 +27,17 @@ function cartRefresh() {
 
         var cleanAmount = cart.amount.replace('.','');
 
-        if (parseInt(cleanAmount) < 100)
-            $cartAmount.removeClass('hidden');
-        else
-            $cartAmount.addClass('hidden');
+        if (parseInt(cleanAmount) < 100) {
+            $cartAmount.removeClass('d-none');
+        } else {
+            $cartAmount.addClass('d-none');
+        }
+
+        if (cart.quantity == 0) {
+            $cartQuantity.addClass('d-none');
+        } else {
+            $cartQuantity.removeClass('d-none');
+        }
     });
 }
 

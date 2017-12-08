@@ -2,8 +2,7 @@
     {include file="frontend/plugins/menu/mega-menu.tpl"}
 
     {block name='frontend_index_main_navigation_categories_top_menu'}
-        <nav id="mainNavigation" 
-             class="main-nav" 
+        <nav class="main-nav" 
              data-main-nav="true" 
              role="navigation"
              {if $theme['fixed-navbar']} data-fixed-navbar="true"{/if}>

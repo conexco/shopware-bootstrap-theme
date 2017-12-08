@@ -42,15 +42,23 @@
 
                 {block name='frontend_index_before_page'}{/block}
 
+                {* Shop header *}
                 {block name='frontend_index_navigation'}
-                    <header>
+                    <header class="header-main">
                         {block name='frontend_index_header_navigation'}
                             <div id="header" class="container d-print-none p-3">
+                                
+                                {* Include the top bar navigation *}
+                                {block name='frontend_index_top_bar_container'}
+                                    {include file="frontend/index/topbar-navigation.tpl"}
+                                {/block}
+
                                 {block name='frontend_index_header_container_inner'}
-                                    {* Shop header *}
                                     {block name='frontend_index_header_row'}
-                                        <div class="row" id="header-row">
-                                            {block name="frontend_index_navigation_nav_toggle"}
+                                        <div class="row align-items-center header-row mb-3">
+
+                                            {* TODO: move to topbar? *}
+                                            {* {block name="frontend_index_navigation_nav_toggle"}
                                                 <div class="col-3 d-md-none">
                                                     {if !$theme.checkoutHeader || 
                                                         $theme.checkoutHeader && 
@@ -68,30 +76,16 @@
                                                         </button>
                                                     {/if}
                                                 </div>
+                                            {/block} *}
+
+                                            {* Shop logo *}
+                                            {block name='frontend_index_logo_container'}
+                                                {include file="frontend/index/logo-container.tpl"}
                                             {/block}
 
-                                            {block name='frontend_index_header_row_left'}
-                                                <div class="col-9 col-sm-5 col-md-3">
-                                                    {* Shop logo *}
-                                                    {block name='frontend_index_logo_container'}
-                                                        {include file="frontend/index/logo-container.tpl"}
-                                                    {/block}
-                                                </div>
-                                            {/block}
-
-                                            {block name='frontend_index_header_hr'}
-                                                <div class="col-12 d-sm-none">
-                                                    <hr class="mts mbm">
-                                                </div>
-                                            {/block}
-
-                                            {block name='frontend_index_header_row_right'}
-                                                <div class="col-12 col-sm-7 col-md-9">
-                                                    {* Shop navigation *}
-                                                    {block name='frontend_index_shop_navigation'}
-                                                        {include file="frontend/index/shop-navigation.tpl"}
-                                                    {/block}
-                                                </div>
+                                            {* Shop navigation *}
+                                            {block name='frontend_index_shop_navigation'}
+                                                {include file="frontend/index/shop-navigation.tpl"}
                                             {/block}
                                         </div>
                                     {/block}

@@ -2,7 +2,7 @@
 {block name='frontend_index_actions_currency'}
     {if $currencies|count > 1}
         <div class="btn-group currency-changer" role="group">
-            <button class="btn btn-outline-secondary btn-sm dropdown-toggle"
+            <button class="btn btn-light btn-sm dropdown-toggle"
                     type="button"
                     data-toggle="dropdown"
                     aria-haspopup="true" 
@@ -44,7 +44,7 @@
     {elseif $shop && $languages|count > 1}
         {block name='frontend_index_actions_active_shop_top_bar_language'}
             <div class="btn-group language-changer" role="group">
-                <button class="btn btn-outline-secondary btn-sm dropdown-toggle"
+                <button class="btn btn-light btn-sm dropdown-toggle"
                         type="button"
                         data-toggle="dropdown"
                         aria-haspopup="true" 

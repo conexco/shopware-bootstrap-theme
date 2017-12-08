@@ -1,11 +1,13 @@
 {if $sComparisons}
     {block name='frontend_top_navigation_menu_entry'}
-        <a class="nav-link"
+        <a class="btn btn-light btn-sm"
            data-toggle="popover" 
            href="#" 
            data-contentselector=".compare-list">
             {s name="CompareInfoHeaderItem"}Vergleich{/s}
-            <span class="badge badge-pill compare-quantity">{$sComparisons|@count}</span>
+            <span class="badge badge-secondary compare-quantity">
+                {$sComparisons|@count}
+            </span>
         </a>
     {/block}
 

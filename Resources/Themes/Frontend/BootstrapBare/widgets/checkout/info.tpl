@@ -1,218 +1,97 @@
+{* Notepad entry *}
+{block name="frontend_index_checkout_actions_notepad"}
+    <div class="btn-group entry-notepad sw5-plugin">
+        <a href="{url controller='note'}" 
+           class="btn btn-outline-secondary" 
+           title="{"{s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}"|escape}">
+
+           <i class="fa fa-file-text-o fa-lg"></i>
+
+            <span class="badge badge-secondary notes-quantity sw5-plugin{if $sNotesQuantity <= 0} d-none{/if}">
+                {$sNotesQuantity}
+            </span>
+        </a>
+    </div>
+{/block}
+
+{* My account entry *}
 {block name="frontend_index_checkout_actions_my_options"}
-    {block name="frontend_index_checkout_actions_my_options_left"}
-        {block name="frontend_index_checkout_actions_my_options_left_div_open"}
-            <div class="d-none d-md-block col-md-8">
-        {/block}
+    <div class="btn-group entry-account dropdown{if {config name=useSltCookie}} with-slt{/if}"
+        data-offcanvas="true"
+        data-offCanvasSelector=".account-dropdown-navigation">
 
-        {block name="frontend_index_checkout_actions_my_options_left_inner"}
-            <ul class="nav checkout-actions">
-                {* Top bar navigation *}
-                {block name="frontend_index_top_bar_nav"}
-                    {block name='frontend_index_navigation_inline'}
-                        {* Article Compare *}
-                        {if {config name="compareShow"}}
-                            <li class="nav-item compare-show sw5-plugin d-none">
-                                {action module=widgets controller=compare}
-                            </li>
-                        {/if}
-                    {/block}
-
-                    {block name="frontend_index_checkout_actions_account"}
-                        {if {config name=useSltCookie}}
-                            <li class="nav-item sltCookie{if $userInfo} logged-in{/if}">
-                                <a class="nav-link dropdown-toggle btn-sm" 
-                                   data-toggle="dropdown"
-                                   role="button"
-                                   aria-haspopup="true"
-                                   aria-expanded="false"
-                                   href="{url controller='account'}"
-                                   title="{strip}
-                                    {if $userInfo}
-                                        {s name="AccountGreetingBefore" namespace="frontend/account/sidebar"}{/s}{$userInfo['firstname']|escape}{s name="AccountGreetingAfter" namespace="frontend/account/sidebar"}{/s} -&nbsp;
-                                    {/if}
-                                    {s namespace='frontend/index/checkout_actions' name='IndexLinkAccount'}{/s}"{/strip}>
-                                    {if $userInfo}
-                                        <span class="account-display navigation-personalized">
-                                            <span class="account-display-greeting">
-                                                {s name="AccountGreetingBefore" namespace="frontend/account/sidebar"}{/s}
-                                                {$userInfo['firstname']}
-                                                {s name="AccountGreetingAfter" namespace="frontend/account/sidebar"}{/s}
-                                            </span>
-                                        </span>
-                                    {else}
-                                        {s namespace='frontend/index/checkout_actions' name='IndexLinkAccount'}{/s}
-                                    {/if}
-                                </a>
-
-                                <ul class="dropdown-menu account-dropdown-menu">
-                                    {block name="frontend_index_checkout_actions_account_navigation"}
-                                        <div class="account-dropdown-navigation">
-                                            {block name="frontend_index_checkout_actions_account_navigation_smartphone"}
-                                                <div class="navigation-smartphone d-sm-none">
-                                                    <div class="entry-close-off-canvas">
-                                                        <a href="#close-account-menu"
-                                                           class="account-close-off-canvas"
-                                                           title="{s namespace='frontend/index/menu_left' name="IndexActionCloseMenu"}{/s}">
-                                                            {s namespace='frontend/index/menu_left' name="IndexActionCloseMenu"}{/s}
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            {/block}
-
-                                            {block name="frontend_index_checkout_actions_account_menu"}
-                                                <div class="move-on xs s" data-move-to="#accountSidebarMobile">
-                                                    {include file="frontend/account/sidebar.tpl" showSidebar=true inHeader=true}
-                                                </div>
-                                            {/block}
-                                        </div>
-                                    {/block}
-                                </ul>
-                            </li>
-                        {else}
-                            <li class="nav-item">
-                                <a href="{url controller='account'}"
-                                   class="nav-link btn-sm"
-                                   title="{s namespace='frontend/index/checkout_actions' name='IndexLinkAccount'}{/s}">
-                                   {s namespace='frontend/index/checkout_actions' name='IndexLinkAccount'}{/s}
-                                </a>
-                            </li>
-                        {/if}
-                    {/block}
-
-                    {block name="frontend_index_checkout_actions_notepad"}
-                        <li class="nav-item entry-notepad sw5-plugin">
-                            <a href="{url controller='note'}"
-                               class="nav-link btn-sm"  
-                               title="{s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}">
-                                {s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}
-                                <span class="badge badge-pill notes-quantity sw5-plugin{if $sNotesQuantity <= 0} d-none{/if}">
-                                    {$sNotesQuantity}
-                                </span>
-                            </a>
-                        </li>
-                    {/block}
-
-                    {block name="frontend_index_checkout_actions_service_menu"}
-                        <li class="nav-item">
-                            <a class="nav-link dropdown-toggle btn-sm" 
-                               data-toggle="dropdown" 
-                               href="#" 
-                               role="button" 
-                               title="{s name='IndexLinkService'}Service/Hilfe{/s}"
-                               aria-haspopup="true" 
-                               aria-expanded="false">
-                                {s name='IndexLinkService'}{/s}
-                            </a>
-
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                {action module=widgets controller=index action=menu group=gLeft}
-                            </ul>
-                        </li>
-                    {/block}
-                {/block}
-            </ul>
-        {/block}
-
-        {block name="frontend_index_checkout_actions_my_options_left_div_close"}
-            </div>
-        {/block}
-    {/block}
-
-    {block name="frontend_index_checkout_actions_my_options_right"}
-        {block name="frontend_index_checkout_actions_my_options_right_div_open"}
-            <div class="col-12 col-md-4 text-right">
-        {/block}
-
-        {block name="frontend_index_checkout_actions_my_options_right_inner"}
-            {* Language and Currency bar *}
-            {block name='frontend_index_actions'}
-                <div class="btn-group mr-2" role="group">
-                    {action module=widgets controller=index action=shopMenu}
-                </div>
-            {/block}
-
-            {block name='frontend_index_checkout_actions_notepad_xs'}
-                <a href="{url controller='note' action='index'}" 
-                   class="btn btn-outline-secondary d-sm-none" 
-                   title="{s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}">
-                    <i class="fa fa-list fa-lg"></i>
-                    {if $sNotesQuantity > 0}
-                        <span class="badge badge-pill mls">
-                            {$sNotesQuantity}
-                        </span>
-                    {/if}
-                </a>
-            {/block}
-
-            <div class="btn-group d-sm-none">
-                <button type="button" 
-                        class="btn btn-outline-secondary dropdown-toggle" 
-                        data-toggle="dropdown" 
-                        title="{s name='IndexLinkService'}Service/Hilfe{/s}">
-                    <i class="fa fa-question fa-lg"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-right">
-                    {action module=widgets controller=index action=menu group=gLeft}
-                </ul>
-            </div>
-
-            {if {config name=useSltCookie}}
-                <div class="btn-group d-sm-none">
-                    <div class="off-canvas-account sw5-plugin">
-                        <a href="#"
-                            class="btn btn-outline-secondary"
-                            data-offcanvas="true"
-                            data-offCanvasSelector="#accountSidebar"
-                            title="{s name='AccountHeaderNavigation' namespace='frontend/account/sidebar'}{/s}">
-                            <i class="fa fa-user fa-lg"></i>
-                            {if $userInfo}
-                                <i class="fa fa-check text-primary"></i>
-                            {/if}
-                        </a>
-                        <div id="accountSidebarMobile" class="text-left">
-                            {* Content inserted via JS move helper *}
-                        </div>
-                    </div>
-                </div>
-            {else}
-                <a href="{url controller='account'}" 
-                   class="btn btn-outline-secondary d-sm-none" 
-                   title="{s namespace='frontend/index/checkout_actions' name='IndexLinkAccount'}{/s}">
-                    <i class="fa fa-user fa-lg"></i>
-                </a>
-            {/if}
-
-            {*! Cart / Checkout *}
-            {block name="frontend_index_checkout_actions_cart"}
-                <button type="button"
-                        class="btn btn-outline-secondary btn-sm cart-button"
-                        aria-label="{"{s namespace='frontend/index/checkout_actions' name='IndexLinkCart'}{/s}"|escape}"
-                        data-ajax-cart="true"
-                        data-offcanvas="true"
-                        data-mode="ajax"
-                        data-direction="fromRight"
-                        data-ajaxUrl="{url controller='checkout' action='ajax_cart'}">
-                        
-                        <i class="fa fa-shopping-cart"></i>
-
-                        <span class="cart-quantity ml-1">
-                            {$sBasketQuantity}
-                        </span>
-
-                        <span class="d-none d-sm-inline-block">
-                            <span class="cart-amount{if $sBasketAmount >= 100} d-none{/if}">
-                                ({$sBasketAmount|currency}*)
-                            </span>
+        {block name="frontend_index_checkout_actions_account"}
+            <a class="btn btn-outline-secondary dropdown-toggle{if $userInfo} account-user-loggedin{/if}" 
+               data-toggle="dropdown"
+               role="button"
+               aria-haspopup="true"
+               aria-expanded="false"
+               href="{url controller='account'}"
+               title="{"{if $userInfo}{s name="AccountGreetingBefore" namespace="frontend/account/sidebar"}{/s}{$userInfo['firstname']}{s name="AccountGreetingAfter" namespace="frontend/account/sidebar"}{/s} - {/if}{s namespace='frontend/index/checkout_actions' name='IndexLinkAccount'}{/s}"|escape}">
+                {if $userInfo}
+                    <span class="account-display navigation-personalized">
+                        <span class="account-display-greeting">
+                            {s name="AccountGreetingBefore" namespace="frontend/account/sidebar"}{/s}
+                            {$userInfo['firstname']}
+                            {s name="AccountGreetingAfter" namespace="frontend/account/sidebar"}{/s}
                         </span>
                     </span>
-                </button>
-            {/block}
+                {else}
+                    {s namespace='frontend/index/checkout_actions' name='IndexLinkAccount'}{/s}
+                {/if}
+            </a>
         {/block}
 
-        {block name="frontend_index_checkout_actions_my_options_right_div_close"}
-            </div>
-        {/block}
-    {/block}
+        {if {config name=useSltCookie}}
+            {block name="frontend_index_checkout_actions_account_navigation"}
+                <div class="dropdown-menu">
+                    <div class="account-dropdown-navigation">
+                        {block name="frontend_index_checkout_actions_account_navigation_smartphone"}
+                            <div class="navigation-smartphone d-sm-none">
+                                <div class="entry-close-off-canvas">
+                                    <a href="#close-account-menu"
+                                       class="account-close-off-canvas"
+                                       title="{s namespace='frontend/index/menu_left' name="IndexActionCloseMenu"}{/s}">
+                                        {s namespace='frontend/index/menu_left' name="IndexActionCloseMenu"}{/s}
+                                    </a>
+                                </div>
+                            </div>
+                        {/block}
+
+                        {block name="frontend_index_checkout_actions_account_menu"}
+                            {include file="frontend/account/sidebar.tpl" showSidebar=true inHeader=true}
+                        {/block}
+                    </div>
+                </div>
+            {/block}
+        {/if}
+    </div>
+{/block}    
+
+{* Cart entry *}
+{block name="frontend_index_checkout_actions_cart"}
+    <button type="button"
+            class="btn btn-outline-secondary cart-button"
+            aria-label="{"{s namespace='frontend/index/checkout_actions' name='IndexLinkCart'}{/s}"|escape}"
+            data-ajax-cart="true"
+            data-offcanvas="true"
+            data-mode="ajax"
+            data-direction="fromRight"
+            data-ajaxUrl="{url controller='checkout' action='ajax_cart'}">
+            
+            <i class="fa fa-shopping-cart fa-lg"></i>
+
+            <span class="d-none d-sm-inline-block">
+                <span class="cart-amount small text-primary{if $sBasketAmount >= 100} d-none{/if}">
+                    {$sBasketAmount|currency} {s name="Star" namespace="frontend/listing/box_article"}{/s}
+                </span>
+            </span>
+
+            <span class="badge badge-primary cart-quantity ml-1{if $sBasketQuantity < 1} d-none{/if}">
+                {$sBasketQuantity}
+            </span>
+        </span>
+    </button>
 {/block}
 
 {block name="frontend_index_checkout_actions_inner"}{/block}

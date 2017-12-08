@@ -75,11 +75,11 @@
         // Offcanvas account
         .addPlugin('.off-canvas-account [data-offcanvas="true"]', 'swOffcanvasMenu', (typeof swfAccountOffcanvasViewports != 'undefined' ? swfAccountOffcanvasViewports : ['xs', 's']))
 
-        // Ajax cart popover
-        .addPlugin('[data-ajax-cart="true"]', 'popoverWrapper', (typeof swfAjaxCartPopoverViewports != 'undefined' ? swfAjaxCartPopoverViewports : ['m', 'l', 'xl']))
+        // Ajax cart popoverWrapper // TODO: remove
+        // .addPlugin('[data-ajax-cart="true"]', 'popoverWrapper', (typeof swfAjaxCartPopoverViewports != 'undefined' ? swfAjaxCartPopoverViewports : ['m', 'l', 'xl']))
 
-        // Default popover
-        .addPlugin('[data-toggle="popover"]', 'popoverWrapper')
+        // Default popover  // TODO: remove 
+        // .addPlugin('[data-toggle="popover"]', 'popoverWrapper')
         
         // Product navigation on detail
         .addPlugin('body', 'swAjaxProductNavigation')
