@@ -79,9 +79,9 @@
             data-direction="fromRight"
             data-ajaxUrl="{url controller='checkout' action='ajax_cart'}">
             
-            <i class="fa fa-shopping-cart fa-lg"></i>
+            <i class="fa fa-shopping-cart fa-lg mr-1"></i>
 
-            <span class="d-none d-sm-inline-block">
+            <span class="d-none d-sm-inline">
                 <span class="cart-amount small text-primary{if $sBasketAmount >= 100} d-none{/if}">
                     {$sBasketAmount|currency} {s name="Star" namespace="frontend/listing/box_article"}{/s}
                 </span>

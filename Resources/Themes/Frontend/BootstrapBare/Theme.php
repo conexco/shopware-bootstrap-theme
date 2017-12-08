@@ -61,8 +61,7 @@ class Theme extends \Shopware\Components\Theme
             'slick.js',
             'imagesloaded.js',
             'jquery.elevatezoom.js',
-            'jquery.clingify.js',
-            'jquery.bootstrap-strength.js',
+            'jquery.clingify.js'
         ];
 
         $shopwareJavascripts = [
@@ -113,8 +112,6 @@ class Theme extends \Shopware\Components\Theme
             "swbt.image-zoom.js",
             "swbt.detail-tabs.js",
             "swbt.ajax-cart.js",
-            "swbt.password-input-viewer.js",
-            "swbt.password-strength-wrapper.js",
             "jquery.register-extend.js",
             "jquery.infinite-scrolling-extend.js",
             "jquery.emotion-extend.js",
@@ -3685,36 +3682,6 @@ class Theme extends \Shopware\Components\Theme
 
         $fieldset->addElement(
             $this->createCheckboxField(
-                'pwd-show-hide',
-                'Button zur Anzeige des Passworts im Passwortfeld anzeigen',
-                $this->themeDefaults['pwd-show-hide'],
-                array(
-                    'attributes' =>
-                        array(
-                            'boxLabel' =>
-                                'Wenn aktiv, wird ein Button bei den Passwortfeldern angezeigt, mit dem es möglich ist, das Passwort ein-/ auszublenden.',
-                        ),
-                )
-            )
-        );
-
-        $fieldset->addElement(
-            $this->createCheckboxField(
-                'pwd-strength',
-                'Progress Bar zur Anzeige der Stärke des Passworts',
-                $this->themeDefaults['pwd-strength'],
-                array(
-                    'attributes' =>
-                        array(
-                            'boxLabel' =>
-                                'Wenn aktiv, wird eine Progress Bar unter den Passwortfeldern angezeigt, die die Stärke des Passworts anzeigt.',
-                        ),
-                )
-            )
-        );
-
-        $fieldset->addElement(
-            $this->createCheckboxField(
                 'asyncJavascriptLoading',
                 'JavaScript asynchron laden',
                 $this->themeDefaults['asyncJavascriptLoading'],
@@ -4418,8 +4385,6 @@ class Theme extends \Shopware\Components\Theme
             'body-bg-img-hide' => 'sm',
             // plugin config defaults
             'custom-selects' => true,
-            'pwd-show-hide' => false,
-            'pwd-strength' => false,
             'asyncJavascriptLoading' => true,
             'deactivate-zoom' => 'sm',
             'zoom-type' => 'lens',
