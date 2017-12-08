@@ -251,9 +251,9 @@
                   if (scroll === scrollTop) {
                       return;
                   } else if (scrollTop == 0) {
-                      $offcanvasToggle.addClass('hidden');
+                      $offcanvasToggle.addClass('d-none');
                   } else if (scroll == 0) {
-                      $offcanvasToggle.removeClass('hidden');
+                      $offcanvasToggle.removeClass('d-none');
                   }
             },
 

@@ -131,8 +131,8 @@ $.overridePlugin('swAboCommerce', {
     onSingleDeliveryClick: function () {
         var me = this;
         //Hide the abo-comboboxes
-        me.$deliveryIntervalContainer.addClass('hidden');
-        me.$productBuybox.addClass('hidden');
+        me.$deliveryIntervalContainer.addClass('d-none');
+        me.$productBuybox.addClass('d-none');
 
         $('.abo-hidden-values').attr('disabled', true);
 
@@ -146,8 +146,8 @@ $.overridePlugin('swAboCommerce', {
         var me = this;
 
         //Show the abo-comboboxes
-        me.$deliveryIntervalContainer.removeClass('hidden');
-        me.$productBuybox.removeClass('hidden');
+        me.$deliveryIntervalContainer.removeClass('d-none');
+        me.$productBuybox.removeClass('d-none');
 
         me.setDurationOptions();
 
@@ -181,7 +181,7 @@ $.overridePlugin('swAboCommerce', {
 
         var percent = price.discountPercentage;
 
-        $('.abo-pseudo-price')[(percent > 0) ? 'removeClass' : 'addClass']('hidden');
+        $('.abo-pseudo-price')[(percent > 0) ? 'removeClass' : 'addClass']('d-none');
 
         $('.abo-percentage-container span.percent').html(me.numberFormat(percent, 2, ',', '.'));
         $('.delivery-price').html(me.formatPrice(discountPrice));

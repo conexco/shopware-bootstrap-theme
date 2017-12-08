@@ -144,7 +144,7 @@ $.overridePlugin('swAddressEditor', {
     _highlightErrors: function($modal, errors) {
         var fieldPrefix = $modal.find('[data-prefix]').attr('data-prefix') || 'address';
 
-        $modal.find('.address-editor-errors').removeClass('hidden');
+        $modal.find('.address-editor-errors').removeClass('d-none');
 
         $.each(errors, function(field) {
             $modal.find('[name="' + fieldPrefix + '[' + field + ']"]').addClass('has-error');
@@ -152,7 +152,7 @@ $.overridePlugin('swAddressEditor', {
     },
 
     _resetErrorMessage: function($modal) {
-        $modal.find('.address-editor-errors').addClass('hidden');
+        $modal.find('.address-editor-errors').addClass('d-none');
     },
 
     _disableSubmitButtons: function($modal) {

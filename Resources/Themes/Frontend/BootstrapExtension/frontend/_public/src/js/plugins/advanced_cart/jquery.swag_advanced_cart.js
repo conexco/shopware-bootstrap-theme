@@ -127,7 +127,7 @@ $.overridePlugin('swAdvancedCart', {
         extraParams.textField.val('');
 
         if (status.success == true) {
-            extraParams.contentCt.find('.hidden').removeClass('hidden');
+            extraParams.contentCt.find('.d-none').removeClass('d-none');
 
             // Article was added already
             if (status.type === 'readded') {
@@ -246,9 +246,9 @@ $.overridePlugin('swAdvancedCart', {
         $parent.remove();
 
         if (result.count <= 0) {
-            $cart.addClass('hidden');
-            $cartButton.addClass('hidden');
-            $cartButtonBottom.addClass('hidden');
+            $cart.addClass('d-none');
+            $cartButton.addClass('d-none');
+            $cartButtonBottom.addClass('d-none');
         }
 
         $.publish('plugin/swAdvancedCart/onAfterRemoveArticle', [me, extraParams.event]);

@@ -57,7 +57,7 @@ $.overridePlugin('swLastSeenProducts', {
             len = Math.min(opts.productLimit, products.length);
 
         if (len > 1) {
-            me.$el.removeClass('hidden');
+            me.$el.removeClass('d-none');
         }
 
         $.each(products, function(i, product) {

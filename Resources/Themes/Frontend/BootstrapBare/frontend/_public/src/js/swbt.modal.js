@@ -210,7 +210,7 @@
 
             // reset notify modal content
             $(me.opts.notifyModalClassSelector).on('show.bs.modal', function () {
-                $(me.opts.notifyModalFormSelector).removeClass('hidden');
+                $(me.opts.notifyModalFormSelector).removeClass('d-none');
                 $(me.opts.notifyModalSelector).html('');
             });
 
@@ -243,7 +243,7 @@
                 $alertContainer.html($(response).find(me.opts.articleNotificationSelector).html());
 
                 if ($alertContainer.find(me.opts.modalAlertSelector).length > 0) {
-                    me.$el.parents(me.opts.notifyModalIdSelector).find('form').addClass('hidden');
+                    me.$el.parents(me.opts.notifyModalIdSelector).find('form').addClass('d-none');
                 }
 
                 me.$el.loader('hide');

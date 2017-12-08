@@ -205,13 +205,13 @@ $.overridePlugin('swListingActions', {
      */
     updateNoResultContainer: function (totalCount) {
         if (totalCount > 0) {
-            if (!this.$noFilterResultContainer.hasClass('hidden')) {
-                this.$noFilterResultContainer.addClass('hidden');
+            if (!this.$noFilterResultContainer.hasClass('d-none')) {
+                this.$noFilterResultContainer.addClass('d-none');
             }
             return;
         }
-        if (this.$noFilterResultContainer.hasClass('hidden')) {
-            this.$noFilterResultContainer.removeClass('hidden');
+        if (this.$noFilterResultContainer.hasClass('d-none')) {
+            this.$noFilterResultContainer.removeClass('d-none');
         }
     }
 });

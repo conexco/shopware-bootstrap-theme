@@ -5,7 +5,7 @@
  */
 $.overridePlugin('swRegister', {
     defaults: {
-        hiddenClass: 'hidden',
+        hiddenClass: 'd-none',
         errorClass: 'has-error',
         formSelector: '.register-form',
         submitBtnSelector: '.register-submit, .address-form-submit',

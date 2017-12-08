@@ -6,7 +6,7 @@
 $.overridePlugin('swProductCompareAdd', {
     defaults: {
         compareMenuSelector: '.compare-show',
-        hiddenCls: 'hidden'
+        hiddenCls: 'd-none'
     },
     /**
      * onAddArticleCompare function for adding articles to

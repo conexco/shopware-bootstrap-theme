@@ -75,18 +75,18 @@ $.overridePlugin('swBundle', {
 
         // if smartphone hide bundle products and footer otherwise hide header and footer
         if ('xs' == StateManager.getCurrentState()) {
-            me.productsHeader.removeClass('hidden');
+            me.productsHeader.removeClass('d-none');
             me.productsContent.removeClass('mtm')
                 .addClass('mtm')
-                .addClass('hidden');
+                .addClass('d-none');
         } else {
-            me.productsHeader.addClass('hidden');
-            me.productsContent.addClass('mtm').removeClass('hidden');
-            me.productsFooter.addClass('hidden');
+            me.productsHeader.addClass('d-none');
+            me.productsContent.addClass('mtm').removeClass('d-none');
+            me.productsFooter.addClass('d-none');
         }
 
         // always hide footer, will be shown when needed
-        me.productsFooter.addClass('hidden');
+        me.productsFooter.addClass('d-none');
     },
 
     /**
@@ -120,17 +120,17 @@ $.overridePlugin('swBundle', {
         var me = this;
 
         if ($(event.currentTarget).hasClass('products-header')) {
-            me.productsHeader.addClass('hidden');
-            me.productsFooter.removeClass('hidden');
+            me.productsHeader.addClass('d-none');
+            me.productsFooter.removeClass('d-none');
         }
 
         if ($(event.currentTarget).hasClass('products-footer')) {
-            me.productsFooter.addClass('hidden');
-            me.productsHeader.removeClass('hidden');
+            me.productsFooter.addClass('d-none');
+            me.productsHeader.removeClass('d-none');
             $('body').scrollTop($(me.$el.find('.bundle-panel-header')).offset().top); // scroll to top in bundle when bundle get closed
         }
 
-        me.productsContent.toggleClass('hidden');
+        me.productsContent.toggleClass('d-none');
     },
 
     /**

@@ -67,7 +67,8 @@
 
             /* custom */
             'displayMode': 'modal',
-            'triggerElSelector': '[data-ajax-cart="true"]'
+            'triggerElSelector': '[data-ajax-cart="true"]',
+            'hiddenCls': 'd-none'
         },
 
         /**
@@ -141,12 +142,12 @@
                     if (me.opts.displayMode == 'offcanvas' && plugin) {  // show offcanvas cart
 
                         plugin.$offCanvas.html(result);
-                        plugin.$offCanvas.find('.alert, .alerts').removeClass('hidden');
+                        plugin.$offCanvas.find('.alert, .alerts').removeClass(me.opts.hiddenCls);
 
                         // event needs to be unsubscribed first or otherwise it would be subscribed multiple times
                         $.unsubscribe('plugin/swOffcanvasMenu/onCloseMenu.swAddArticle');
                         $.subscribe('plugin/swOffcanvasMenu/onCloseMenu.swAddArticle', function(event, plugin) {
-                            plugin.$offCanvas.find('.alert, .alerts').addClass('hidden');
+                            plugin.$offCanvas.find('.alert, .alerts').addClass(me.opts.hiddenCls);
                         });
 
                         $.unsubscribe('plugin/swOffcanvasMenu/onOpenMenu.swAddArticle');

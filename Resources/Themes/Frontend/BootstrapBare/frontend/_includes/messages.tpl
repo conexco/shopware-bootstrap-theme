@@ -61,7 +61,7 @@
 
 {* Messages container *}
 {block name="frontend_global_messages_container"}
-	<div class="alerts{if $isVisible === false} hidden{/if}">
+	<div class="alerts{if $isVisible === false} d-none{/if}">
 		{* Content column *}
 		{block name="frontend_global_messages_content"}
             <div class="alert alert-{if $type == 'error'}danger{else}{$type}{/if}">

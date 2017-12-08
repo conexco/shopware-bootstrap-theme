@@ -103,14 +103,14 @@ $.overridePlugin('swBonusSystem', {
             var result = data;
 
             if (result.success == true) {
-                headerPoints.removeClass('hidden');
+                headerPoints.removeClass('d-none');
                 if (result.data.bonus_articles == 1) {
-                    $('.sidebar-bonus-menu').removeClass('hidden');
+                    $('.sidebar-bonus-menu').removeClass('d-none');
                 }
                 $('.bonussystem-navigation').html(result.data.points);
                 $('.header-entry-points').html(result.data.points);
                 $('.bonus-header-points').html(result.data.points);
-                $('.bonussystem-sidebar').removeClass('hidden');
+                $('.bonussystem-sidebar').removeClass('d-none');
             }
         });
     },
