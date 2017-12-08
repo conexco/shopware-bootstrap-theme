@@ -55,8 +55,8 @@ class Theme extends \Shopware\Components\Theme
             'jquery.js',
             'popper.js',
             'bootstrap.js',
-            'jquery.ui.widget-factory.js',
-            'jquery.selectBoxIt.js',
+            // 'jquery.ui.widget-factory.js',
+            // 'jquery.selectBoxIt.js',
             'picturefill.js',
             'slick.js',
             'imagesloaded.js',
@@ -95,7 +95,6 @@ class Theme extends \Shopware\Components\Theme
         ];
 
         $sourceJavascripts = [
-            "jquery.ui.datepicker.js",
             "swbt.helper.js",
             "swbt.overlay.js",
             "swbt.loader.js",

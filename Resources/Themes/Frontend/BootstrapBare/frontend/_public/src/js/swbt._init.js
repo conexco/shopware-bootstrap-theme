@@ -184,7 +184,7 @@
 
         $('[data-fixed-navbar="true"]').clingify({breakpoint: swfDefaultBreakpointSM || 767});
 
-        $('body').swSelectboxReplacement();
+        // $('body').swSelectboxReplacement();
 
         $.subscribe('plugin/swAddArticle/onAddArticle', cartRefresh);
 

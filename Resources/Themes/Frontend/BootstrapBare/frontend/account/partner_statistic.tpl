@@ -6,31 +6,6 @@
         'timeUnit': '{s name='PartnerStatisticLabelTimeUnit'}{/s}',
         'netAmountLabel': '{s name='PartnerStatisticLabelNetTurnover'}{/s}'
     {rdelim};
-
-    jQuery.datePickerRegional = {ldelim}
-        closeText: "{s name='PartnerDatePickerCloseText'}{/s}",
-        prevText: "{s name='PartnerDatePickerPrevText'}{/s}",
-        nextText: "{s name='PartnerDatePickerNextText'}{/s}",
-        currentText: "{s name='PartnerDatePickerCurrentText'}{/s}",
-        monthNames: [{s name='PartnerDatePickerMonthNames'}{/s}],
-        monthNamesShort: [{s name='PartnerDatePickerMonthShortNames'}{/s}],
-        dayNames: [{s name='PartnerDatePickerDayNames'}{/s}],
-        dayNamesShort: [{s name='PartnerDatePickerDayShortNames'}{/s}],
-        dayNamesMin: [{s name='PartnerDatePickerDayMinNames'}{/s}],
-        weekHeader: "{s name='PartnerDatePickerWeekHeader'}{/s}",
-        dateFormat: "{s name='PartnerDatePickerDateFormat'}{/s}",
-        firstDay: 1,
-        isRTL: false,
-        showMonthAfterYear: false,
-        yearSuffix: "",
-        showOn: "button",
-        buttonText:"",
-        onSelect: function (dateText, inst) {ldelim}
-            $(this).parents('form').submit();
-        {rdelim}
-    {rdelim};
-
-    $('*[data-datepicker="true"]').datepicker(jQuery.datePickerRegional);
 {/block}
 
 {block name="frontend_index_header_javascript_jquery_lib" append}
@@ -62,7 +37,7 @@
 
                     <div class="col-md-3">
                         <div class="input-group">
-                            <input id="datePickerFrom" data-datepicker="true" class="datePicker form-control" name="fromDate" type="text" value="{$partnerStatisticFromDate}"/>
+                            <input id="datePickerFrom" type="date" class="datePicker form-control" name="fromDate" value="{$partnerStatisticFromDate}"/>
                         </div>
                     </div>
                 </div>
@@ -71,7 +46,7 @@
 
                     <div class="col-md-3">
                         <div class="input-group">
-                            <input id="datePickerTo" data-datepicker="true" class="datePicker form-control" name="toDate" type="text" value="{$partnerStatisticToDate}"/>
+                            <input id="datePickerTo" type="date" class="datePicker form-control" name="toDate" value="{$partnerStatisticToDate}"/>
                         </div>
                     </div>
                 </div>
