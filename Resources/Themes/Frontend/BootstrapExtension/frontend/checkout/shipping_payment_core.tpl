@@ -2,5 +2,5 @@
 
 {block name="frontend_checkout_footer"}
     {$smarty.block.parent}
-    <div class="pp-approval-url hidden">{$PaypalPlusApprovalUrl}</div>
+    <div class="pp-approval-url d-none">{$PaypalPlusApprovalUrl}</div>
 {/block}

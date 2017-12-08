@@ -10,7 +10,7 @@
 {* price separation popup content *}
 {block name='abo_commerce_price_separation_popup_inner'}
     {block name='abo_commerce_price_separation_popup_content'}
-        <div class="abo-price-separation-popup hidden">
+        <div class="abo-price-separation-popup d-none">
             <table>
                 {block name='abo_commerce_price_separation_popup_table_head'}
                     <thead>

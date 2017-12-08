@@ -1,6 +1,6 @@
 {block name="widgets_index_actions_bonus"}
     {if $sUserLoggedIn}
-        <li class="dropdown top-bar-bonuspoints hidden sw5-plugin" data-points-url="{url module=widgets controller=SwagBonusSystem action=headerPoints}" role="menuitem">
+        <li class="dropdown top-bar-bonuspoints d-none sw5-plugin" data-points-url="{url module=widgets controller=SwagBonusSystem action=headerPoints}" role="menuitem">
             {block name="widgets_index_actions_bonus_container"}
                 <a class="dropdown-toggle bonuspoints-dropdown-btn" href="#" data-toggle="dropdown">
                     {block name="widgets_index_actions_bonus_container_orb"}

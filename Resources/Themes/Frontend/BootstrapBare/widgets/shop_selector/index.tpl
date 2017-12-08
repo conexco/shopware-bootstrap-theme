@@ -6,7 +6,7 @@
         {foreach from=$subShops item=subshop}
             <li>
                 <label>
-                    <input class="hidden" type="checkbox" name="__shop" value="{$subshop.id}" data-auto-submit="true">
+                    <input class="d-none" type="checkbox" name="__shop" value="{$subshop.id}" data-auto-submit="true">
                     <span>
                         {if $subshop.customTitle}
                             {$subshop.customTitle}
@@ -32,7 +32,7 @@
         {foreach from=$languageShops item=languageShop}
             <li>
                 <label>
-                    <input class="hidden" type="checkbox" name="__shop" value="{$languageShop.id}" data-auto-submit="true">
+                    <input class="d-none" type="checkbox" name="__shop" value="{$languageShop.id}" data-auto-submit="true">
                     <span{if $shop->getLocale()->getLanguage() === $languageShop.customTitle ||
                              $shop->getLocale()->getLanguage() === $languageShop.language ||
                              $shop->getLocale()->getLanguage() === $languageShop.name} class="text-medium"{/if}>

@@ -148,7 +148,7 @@
                                 {/block}
 
                                 <hr class="mtm">
-                                <div class="article-table-add-cart sw5-plugin text-right{if $wishList.items|count < 1} hidden{/if}">
+                                <div class="article-table-add-cart sw5-plugin text-right{if $wishList.items|count < 1} d-none{/if}">
                                     <div class="row">
                                         <div class="col-12 col-sm-offset-6 col-sm-6 col-lg-offset-8 col-lg-4">
                                             {include file="frontend/wishlist/restore_button.tpl"}
@@ -162,7 +162,7 @@
                         {if $wishList.items|count > 0}
                             {include file="frontend/wishlist/article_table.tpl"}
                         {else}
-                            <div class="cart-hide-container hidden">
+                            <div class="cart-hide-container d-none">
                                 {include file="frontend/wishlist/article_table.tpl"}
                             </div>
                         {/if}

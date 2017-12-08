@@ -37,7 +37,7 @@
 
                         {block name='frontend_register_payment_fieldset_template'}
                             {if "frontend/plugins/payment/`$payment_mean.template`"|template_exists}
-                                <div class="payment-content sw5-plugin{if $payment_mean.id != $form_data.payment} hidden{/if}">
+                                <div class="payment-content sw5-plugin{if $payment_mean.id != $form_data.payment} d-none{/if}">
                                     {include file="frontend/plugins/payment/`$payment_mean.template`" checked = ($payment_mean.id == $form_data.payment)}
                                 </div>
                             {/if}

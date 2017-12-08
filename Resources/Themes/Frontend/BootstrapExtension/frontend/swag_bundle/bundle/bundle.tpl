@@ -107,17 +107,17 @@
 					{block name='content_products'}
 						<div class="content-products-container mtm">
 							{block name='products_header'}
-								<div class="products-header btn btn-outline-secondary hidden sw5-plugin" data-bundleId="{$bundle.id}">{if $bundle.type == 2}{s namespace='frontend/detail/bundle/box_related' name='bundleHeaderActionShowBundleConfigurable'}Bundle anzeigen / konfigurieren{/s}{else}{s namespace='frontend/detail/bundle/box_related' name='bundleHeaderActionShow'}Bundle anzeigen{/s}{/if}</div>
+								<div class="products-header btn btn-outline-secondary d-none sw5-plugin" data-bundleId="{$bundle.id}">{if $bundle.type == 2}{s namespace='frontend/detail/bundle/box_related' name='bundleHeaderActionShowBundleConfigurable'}Bundle anzeigen / konfigurieren{/s}{else}{s namespace='frontend/detail/bundle/box_related' name='bundleHeaderActionShow'}Bundle anzeigen{/s}{/if}</div>
 							{/block}
 
 							{block name='products_content'}
-								<div class="products-content hidden sw5-plugin">
+								<div class="products-content d-none sw5-plugin">
 									{include file='frontend/swag_bundle/bundle/container/bundle_products.tpl'}
 								</div>
 							{/block}
 
 							{block name='products_footer'}
-								<div class="products-footer btn btn-outline-secondary hidden sw5-plugin" data-bundleId="{$bundle.id}">{s namespace='frontend/detail/bundle/box_related' name='bundleFooterActionShow'}Bundle schlie&szlig;en{/s}</div>
+								<div class="products-footer btn btn-outline-secondary d-none sw5-plugin" data-bundleId="{$bundle.id}">{s namespace='frontend/detail/bundle/box_related' name='bundleFooterActionShow'}Bundle schlie&szlig;en{/s}</div>
 							{/block}
 						</div>
 					{/block}

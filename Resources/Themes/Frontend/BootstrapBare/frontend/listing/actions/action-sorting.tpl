@@ -3,7 +3,7 @@
 {$hideSortings = $sCategoryContent.hide_sortings || $sortings|count == 0}
 
 <div class="col-sm-4 mbs">
-    <form class="action-sort{if $hideSortings} hidden{/if}" method="get" data-action-form="true">
+    <form class="action-sort{if $hideSortings} d-none{/if}" method="get" data-action-form="true">
 
         {* Necessary to reset the page to the first one *}
         <input type="hidden" name="{$shortParameters.sPage}" value="1">

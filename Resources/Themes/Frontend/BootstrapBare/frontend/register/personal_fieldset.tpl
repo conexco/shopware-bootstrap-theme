@@ -35,7 +35,7 @@
                             </div>
                         {else}
                             {* Always register as a private customer*}
-                            <div class="hidden">
+                            <div class="d-none">
                                 <select id="register_personal_customer_type" name="register[personal][customer_type]">
                                     <option value="private" selected="selected">{s name='RegisterPersonalLabelPrivate'}{/s}</option>
                                 </select>

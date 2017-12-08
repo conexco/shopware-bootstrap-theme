@@ -14,7 +14,7 @@
 
                 <div class="list-group">
                     {block name="frontend_bonus_sidebar_points"}
-                        <div class="list-group-item sidebar-bonus-menu hidden sw5-plugin">
+                        <div class="list-group-item sidebar-bonus-menu d-none sw5-plugin">
                             <a href="{url controller=BonusSystem action=points forceSecure}" title="{"{s namespace='widgets/index/shop_menu' name='DisplayUserPointAccount'}Ihr Punktekonto{/s}"|escape}" rel="nofollow">
                                 {s namespace='widgets/index/shop_menu' name="DisplayUserPointAccount"}Ihr Punktekonto{/s}
                             </a>

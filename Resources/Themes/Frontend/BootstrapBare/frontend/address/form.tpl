@@ -285,7 +285,7 @@
                             {if $country.states}
                                 <div data-country-id="{$country.id}"
                                      data-address-type="address"
-                                     class="form-group address-state-selection sw5-plugin {if $error_flags.state} has-error{/if}{if $country.id != $formData.country.id} hidden{/if}">
+                                     class="form-group address-state-selection sw5-plugin {if $error_flags.state} has-error{/if}{if $country.id != $formData.country.id} d-none{/if}">
 
                                     <label for="country_{$country.id}_states" class="{$FormLabelSize} control-label">{s name='RegisterBillingLabelState' namespace="frontend/register/billing_fieldset"}{/s}{if $country.force_state_in_registration}{s name="RequiredField" namespace="frontend/register/index"}{/s}{/if}</label>
 

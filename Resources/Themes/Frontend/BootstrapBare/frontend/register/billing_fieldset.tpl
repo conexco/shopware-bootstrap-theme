@@ -179,7 +179,7 @@
                     <div class="country-area-state-selection">
                         {foreach $country_list as $country}
                             {if $country.states}
-                                <div data-country-id="{$country.id}" data-address-type="billing" class="form-group selection{if isset($error_flags.state)} has-error{/if}{if $country.id != $form_data.country} hidden{/if} register-state-selection sw5-plugin">
+                                <div data-country-id="{$country.id}" data-address-type="billing" class="form-group selection{if isset($error_flags.state)} has-error{/if}{if $country.id != $form_data.country} d-none{/if} register-state-selection sw5-plugin">
                                     <label for="country_{$country.id}_states" class="{$FormLabelSize} control-label">{s name='RegisterBillingLabelState'}Bundesstaat{/s}{if $country.force_state_in_registration}{s name="RequiredField" namespace="frontend/register/index"}{/s}{/if}:</label>
 
                                     <div class="{$FormInputSize}">

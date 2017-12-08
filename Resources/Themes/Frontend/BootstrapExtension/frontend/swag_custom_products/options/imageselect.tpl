@@ -14,7 +14,7 @@
 
                     {block name="frontend_detail_swag_custom_products_options_imageselection_hidden_input"}
                         <input type="{$type}" id="custom-products-color-selection-{$key}-{$value@index}"
-                               class="hidden"
+                               class="d-none"
                                name="custom-option-id--{$option['id']}[]"
                                value="{$value['id']}"
                                data-field="true"

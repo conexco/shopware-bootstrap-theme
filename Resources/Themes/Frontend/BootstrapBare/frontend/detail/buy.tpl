@@ -54,14 +54,14 @@
                 {if $sArticle.isAvailable}
                     {block name='frontend_detail_buy_laststock'}
                         {if $sArticle.laststock}
-                            <div id="detailBuyInfoNotAvailable"{if $sArticle.instock > 0} class="hidden"{/if}>
+                            <div id="detailBuyInfoNotAvailable"{if $sArticle.instock > 0} class="d-none"{/if}>
                                 <p>{include file="frontend/_includes/messages.tpl" type="danger" content="{s name='DetailBuyInfoNotAvailable'}{/s}"}</p>
                             </div>
                         {/if}
                     {/block}
                     {block name="frontend_detail_buy_button_container"}
                         {if !$sArticle.laststock || $sArticle.instock > 0}
-                            <div id="detailCartButton" {if $NotifyHideBasket && $sArticle.notification && $sArticle.instock <= 0}class="hidden"{/if}>
+                            <div id="detailCartButton"{if $NotifyHideBasket && $sArticle.notification && $sArticle.instock <= 0} class="d-none"{/if}>
                                 {* Quantity selection *}
                                 {block name='frontend_detail_buy_quantity'}
                                     {$maxQuantity=$sArticle.maxpurchase+1}

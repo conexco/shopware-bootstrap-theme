@@ -211,7 +211,7 @@
                     <div class="country-area-state-selection2">
                         {foreach $country_list as $country}
                             {if $country.states}
-                                <div class="form-group selection{if isset($error_flags.state)} has-error{/if}{if $country.id != $form_data.country} hidden{/if} register-state-selection sw5-plugin">
+                                <div class="form-group selection{if isset($error_flags.state)} has-error{/if}{if $country.id != $form_data.country} d-none{/if} register-state-selection sw5-plugin">
                                     <label for="country_{$country.id}_states" class="{$FormLabelSize} control-label">{s name='RegisterShippingLabelState'}Bundesstaat{/s}{if $country.force_state_in_registration}{s name="RequiredField" namespace="frontend/register/index"}{/s}{/if}:</label>
 
                                     <div class="{$FormInputSize}">

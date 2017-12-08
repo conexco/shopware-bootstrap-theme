@@ -1,6 +1,6 @@
 {* delivery quantity and total deliveries *}
 {block name='frontend_abo_commerce_delivery_total_text'}
-	<div class="abo-info-wrapper sw5-plugin mtl{if !$aboCommerce.isExclusive} hidden{/if}">
+	<div class="abo-info-wrapper sw5-plugin mtl{if !$aboCommerce.isExclusive} d-none{/if}">
 		{block name="frontend_abo_commerce_delivery_total_text_amount"}
 			<strong>{s namespace="frontend/detail/abo_commerce_detail" name="aboCommerceAmountInfoEntireAmount"}Gesamte Liefermenge:{/s}</strong>
 		{/block}

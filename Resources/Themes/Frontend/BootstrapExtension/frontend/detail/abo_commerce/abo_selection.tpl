@@ -28,7 +28,7 @@
 {block name='abo_commerce_abo_selection_discount'}
 	{if $aboCommerce.hasDiscount}
         <div class="col-6">
-            <div class="abo-pseudo-price mts mbm text-right sw5-plugin{if $aboPrice.discountPercentage == 0} hidden{/if}">
+            <div class="abo-pseudo-price mts mbm text-right sw5-plugin{if $aboPrice.discountPercentage == 0} d-none{/if}">
                 {block name="abo_commerce_abo_selection_discount_reduced"}
                     <span class="price-pseudo">
                         {s name="reducedPrice"}{/s} <span>{$sArticle.price|currency} {s name="Star"}{/s}</span>

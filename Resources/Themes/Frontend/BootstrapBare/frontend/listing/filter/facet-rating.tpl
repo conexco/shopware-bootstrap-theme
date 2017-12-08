@@ -22,7 +22,7 @@
                                 {foreach $facet->getValues() as $value}
                                     {block name="frontend_listing_filter_facet_rating_container"}
                                         <label for="rating_{$value->getId()}" class="rating-star--outer-container sw5-plugin{if $value->isActive()} is--active{/if}">
-                                            <input class="hidden" type="checkbox" name="rating" id="rating_{$value->getId()}" value="{$value->getId()}" {if $value->isActive()}checked="checked" {/if}/>
+                                            <input class="d-none" type="checkbox" name="rating" id="rating_{$value->getId()}" value="{$value->getId()}" {if $value->isActive()}checked="checked" {/if}/>
 
                                             {for $i = 1 to $value->getId()}
                                                 <i class="fa fa-star"></i>

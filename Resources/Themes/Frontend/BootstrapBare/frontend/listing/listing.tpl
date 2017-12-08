@@ -49,7 +49,7 @@
             {$listingCssClass = "{$listingCssClass} has-sidebar-filter"}
         {/if}
 
-        <div class="{$listingCssClass} sw5-plugin{if !$showListing} hidden{/if}">
+        <div class="{$listingCssClass} sw5-plugin{if !$showListing} d-none{/if}">
             {* Sorting and changing layout *}
             {block name="frontend_listing_top_actions"}
                 {include file='frontend/listing/listing_actions.tpl'}

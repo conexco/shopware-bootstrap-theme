@@ -29,7 +29,7 @@
                 {* Method Logo *}
                 {block name='frontend_checkout_payment_fieldset_template'}
                     {if "frontend/plugins/payment/`$payment_mean.template`"|template_exists}
-                        <div class="method-bankdata{if $payment_mean.id != $form_data.payment} hidden{/if} form-horizontal">
+                        <div class="method-bankdata{if $payment_mean.id != $form_data.payment} d-none{/if} form-horizontal">
                             {include file="frontend/plugins/payment/`$payment_mean.template`" form_data=$sFormData error_flags=$sErrorFlag payment_means=$sPayments}
                         </div>
                     {/if}

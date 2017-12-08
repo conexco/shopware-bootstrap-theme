@@ -5,7 +5,7 @@
 
     {block name='frontend_listing_actions_filter_container'}
         <div class="filter-container">
-            <span class="sidebar-offcanvas-close hidden"
+            <span class="sidebar-offcanvas-close d-none"
                   data-show-products-text="{s name="ListingActionsCloseFilterShowProducts" namespace="frontend/listing/listing_actions"}{/s}">
                 {s name="OffcanvasCloseMenuLink"}{/s}
             </span>

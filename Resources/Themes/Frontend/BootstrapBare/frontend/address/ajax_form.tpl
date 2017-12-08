@@ -3,7 +3,7 @@
 
 {* Error messages *}
 {block name="frontend_address_error_messages"}
-    <div class="address-editor-errors hidden">
+    <div class="address-editor-errors d-none">
         {include file="frontend/_includes/messages.tpl" type="error" content="{s namespace="frontend/account/internalMessages" name="ErrorFillIn"}{/s}"}
     </div>
 {/block}

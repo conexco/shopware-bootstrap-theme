@@ -8,7 +8,7 @@
 
                     {block name="frontend_detail_swag_custom_products_options_colorselection_hidden_input"}
                         <input type="radio" id="custom-products-color-selection-{$key}-{$value@index}"
-                               class="hidden"
+                               class="d-none"
                                name="custom-option-id--{$option['id']}"
                                value="{$value['id']}"
                             {if $value['is_default_value']}checked="checked" data-default-value="{$value['id']}"{/if}

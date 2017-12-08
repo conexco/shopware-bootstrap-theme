@@ -184,7 +184,7 @@
                                             {block name="frontend_index_footer_last_articles_hr"}
                                                 <hr class="hr-brand hr-large">
                                             {/block}
-                                            <div class="last-seen-products hidden" data-last-seen-products="true">
+                                            <div class="last-seen-products d-none" data-last-seen-products="true">
                                                 <div class="last-seen-products-title page-header">
                                                     <h3>
                                                         {s namespace="frontend/plugins/index/viewlast" name='WidgetsRecentlyViewedHeadline'}{/s}

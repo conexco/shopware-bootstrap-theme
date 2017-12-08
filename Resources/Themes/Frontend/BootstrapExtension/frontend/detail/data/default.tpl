@@ -63,7 +63,7 @@
 
 				{* delivery interval *}
 				{block name='abo_commerce_abo_selection_delivery_interval'}
-					<div class="abo-delivery-interval-container sw5-plugin{if !$aboCommerce.isExclusive} hidden{/if}">
+					<div class="abo-delivery-interval-container sw5-plugin{if !$aboCommerce.isExclusive} d-none{/if}">
 						{block name='abo_commerce_abo_selection_delivery_interval'}
 							{include file='frontend/detail/abo_commerce/abo_delivery_interval.tpl'}
 						{/block}

@@ -24,7 +24,7 @@
         {block name='frontend_checkout_shipping_costs_state'}
             {foreach $sCountryList as $country}
                 {if $country.states}
-                    <div class="form-group {if $country.id != $sCountry.id}hidden{/if}">
+                    <div class="form-group{if $country.id != $sCountry.id} d-none{/if}">
                         {block name='frontend_checkout_shipping_costs_state_label'}
                             <label for="country_{$country.id}_states" class="{$FormLabelSize} control-label">{s name='RegisterBillingLabelState'}{/s}</label>
                         {/block}

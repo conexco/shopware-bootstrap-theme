@@ -1,7 +1,7 @@
 {namespace name="frontend/plugins/abo_commerce"}
 
 {block name='frontend_abo_commerce_detail_data_interval'}
-	<span class="abo-commerce-delivery-interval-unit sw5-plugin hidden">
+	<span class="abo-commerce-delivery-interval-unit sw5-plugin d-none">
 		{block name="frontend_abo_commerce_detail_data_interval_value"}
 			{if $aboCommerce.deliveryIntervalUnit == "weeks"}
 				<span>
@@ -17,7 +17,7 @@
 {/block}
 
 {block name='frontend_abo_abo_commerce_detail_data_duration'}
-	<span class="abo-commerce-duration-unit hidden">
+	<span class="abo-commerce-duration-unit d-none">
 		{if $aboCommerce.durationUnit == "weeks"}
 			{s name="AboCommerceDurationSelectWeeks"}Woche(n){/s}
 		{else}
@@ -27,13 +27,13 @@
 {/block}
 
 {block name='frontend_abo_abo_commerce_detail_data_abo_data'}
-	<div class="abo-commerce-data sw5-plugin hidden">{$aboCommerce|json_encode}</div>
+	<div class="abo-commerce-data sw5-plugin d-none">{$aboCommerce|json_encode}</div>
 {/block}
 
 {block name='frontend_abo_abo_commerce_detail_data_block_price_data'}
-	<div class="abo-block-prices-data hidden">{$sArticle.sBlockPrices|json_encode}</div>
+	<div class="abo-block-prices-data d-none">{$sArticle.sBlockPrices|json_encode}</div>
 {/block}
 
 {block name='frontend_abo_abo_commerce_detail_data_price_data'}
-	<div class="abo-price-template-data sw5-plugin hidden">{'0'|currency}&nbsp;{s name="Star" namespace="frontend/listing/box_article"}{/s}</div>
+	<div class="abo-price-template-data sw5-plugin d-none">{'0'|currency}&nbsp;{s name="Star" namespace="frontend/listing/box_article"}{/s}</div>
 {/block}

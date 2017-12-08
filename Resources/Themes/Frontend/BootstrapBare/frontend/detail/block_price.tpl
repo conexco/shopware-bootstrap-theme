@@ -1,5 +1,5 @@
 {block name='frontend_detail_data_block_prices_start'}
-    <div class="block-prices {$sArticle.ordernumber}{if $hidden && !$sArticle.selected} hidden{/if}">
+    <div class="block-prices {$sArticle.ordernumber}{if $hidden && !$sArticle.selected} d-none{/if}">
         {block name='frontend_detail_data_block_prices_headline'}
             <legend>{s namespace="frontend/detail/data" name="DetailDataHeaderBlockprices"}{/s}</legend>
         {/block}
