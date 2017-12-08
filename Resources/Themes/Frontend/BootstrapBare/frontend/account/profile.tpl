@@ -114,7 +114,7 @@
                                     {/block}
 
                                     <div class="{$FormInputSize}">
-                                        <div class="row compressed-cols">
+                                        <div class="row">
                                             {block name="frontend_account_profile_profile_input_birthday_day"}
                                                 <div class="col-3">
                                                     <div class="profile-birthday">

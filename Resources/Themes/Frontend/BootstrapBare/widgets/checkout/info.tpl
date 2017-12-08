@@ -30,7 +30,7 @@
                title="{"{if $userInfo}{s name="AccountGreetingBefore" namespace="frontend/account/sidebar"}{/s}{$userInfo['firstname']}{s name="AccountGreetingAfter" namespace="frontend/account/sidebar"}{/s} - {/if}{s namespace='frontend/index/checkout_actions' name='IndexLinkAccount'}{/s}"|escape}">
                 {if $userInfo}
                     <span class="account-display navigation-personalized">
-                        <span class="account-display-greeting">
+                        <span class="account-display-greeting small">
                             {s name="AccountGreetingBefore" namespace="frontend/account/sidebar"}{/s}
                             {$userInfo['firstname']}
                             {s name="AccountGreetingAfter" namespace="frontend/account/sidebar"}{/s}

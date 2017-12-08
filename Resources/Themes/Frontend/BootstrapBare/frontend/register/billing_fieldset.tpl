@@ -128,7 +128,7 @@
                         </label>
 
                         <div class="{$FormInputSize}">
-                            <div class="row compressed-cols">
+                            <div class="row">
                                 <div class="col-4{if !{config name=showZipBeforeCity}} col-push-8{/if}">
                                     <input autocomplete="section-billing billing postal-code"
                                            name="register[billing][zipcode]"

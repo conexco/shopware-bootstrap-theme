@@ -246,7 +246,7 @@
                     <div class="form-group">
                         <label for="register_personal_birthdate" class="{$FormLabelSize} control-label">{s name='RegisterLabelBirthday'}{/s}{if {config name=requireBirthdayField}}{s name="RequiredField" namespace="frontend/register/index"}{/s}{/if}:</label>
                         <div class="{$FormInputSize}">
-                            <div class="row compressed-cols">
+                            <div class="row">
                                 <div class="col-3">
                                     <select id="register_personal_birthdate" name="register[personal][birthday][day]" class="form-control{if {config name=requireBirthdayField}} is-required{/if}" {if {config name=requireBirthdayField}} required="required" aria-required="true"{/if}>
                                         <option value=""{if {config name=requireBirthdayField}} disabled="disabled"{/if}>{s name='RegisterBirthdaySelectDay'}--{/s}</option>

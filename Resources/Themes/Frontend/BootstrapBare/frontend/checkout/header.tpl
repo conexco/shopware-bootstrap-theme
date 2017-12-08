@@ -2,14 +2,14 @@
 
 	{* Hide top bar navigation *}
 	{block name='frontend_index_top_bar_container'}{/block}
-	<div class="container container-hd-height header-mini-border">
+	<div class="container header-mini-border">
 		{* Logo container *}
 		{block name='frontend_index_logo_container'}
 			<div class="row row-hd-height">
 
 				{* Main shop logo *}
 				{block name='frontend_index_logo'}
-					<div class="col-12 col-sm-3 col-lg-2 col-sm-height col-middle">
+					<div class="col-12 col-sm-3 col-lg-2">
 						<a href="{url controller='index'}" title="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}">
 	                        <img src="{link file=$theme.desktopLogo}" alt="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}" class="img-fluid d-none d-md-block"/>
 	                        <img src="{link file=$theme.mobileLogo}" alt="{"{config name=shopName}"|escapeHtml} - {"{s name='IndexLinkDefault'}{/s}"|escape}" class="img-fluid d-md-none mx-auto mbm"/>
@@ -17,7 +17,7 @@
 					</div>
 				{/block}
 
-				<div class="col-12 col-sm-9 col-lg-10 col-sm-height col-middle">
+				<div class="col-12 col-sm-9 col-lg-10">
 					<div class="row">
 						<div class="col-sm-8 col-md-offset-2 col-md-6 col-lg-offset-3 d-none d-md-block">
 							{* Support Info *}

@@ -226,7 +226,7 @@
                   <label for="zipcode" class="{$FormLabelSize} control-label">{s name='RegisterBillingPlaceholderZipcode' namespace='frontend/register/billing_fieldset'}{/s}{s name='RegisterBillingPlaceholderCityZipcodeDivider' namespace='frontend/register/billing_fieldset'}{/s}{s name='RegisterBillingPlaceholderCity' namespace='frontend/register/billing_fieldset'}{/s}{s name="RequiredField" namespace="frontend/register/index"}{/s}</label>
 
                   <div class="{$FormInputSize}">
-                      <div class="row compressed-cols">
+                      <div class="row">
                           <div class="col-4{if !{config name=showZipBeforeCity}} col-push-8{/if}">
                               <input autocomplete="section-billing billing postal-code"
                                      name="{$inputPrefix}[zipcode]"
