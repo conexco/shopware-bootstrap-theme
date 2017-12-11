@@ -1,58 +1,55 @@
 {namespace name="frontend/index/menu_left"}
 
 {* Static sites *}
-{if $sMenu.gLeft}
-    {block name="frontend_index_left_menu_container"}
+{block name="frontend_index_left_menu_container_function"}
+    {* TODO: find mobile solution *}
+    {function name=customPages level=0}
         {block name='frontend_index_left_menu_inner'}
             {block name='frontend_index_left_menu_before'}{/block}
+            
             {block name='frontend_index_left_menu_content'}
-                <div class="panel panel-default d-none d-md-block">
-                    {block name='frontend_index_left_menu_headline'}
-                        <div class="panel-heading">{s name="MenuLeftHeading"}Informationen{/s}</div>
+                <ul class="list-group list-group-flush">
+                    {block name='frontend_index_left_menu_entries'}
+                        {foreach $customPages as $page}
+                            {block name='frontend_index_left_menu_entry'}
+                                <a href="{if $page.link}{$page.link}{else}{url controller='custom' sCustom=$page.id title=$page.description}{/if}"
+                                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center{if $page.active}{if !$level} active{else} text-primary{/if}{/if}"
+                                   title="{$page.description|escape}"
+                                   data-categoryId="{$page.id}"
+                                   {if $page.target}target="{$page.target}"{/if}>
+                                    
+                                    {$padding = $level + 1}
+                                    <span {if $level != 0}class="pl-{$padding}"{/if}>{$page.description}</span>
+
+                                    {if $page.childrenCount}
+                                        <i class="fa fa-angle-{if $page.subPages}down{else}right{/if} fa-lg"></i>
+                                    {/if}
+                                </a>
+
+                                {if $page.active && $page.subPages}
+                                    {call name=customPages customPages=$page.subPages level=$level+1}
+                                {/if}
+                            {/block}
+                        {/foreach}
                     {/block}
-                    <ul class="list-group">
-                        {block name='frontend_index_left_menu_entries'}
-                            {foreach from=$sMenu.gLeft item=item}
-                                {block name='frontend_index_left_menu_entry'}
-                                    <li class="list-group-item">
-                                        {if $item.active}<strong>{/if}<a href="{if $item.link}{$item.link}{else}{url controller=custom sCustom=$item.id title=$item.description}{/if}" title="{$item.description}" {if $item.target}target="{$item.target}"{/if}>
-                                                {$item.description}
-                                            </a> {if $item.active}</strong>{/if}
-                                        {if $item.active && $item.subPages}
-                                            <ul class="list-unstyled">
-                                                {foreach $item.subPages as $subPage}
-                                                    <li><a href="{url controller=custom sCustom=$subPage.id}" title="{$subPage.description}"{if $subPage.active} class="active"{/if}>
-                                                            <small>{$subPage.description}</small>
-                                                        </a></li>
-                                                {/foreach}
-                                            </ul>
-                                        {/if}
-                                    </li>
-                                {/block}
-                            {/foreach}
-                        {/block}
-                    </ul>
+                </ul>
+            {/block}
+            
+            {block name='frontend_index_left_menu_after'}{/block}
+        {/block}
+    {/function}    
+{/block}
+
+{if $sMenu.gLeft}
+    {block name="frontend_index_left_menu_container"}
+        <div class="shop-sites card d-none d-md-block">
+            {block name='frontend_index_left_menu_headline'}
+                <div class="card-header">
+                    {s name="MenuLeftHeadingInformation"}{/s}
                 </div>
             {/block}
-            {block name='frontend_index_left_menu_after'}{/block}
-            {block name='frontend_index_left_menu_small'}
-                {if $Controller != 'listing'}
-                    <div class="dropdown text-right mbl d-md-none">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="leftMenuGoTo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            {s name="LeftMenuGoto"}Gehe zu{/s}
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="leftMenuGoTo">
-                            {foreach from=$sMenu.gLeft item=item}
-                                <li {if $item.active}class="active"{/if}><a href="{if $item.link}{$item.link}{else}{url controller='custom' sCustom=$item.id title=$item.description}{/if}" title="{$item.description|escape}" {if $item.target}target="{$item.target}"{/if}>{$item.description}</a></li>
-                            {/foreach}
-                        </ul>
-                    </div>
-                {/if}
-            {/block}
-        {/block}
+
+            {call name=customPages customPages=$sMenu.gLeft}
+        </div>
     {/block}
 {/if}
-
-
-

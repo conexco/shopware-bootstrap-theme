@@ -11,8 +11,9 @@
                        data-categoryId="{$category.id}"
                        title="{$category.description|escape}"
                        {if $category.external && $category.externalTarget}target="{$category.externalTarget}"{/if}>
-                        
-                        <span class="pl-{$level}">{$category.description}</span>
+
+                        {$padding = $level + 1}
+                        <span {if $level != 0}class="pl-{$padding}"{/if}>{$category.description}</span>
                         
                         {if $category.childrenCount}
                             <i class="fa fa-angle-{if $category.subcategories}down{else}right{/if} fa-lg"></i>
@@ -35,9 +36,9 @@
 {block name='frontend_index_left_categories_content'}
     <div id="categoriesLeft" class="d-none d-md-block mb-3">
         <div class="card">
-            <h4 class="card-header">
+            <div class="card-header">
                 {s name='CategoriesLeftHeading'}Kategorien{/s}
-            </h4>
+            </div>
 
             {if $sCategories}
                 {call name=categories categories=$sCategories}
