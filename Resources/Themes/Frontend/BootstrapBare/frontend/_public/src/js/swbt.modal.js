@@ -5,7 +5,7 @@
 
     $.plugin('imgModal', {
         defaults: {
-            responsiveImgClass: 'img-responsive img-center',
+            responsiveImgClass: 'img-fluid mx-auto d-block',
             imgModalSelector: 'img-modal',
             imgModalGallerySelector: 'img-modal-gallery',
             detailGallery: '#gallery',

@@ -181,10 +181,7 @@
                                 {if $sLastArticlesShow}
                                     {block name="frontend_index_footer_last_articles_container"}
                                         <div class="container last-seen-products-wrapper">
-                                            {block name="frontend_index_footer_last_articles_hr"}
-                                                <hr class="hr-brand hr-large">
-                                            {/block}
-                                            <div class="last-seen-products d-none" data-last-seen-products="true">
+                                            <div class="last-seen-products py-4 d-none" data-last-seen-products="true">
                                                 <div class="last-seen-products-title page-header">
                                                     <h3>
                                                         {s namespace="frontend/plugins/index/viewlast" name='WidgetsRecentlyViewedHeadline'}{/s}
@@ -205,7 +202,7 @@
 
                 {* Footer *}
                 {block name="frontend_index_footer"}
-                    <footer class="footer-main d-print-none p-3 mt-3">
+                    <footer class="footer-main d-print-none p-3">
                         {block name="frontend_index_footer_container"}
                             <div class="container">
                                 {block name="frontend_index_footer_container_inner"}

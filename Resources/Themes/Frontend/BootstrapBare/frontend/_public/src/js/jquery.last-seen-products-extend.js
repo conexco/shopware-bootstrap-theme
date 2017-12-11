@@ -16,7 +16,7 @@ $.overridePlugin('swLastSeenProducts', {
         titleCls: 'last-seen-products-title',
         imageCls: 'last-seen-products-image',
         noPicture: '',
-        template: 'col-lg-3 col-md-4 col-xs-6'
+        template: 'col-6 col-md-4 col-lg-3'
     },
 
     /**
@@ -160,7 +160,7 @@ $.overridePlugin('swLastSeenProducts', {
         }
 
         $('<img>', {
-            'class': 'img-responsive img-center',
+            'class': 'img-fluid mx-auto d-block',
             'srcset': srcSet,
             'alt': data.imageTitle || data.articleName,
             'title': data.imageTitle || data.articleName
