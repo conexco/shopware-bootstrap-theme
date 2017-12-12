@@ -8,6 +8,7 @@
     {else}
         {$boxSize = ''}
 
+        {* TODO: refactor with new breakpoints *}
         {if $theme['articles-col-width-xs'] != $theme['articles-col-width-sm']}
             {$boxSize = "col-`$theme['articles-col-width-xs']`"}
         {/if}
@@ -26,12 +27,14 @@
 
         {$boxSize = "`$boxSize` col-lg-`$theme['articles-col-width-lg']`"}
     {/if}
+
     {block name='frontend_listing_box_article_item_start'}
-        <li class="{$boxSize} product-box box-{$productBoxLayout} pb-4 mb-2 sw5-plugin"
+        <div class="{$boxSize} product-box box-{$productBoxLayout} pb-4 mb-2 sw5-plugin"
             data-page-index="{$pageIndex}"
             data-ordernumber="{$sArticle.ordernumber}">
             <div class="card card-body">
     {/block}
+
     {block name='frontend_listing_box_article_item_wrapper'}
         <div class="item-wrapper" data-equal="item">
             {block name='frontend_listing_box_article_content'}
@@ -41,75 +44,81 @@
                         <div class="col-md-4">
                     {/if}
 
-                    {* Product image + badge *}
+                    {* Product image *}
                     {block name='frontend_listing_box_article_picture'}
                         {include file="frontend/listing/product-box/product-image.tpl"}
                     {/block}
-                    {* Product box badges - highlight, newcomer, ESD product and discount *}
+
+                    {* Product box badges *}
                     {block name='frontend_listing_box_article_badges'}
                         {include file="frontend/listing/product-box/product-badges.tpl"}
                     {/block}
 
-                {if $productBoxLayout eq 'list'}
-                    </div>
-                    <div class="col-md-4">
-                {/if}
+                    {if $productBoxLayout eq 'list'}
+                        </div>
+                        <div class="col-md-4">
+                    {/if}
 
-                    {* Article name *}
+                    {* Product name *}
                     {block name='frontend_listing_box_article_name'}
-                        <div class="title-wrapper mts" data-equal="title">
+                        <div class="title-wrapper" data-equal="title">
                             {block name='frontend_listing_box_article_name_inner'}
-                                <h4>
-                                    <a class="" href="{$sArticle.linkDetails}" title="{$sArticle.articleName|escapeHtml}">{$sArticle.articleName|escapeHtml}</a>
-                                </h4>
+                                <a class="product-name" 
+                                   href="{$sArticle.linkDetails}" 
+                                   title="{$sArticle.articleName|escapeHtml}">
+                                    {$sArticle.articleName|escapeHtml}
+                                </a>
                             {/block}
                         </div>
                     {/block}
 
                     {* Description *}
                     {block name='frontend_listing_box_article_description'}
-                        <div class="desc-wrapper mbs" data-equal="desc">
+                        <div class="desc-wrapper" data-equal="desc">
                             {block name='frontend_listing_box_article_description_inner'}
-                                {* Customer rating for the product *}
-                                {block name='frontend_listing_box_article_rating'}
-                                    {if !{config name=VoteDisable}}
-                                        {if $sArticle.sVoteAverage.average}
-                                            <div class="mvs">
-                                                {include file='frontend/_includes/rating.tpl' points=$sArticle.sVoteAverage.average type="aggregated" count=$sArticle.sVoteAverage.count}
-                                            </div>
-                                        {/if}
-                                    {/if}
-                                {/block}
-
-                                <small>
-                                    {if $productBoxLayout != 'listing'}
-                                        {$sArticle.description_long|strip_tags|truncate:80}
-                                    {/if}
-                                </small>
+                                <div class="product-description small">
+                                    {$sArticle.description_long|strip_tags|truncate:80}
+                                </div>
                             {/block}
                         </div>
                     {/block}
 
-                {if $productBoxLayout eq 'list'}
-                    </div>
-                    <div class="col-md-4">
-                {/if}
+                    {* Customer rating for the product *}
+                    {block name='frontend_listing_box_article_rating'}
+                        {if !{config name=VoteDisable}}
+                            <div class="rating-wrapper" data-equal="rating">
+                                {if $sArticle.sVoteAverage.average}
+                                    {include file='frontend/_includes/rating.tpl' 
+                                             points=$sArticle.sVoteAverage.average 
+                                             type="aggregated" 
+                                             count=$sArticle.sVoteAverage.count}
+                                {/if}
+                            </div>
+                        {/if}
+                    {/block}
+
+                    {if $productBoxLayout eq 'list'}
+                        </div>
+                        <div class="col-md-4">
+                    {/if}
 
                     {block name='frontend_listing_box_article_price_info'}
-                        {* Product price - Default and discount price *}
-                        {block name='frontend_listing_box_article_price'}
-                            {include file="frontend/listing/product-box/product-price.tpl"}
-                        {/block}
+                        <div class="product-price-info mb-3">
+                            {* Product price - Default and discount price *}
+                            {block name='frontend_listing_box_article_price'}
+                                {include file="frontend/listing/product-box/product-price.tpl"}
+                            {/block}
 
-                        {* Product price - Unit price *}
-                        {block name='frontend_listing_box_article_unit'}
-                            {include file="frontend/listing/product-box/product-price-unit.tpl"}
-                        {/block}
+                            {* Product price - Unit price *}
+                            {block name='frontend_listing_box_article_unit'}
+                                {include file="frontend/listing/product-box/product-price-unit.tpl"}
+                            {/block}
+                        </div>
                     {/block}
 
                     {block name="frontend_listing_box_article_buy"}
                         {if {config name="displayListingBuyButton"}}
-                            <div class="product-btn-container">
+                            <div class="product-buy">
                                 {if $sArticle.allowBuyInListing}
                                     {include file="frontend/listing/product-box/button-buy.tpl"}
                                 {else}
@@ -132,8 +141,9 @@
             {/block}
         </div>
     {/block}
+
     {block name='frontend_listing_box_article_item_end'}
             </div>
-        </li>
+        </div>
     {/block}
 {/block}

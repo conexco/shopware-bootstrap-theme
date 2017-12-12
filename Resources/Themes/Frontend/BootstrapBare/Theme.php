@@ -3823,21 +3823,6 @@ class Theme extends \Shopware\Components\Theme
 
         $fieldset->addElement(
             $this->createCheckboxField(
-                'notify-modal-in-listing',
-                'Artikelbenachrichtigung anzeigen',
-                $this->themeDefaults['notify-modal-in-listing'],
-                array(
-                    'attributes' =>
-                        array(
-                            'boxLabel' =>
-                                'Wenn aktiv kann sich der Kunde über einen Button im Listing benachrichtigen lassen, wenn der Artikel wieder erhältlich ist.',
-                        ),
-                )
-            )
-        );
-
-        $fieldset->addElement(
-            $this->createCheckboxField(
                 'sidebarFilter',
                 'Filter in der Sidebar anzeigen',
                 $this->themeDefaults['sidebarFilter'],
@@ -4397,7 +4382,6 @@ class Theme extends \Shopware\Components\Theme
             'checkoutFooter' => true,
             'infinite-scrolling' => false,
             'infinite-threshold' => '4',
-            'notify-modal-in-listing' => false,
             'sidebarFilter' => true,
             'fixed-navbar' => true,
             'mega-menu-col-width' => '3',

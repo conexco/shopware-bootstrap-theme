@@ -1,10 +1,10 @@
 {namespace name="frontend/listing/listing_actions"}
 
 {block name="frontend_listing_actions_filter_header"}
-    <div class="panel-header">
+    <div class="card-header">
         {block name="frontend_listing_actions_filter_button"}
             <a href="#FilterContainer"
-               class="btn btn-outline-secondary mam collapsed"
+               class="btn btn-outline-secondary collapsed"
                role="button"
                data-toggle="collapse"
                aria-expanded="false"

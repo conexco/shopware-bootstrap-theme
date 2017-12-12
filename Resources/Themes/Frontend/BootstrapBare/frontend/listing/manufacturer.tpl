@@ -29,12 +29,11 @@
 {/block}
 
 {block name="frontend_listing_listing_content"}
-    <div class="row listing">
-        <ul class="thumbnails list-unstyled"
+    <div class="listing row"
          data-ajax-wishlist="true"
          data-compare-ajax="true"
          data-equalheight="true"
-            {if $theme['infinite-scrolling']}
+         {if $theme['infinite-scrolling']}
             data-infinite-scrolling="true"
             data-ajaxUrl="{url module="widgets" controller="Listing" action="ajaxListing" sSupplier=$manufacturer->getId()}"
             data-loadPreviousSnippet="{s name="ListingActionsLoadPrevious"}{/s}"
@@ -42,34 +41,42 @@
             data-categoryId="{$Shop->getCategory()->getId()}"
             data-pages="{$pages}"
             data-threshold="{$theme['infinite-threshold']}"
-            {/if}>
+         {/if}>
 
         {block name="frontend_listing_list_inline"}
             {foreach $sArticles as $sArticle}
                 {include file="frontend/listing/box_article.tpl"}
             {/foreach}
         {/block}
-        </ul>
     </div>
 {/block}
 
 {block name="frontend_listing_text"}
-    {* Vendor headline *}
-    {block name="frontend_listing_list_filter_supplier_headline"}
-        <h1>{s name='ListingInfoFilterSupplier'}{/s} {$manufacturer->getName()|escapeHtml}</h1>
-    {/block}
+    <div class="card mb-3">
+        {* Vendor headline *}
+        {block name="frontend_listing_list_filter_supplier_headline"}
+            <h1 class="card-header h5">
+                {s name='ListingInfoFilterSupplier'}{/s} {$manufacturer->getName()|escapeHtml}
+            </h1>
+        {/block}
 
-    {* Vendor content e.g. description and logo *}
-    {block name="frontend_listing_list_filter_supplier_content"}
-        {if $manufacturer->getCoverFile()}
-            <img class="img-fluid" src="{$manufacturer->getCoverFile()}" alt="{$manufacturer->getName()|escape}">
-        {/if}
+        {* Vendor content e.g. description and logo *}
+        {block name="frontend_listing_list_filter_supplier_content"}
+            <div class="card-body">
+                {if $manufacturer->getCoverFile()}
+                    <img class="img-fluid" 
+                         src="{$manufacturer->getCoverFile()}" 
+                         alt="{$manufacturer->getName()|escape}">
+                {/if}
 
-        {if $manufacturer->getDescription()}
-            <div class="mtl mbl">{$manufacturer->getDescription()}</div>
-        {/if}
-    {/block}
+                {if $manufacturer->getDescription()}
+                    <div class="my-4">
+                        {$manufacturer->getDescription()}
+                    </div>
+                {/if}
+            </div>
+        {/block}
+    </div>    
 {/block}
 
-{block name="frontend_listing_index_topseller"}
-{/block}
+{block name="frontend_listing_index_topseller"}{/block}

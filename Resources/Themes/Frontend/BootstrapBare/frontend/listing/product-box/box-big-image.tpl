@@ -6,7 +6,7 @@
 {block name='frontend_listing_box_article_picture'}
     <a href="{$sArticle.linkDetails}"
        title="{$sArticle.articleName|escape}"
-       class="product-image">
+       class="product-image d-block">
         {block name='frontend_listing_box_article_image_element'}
             <div class="image-wrapper" data-equal="image">
                 {block name='frontend_listing_box_article_image_media'}

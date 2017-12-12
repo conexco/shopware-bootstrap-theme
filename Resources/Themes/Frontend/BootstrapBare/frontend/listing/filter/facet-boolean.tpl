@@ -1,7 +1,7 @@
 {namespace name="frontend/listing/listing_actions"}
 
 {block name="frontend_listing_filter_facet_boolean"}
-    <div class="filter-col{if !$theme.sidebarFilter} col-sm-6 col-md-4{/if}">
+    <div class="filter-col mb-2{if !$theme.sidebarFilter} col-sm-6 col-md-4{/if}">
         <div class="filter-panel filter-panel--input sw5-plugin filter-boolean filter-value facet-{$facet->getFacetName()|escape:'htmlall'}"
              data-filter-type="value"
              data-facet-name="{$facet->getFacetName()}"
@@ -15,7 +15,7 @@
                                name="{$facet->getFieldName()|escape:'htmlall'}"
                                value="1"
                                {if $facet->isActive()}checked="checked" {/if}/>
-                        <label for="{$facet->getFieldName()}" class="filter-panel-input sw5-plugin mbn">
+                        <label for="{$facet->getFieldName()}" class="filter-panel-input sw5-plugin mb-0">
                             {block name="frontend_listing_filter_facet_boolean_checkbox"}
                             {/block}
                             <span class="filter-panel-title sw5-plugin">{$facet->getLabel()}</span>

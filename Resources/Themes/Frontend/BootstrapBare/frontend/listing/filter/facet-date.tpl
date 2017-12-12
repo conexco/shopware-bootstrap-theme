@@ -5,6 +5,7 @@
 {/block}
 
 {block name="frontend_listing_filter_facet_date"}
+    {* TODO: check where it is used *}
     <div class="filter-panel filter-panel--input sw5-plugin filter--date filter-facet--date facet--{$facet->getFacetName()|escape:'htmlall'}"
          data-filter-type="date"
          data-facet-name="{$facet->getFacetName()}"

@@ -5,10 +5,14 @@
 
     {block name='frontend_listing_actions_filter_container'}
         <div class="filter-container">
-            <span class="sidebar-offcanvas-close d-none"
-                  data-show-products-text="{s name="ListingActionsCloseFilterShowProducts" namespace="frontend/listing/listing_actions"}{/s}">
-                {s name="OffcanvasCloseMenuLink"}{/s}
-            </span>
+
+            {block name='frontend_listing_actions_filter_close_button'}
+                <span class="sidebar-offcanvas-close d-none"
+                      data-show-products-text="{s name='ListingActionsCloseFilterShowProducts'}{/s}">
+                    {s name="OffcanvasCloseMenuLink"}{/s}
+                </span>
+            {/block}
+
             {block name='frontend_listing_actions_filter_form'}
                 <form id="filter"
                       method="get"
@@ -21,42 +25,52 @@
                       class="{if $listingMode != 'full_page_reload'}is-instant-filter{/if}">
 
                     {if $listingMode === 'full_page_reload'}
-                        {include file="frontend/listing/actions/filter-apply-button.tpl" clsSuffix='filter-actions-top d-sm-none'}
+                        {include file="frontend/listing/actions/filter-apply-button.tpl" 
+                                 clsSuffix='filter-actions-top d-sm-none'}
                     {/if}
 
                     {block name="frontend_listing_actions_filter_form_page"}
-                        <input type="hidden" name="{$shortParameters['sPage']}" value="1"/>
+                        <input type="hidden" 
+                               name="{$shortParameters['sPage']}" 
+                               value="1"/>
                     {/block}
 
                     {block name="frontend_listing_actions_filter_form_search"}
                         {if $term}
-                            <input type="hidden" name="{$shortParameters['sSearch']}" value="{$term}"/>
+                            <input type="hidden" 
+                                   name="{$shortParameters['sSearch']}" 
+                                   value="{$term}"/>
                         {/if}
                     {/block}
 
                     {block name="frontend_listing_actions_filter_form_sort"}
                         {if $sSort}
-                            <input type="hidden" name="{$shortParameters['sSort']}" value="{$sSort|escape}"/>
+                            <input type="hidden" 
+                                   name="{$shortParameters['sSort']}" 
+                                   value="{$sSort|escape}"/>
                         {/if}
                     {/block}
 
                     {block name="frontend_listing_actions_filter_form_perpage"}
                         {if $criteria && $criteria->getLimit()}
-                            <input type="hidden" name="{$shortParameters['sPerPage']}"
+                            <input type="hidden" 
+                                   name="{$shortParameters['sPerPage']}"
                                    value="{$criteria->getLimit()|escape}"/>
                         {/if}
                     {/block}
 
                     {block name="frontend_listing_actions_filter_form_category"}
-                        {if !$sCategoryContent && $sCategoryCurrent != $sCategoryStart && {controllerName} != 'search'}
-                            <input type="hidden" name="{$shortParameters['sCategory']}"
+                        {if !$sCategoryContent && 
+                            $sCategoryCurrent != $sCategoryStart 
+                            && {controllerName} != 'search'}
+                            <input type="hidden" 
+                                   name="{$shortParameters['sCategory']}"
                                    value="{$sCategoryCurrent|escape}"/>
                         {/if}
                     {/block}
 
                     {block name="frontend_listing_actions_filter_form_facets"}
-                        <div class="action-filter-options sw5-plugin{if !$theme.sidebarFilter} collapse{else} panel panel-default{/if}{if $listingMode != 'full_page_reload'} is-ajax-reload{/if}"
-                             id="FilterContainer">
+                        <div class="action-filter-options sw5-plugin{if !$theme.sidebarFilter} collapse{/if}{if $listingMode != 'full_page_reload'} is-ajax-reload{/if}">
                             <div class="filter-panel-container{if !$theme.sidebarFilter} row{/if}">
                                 {include file="frontend/listing/actions/action-filter-facets.tpl" facets=$facets}
                             </div>

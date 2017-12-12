@@ -63,27 +63,6 @@
                 {/if}
             </div>
         {/block}
-
-        {* {block name="frontend_listing_listing_content"}
-            <div class="row listing"
-                 data-ajax-wishlist="true"
-                 data-compare-ajax="true"
-                    {if $theme.infiniteScrolling}
-                        data-infinite-scrolling="true"
-                        data-loadPreviousSnippet="{s name="ListingActionsLoadPrevious"}{/s}"
-                        data-loadMoreSnippet="{s name="ListingActionsLoadMore"}{/s}"
-                        data-categoryId="{$sCategoryContent.id}"
-                        data-pages="{$pages}"
-                        data-threshold="{$theme.infiniteThreshold}"
-                    {/if}>
-
-                {block name="frontend_listing_list_inline"}
-                    {foreach $sArticles as $sArticle}
-                        {include file="frontend/listing/box_article.tpl"}
-                    {/foreach}
-                {/block}
-            </div>
-        {/block} *}
     </div>
 {/block}
 

@@ -1,7 +1,7 @@
 {namespace name="frontend/listing/listing_actions"}
 
 {block name="frontend_listing_actions_paging_inner"}
-    <div class="listing-paging panel-paging sw5-plugin">
+    <div class="listing-paging sw5-plugin">
         {if $pages > 1}
             <div class="row mb-3">
                 {block name='frontend_listing_actions_count'}
@@ -10,6 +10,7 @@
                         <strong>{$pages}</strong>
                     </div>
                 {/block}
+                
                 {block name="frontend_listing_actions_paging_navigation"}
                     <div class="col-sm-6 text-right">
                         <ul class="pagination m-0 justify-content-end">

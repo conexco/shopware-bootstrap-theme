@@ -1,10 +1,7 @@
 {block name="frontend_listing_banner"}
-    
     {if $sBanner}
-        <div class="mbm">
-            {if $sBanner.liveshoppingData}
-                {include file="frontend/listing/box_liveshopping.tpl" liveArt=$sBanner.liveshoppingData}
-            {elseif $sBanner.media.thumbnails}
+        <div class="mb-3">
+            {if $sBanner.media.thumbnails}
                 {if !$sBanner.link || $sBanner.link == "#" || $sBanner.link == ""}
                     {* Image only banner *}
                     {block name='frontend_listing_image_only_banner'}

@@ -1,13 +1,13 @@
 {namespace name="frontend/listing/listing_actions"}
 
 {block name="frontend_listing_filter_facet_range"}
-    <div class="filter-col{if !$theme.sidebarFilter} col-sm-6 col-md-4{/if}">
+    <div class="filter-col mb-2{if !$theme.sidebarFilter} col-sm-6 col-md-4{/if}">
         <div class="filter-panel filter-panel--input sw5-plugin filter-range facet-{$facet->getFacetName()|escape:'htmlall'} dropdown"
              data-filter-type="range"
              data-facet-name="{$facet->getFacetName()}"
              data-field-name="{$facet->getFacetName()|escape:'htmlall'}">
 
-            <a id="facet_{$facet->getFacetName()}_{$index}" href="#" class="btn btn-outline-secondary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a id="facet_{$facet->getFacetName()}_{$index}" href="#" class="btn btn-outline-secondary d-flex justify-content-between align-items-center" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {block name="frontend_listing_filter_facet_range_title"}
                     <span class="filter-panel-title sw5-plugin">{$facet->getLabel()|escape}</span>
                 {/block}

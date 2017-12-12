@@ -17,12 +17,14 @@
                     {/block}
                 </div>
             {/block}
+
             {block name='frontend_listing_sidebar'}
-                <div class="listing-sidebar mtm-xs mtm-sm">
+                <div class="listing-sidebar mt-3 mt-md-0">
                     {$smarty.block.parent}
 
-                    <div class="sidebar-filter">
-                        <div class="sidebar-filter--content sw5-plugin">
+                    <div class="card sidebar-filter">
+                        {* TODO: check if container with js class really needed *}
+                        <div class="card-body sidebar-filter--content sw5-plugin">
                             {include file="frontend/listing/actions/action-filter-panel.tpl" filterBtn='btn-block'}
                         </div>
                     </div>

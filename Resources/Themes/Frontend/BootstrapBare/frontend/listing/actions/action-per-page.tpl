@@ -5,7 +5,7 @@
 {/if}
 
 {if $limit && $pageSizes}
-    <div class="col-sm-4 col-sm-offset-4 mbs text-right">
+    <div class="col-sm-5 col-md-4">
         <form method="get" data-action-form="true" class="action-per-page sw5-plugin">
 
             {* Necessary to reset the page to the first one *}
@@ -13,8 +13,6 @@
 
             {* Per page field *}
             {block name='frontend_listing_actions_items_per_page_field'}
-                {$listingMode = {config name=listingMode}}
-
                 <select id="{$shortParameters.sPerPage}" 
                         name="{$shortParameters.sPerPage}" 
                         class="form-control per-page-field action-field" 

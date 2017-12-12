@@ -143,7 +143,7 @@
                                     sliderXSSlidesToShow="1"
                                     sliderXSSlidesToScroll="1"
 
-                                    productBoxLayout="crossselling"
+                                    productBoxLayout="slider"
                                     productSliderCls="cross-seller-slider"}
                         {/block}
                     </div>

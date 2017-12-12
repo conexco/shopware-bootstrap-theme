@@ -1,7 +1,7 @@
 {namespace name="frontend/listing/listing_actions"}
 
 {block name="frontend_listing_filter_facet_multi_selection"}
-    <div class="filter-col{if !$theme.sidebarFilter} col-sm-6 col-md-4{/if}">
+    <div class="filter-col mb-2{if !$theme.sidebarFilter} col-sm-6 col-md-4{/if}">
         {$inputType = 'checkbox'}
 
         {if $filterType == 'radio'}
@@ -24,7 +24,7 @@
             {block name="frontend_listing_filter_facet_multi_selection_flyout"}
 
                 {block name="frontend_listing_filter_facet_multi_selection_title"}
-                    <a id="facet_{$facet->getFacetName()}_{$index}" href="#" class="btn btn-outline-secondary" role="button"
+                    <a id="facet_{$facet->getFacetName()}_{$index}" href="#" class="btn btn-outline-secondary d-flex justify-content-between align-items-center" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {block name="frontend_listing_filter_facet_value_list_title"}
                             <span class="filter-panel-title sw5-plugin">{$facet->getLabel()|escape}</span>

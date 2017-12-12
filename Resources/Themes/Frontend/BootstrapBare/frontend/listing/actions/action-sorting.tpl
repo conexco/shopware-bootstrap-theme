@@ -2,7 +2,7 @@
 
 {$hideSortings = $sCategoryContent.hide_sortings || $sortings|count == 0}
 
-<div class="col-sm-4 mbs">
+<div class="col-sm-5 col-md-4 mb-2 mb-sm-0">
     <form class="action-sort{if $hideSortings} d-none{/if}" method="get" data-action-form="true">
 
         {* Necessary to reset the page to the first one *}

@@ -18,6 +18,7 @@
                 {/foreach}
 
                 {block name="frontend_listing_list_promotion_link_show_listing"}
+
                     {$showListingCls = "emotion-show-listing"}
 
                     {foreach $showListingDevices as $device}
@@ -25,7 +26,9 @@
                     {/foreach}
 
                     <div class="{$showListingCls} text-center sw5-plugin">
-                        <a href="{url controller='cat' sPage=1 sCategory=$sCategoryContent.id}" title="{$sCategoryContent.name|escape}" class="btn btn-primary mbm">
+                        <a href="{url controller='cat' sPage=1 sCategory=$sCategoryContent.id}" 
+                           title="{$sCategoryContent.name|escape}" 
+                           class="btn btn-primary mb-3">
                             {s name="ListingActionsOffersLink"}Weitere Artikel in dieser Kategorie &raquo;{/s}
                         </a>
                     </div>
@@ -50,6 +53,7 @@
         {/if}
 
         <div class="{$listingCssClass} sw5-plugin{if !$showListing} d-none{/if}">
+
             {* Sorting and changing layout *}
             {block name="frontend_listing_top_actions"}
                 {include file='frontend/listing/listing_actions.tpl'}
@@ -60,32 +64,32 @@
 
                     {block name="frontend_listing_no_filter_result"}
                         <div class="listing-no-filter-result">
-                            {include file="frontend/_includes/messages.tpl" type="info" content="{s name=noFilterResult}Für die Filterung wurden keine Ergebnisse gefunden!{/s}" visible=false}
+                            {include file="frontend/_includes/messages.tpl" 
+                                     type="info" 
+                                     content="{s name=noFilterResult}Für die Filterung wurden keine Ergebnisse gefunden!{/s}" visible=false}
                         </div>
                     {/block}
+
                     {block name="frontend_listing_listing_content"}
-                        <div class="listing" data-compare-ajax="true" data-ajax-wishlist="true">
-                            {if $sArticles|@count > 0}
-                                <ul class="row thumbnails list-unstyled"
-                                    data-equalheight="true"
-                                    {if $theme['infinite-scrolling']}
-                                        data-infinite-scrolling="true"
-                                        data-loadPreviousSnippet="{s name="ListingActionsLoadPrevious"}{/s}"
-                                        data-loadMoreSnippet="{s name="ListingActionsLoadMore"}{/s}"
-                                        data-categoryId="{$sCategoryContent.id}"
-                                        data-pages="{$pages}"
-                                        data-threshold="{$theme['infinite-threshold']}"
-                                    {/if}>
-                                    {* Actual listing *}
-                                    {block name="frontend_listing_list_inline"}
-                                        {foreach $sArticles as $sArticle}
-                                            {include file="frontend/listing/box_article.tpl"}
-                                        {/foreach}
-                                    {/block}
-                                </ul>
-                            {else}
-                                {include file="frontend/_includes/messages.tpl" type="info" content="{s name='ListingInfoNoArticles'}Keine Artikel gefunden{/s}"}
-                            {/if}
+                        <div class="row listing"
+                             data-compare-ajax="true" 
+                             data-ajax-wishlist="true"
+                             data-equalheight="true"
+                             {if $theme['infinite-scrolling']}
+                                data-infinite-scrolling="true"
+                                data-loadPreviousSnippet="{s name="ListingActionsLoadPrevious"}{/s}"
+                                data-loadMoreSnippet="{s name="ListingActionsLoadMore"}{/s}"
+                                data-categoryId="{$sCategoryContent.id}"
+                                data-pages="{$pages}"
+                                data-threshold="{$theme['infinite-threshold']}"
+                             {/if}>
+
+                            {* Actual listing *}
+                            {block name="frontend_listing_list_inline"}
+                                {foreach $sArticles as $sArticle}
+                                    {include file="frontend/listing/box_article.tpl"}
+                                {/foreach}
+                            {/block}
                         </div>
                     {/block}
                 </div>

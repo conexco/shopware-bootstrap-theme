@@ -1,14 +1,15 @@
 {* Listing actions *}
 {block name='frontend_listing_actions_top'}
     {$listingMode = {config name=listingMode}}
-    {* Selected Filter Properties List *}
+
     {block name="frontend_listing_actions_top_wrapper"}
-        <div class="listing-actions"
+        <div class="listing-actions {block name='frontend_listing_actions_class'}{/block}"
              data-listing-actions="true"
              {if $listingMode != 'full_page_reload'}
                 data-bufferTime="0"
              {/if}>
-            <div class="row">
+
+            <div class="row justify-content-between">
                 {* Order by selection *}
                 {block name='frontend_listing_actions_sort'}
                     {include file="frontend/listing/actions/action-sorting.tpl"}
@@ -27,24 +28,23 @@
             {block name="frontend_listing_actions_filter_wrapper"}
                 {if $facets|count > 0}
                     {if $theme.sidebarFilter}
-                        <div class="row mbm">
-                            <div class="col-12 col-sm-4">
-                                <div class="sidebar-filter-offcanvas d-sm-none">
-                                    <a href="#"
-                                       class="btn btn-outline-secondary btn-block"
-                                       data-offcanvas="true"
-                                       data-offCanvasSelector="#sidebarFilterOffcanvas"
-                                       data-filter-trigger="true">
-                                        <i class="fa fa-filter"></i>
-                                        {s name='ListingFilterButton'}{/s}
-                                        <span class="action-collapse-icon text-primary sw5-plugin float-right"></span>
-                                        <i class="fa fa-angle-right"></i>
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="sidebar-filter-offcanvas d-md-none">
+                            <button class="btn btn-outline-secondary btn-block mb-3 d-flex justify-content-between align-items-center"
+                               data-offcanvas="true"
+                               data-offCanvasSelector="#sidebarFilterOffcanvas"
+                               data-filter-trigger="true">
+                               
+                               <span class="filter-text">
+                                    <i class="fa fa-filter"></i>
+                                    {s name='ListingFilterButton'}{/s}
+                                    <i class="fa fa-angle-right"></i>
+                                </span>
+
+                                <span class="badge badge-secondary float-right action-collapse-icon sw5-plugin"></span>
+                            </bitton>
                         </div>
                     {else}
-                        <div class="panel panel-default">
+                        <div class="card">
                             {* Filter action button *}
                             {block name="frontend_listing_actions_filter"}
                                 {include file="frontend/listing/actions/action-filter-button.tpl"}

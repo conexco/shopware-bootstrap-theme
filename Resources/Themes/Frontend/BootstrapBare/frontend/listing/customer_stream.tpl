@@ -1,4 +1,4 @@
-{extends file='frontend/listing/index.tpl'}
+{extends file='frontend/listing/index.tpl'} {* TODO: check if index/index.tpl should be extended like shopware *}
 
 {block name='frontend_index_header'}
     {include file='frontend/listing/header.tpl'}

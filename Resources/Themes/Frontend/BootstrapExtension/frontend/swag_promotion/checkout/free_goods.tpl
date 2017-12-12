@@ -28,7 +28,7 @@
                                                 <a href="{$article.linkDetails}" title="{$article.articleName|escape}" class="product-image">
 
                                                     {block name='promotion_checkout_free_goods_image_element'}
-                                                        <span class="image-element">
+                                                        <span class="image-wrapper">
                                                             {if $article.image.thumbnails}
                                                                 <img srcset="{$article.image.thumbnails[0].sourceSet}"
                                                                      alt="{$article.articleName|escape}" class="img-fluid mx-auto d-block" />

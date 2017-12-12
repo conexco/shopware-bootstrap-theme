@@ -21,7 +21,7 @@
             {/block}
 
             {block name="frontend_listing_product_box_button_buy_button"}
-                <button class="mvm btn btn-primary btn-block buybox-button">
+                <button class="btn btn-primary btn-block buybox-button">
                     {block name="frontend_listing_product_box_button_buy_button_text"}
                         {s namespace="frontend/listing/box_article" name="ListingBuyActionAdd"}{/s}
                     {/block}

@@ -25,7 +25,7 @@ $.overridePlugin('swListingActions', {
         animationSpeed: 400,
         instantFilterActiveCls: '', // not needed
         listingSelector: '.listing-container > .listing ul.thumbnails',
-        paginationSelector: '.listing-paging.panel-paging',
+        paginationSelector: '.listing-paging',
         infiniteScrollingAttribute: 'data-infinite-scrolling',
         paginationBarPerPageSelector: '.per-page-field.action-field',
         pageInputSelector: 'input[name=p]',

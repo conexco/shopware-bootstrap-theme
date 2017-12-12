@@ -45,6 +45,7 @@
 {block name='frontend_index_header_canonical'}
     {* Count of available product pages *}
     {$pages = 1}
+    
     {if $criteria}
         {$pages = ceil($sNumberArticles / $criteria->getLimit())}
     {/if}

@@ -3,6 +3,7 @@
 {namespace name="frontend/listing/listing_actions"}
 
 {block name="frontend_listing_filter_facet_date_content"}
+    {* TODO: check where it is used *}
     <div class="filter-panel--content input-type--date">
         {$value = ''}
 
