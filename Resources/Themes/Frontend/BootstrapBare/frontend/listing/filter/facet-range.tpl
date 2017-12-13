@@ -7,15 +7,22 @@
              data-facet-name="{$facet->getFacetName()}"
              data-field-name="{$facet->getFacetName()|escape:'htmlall'}">
 
-            <a id="facet_{$facet->getFacetName()}_{$index}" href="#" class="btn btn-outline-secondary d-flex justify-content-between align-items-center" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a id="facet_{$facet->getFacetName()}_{$index}" 
+               href="#" 
+               class="btn btn-outline-secondary d-flex justify-content-between align-items-center" 
+               role="button" 
+               data-toggle="dropdown" 
+               aria-haspopup="true" aria-expanded="false">
                 {block name="frontend_listing_filter_facet_range_title"}
-                    <span class="filter-panel-title sw5-plugin">{$facet->getLabel()|escape}</span>
+                    <span class="filter-panel-title sw5-plugin">
+                        {$facet->getLabel()|escape}
+                    </span>
                 {/block}
                 <i class="fa fa-angle-down"></i>
             </a>
 
             {block name="frontend_listing_filter_facet_range_flyout"}
-                <div class="dropdown-menu pal" aria-labelledby="facet_{$facet->getFacetName()}_{$index}">
+                <div class="dropdown-menu" aria-labelledby="facet_{$facet->getFacetName()}_{$index}">
                     {block name="frontend_listing_filter_facet_range_content"}
                         {block name="frontend_listing_filter_facet_range_slider"}
                             {block name="frontend_listing_filter_facet_range_slider_config"}
@@ -33,7 +40,7 @@
                                 {$stepCurve = 'linear'}
                             {/block}
 
-                            <div class="range-slider"
+                            <div class="range-slider px-4 py-3"
                                  data-range-slider="true"
                                  data-roundPretty="{$roundPretty}"
                                  data-labelFormat="{$format}"
@@ -63,13 +70,14 @@
                                 {/block}
 
                                 {block name="frontend_listing_filter_facet_range_info"}
-                                    <div class="text-center mtl">
+                                    <div class="text-center small mt-2">
                                         {block name="frontend_listing_filter_facet_range_info_min"}
                                             <span>{s name="ListingFilterRangeFrom"}{/s}</span>
                                         {/block}
 
                                         {block name="frontend_listing_filter_facet_range_label_min"}
                                             <label for="{$facet->getMinFieldName()|escape:'htmlall'}"
+                                                   class="mb-0"
                                                    data-range-label="min">
                                                 {$startMin}
                                             </label>
@@ -81,6 +89,7 @@
 
                                         {block name="frontend_listing_filter_facet_range_label_max"}
                                             <label for="{$facet->getMaxFieldName()|escape:'htmlall'}"
+                                                   class="mb-0"
                                                    data-range-label="max">
                                                 {$startMax}
                                             </label>

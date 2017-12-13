@@ -7,22 +7,37 @@
              data-facet-name="{$facet->getFacetName()}"
              data-field-name="{$facet->getFieldName()|escape:'htmlall'}">
 
-            <a id="facet_{$facet->getFacetName()}_{$index}" href="#" class="btn btn-outline-secondary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a id="facet_{$facet->getFacetName()}_{$index}" 
+               href="#"
+               class="btn btn-outline-secondary d-flex justify-content-between align-items-center"  
+               role="button" 
+               data-toggle="dropdown" 
+               aria-haspopup="true" aria-expanded="false">
                 {block name="frontend_listing_filter_facet_rating_title"}
-                    <span class="filter-panel-title sw5-plugin">{$facet->getLabel()|escape}</span>
+                    <span class="filter-panel-title sw5-plugin">
+                        {$facet->getLabel()|escape}
+                    </span>
                 {/block}
                 <i class="fa fa-angle-down"></i>
             </a>
 
             {block name="frontend_listing_filter_facet_rating_flyout"}
-                <div class="dropdown-menu pal" aria-labelledby="facet_{$facet->getFacetName()}_{$index}">
+                <div class="dropdown-menu pal" 
+                     aria-labelledby="facet_{$facet->getFacetName()}_{$index}">
                     {block name="frontend_listing_filter_facet_rating_content"}
                         <div class="filter-panel-star-rating filter-panel--star-rating sw5-plugin">
                             {block name="frontend_listing_filter_facet_rating_stars"}
                                 {foreach $facet->getValues() as $value}
+
                                     {block name="frontend_listing_filter_facet_rating_container"}
-                                        <label for="rating_{$value->getId()}" class="rating-star--outer-container sw5-plugin{if $value->isActive()} is--active{/if}">
-                                            <input class="d-none" type="checkbox" name="rating" id="rating_{$value->getId()}" value="{$value->getId()}" {if $value->isActive()}checked="checked" {/if}/>
+                                        <label for="rating_{$value->getId()}" 
+                                               class="rating-star--outer-container sw5-plugin{if $value->isActive()} is--active{/if}">
+                                            <input class="d-none" 
+                                                   type="checkbox" 
+                                                   name="rating" 
+                                                   id="rating_{$value->getId()}" 
+                                                   value="{$value->getId()}" 
+                                                   {if $value->isActive()}checked="checked"{/if}/>
 
                                             {for $i = 1 to $value->getId()}
                                                 <i class="fa fa-star"></i>
@@ -31,7 +46,10 @@
                                             {for $i = $value->getId() + 1 to 5}
                                                 <i class="fa fa-star-o"></i>
                                             {/for}
-                                            <span class="rating-star-suffix">{s name="RatingStarSuffix"}& more{/s}</span>
+
+                                            <span class="rating-star-suffix">
+                                                {s name="RatingStarSuffix"}& more{/s}
+                                            </span>
                                         </label>
                                     {/block}
                                 {/foreach}

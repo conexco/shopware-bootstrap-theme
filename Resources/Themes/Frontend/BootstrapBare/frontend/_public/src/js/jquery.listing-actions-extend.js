@@ -14,7 +14,7 @@ $.overridePlugin('swListingActions', {
         activeFilterContSelector: '.filter-active-container',
         applyFilterBtnSelector: '.filter-btn-apply',
         activeFilterCls: 'active-filter',
-        activeFilterIconCls: 'fa fa-times prs',
+        activeFilterIconCls: 'fa fa-times mr-1',
         collapsedCls: 'in',
         hasActiveFilterCls: 'is-active-filter',
         disabledCls: 'is--disabled',
@@ -23,7 +23,7 @@ $.overridePlugin('swListingActions', {
         propertyPrefixChar: '__',
         bufferTime: 850,
         animationSpeed: 400,
-        instantFilterActiveCls: '', // not needed
+        instantFilterActiveCls: '',
         listingSelector: '.listing-container > .listing ul.thumbnails',
         paginationSelector: '.listing-paging',
         infiniteScrollingAttribute: 'data-infinite-scrolling',
@@ -44,7 +44,7 @@ $.overridePlugin('swListingActions', {
         },
         filterCloseBtnSelector: '.sidebar-offcanvas-close',
         closeFilterOffCanvasBtnIcon: '',
-        // .headline--product-count => snippet: SearchHeadline frontend/search/fuzzy
+        // .headline--product-count => snippet: SearchHeadline frontend/search/fuzzy    // TODO: check what this is
         searchHeadlineProductCountSelector: '.search-headline .headline--product-count',
         filterFacetContainerSelector: '.filter-panel-container',
         filterActionButtonBottomSelector: '.filter-actions.filter-actions-bottom',
@@ -184,14 +184,14 @@ $.overridePlugin('swListingActions', {
      * @param label
      */
     createActiveFilterElement: function (param, label) {
-        var btnType = 'btn-default';
+        var btnType = 'btn-light';
 
         if (param === 'reset') {
             btnType = 'btn-primary';
         }
 
         this.activeFilterElements[param] = $('<span>', {
-            'class': this.opts.activeFilterCls + ' ' + btnType + ' btn btn-xs mrm mbs mts',
+            'class': this.opts.activeFilterCls + ' ' + btnType + ' btn btn-sm mb-2 mr-2',
             'html': this.getLabelIcon() + label,
             'data-filter-param': param
         }).appendTo(this.opts.activeFilterContSelector);

@@ -1,244 +1,50 @@
-// Filter
-.listing-actions {
-    [data-toggle="collapse"] {
-        .action-collapse-icon {
-            .transition(all 220ms ease-in-out);
-        }
-
-        &:not(.collapsed) {
-            .action-collapse-icon {
-                .rotate(180deg);
-            }
-        }
-    }
-
-    .panel-header {
-        .btn {
-            &.collapsed {
-                .fa-angle-down {
-                    .rotate(0deg);
-                    transition: 0.3s;
-                }
+#filter {
+    .filter-col {
+        // disabled options styling
+        .is--disabled {
+            &, & + label {
+                pointer-events: none;
+                // TODO: use color variable
+                color: #868e96;
             }
 
-            .fa-angle-down {
-                .rotate(180deg);
-                transition: 0.3s;
-            }
-        }
-    }
-
-    #filter {
-        .filter-panel-container.row {
-            .unitize(margin-left, -5);
-            .unitize(margin-right, -5);
-
-            & > .filter-col {
-                .unitize(padding-left, 5);
-                .unitize(padding-right, 5);
-            }
-        }
-    }
-}
-
-.listing-actions, .sidebar-filter {
-    .filter-active-container {
-        &:not(:empty) {
-            display: block;
-            .unitize(margin-bottom, 5);
-        }
-
-        // replace shopware icon with font-awesome icons
-        .icon--star {
-            .font-awesome();
-            &:before {
-                content: "\f005";
-            }
-        }
-
-        .icon--star-empty {
-            .font-awesome();
-            &:before {
-                content: "\f006";
-            }
-        }
-    }
-
-    #filter {
-        // spinning icon on filter count load
-        .filter-btn-apply {
-            // @keyframes fa-spin {
-            //     0% {
-            //         .rotate(0deg);
-            //     }
-            //     100% {
-            //         .rotate(359deg);
-            //     }
-            // }
-
-            &.is-loading {
-                .fa {
-                    .animation(fa-spin 2s infinite linear);
+            &.dropdown {
+                .btn {
+                    // TODO: use .disabled class mixin ?
+                    opacity: .65;
+                    color: #868e96;
                 }
             }
         }
 
-        .filter-col {
-            .is--disabled {
-                &, & + label {
-                    pointer-events: none;
-                    opacity: 0.4;
-                }
-            }
-
-            // dropdowns for the different filter types
-            .filter-panel {
-                display: block;
-                width: 100%;
-                .unitize(margin-bottom, 10);
-
-                &.filter-boolean {
-                    label {
-                        font-weight: normal;
-                    }
-                }
-
-                a[data-toggle="dropdown"], .dropdown-menu {
-                    width: 100%;
-                }
-
-                i {
-                    .transition(all 220ms ease-in-out);
-                }
-
-                .filter-panel-label {
-                    font-weight: normal;
-                }
-
-                &.open {
-                    .fa-angle-down {
-                        .rotate(180deg);
-                    }
-                }
-
-                // media-filter with images
-                &.filter-media .dropdown-menu {
-                    .unitize-padding(10, 10, 0, 0);
-
-                    ul {
-                        margin-left: 0;
-
-                        li {
-                            .unitize-width(65);
-                            position: relative;
-                            padding: 0;
-                            .unitize-margin(0, 0, 10, 10);
-
-                            .thumbnail {
-                                margin: 0;
-
-                                // hide checkbox
-                                input[type="checkbox"] {
-                                    opacity: 0;
-                                    display: block;
-                                    width: 100%;
-                                    height: 100%;
-                                    position: absolute;
-                                    top: 0;
-                                    left: 0;
-                                    border: 0 none;
-                                    background: none;
-                                    cursor: pointer;
-                                    // display checked icon on chosen filter images
-                                    &:checked ~ label:before {
-                                        font-family: 'FontAwesome';
-                                        content: "\f058";
-                                        color: @swf-brand-primary;
-                                        position: absolute;
-                                        .unitize(right, -5);
-                                        .unitize(top, -8);
-                                        font-size: 1rem;
-                                    }
-                                }
-                                label {
-                                    display: block;
-                                    margin: 0;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                &.filter--rating .filter-panel-star-rating {
-                    .clearfix();
+        // media filter
+        .filter-media .dropdown-menu {
+            li {
+                label {
                     position: relative;
+                    cursor: pointer;
+                }
 
-                    .rating-star-input {
-                        margin-top: 0;
-                        opacity: 0;
-                        .unitize(width, 25);
-                        .unitize(height, 25);
-                        display: block;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        border: 0 none;
-                        background: none;
-                        cursor: pointer;
-                        &#star-1 {
-                            left: 0;
-                        }
-                        &#star-2 {
-                            .unitize(left, 25);
-                        }
-                        &#star-3 {
-                            .unitize(left, 50);
-                        }
-                        &#star-4 {
-                            .unitize(left, 75);
-                        }
-                        &#star-5 {
-                            .unitize(left, 100);
-                        }
-                        &:checked ~ .rating-star-label,
-                        &#star--reset:checked:disabled ~ .rating-star-label {
-                            i:before {
-                                content: "\f006";
-                            }
-                        }
-                    }
-                    .rating-star-label {
-                        margin-bottom: 0;
-                        .unitize-width(25);
-                        .unitize-height(25);
-                        .unitize(line-height, 20);
-                        position: absolute;
-                        top: 0;
-                        left: 0;
+                .img-thumbnail {
+                    .unitize(max-width, 50);
+                }
+
+                input[type="checkbox"] {
+                    // checked media filter
+                    &:checked ~ label:before {
                         font-family: 'FontAwesome';
-                        font-weight: normal;
+                        content: "\f058";
                         color: @swf-brand-primary;
-                        i {
-                            font-size: 25px;
-                            .unitize(font-size, 25);
-                            &:before {
-                                content: "\f005";
-                            }
-                        }
-                        &.star-1 {
-                            left: 0;
-                        }
-                        &.star-2 {
-                            .unitize(left, 25);
-                        }
-                        &.star-3 {
-                            .unitize(left, 50);
-                        }
-                        &.star-4 {
-                            .unitize(left, 75);
-                        }
-                        &.star-5 {
-                            .unitize(left, 100);
+                        position: absolute;
+                        .unitize(right, -5);
+                        .unitize(top, -8);
+                        font-size: 1rem;
+                    }
+
+                    // disabled media filter
+                    &.is--disabled ~ label {
+                        .img-thumbnail {
+                            opacity: .65;
                         }
                     }
                 }
@@ -247,25 +53,19 @@
     }
 }
 
-#sidebarFilterOffcanvas {
-    &.off-canvas {
-        .unitize(padding-right, 10);
-        .unitize(padding-left, 10);
+// replace shopware icons with font-awesome icons
+.filter-active-container {
+    .icon--star {
+        .font-awesome();
+        &:before {
+            content: "\f005";
+        }
+    }
 
-        .temp-loader-wrapper {
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 2000;
-            background-color: rgba(255, 255, 255, 0.7);
-
-            .loader {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-            }
+    .icon--star-empty {
+        .font-awesome();
+        &:before {
+            content: "\f006";
         }
     }
 }

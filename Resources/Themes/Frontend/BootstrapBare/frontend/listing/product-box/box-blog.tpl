@@ -2,8 +2,8 @@
 {namespace name="frontend/listing/box_blog"}
 
 {* Description *}
-{block name='frontend_listing_box_article_description'}
-    <div class="desc-wrapper" data-equal="desc">
-        <p>{$sArticle.description_long|strip_tags|truncate:450}</p>
+{block name='frontend_listing_box_article_description_inner'}
+    <div class="product-description small">
+        {$sArticle.description_long|strip_tags|truncate:450}
     </div>
 {/block}

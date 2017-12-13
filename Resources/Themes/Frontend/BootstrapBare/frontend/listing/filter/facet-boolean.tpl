@@ -8,17 +8,18 @@
              data-field-name="{$facet->getFieldName()|escape:'htmlall'}">
 
             {block name="frontend_listing_filter_facet_boolean_flyout"}
-                <div class="filter-panel--input btn btn-outline-secondary btn-block man">
+                <div class="btn btn-outline-secondary d-flex justify-content-left align-items-center filter-panel--input sw5-plugin">
                     {block name="frontend_listing_filter_facet_boolean_title"}
                         <input type="checkbox"
                                id="{$facet->getFieldName()|escape:'htmlall'}"
                                name="{$facet->getFieldName()|escape:'htmlall'}"
                                value="1"
                                {if $facet->isActive()}checked="checked" {/if}/>
-                        <label for="{$facet->getFieldName()}" class="filter-panel-input sw5-plugin mb-0">
-                            {block name="frontend_listing_filter_facet_boolean_checkbox"}
-                            {/block}
-                            <span class="filter-panel-title sw5-plugin">{$facet->getLabel()}</span>
+                        <label for="{$facet->getFieldName()}" class="filter-panel-input sw5-plugin d-flex w-100 mb-0 ml-2">
+                            {block name="frontend_listing_filter_facet_boolean_checkbox"}{/block}
+                            <span class="filter-panel-title sw5-plugin">
+                                {$facet->getLabel()}
+                            </span>
                         </label>
                     {/block}
                 </div>

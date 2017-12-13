@@ -39,7 +39,7 @@
 
                         {block name="frontend_listing_filter_facet_date_input"}
                             <input type="text"
-                                   class="filter-panel--input"
+                                   class="filter-panel--input sw5-plugin"
                                    name="{$facet->getFieldName()|escape:'htmlall'}"
                                    id="{$facet->getFieldName()|escape:'htmlall'}"
                                    placeholder="{s name="datePickerInputPlaceholder" namespace="frontend/index/datepicker"}{/s}"

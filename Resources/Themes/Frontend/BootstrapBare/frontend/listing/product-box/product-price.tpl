@@ -29,19 +29,17 @@
 
         {block name='frontend_listing_box_article_price_default_wrapper'}
             <div class="{if $sArticle.has_pseudoprice}col-7 col-sm-12{else}col-12{/if}">
-                <div class="price-wrapper" data-equal="price">
+                <div class="price-wrapper text-right" data-equal="price">
                     {* Default price *}
                     {block name='frontend_listing_box_article_price_default'}
-                        <div class="text-right">
-                            {block name='frontend_listing_box_article_price_default_inner'}
-                                <p class="price price-large{if !$sArticle.pseudoprice} price-default{else} price-discount{/if}">
-                                    {if $sArticle.priceStartingFrom && !$sArticle.liveshoppingData}
-                                        {s name='ListingBoxArticleStartsAt'}{/s} 
-                                    {/if}
-                                    {$sArticle.price|currency}{s name="Star"}*{/s}
-                                </p>
-                            {/block}
-                        </div>
+                        {block name='frontend_listing_box_article_price_default_inner'}
+                            <p class="price price-large{if !$sArticle.pseudoprice} price-default{else} price-discount{/if} mb-0">
+                                {if $sArticle.priceStartingFrom && !$sArticle.liveshoppingData}
+                                    {s name='ListingBoxArticleStartsAt'}{/s} 
+                                {/if}
+                                {$sArticle.price|currency}{s name="Star"}*{/s}
+                            </p>
+                        {/block}
                     {/block}
                 </div>
             </div>

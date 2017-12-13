@@ -19,7 +19,7 @@
 
         {block name="frontend_listing_filter_facet_date_range_input"}
             <input type="text"
-                   class="filter-panel--input"
+                   class="filter-panel--input sw5-plugin"
                    id="{$facet->getFacetName()|escape:'htmlall'}"
                    placeholder="{"{s name="datePickerInputPlaceholder" namespace="frontend/index/datepicker"}{/s}"|escape:'htmlall'}"
                    data-datepicker="true"

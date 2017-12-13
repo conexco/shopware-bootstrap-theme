@@ -12,8 +12,20 @@
 {block name="frontend_listing_box_article_buy"}{/block}
 
 {block name="frontend_listing_box_article_item_start"}
-    <div class="phm product-box box-{$productBoxLayout}">
+    <div class="product-box box-{$productBoxLayout} px-1">
         <div class="card card-body">
+{/block}
+
+{block name='frontend_listing_box_article_price_info'}
+    <div class="product-price-info">
+        {block name='frontend_listing_box_article_price'}
+            {include file="frontend/listing/product-box/product-price.tpl"}
+        {/block}
+
+        {block name='frontend_listing_box_article_unit'}
+            {include file="frontend/listing/product-box/product-price-unit.tpl"}
+        {/block}
+    </div>
 {/block}
 
 {block name="frontend_listing_box_article_item_end"}

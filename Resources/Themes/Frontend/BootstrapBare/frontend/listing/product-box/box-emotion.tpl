@@ -73,16 +73,22 @@
                                     {/foreach}
 
                                     <picture>
-                                        <source sizes="{$itemSize}" srcset="{$srcSetRetina}" media="(min-resolution: 192dpi)" />
-                                        <source sizes="{$itemSize}" srcset="{$srcSet}" />
+                                        <source sizes="{$itemSize}" 
+                                                srcset="{$srcSetRetina}" 
+                                                media="(min-resolution: 192dpi)" />
+                                        <source sizes="{$itemSize}" 
+                                                srcset="{$srcSet}" />
 
-                                        <img src="{$sArticle.image.thumbnails[0].source}" alt="{$desc|strip_tags|truncate:160}" />
+                                        <img src="{$sArticle.image.thumbnails[0].source}" 
+                                             alt="{$desc|strip_tags|truncate:160}" />
                                     </picture>
 
                                 {elseif $sArticle.image.source}
-                                    <img src="{$sArticle.image.source}" alt="{$desc|strip_tags|truncate:160}" />
+                                    <img src="{$sArticle.image.source}" 
+                                         alt="{$desc|strip_tags|truncate:160}" />
                                 {else}
-                                    <img src="{link file='frontend/_public/src/img/no-picture.jpg'}" alt="{$desc|strip_tags|truncate:160}" />
+                                    <img src="{link file='frontend/_public/src/img/no-picture.jpg'}" 
+                                         alt="{$desc|strip_tags|truncate:160}" />
                                 {/if}
                             {/block}
                         {/block}
@@ -98,7 +104,11 @@
             {block name='frontend_listing_box_article_name'}
                 <div class="title-wrapper">
                     {block name='frontend_listing_box_article_name_inner'}
-                        <a href="{$sArticle.linkDetails}" title="{$productName|escapeHtml}">{$productName|escapeHtml}</a>
+                        <a href="{$sArticle.linkDetails}" 
+                           class="product-name" 
+                           title="{$productName|escapeHtml}">
+                            {$productName|escapeHtml}
+                        </a>
                     {/block}
                 </div>
             {/block}
@@ -107,15 +117,17 @@
             {block name='frontend_listing_box_article_description'}{/block}
 
             {block name='frontend_listing_box_article_price_info'}
-                {* Product price - Default and discount price *}
-                {block name='frontend_listing_box_article_price'}
-                    {include file="frontend/listing/product-box/product-price.tpl"}
-                {/block}
+                <div class="product-price-info">
+                    {* Product price - Default and discount price *}
+                    {block name='frontend_listing_box_article_price'}
+                        {include file="frontend/listing/product-box/product-price.tpl"}
+                    {/block}
 
-                {* Product price - Unit price *}
-                {block name='frontend_listing_box_article_unit'}
-                    {include file="frontend/listing/product-box/product-price-unit.tpl"}
-                {/block}
+                    {* Product price - Unit price *}
+                    {block name='frontend_listing_box_article_unit'}
+                        {include file="frontend/listing/product-box/product-price-unit.tpl"}
+                    {/block}
+                </div>
             {/block}
 
             {* Product actions - Compare product, more information, buy now *}

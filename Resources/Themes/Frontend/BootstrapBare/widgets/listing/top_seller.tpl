@@ -15,7 +15,7 @@
 
                             sliderInfinite="1"
                             sliderAnimationSpeed="300"
-                            sliderAutoplay="1"
+                            sliderAutoplay="0"
                             sliderPauseOnHover="1"
 
                             sliderArrows="1"

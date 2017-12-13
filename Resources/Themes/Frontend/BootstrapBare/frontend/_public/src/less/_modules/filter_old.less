@@ -1,0 +1,173 @@
+// Filter
+.listing-actions {
+    [data-toggle="collapse"] {
+        .action-collapse-icon {
+            .transition(all 220ms ease-in-out);
+        }
+
+        &:not(.collapsed) {
+            .action-collapse-icon {
+                .rotate(180deg);
+            }
+        }
+    }
+
+    .panel-header {
+        .btn {
+            &.collapsed {
+                .fa-angle-down {
+                    .rotate(0deg);
+                    transition: 0.3s;
+                }
+            }
+
+            .fa-angle-down {
+                .rotate(180deg);
+                transition: 0.3s;
+            }
+        }
+    }
+
+    #filter {
+        .filter-panel-container.row {
+            .unitize(margin-left, -5);
+            .unitize(margin-right, -5);
+
+            & > .filter-col {
+                .unitize(padding-left, 5);
+                .unitize(padding-right, 5);
+            }
+        }
+    }
+}
+
+.listing-actions, .sidebar-filter {
+    #filter {
+        // spinning icon on filter count load
+        .filter-btn-apply {
+            // @keyframes fa-spin {
+            //     0% {
+            //         .rotate(0deg);
+            //     }
+            //     100% {
+            //         .rotate(359deg);
+            //     }
+            // }
+
+            &.is-loading {
+                .fa {
+                    .animation(fa-spin 2s infinite linear);
+                }
+            }
+        }
+
+        .filter-col {
+            
+            // dropdowns for the different filter types
+            .filter-panel {
+                &.open {
+                    .fa-angle-down {
+                        .rotate(180deg);
+                    }
+                }
+                
+                &.filter--rating .filter-panel-star-rating {
+                    .clearfix();
+                    position: relative;
+
+                    .rating-star-input {
+                        margin-top: 0;
+                        opacity: 0;
+                        .unitize(width, 25);
+                        .unitize(height, 25);
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        border: 0 none;
+                        background: none;
+                        cursor: pointer;
+                        &#star-1 {
+                            left: 0;
+                        }
+                        &#star-2 {
+                            .unitize(left, 25);
+                        }
+                        &#star-3 {
+                            .unitize(left, 50);
+                        }
+                        &#star-4 {
+                            .unitize(left, 75);
+                        }
+                        &#star-5 {
+                            .unitize(left, 100);
+                        }
+                        &:checked ~ .rating-star-label,
+                        &#star--reset:checked:disabled ~ .rating-star-label {
+                            i:before {
+                                content: "\f006";
+                            }
+                        }
+                    }
+                    .rating-star-label {
+                        margin-bottom: 0;
+                        .unitize-width(25);
+                        .unitize-height(25);
+                        .unitize(line-height, 20);
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        font-family: 'FontAwesome';
+                        font-weight: normal;
+                        color: @swf-brand-primary;
+                        i {
+                            font-size: 25px;
+                            .unitize(font-size, 25);
+                            &:before {
+                                content: "\f005";
+                            }
+                        }
+                        &.star-1 {
+                            left: 0;
+                        }
+                        &.star-2 {
+                            .unitize(left, 25);
+                        }
+                        &.star-3 {
+                            .unitize(left, 50);
+                        }
+                        &.star-4 {
+                            .unitize(left, 75);
+                        }
+                        &.star-5 {
+                            .unitize(left, 100);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#sidebarFilterOffcanvas {
+    &.off-canvas {
+        .unitize(padding-right, 10);
+        .unitize(padding-left, 10);
+
+        .temp-loader-wrapper {
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2000;
+            background-color: rgba(255, 255, 255, 0.7);
+
+            .loader {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
