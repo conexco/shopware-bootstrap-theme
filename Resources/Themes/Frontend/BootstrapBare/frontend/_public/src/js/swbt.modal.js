@@ -89,8 +89,8 @@
 
                         if ($gallery[0] && $thumbs[0]) {
                             $body.createModal($gallery[0].outerHTML + $thumbs[0].outerHTML, me.opts['modal-size'], me.opts.imgModalGallerySelector + ' fade', me.opts.title, false, function(modal){
-                                $(modal).find('.slick').slickWrapper();
                                 picturefill();
+                                $(modal).find('.slick').slickWrapper();
                                 $body.loader('hide');
                             });
                         } else {
