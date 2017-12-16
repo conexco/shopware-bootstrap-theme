@@ -1,7 +1,17 @@
 {
   "name": "conexco/shopware-bootstrap-theme",
   "description": "The Shopware Bootstrap Theme helps you build fast, robust, and adaptable responsive shopware themes. Kick-start your shopware theme with the combined knowledge and effort of 1000s of custom shopware themes.",
-  "keywords": ["shopware", "plugin"],
+  "keywords": ["shopware", "plugin", "theme", "bootstrap"],
+  "authors": [
+    {
+      "name": "conexco UG & Co. KG",
+      "email": "office@conexco.com",
+      "homepage": "https://www.conexco.com",
+      "role": "Developer"
+    }
+  ],
+  "license": "GPL-3.0",
+  "homepage": "https://www.conexco.com",
   "type": "shopware-plugin",
   "extra": {
     "installer-name": "SwfBootstrapTheme"
