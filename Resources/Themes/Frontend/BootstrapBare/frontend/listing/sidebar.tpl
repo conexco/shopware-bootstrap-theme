@@ -2,8 +2,7 @@
 
 {block name="frontend_index_sidebar"}
     {if $theme.sidebarFilter}
-        <div id="sidebarFilterOffcanvas" class="offcanvas-has-panel">
-            {block name='frontend_listing_sidebar_offcanvas'}
+        <div id="sidebarFilterOffcanvas">
                 <div class="buttons-off-canvas{if $class} {$class}{else} offcanvas-default{/if}">
                     {block name='frontend_listing_sidebar_offcanvas_inner'}
                         <a href="#" title="{"{s name="OffcanvasCloseMenuLink"}Menü schließen{/s}"|escape}"

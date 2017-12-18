@@ -8,30 +8,34 @@
 {/block}
 
 {block name='frontend_index_content'}
-    {block name="frontend_account_logout_info"}
-        <div class="panel panel-default">
-            {block name="frontend_account_logout_info_headline"}
-                <div class="panel-heading">  
-                    <h1 class="panel-title">{s name="AccountLogoutHeader"}{/s}</h1>  
-                </div>  
-            {/block}
+    <div class="account-logout">
+        {block name="frontend_account_logout_info"}
+            <div class="card">
+                <div class="card-body">    
+                    {block name="frontend_account_logout_info_headline"}
+                        <h1 class="card-title">{s name="AccountLogoutHeader"}{/s}</h1>  
+                    {/block}
 
-            {block name="frontend_account_logout_info_content"}
-                <div class="panel-body">
-                    <p>{s name="AccountLogoutText"}{/s}</p>
+                    {block name="frontend_account_logout_info_content"}
+                        <p class="card-text">{s name="AccountLogoutText"}{/s}</p>
+                    {/block}
                 </div>
-            {/block}
+                {block name="frontend_account_logout_info_actions"}
+                    <div class="card-footer">
+                        <a class="btn btn-outline-primary" 
+                           href="{url controller='index'}" 
+                           title="{"{s name='AccountLogoutButton'}{/s}"|escape}">
+                            {s name="AccountLogoutButton"}{/s}
+                        </a>
 
-            {block name="frontend_account_logout_info_actions"}
-                <div class="panel-footer">
-                    <a class="btn btn-outline-secondary" href="{url controller='index'}" title="{"{s name='AccountLogoutButton'}{/s}"|escape}">
-                        {s name="AccountLogoutButton"}{/s}
-                    </a>
-                    <a class="btn btn-primary mlm" href="{url controller='account'}" title="{"{s name='AccountLogoutAccountButton'}{/s}"|escape}">
-                        {s name="AccountLogoutAccountButton"}{/s}
-                    </a>
-                </div>
-            {/block}
-        </div>
-    {/block}
+                        <a class="btn btn-primary ml-2" 
+                           href="{url controller='account'}" 
+                           title="{"{s name='AccountLogoutAccountButton'}{/s}"|escape}">
+                            {s name="AccountLogoutAccountButton"}{/s}
+                        </a>
+                    </div>
+                {/block}
+            </div>
+        {/block}
+    </div>
 {/block}

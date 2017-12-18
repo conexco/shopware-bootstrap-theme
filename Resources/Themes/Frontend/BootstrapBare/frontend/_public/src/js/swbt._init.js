@@ -73,7 +73,7 @@
         .addPlugin('.off-canvas-blog [data-offcanvas="true"]', 'swOffcanvasMenu', (typeof swfBlogOffcanvasViewports != 'undefined' ? swfBlogOffcanvasViewports : ['xs', 's']))
 
         // Offcanvas account
-        .addPlugin('.off-canvas-account [data-offcanvas="true"]', 'swOffcanvasMenu', (typeof swfAccountOffcanvasViewports != 'undefined' ? swfAccountOffcanvasViewports : ['xs', 's']))
+        .addPlugin('.entry-account[data-offcanvas="true"]', 'swOffcanvasMenu', (typeof swfAccountOffcanvasViewports != 'undefined' ? swfAccountOffcanvasViewports : ['xs', 's', 'm']))
 
         // Ajax cart popoverWrapper // TODO: remove
         // .addPlugin('[data-ajax-cart="true"]', 'popoverWrapper', (typeof swfAjaxCartPopoverViewports != 'undefined' ? swfAjaxCartPopoverViewports : ['m', 'l', 'xl']))
@@ -185,6 +185,16 @@
         $('[data-fixed-navbar="true"]').clingify({breakpoint: swfDefaultBreakpointSM || 767});
 
         // $('body').swSelectboxReplacement();
+
+        // TODO: convert into general dropdown wrapper plugin
+        var state = StateManager.getCurrentState();
+
+        if (state != 'xs' && state != 's') {
+            
+            $('[data-toggle="dropdown-md"]')
+                .attr('data-toggle', 'dropdown')
+                .dropdown();
+        }
 
         $.subscribe('plugin/swAddArticle/onAddArticle', cartRefresh);
 

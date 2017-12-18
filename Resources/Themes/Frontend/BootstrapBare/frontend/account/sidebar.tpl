@@ -1,7 +1,7 @@
 {if ($sUserLoggedIn && !$sOneTimeAccount) || $showSidebar}
     {block name="frontend_account_menu"}
         {block name="frontend_account_menu_panel"}
-            <div class="off-canvas-account sw5-plugin">
+            <div class="off-canvas-account">
                 {if !{config name=useSltCookie}}
                     {block name="frontend_account_offcanvas_button"}
                         <a href="#"
@@ -14,20 +14,23 @@
                         </a>
                     {/block}
                 {/if}
+
                 {block name="frontend_account_offcanvas_wrapper"}
-                    <div id="accountSidebar" class="account-offcanvas offcanvas-has-panel">
-                        <div class="account-menu panel panel-default{if {config name=useSltCookie} && $userInfo && $inHeader} mbn{/if}">
+                    <div id="accountSidebar" class="account-offcanvas">
+                        <div class="account-menu{if !$inHeader} card{/if}">
                             {* Sidebar navigation headline *}
                             {block name="frontend_account_menu_title"}
-                                <div class="panel-heading d-none d-md-block">
+                                <div class="card-header">    
                                     {if {config name=useSltCookie} && $userInfo}
-                                        <h2 class="panel-title navigation-headline">
+                                        <h2 class="card-title mb-0 h5">
                                             {block name="frontend_account_menu_greeting"}
                                                 {s namespace='frontend/index/checkout_actions' name='IndexLinkAccount'}{/s}
                                             {/block}
                                         </h2>
                                     {else}
-                                        <h2 class="panel-title">{s name="AccountHeaderNavigation"}Mein Konto{/s}</h2>
+                                        <h2 class="card-title mb-0 h5">
+                                            {s name="AccountHeaderNavigation"}Mein Konto{/s}
+                                        </h2>
                                     {/if}
                                 </div>
                             {/block}
@@ -37,34 +40,30 @@
                             {/block}
 
                             {block name="frontend_account_menu_container"}
-                                <div class="list-group">
+                                <div class="list-group list-group-flush">
                                     {block name="frontend_account_menu_list"}
                                         {* Link to the account overview page *}
                                         {block name="frontend_account_menu_link_overview"}
                                             {if {config name=useSltCookie} && !$userInfo && $inHeader}
-                                                <li class="navigation-entry list-group-item">
-                                                <span class="navigation-signin">
+                                                <li class="list-group-item">
                                                     <a href="{url module='frontend' controller='account'}#hide-registration"
-                                                       class="btn btn-primary btn-block navigation-signin-btn{if $register} registration-menu-entry entry-close-off-canvas{/if}"
-                                                       data-collapseTarget="#registration"
-                                                       data-action="close">
+                                                       class="btn btn-primary btn-block btn-sm mb-2">
                                                         {s name="AccountLogin"}{/s}
                                                     </a>
-                                                    <span class="navigation-register text-center mts">
+
+                                                    <div class="text-center small">
                                                         {s name="AccountOr"}{/s}
                                                         <a href="{url module='frontend' controller='account'}#show-registration"
-                                                           class="text-primary{if $register} registration-menu-entry entry-close-off-canvas{/if}"
-                                                           data-collapseTarget="#registration"
-                                                           data-action="open">
+                                                           class="text-primary">
                                                             {s name="AccountRegister"}{/s}
                                                         </a>
-                                                    </span>
-                                                </span>
+                                                    </div>
                                                 </li>
                                             {/if}
+
                                             <a href="{url module='frontend' controller='account'}"
                                                title="{s name="AccountLinkOverview"}Übersicht{/s}"
-                                               class="list-group-item{if {controllerName|lower} == 'account' && $sAction == 'index'} active{/if}"
+                                               class="list-group-item list-group-item-action{if {controllerName|lower} == 'account' && $sAction == 'index'} active{/if}"
                                             " rel="nofollow">
                                             {s name="AccountLinkOverview"}{/s}
                                             </a>
@@ -74,7 +73,7 @@
                                         {block name="frontend_account_menu_link_profile"}
                                             <a href="{url module='frontend' controller='account' action=profile}"
                                                title="{s name="AccountLinkProfile"}Mein Profil{/s}"
-                                               class="list-group-item{if {controllerName|lower} == 'account' && $sAction == 'profile'} active{/if}"
+                                               class="list-group-item list-group-item-action{if {controllerName|lower} == 'account' && $sAction == 'profile'} active{/if}"
                                                rel="nofollow">
                                                 {s name="AccountLinkProfile"}{/s}
                                             </a>
@@ -82,27 +81,23 @@
 
                                         {* Link to the user addresses *}
                                         {block name="frontend_account_menu_link_addresses"}
-                                            {if $inHeader}
-                                                <a href="{url module='frontend' controller='address' action='index' sidebar=''}"
-                                                   title="{s name="AccountLinkAddresses"}{/s}"
-                                                   class="navigation-link list-group-item{if {controllerName} == 'address'} active{/if}"
-                                                   rel="nofollow">
-                                                    {s name="AccountLinkAddresses"}{/s}
-                                                </a>
-                                            {else}
-                                                <a href="{url module='frontend' controller='address' action='index'}"
-                                                   title="{s name="AccountLinkAddresses"}My addresses{/s}"
-                                                   class="navigation-link list-group-item{if {controllerName} == 'address'} active{/if}"
-                                                   rel="nofollow">
-                                                    {s name="AccountLinkAddresses"}My addresses{/s}
-                                                </a>
-                                            {/if}
+                                            <a 
+                                               title="{s name="AccountLinkAddresses"}{/s}"
+                                               {if $inHeader}
+                                               href="{url module='frontend' controller='address' action='index' sidebar=''}"
+                                               {else}
+                                               href="{url module='frontend' controller='address' action='index'}"
+                                               {/if}
+                                               class="list-group-item list-group-item-action{if {controllerName} == 'address'} active{/if}"
+                                               rel="nofollow">
+                                                {s name="AccountLinkAddresses"}{/s}
+                                            </a>
                                         {/block}
 
                                         {* Link to the user payment method settings *}
                                         {block name="frontend_account_menu_link_payment"}
                                             <a href="{url module='frontend' controller='account' action='payment'}"
-                                               class="list-group-item{if $sAction == 'payment'} active{/if}"
+                                               class="list-group-item list-group-item-action{if $sAction == 'payment'} active{/if}"
                                                title="{s name="AccountLinkPayment"}Zahlungsart ändern{/s}" rel="nofollow">
                                                 {s name="AccountLinkPayment"}{/s}
                                             </a>
@@ -111,7 +106,7 @@
                                         {* Link to the user orders *}
                                         {block name="frontend_account_menu_link_orders"}
                                             <a href="{url module='frontend' controller='account' action='orders'}"
-                                               class="list-group-item{if $sAction == 'orders'} active{/if}"
+                                               class="list-group-item list-group-item-action{if $sAction == 'orders'} active{/if}"
                                                title="{s name="AccountLinkPreviousOrders"}Meine Bestellungen{/s}"
                                                rel="nofollow">
                                                 {s name="AccountLinkPreviousOrders"}{/s}
@@ -122,7 +117,7 @@
                                         {block name="frontend_account_menu_link_downloads"}
                                             {if {config name=showEsd}}
                                                 <a href="{url module='frontend' controller='account' action='downloads'}"
-                                                   class="list-group-item{if $sAction == 'downloads'} active{/if}"
+                                                   class="list-group-item list-group-item-action{if $sAction == 'downloads'} active{/if}"
                                                    title="{s name="AccountLinkDownloads"}Meine Sofortdownloads{/s}"
                                                    rel="nofollow">
                                                     {s name="AccountLinkDownloads"}{/s}
@@ -133,8 +128,9 @@
                                         {* Link to the user product notes *}
                                         {block name="frontend_account_menu_link_notes"}
                                             <a href="{url module='frontend' controller='note'}"
-                                               class="list-group-item{if $Controller == 'note'} active{/if}"
-                                               title="{s name="AccountLinkNotepad"}Merkzettel{/s}" rel="nofollow">
+                                               class="list-group-item list-group-item-action{if $Controller == 'note'} active{/if}"
+                                               title="{s name="AccountLinkNotepad"}Merkzettel{/s}" 
+                                               rel="nofollow">
                                                 {s name="AccountLinkNotepad"}{/s}
                                             </a>
                                         {/block}
@@ -152,7 +148,7 @@
                                                 {block name="frontend_account_menu_logout_personalized_link"}
                                                     <a href="{url controller='account' action='logout'}"
                                                        title="{s name="AccountLogout"}{/s}"
-                                                       class="mtm navigation-link link-logout navigation-personalized account-logout d-md-none{if !$inHeader} mbm btn btn-danger btn-block{else} text-center{/if}">
+                                                       class="account-logout list-group-item {if $inHeader} text-center{/if}">
                                                         {block name="frontend_account_menu_logout_personalized"}
                                                             {block name="frontend_account_menu_logout_personalized_link_user_info"}
                                                                 <span class="navigation-logout-personalized">
@@ -177,7 +173,7 @@
                                                     {block name="frontend_account_menu_link_logout_standard_link"}
                                                         <a href="{url module='frontend' controller='account' action='logout'}"
                                                            title="{s name="AccountLinkLogout2"}{/s}"
-                                                           class="mtm navigation-link link-logout account-logout btn btn-danger btn-block mbm d-md-none"
+                                                           class="account-logout btn btn-danger btn-block mb-3"
                                                            rel="nofollow">
                                                             {block name="frontend_account_menu_link_logout_standard_link_text"}
                                                                 {s name="AccountLinkLogout2"}{/s}
@@ -194,29 +190,6 @@
                     </div>
                 {/block}
             </div>
-        {/block}
-
-        {* Logout action *}
-        {block name="frontend_account_menu_link_logout"}
-            {if {config name=useSltCookie} && $userInfo}
-                <a href="{url controller='account' action='logout'}" title="{s name="AccountLogout"}{/s}"
-                   class="navigation-link link-logout navigation-personalized account-logout d-none d-md-block{if !$inHeader} mbm btn btn-danger btn-block{else} text-center{/if}">
-                    {block name="frontend_account_menu_logout_personalized"}
-                        <span class="navigation-logout-personalized">
-                            {s name="AccountNot"}{/s}
-                            {$userInfo['firstname']}?
-                        </span>
-                        <span class="navigation-logout">{s name="AccountLogout"}{/s}</span>
-                    {/block}
-                </a>
-            {elseif $sUserLoggedIn && !$sOneTimeAccount}
-                <a href="{url module='frontend' controller='account' action='logout'}"
-                   title="{s name="AccountLinkLogout2"}{/s}"
-                   class="navigation-link link-logout account-logout btn btn-danger btn-block {if !$inHeader} mbm{/if} d-none d-md-block"
-                   rel="nofollow">
-                    {s name="AccountLinkLogout2"}{/s}
-                </a>
-            {/if}
         {/block}
     {/block}
 {/if}

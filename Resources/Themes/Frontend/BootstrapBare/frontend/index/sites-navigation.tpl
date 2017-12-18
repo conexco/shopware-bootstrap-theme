@@ -42,7 +42,7 @@
 
 {if $sMenu.gLeft}
     {block name="frontend_index_left_menu_container"}
-        <div class="shop-sites card d-none d-md-block">
+        <div class="shop-sites card d-none d-md-block mb-3">
             {block name='frontend_index_left_menu_headline'}
                 <div class="card-header">
                     {s name="MenuLeftHeadingInformation"}{/s}

@@ -16,13 +16,13 @@
 
 {* My account entry *}
 {block name="frontend_index_checkout_actions_my_options"}
-    <div class="btn-group entry-account dropdown{if {config name=useSltCookie}} with-slt{/if}"
+    <div class="btn-group entry-account sw5-plugin dropdown{if {config name=useSltCookie}} with-slt{/if}"
         data-offcanvas="true"
         data-offCanvasSelector=".account-dropdown-navigation">
 
         {block name="frontend_index_checkout_actions_account"}
             <a class="btn btn-outline-secondary dropdown-toggle{if $userInfo} account-user-loggedin{/if}" 
-               data-toggle="dropdown"
+               data-toggle="dropdown-md"
                role="button"
                aria-haspopup="true"
                aria-expanded="false"
@@ -44,8 +44,8 @@
 
         {if {config name=useSltCookie}}
             {block name="frontend_index_checkout_actions_account_navigation"}
-                <div class="dropdown-menu">
-                    <div class="account-dropdown-navigation">
+                <div class="account-dropdown-navigation">
+                    <div class="dropdown-menu m-0 p-0">
                         {block name="frontend_index_checkout_actions_account_navigation_smartphone"}
                             <div class="navigation-smartphone d-sm-none">
                                 <div class="entry-close-off-canvas">

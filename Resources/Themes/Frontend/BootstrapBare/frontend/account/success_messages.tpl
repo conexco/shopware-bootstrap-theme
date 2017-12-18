@@ -1,19 +1,20 @@
 {if $sSuccessAction}
+    {$successText=''}
     {if $sSuccessAction == 'address'}
-        {include file="frontend/_includes/messages.tpl" type="success" content="{s name='AccountAddressSuccess'}{/s}"}
+        {$successText="{s name='AccountAddressSuccess'}{/s}"}
     {elseif $sSuccessAction == 'payment'}
-        {include file="frontend/_includes/messages.tpl" type="success" content="{s name='AccountPaymentSuccess'}{/s}"}
+        {$successText="{s name='AccountPaymentSuccess'}{/s}"}
     {elseif $sSuccessAction == 'account'}
-        {include file="frontend/_includes/messages.tpl" type="success" content="{s name='AccountAccountSuccess'}{/s}"}
+        {$successText="{s name='AccountAccountSuccess'}{/s}"}
     {elseif $sSuccessAction == 'newsletter'}
-        {include file="frontend/_includes/messages.tpl" type="success" content="{s name='AccountNewsletterSuccess'}{/s}"}
+        {$successText="{s name='AccountNewsletterSuccess'}{/s}"}
     {elseif $sSuccessAction == 'optinnewsletter'}
-        {include file="frontend/_includes/messages.tpl" type="success" content="{s namespace='frontend' name='sMailConfirmation'}{/s}"}
+        {$successText="{s name='sMailConfirmation' namespace='frontend'}{/s}"}
     {elseif $sSuccessAction == 'deletenewsletter'}
-        {include file="frontend/_includes/messages.tpl" type="success" content="{s namespace='frontend/account/internalMessages' name='NewsletterMailDeleted'}{/s}"}
+        {$successText="{s name='NewsletterMailDeleted' namespace='frontend/account/internalMessages'}{/s}"}
     {elseif $sSuccessAction == 'resetPassword'}
-        {include file="frontend/_includes/messages.tpl" type="success" content="{s name='PasswordResetNewSuccess' namespace='frontend/account/reset_password'}{/s}"}
-    {else}
-        {include file="frontend/_includes/messages.tpl" type="success" content="{s name='AccountUnknownFallback'}Es ist ein unbekannter Fehler aufgetreten - bitte kontaktieren Sie den Support{/s}"}
+        {$successText="{s name='PasswordResetNewSuccess' namespace='frontend/account/reset_password'}{/s}"}
     {/if}
+
+    {include file="frontend/_includes/messages.tpl" type="success" content=$successText}
 {/if}

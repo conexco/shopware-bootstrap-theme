@@ -83,7 +83,7 @@
                 {/if}
             {/block}
             {block name='frontend_blog_listing_sidebar_offcanvas_content'}
-                <div id="blogSidebar" class="offcanvas-has-panel">
+                <div id="blogSidebar">
                     {block name='frontend_blog_listing_sidebar_offcanvas_close'}
                         {include file="frontend/_includes/close-offcanvas.tpl" class="offcanvas-blog"}
                     {/block}
