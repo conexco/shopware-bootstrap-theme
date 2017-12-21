@@ -131,8 +131,8 @@
                                         {elseif $template == 'component_youtube'}
                                             {$file = 'widgets/emotion/components/component_youtube.tpl'}
 
-                                        {elseif 'widgets/emotion/components/{$template}.tpl'|template_exists}
-                                            {$file = 'widgets/emotion/components/{$template}.tpl'}
+                                        {elseif "widgets/emotion/components/{$template}.tpl"|template_exists}
+                                            {$file = "widgets/emotion/components/{$template}.tpl"}
                                         {/if}
 
                                         {if $file != ''}

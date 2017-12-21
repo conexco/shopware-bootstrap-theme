@@ -139,3 +139,8 @@ function applyMoveHelper() {
         $elementToMoveBack.removeClass('moved').detach().appendTo('[data-moved-to="' + destination + '"]');
     });
 }
+
+// Expose methods for browser emulators
+window.safeUrl = safeUrl;
+window.cartRefresh = cartRefresh;
+window.applyMoveHelper = applyMoveHelper;
