@@ -103,8 +103,6 @@
 }
 
 // fixes: menu panels in an offcanvas are no longer visible for a short time on page load
-@media (max-width: @screen-sm-max) {
-    .offcanvas-has-panel:not(.is-active) .panel {
-        display: none;
-    }
+.offcanvas-has-panel.hide-on-page-load{
+    display:none;
 }

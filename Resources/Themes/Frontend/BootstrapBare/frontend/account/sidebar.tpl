@@ -15,7 +15,7 @@
                     {/block}
                 {/if}
                 {block name="frontend_account_offcanvas_wrapper"}
-                    <div id="accountSidebar" class="account-offcanvas offcanvas-has-panel">
+                    <div id="accountSidebar" class="account-offcanvas offcanvas-has-panel hide-on-page-load">
                         <div class="account-menu panel panel-default{if {config name=useSltCookie} && $userInfo && $inHeader} mbn{/if}">
                             {* Sidebar navigation headline *}
                             {block name="frontend_account_menu_title"}
