@@ -5,6 +5,10 @@
 
     <services>
         <!-- subscribers -->
+        <service id="swf_bootstrap_theme.subscribers.frontend.checkout" class="SwfBootstrapTheme\Subscribers\Frontend\Checkout">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
         <service id="swf_bootstrap_theme.subscribers.frontend" class="SwfBootstrapTheme\Subscribers\Frontend">
             <argument type="service" id="shopware.plugin.cached_config_reader"/>
             <argument type="service" id="swf_bootstrap_theme.services.theme_config_reader"/>
