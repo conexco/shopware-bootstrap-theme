@@ -161,7 +161,7 @@
                             data-offcanvas="true"
                             data-mode="ajax"
                             data-direction="fromRight"
-                            data-ajaxUrl="{url controller='checkout' action='ajax_cart'}"
+                            data-ajaxUrl="{url controller='checkout' action='ajaxCart'}"
                             data-popoverclass="cart"
                             data-container="body">
                         <span class="visible-xs visible-sm">
