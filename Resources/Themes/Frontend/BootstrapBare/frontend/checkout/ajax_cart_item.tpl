@@ -62,7 +62,7 @@
                         {if $sBasketItem.modus == 0}
                             <div class="col-xs-6">
                                 {block name="frontend_checkout_modify_ajax_cart_change_quantity"}
-                                    <form class="change-quantity" id="change-quantity-{$sBasketItem.id}" name="change-quantity-{$sBasketItem.id}">
+                                    <form class="change-quantity" id="change-quantity-{$sBasketItem.id}" name="change-quantity-{$sBasketItem.id}" action="{url controller='checkout' action='ajaxQuantityCart'}">
                                         <select class="form-control" name="sQuantity">
                                             {for $i=1 to $sBasketItem.maxpurchase step $sBasketItem.purchasesteps}
                                                 <option value="{$i}" {if $i == $sBasketItem.quantity}selected{/if}>{$i}</option>
