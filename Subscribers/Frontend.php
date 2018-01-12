@@ -1,48 +1,88 @@
 <?php
 
 /**
-*   Shopware Bootstrap Theme - helps you build fast, robust, and adaptable responsive shopware themes
-*   Copyright (C) 2017, conexco UG (haftungsbeschränkt) & Co. KG
-*
-*   This program is free software: you can redistribute it and/or modify
-*   it under the terms of the GNU General Public License as published by
-*   the Free Software Foundation, either version 3 of the License, or
-*   (at your option) any later version.
-*
-*   This program is distributed in the hope that it will be useful,
-*   but WITHOUT ANY WARRANTY; without even the implied warranty of
-*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*   GNU General Public License for more details.
-*
-*   You should have received a copy of the GNU General Public License
-*   along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/
+ *   Shopware Bootstrap Theme - helps you build fast, robust, and adaptable responsive shopware themes
+ *   Copyright (C) 2017, conexco UG (haftungsbeschränkt) & Co. KG
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 
 namespace SwfBootstrapTheme\Subscribers;
 
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\Driver\PDOStatement;
 use Enlight\Event\SubscriberInterface;
+use Shopware\Bundle\StoreFrontBundle\Service\CategoryServiceInterface;
+use Shopware\Bundle\StoreFrontBundle\Service\ContextServiceInterface;
 use Shopware\Bundle\StoreFrontBundle\Struct\Category;
+use Shopware\Components\Compatibility\LegacyStructConverter;
 use Shopware\Components\Plugin\CachedConfigReader;
 use SwfBootstrapTheme\Services\ThemeConfigReader;
 
 class Frontend implements SubscriberInterface
 {
+    /**
+     * @var CachedConfigReader
+     */
     private $cachedConfigReader;
+    /**
+     * @var ThemeConfigReader
+     */
     private $themeConfigReader;
+    /**
+     * @var string
+     */
     private $pluginName;
+    /**
+     * @var Connection
+     */
+    private $connection;
+    /**
+     * @var ContextServiceInterface
+     */
+    private $contextService;
+    /**
+     * @var LegacyStructConverter
+     */
+    private $legacyStructConverter;
+    /**
+     * @var \Zend_Cache_Core
+     */
+    private $cache;
+    /**
+     * @var CategoryServiceInterface
+     */
+    private $categoryService;
 
 
     public function __construct(
         CachedConfigReader $cachedConfigReader,
         ThemeConfigReader $themeConfigReader,
-        $pluginName
-    )
-    {
+        $pluginName,
+        Connection $connection,
+        ContextServiceInterface $contextService,
+        LegacyStructConverter $legacyStructConverter,
+        \Zend_Cache_Core $cache,
+        CategoryServiceInterface $categoryService
+    ) {
         $this->cachedConfigReader = $cachedConfigReader;
         $this->themeConfigReader = $themeConfigReader;
         $this->pluginName = $pluginName;
+        $this->connection = $connection;
+        $this->contextService = $contextService;
+        $this->legacyStructConverter = $legacyStructConverter;
+        $this->cache = $cache;
+        $this->categoryService = $categoryService;
     }
 
 
@@ -58,6 +98,8 @@ class Frontend implements SubscriberInterface
      * includes the advanced-menu functionality into this plugin
      *
      * @param \Enlight_Controller_ActionEventArgs $args
+     *
+     * @throws \Exception
      */
     public function onPostDispatchSecureFrontendMegaMenu(\Enlight_Controller_ActionEventArgs $args)
     {
@@ -82,36 +124,33 @@ class Frontend implements SubscriberInterface
     /**
      * Returns the complete mega-menu with category path.
      *
-     * @param $category
-     * @param $activeCategoryId
+     * @param int $category
+     * @param int $activeCategoryId
      *
      * @return array|array[]|false|mixed
      * @throws \Exception
      */
     private function getMegaMenu($category, $activeCategoryId)
     {
-        /** @var \Shopware\Bundle\StoreFrontBundle\Struct\ShopContext $context */
-        $context = Shopware()->Container()->get('shopware_storefront.context_service')->getShopContext();
-        /** @var \Zend_Cache_Core $cache */
-        $cache = Shopware()->Container()->get('cache');
+        $shopContext = $this->contextService->getShopContext();
+        $shop = $shopContext->getShop();
 
-        $config = $this->themeConfigReader->getThemeConfig();
+        $cacheKey = $this->pluginName . '_MegaMenu_Tree_' . $shop->getId() . '_' . $category . '_' . $shop->getCustomerGroup()->getKey();
 
-        $cacheKey = $this->pluginName.'_MegaMenu_Tree_' . $context->getShop()->getId() . '_' . $category . '_' . Shopware()->Shop()->getCustomerGroup()->getKey();
+        $themeConfig = $this->themeConfigReader->getThemeConfig();
 
-        if ($cache->test($cacheKey)) {
-            $menu = $cache->load($cacheKey);
+        if ($this->cache->test($cacheKey)) {
+            $menu = $this->cache->load($cacheKey);
         } else {
-            $depth = $config['mega-menu-depth'] ? $config['mega-menu-depth'] : 3;
+            $depth = $themeConfig['mega-menu-depth'] ?: 3;
             $ids = $this->getCategoryIdsOfDepth($category, $depth);
-            $categories = Shopware()->Container()->get('shopware_storefront.category_service')->getList($ids, $context);
+            $categories = $this->categoryService->getList($ids, $shopContext);
             $categoriesArray = $this->convertCategories($categories);
-            $categoryTree = $this->getCategoriesOfParent($category, $categoriesArray);
+            $menu = $this->getCategoriesOfParent($category, $categoriesArray);
 
-            $config=$this->cachedConfigReader->getByPluginName($this->pluginName);
+            $config = $this->cachedConfigReader->getByPluginName($this->pluginName);
 
-            $cache->save($categoryTree, $cacheKey, array('Shopware_Plugin'), (int)$config['menu_cache_time']);
-            $menu = $categoryTree;
+            $this->cache->save($menu, $cacheKey, array('Shopware_Plugin'), (int) $config['menu_cache_time']);
         }
 
         $categoryPath = $this->getCategoryPath($activeCategoryId);
@@ -132,7 +171,7 @@ class Frontend implements SubscriberInterface
     private function setActiveFlags($categories, $actives)
     {
         foreach ($categories as &$category) {
-            $category['flag'] = in_array($category['id'], $actives);
+            $category['flag'] = \in_array($category['id'], $actives, false);
             if (!empty($category['sub'])) {
                 $category['sub'] = $this->setActiveFlags($category['sub'], $actives);
             }
@@ -152,10 +191,7 @@ class Frontend implements SubscriberInterface
      */
     private function getCategoryPath($categoryId)
     {
-        /** @var Connection $connection */
-        $connection = Shopware()->Container()->get('dbal_connection');
-
-        $query = $connection->createQueryBuilder()
+        $query = $this->connection->createQueryBuilder()
             ->select('category.path')
             ->from('s_categories', 'category')
             ->where('category.id = :id')
@@ -179,14 +215,14 @@ class Frontend implements SubscriberInterface
      */
     private function getCategoriesOfParent($parentId, $categories)
     {
-        $result = array();
+        $result = [];
         foreach ($categories as $index => $category) {
             if ($category['parentId'] != $parentId) {
                 continue;
             }
             $children = $this->getCategoriesOfParent($category['id'], $categories);
             $category['sub'] = $children;
-            $category['activeCategories'] = count($children);
+            $category['activeCategories'] = \count($children);
             $result[] = $category;
         }
 
@@ -204,35 +240,15 @@ class Frontend implements SubscriberInterface
      */
     private function convertCategories($categories)
     {
-        $converter = Shopware()->Container()->get('legacy_struct_converter');
+        return array_map(function (Category $category) {
+            $data = $this->legacyStructConverter->convertCategoryStruct($category);
 
-        return array_map(function (Category $category) use ($converter) {
-            $data = array(
-                'id' => $category->getId(),
-                'name' => $category->getName(),
-                'parentId' => $category->getParentId(),
-                'hidetop' => !$category->displayInNavigation(), // @deprecated
-                'hideTop' => !$category->displayInNavigation(),
-                'active' => 1,
-                'cmsHeadline' => $category->getCmsHeadline(),
-                'cmsText' => $category->getCmsText(),
-                'position' => $category->getPosition(),
-                'link' => 'shopware.php?sViewport=cat&sCategory=' . $category->getId(),
-                'media' => null,
-                'flag' => false
-            );
-
-            $attributes = $category->getAttributes();
-            $attributes = $attributes['core'];
-            if (!empty($attributes)) {
-                $data['attribute'] = $attributes->toArray();
-            }
-            if ($category->isBlog()) {
-                $data['link'] = 'shopware.php?sViewport=blog&sCategory=' . $category->getId();
-            }
+            $data['flag'] = false;
             if ($category->getMedia()) {
-                $data['media'] = $converter->convertMediaStruct($category->getMedia());
                 $data['media']['path'] = $category->getMedia()->getFile();
+            }
+            if (!empty($category->getExternalLink())) {
+                $data['link'] = $category->getExternalLink();
             }
 
             return $data;
@@ -251,9 +267,7 @@ class Frontend implements SubscriberInterface
      */
     private function getCategoryIdsOfDepth($parentId, $depth)
     {
-        /** @var Connection $connection */
-        $connection = Shopware()->Container()->get('dbal_connection');
-        $query = $connection->createQueryBuilder()
+        $query = $this->connection->createQueryBuilder()
             ->select('DISTINCT category.id')
             ->from('s_categories', 'category')
             ->where('category.path LIKE :path')
@@ -262,9 +276,7 @@ class Frontend implements SubscriberInterface
             ->orderBy('category.position')
             ->setParameter(':depth', $depth)
             ->setParameter(':path', '%|' . $parentId . '|%');
-        /** @var $statement PDOStatement */
-        $statement = $query->execute();
 
-        return $statement->fetchAll(\PDO::FETCH_COLUMN);
+        return $query->execute()->fetchAll(\PDO::FETCH_COLUMN);
     }
 }
