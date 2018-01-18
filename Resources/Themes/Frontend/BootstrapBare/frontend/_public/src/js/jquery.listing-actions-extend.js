@@ -48,7 +48,8 @@ $.overridePlugin('swListingActions', {
         searchHeadlineProductCountSelector: '.search-headline .headline--product-count',
         filterFacetContainerSelector: '.filter-panel-container',
         filterActionButtonBottomSelector: '.filter-actions.filter-actions-bottom',
-        sidebarLoadingIndicatorParentSelector: '.content-main'
+        sidebarLoadingIndicatorParentSelector: '.content-main',
+        addArticleSelector: '*[data-add-article="true"]'
     },
 
     init: function () {

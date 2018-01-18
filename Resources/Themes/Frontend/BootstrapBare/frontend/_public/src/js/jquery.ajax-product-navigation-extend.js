@@ -34,6 +34,8 @@ $.overridePlugin('swAjaxProductNavigation', {
             return;
         }
 
+        me.applyDataAttributes();
+
         me.storage = StorageManager.getStorage('session');
 
         if (isListing) {
