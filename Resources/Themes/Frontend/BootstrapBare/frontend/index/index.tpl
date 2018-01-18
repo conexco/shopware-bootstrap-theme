@@ -11,9 +11,11 @@
 {block name='frontend_index_html'}
 <html lang="{s name='IndexXmlLang'}de{/s}" itemscope="itemscope" itemtype="http://schema.org/WebPage">
 {/block}
+
 {block name='frontend_index_header'}
     {include file='frontend/index/header.tpl'}
 {/block}
+
 {block name='frontend_index_body'}
     <body
     {* Background Image *}
@@ -24,83 +26,87 @@
         style="background: url({link file=$BodyBgImg}) {$theme['swf-body-bg-img-repeat']};"
     {/if}>
     {block name='frontend_index_after_body'}{/block}
+
     {block name='frontend_index_body_inner'}
-        <div class="wsmenucontainer clearfix">
-            {block name="frontend_index_navigation_wsmenu"}
-                {if !$theme.checkoutHeader || $theme.checkoutHeader && !({controllerAction} == 'confirm' || {controllerAction} == 'shippingPayment' || {controllerAction} == 'finish')}
-                    <div class="wsmenuexpandermain slideRight">
-                        <a id="navToggle" class="animated-arrow slideLeft" href="#" title="{s name='IndexLinkMenu' namespace='frontend/index/menu_left' }{/s}">
-                            <span class="animated-arrow-icon"></span>
-                        </a>
-                    </div>
-                    <div class="wsmenucontent overlapblackbg"></div>
-                {/if}
-            {/block}
-            {block name="frontend_index_page_wrap"}
-                <div class="page-wrap">
+        {block name="frontend_index_page_wrap"}
+            <div class="page-wrap">
+                {* Message if javascript is disabled *}
+                {block name="frontend_index_no_script_message"}
+                    <noscript class="noscript-main">
+                        {include file="frontend/_includes/messages.tpl" type="danger" dismiss="true" content="{s name="IndexNoscriptNotice"}{/s}"}
+                    </noscript>
+                {/block}
+
+                {block name='frontend_index_before_page'}{/block}
+
                 {block name='frontend_index_navigation'}
                     <header>
                         {block name='frontend_index_header_navigation'}
-                            {block name='frontend_index_header_container'}
-                                <div class="container hidden-print" id="header">
-                                    {block name='frontend_index_header_container_inner'}
-                                        {*! Message if javascript is disabled *}
-                                        {block name="frontend_index_no_script_message"}
-                                            <noscript>
-                                                <div class="row">
-                                                    {include file="frontend/_includes/messages.tpl" type="danger" dismiss="true" content="{s name='IndexNoscriptNotice'}{/s}"}
+                            <div class="container hidden-print" id="header">
+                                {block name='frontend_index_header_container_inner'}
+
+                                    {*! Shop header *}
+                                    {block name='frontend_index_header_row'}
+                                        <div class="row" id="header-row">
+                                            {block name="frontend_index_navigation_nav_toggle"}
+                                                <div class="col-xs-3 visible-xs visible-sm">
+                                                    {if !$theme.checkoutHeader || $theme.checkoutHeader && !({controllerAction} == 'confirm' || {controllerAction} == 'shippingPayment' || {controllerAction} == 'finish')}
+                                                        <button id="navToggle" 
+                                                                class="btn btn-link nav-toggle"
+                                                                type="button"
+                                                                data-offcanvas="true"
+                                                                data-offCanvasSelector="#mainNavigation"
+                                                                aria-title="{s name='IndexLinkMenu' namespace='frontend/index/menu_left'}{/s}">
+                                                            <span class="nav-toggle-bars"></span>
+                                                        </button>
+                                                    {/if}
                                                 </div>
-                                            </noscript>
-                                        {/block}
-                                        {block name='frontend_index_before_page'}{/block}
-                                        {block name='frontend_index_modal'}
-                                            <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="myImageModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myImageModalLabel" aria-hidden="true"></div>
-                                        {/block}
-                                        {*! Shop header *}
-                                        {block name='frontend_index_header_row'}
-                                            <div class="row" id="header-row">
-                                                {block name='frontend_index_header_row_left'}
-                                                    <div class="col-sm-12 col-hd-5 col-md-3">
-                                                        {*! Shop logo *}
+                                            {/block}
+
+                                            {block name='frontend_index_header_row_left'}
+                                                <div class="col-xs-9 col-hd-5 col-md-3">
+                                                    {*! Shop logo *}
+                                                    {block name='frontend_index_logo_container'}
                                                         {include file="frontend/index/logo-container.tpl"}
-                                                    </div>
-                                                {/block}
-                                                {block name='frontend_index_header_hr'}
-                                                    <div class="col-xs-12 visible-xs">
-                                                        <hr class="mts mbm">
-                                                    </div>
-                                                {/block}
-                                                {block name='frontend_index_header_row_right'}
-                                                    <div class="col-sm-12 col-hd-7 col-md-9">
-                                                        {* Shop navigation *}
-                                                        {block name='frontend_index_shop_navigation'}
-                                                            {include file="frontend/index/shop-navigation.tpl"}
-                                                        {/block}
-                                                    </div>
-                                                {/block}
-                                            </div>
-                                        {/block}
-                                        {*! Maincategories navigation top *}
-                                        {block name='frontend_index_navigation_categories_top'}
+                                                    {/block}
+                                                </div>
+                                            {/block}
+
+                                            {block name='frontend_index_header_hr'}
+                                                <div class="col-xs-12 visible-xs">
+                                                    <hr class="mts mbm">
+                                                </div>
+                                            {/block}
+
+                                            {block name='frontend_index_header_row_right'}
+                                                <div class="col-xs-12 col-hd-7 col-md-9">
+                                                    {* Shop navigation *}
+                                                    {block name='frontend_index_shop_navigation'}
+                                                        {include file="frontend/index/shop-navigation.tpl"}
+                                                    {/block}
+                                                </div>
+                                            {/block}
+                                        </div>
+                                    {/block}
+
+                                    {*! Maincategories navigation top *}
+                                    {block name='frontend_index_navigation_categories_top'}
+                                        {block name="frontend_index_navigation_categories_top_include"}
                                             {include file='frontend/index/main-navigation.tpl'}
                                         {/block}
                                     {/block}
-                                </div>
-                            {/block}
+                                {/block}
+                            </div>
                         {/block}
                     </header>
                 {/block}
+
                 {block name='frontend_index_emotion_loading_overlay'}
                     {if ($isEmotionLandingPage || $hasEmotion) && !$hasEscapedFragment}
                         <div class="emotion-overlay sw5-plugin"></div>
                     {/if}
                 {/block}
+
                 {block name='frontend_index_scrollup'}
                     <div class="visible-lg">
                         {block name='frontend_index_scrollup_inner'}
@@ -112,6 +118,7 @@
                         {/block}
                     </div>
                 {/block}
+
                 {block name='frontend_index_content_main'}
                     <section class="{block name="frontend_index_content_main_classes"}content-main{/block}">
                         {block name='frontend_index_main_section'}
@@ -131,6 +138,7 @@
 
                                             {*! Content top container *}
                                             {block name="frontend_index_content_top"}{/block}
+
                                             {block name='frontend_index_main_content'}
                                                 <div class="row">
                                                     {block name='frontend_index_main_content_inner'}
@@ -161,6 +169,7 @@
                                     {/block}
                                 </div>
                             {/block}
+
                             {* Last seen products *}
                             {block name="frontend_index_footer_last_articles"}
                                 {if $sLastArticlesShow}
@@ -183,6 +192,7 @@
                         {/block}
                     </section>
                 {/block}
+
                 {*! FOOTER *}
                 {block name="frontend_index_footer"}
                     <footer class="hidden-print">
@@ -192,6 +202,7 @@
                                     {block name="frontend_index_footer_container_include"}
                                         {include file='frontend/index/footer.tpl'}
                                     {/block}
+                                    
                                     {block name="frontend_index_footer_bootstrap_link"}
                                         <p class="text-center">
                                             <small>
@@ -204,17 +215,17 @@
                         {/block}
                     </footer>
                 {/block}
-                {block name='frontend_index_body_inline'}{/block}
-                </div>
-            {/block}
 
-            {* If required add the cookiePermission hint *}
-            {block name='frontend_index_cookie_permission'}
-                {if {config name="show_cookie_note"}}
-                    {include file="frontend/_includes/cookie_permission_note.tpl"}
-                {/if}
-            {/block}
-        </div>
+                {block name='frontend_index_body_inline'}{/block}
+            </div>
+        {/block}
+
+        {* If required add the cookiePermission hint *}
+        {block name='frontend_index_cookie_permission'}
+            {if {config name="show_cookie_note"}}
+                {include file="frontend/_includes/cookie_permission_note.tpl"}
+            {/if}
+        {/block}
     {/block}
 
     {block name='frontend_index_footer_javascript_include'}
@@ -224,6 +235,7 @@
                 {block name="frontend_index_header_javascript_inline"}
                     var timeNow = {time() nocache},
                         swfCustomSelects = '{$theme['custom-selects']}',
+                        swfCustomSelectOptions = {ldelim}'theme': 'bootstrap', 'downArrowIcon': 'fa'{rdelim},
                         swfAjaxCartScrollbar = true,
                         swfShowHidePwd = '{$theme['pwd-show-hide']}',
                         swfShowPwdStrength = '{$theme['pwd-strength']}',

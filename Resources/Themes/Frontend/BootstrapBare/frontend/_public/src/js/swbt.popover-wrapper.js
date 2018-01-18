@@ -64,7 +64,7 @@
             me.$el.on('inserted.bs.popover', function() {
                 var $popover = $(this).data('bs.popover').tip();
 
-                $popover.initScrollpaneSelectboxit();
+                $popover.swSelectboxReplacement();
             });
 
             // hide popover on document click

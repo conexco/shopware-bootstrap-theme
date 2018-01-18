@@ -5,10 +5,19 @@
 
     <services>
         <!-- subscribers -->
+        <service id="swf_bootstrap_theme.subscribers.frontend.checkout" class="SwfBootstrapTheme\Subscribers\Frontend\Checkout">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
         <service id="swf_bootstrap_theme.subscribers.frontend" class="SwfBootstrapTheme\Subscribers\Frontend">
             <argument type="service" id="shopware.plugin.cached_config_reader"/>
             <argument type="service" id="swf_bootstrap_theme.services.theme_config_reader"/>
             <argument>%swf_bootstrap_theme.plugin_name%</argument>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="legacy_struct_converter"/>
+            <argument type="service" id="cache"/>
+            <argument type="service" id="shopware_storefront.category_service"/>
             <tag name="shopware.event_subscriber"/>
         </service>
 

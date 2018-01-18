@@ -16,6 +16,9 @@
             me.applyDataAttributes();
             me.registerEvents();
 
+            // delete btn and quantity select selector
+            me.actionBtnSelector = me.opts.quantitySelectSelector + ' .form-control, ' + me.opts.deleteBtnSelector;
+
             $.publish('plugin/modifyAjaxCart/onInit', [ me ]);
         },
 
@@ -57,19 +60,17 @@
                 return;
             }
 
-            $content.loader('show');
+            // disable delete btn and quantity select before ajax call  
+            $content.find(me.actionBtnSelector).attr('disabled', 'disabled');
 
             $.publish('plugin/modifyAjaxCart/onDeleteAction', [ me, $content ]);
 
             $.ajax({
                 type: 'GET',
                 url: safeUrl(url),
-                success: function () {
-                    cartRefresh();
-                    me.reloadAction($content);
+                success: function (data) {
 
-                    // needed for IE11
-                    picturefill();
+                    me.reloadAction($content, data);
 
                     $.publish('plugin/modifyAjaxCart/onDeleteActionAfterAjax', [ me, $content ]);
                 }
@@ -79,51 +80,54 @@
         changeQuantityAction: function (event) {
             var me = this,
                 $select = $(event.target),
-                $content = $select.closest(me.opts.contentWrapperSelector);
+                $content = $select.closest(me.opts.contentWrapperSelector),
+                $form = $select.closest('form'),
+                formData = $form.serialize(),
+                url = $form.attr('action');
 
-            $content.loader('show');
+            if (!$content || !url) {
+                return;
+            }
+
+            // disable delete btn and quantity select before ajax call  
+            $content.find(me.actionBtnSelector).attr('disabled', 'disabled');
 
             $.publish('plugin/modifyAjaxCart/onchangeQuantityAction', [ me, $content ]);
 
             $.ajax({
                 type: 'POST',
-                url: safeUrl(controller.checkout) + '/changeQuantity',
-                data: $select.closest('form').serialize(),
-                success: function () {
-                    cartRefresh();
-                    me.reloadAction($content);
+                url: safeUrl(url),
+                data: formData,
+                success: function (data) {
 
-                    // needed for IE11
-                    picturefill();
+                    me.reloadAction($content, data);
 
                     $.publish('plugin/modifyAjaxCart/onchangeQuantityActionAfterAjax', [ me, $content ]);
                 }
             });
         },
 
-        reloadAction: function ($content) {
+        reloadAction: function ($content, data) {
             var me = this;
-            $.ajax({
-                type: 'GET',
-                url: safeUrl(controller.ajax_cart),
-                success: function (data) {
-                    var popoverData = me.$el.data('bs.popover');
-                    if (popoverData) {
-                        popoverData.options.content = data;
-                    }
 
-                    $content.html(data);
+            // init cart refresh
+            cartRefresh();
 
-                    // needed for IE11
-                    picturefill();
+            var popoverData = me.$el.data('bs.popover');
+            if (popoverData) {
+                popoverData.options.content = data;
+            }
 
-                    $content.initScrollpaneSelectboxit();
-                    $content.find('.slick').slickWrapper();
-                    $content.find('[data-equalheight="true"]:not([data-mode="ajax"]):visible').equalHeight();
+            $content.html(data);
 
-                    $.publish('plugin/modifyAjaxCart/onReloadActionAfterAjax', [ me, $content ]);
-                }
-            });
+            // needed for IE11
+            picturefill();
+
+            $content.swSelectboxReplacement();
+            $content.find('.slick').slickWrapper();
+            $content.find('[data-equalheight="true"]:not([data-mode="ajax"]):visible').equalHeight();
+
+            $.publish('plugin/modifyAjaxCart/onReloadActionAfterAjax', [ me, $content ]);
         },
 
         destroy: function () {

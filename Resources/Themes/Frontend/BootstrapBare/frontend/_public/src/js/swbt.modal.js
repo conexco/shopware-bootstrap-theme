@@ -167,9 +167,7 @@
                             $modal.addClass('fullscreen');
                         }
 
-                        if (swfCustomSelects) {
-                            $modal.find('select').selectBoxIt(swfCustomSelectOptions);
-                        }
+                        $modal.swSelectboxReplacement();
 
                         picturefill();
 

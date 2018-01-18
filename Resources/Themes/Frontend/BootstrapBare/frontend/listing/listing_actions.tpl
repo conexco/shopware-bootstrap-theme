@@ -29,7 +29,7 @@
                     {if $theme.sidebarFilter}
                         <div class="row mbm">
                             <div class="col-xs-12 col-sm-4">
-                                <div class="sidebar-filter-offcanvas hidden-md hidden-lg">
+                                <div class="sidebar-filter-offcanvas visible-xs visible-sm">
                                     <a href="#"
                                        class="btn btn-default btn-block"
                                        data-offcanvas="true"
