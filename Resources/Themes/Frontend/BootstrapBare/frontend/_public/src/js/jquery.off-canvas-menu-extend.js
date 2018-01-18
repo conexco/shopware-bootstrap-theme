@@ -17,7 +17,8 @@ $.overridePlugin('swOffcanvasMenu', {
         'disableTransitions': false,
         'disableTransitionCls': 'no-transitions',
         'mode': 'local',
-        'ajaxURL': ''
+        'ajaxURL': '',
+        'hideOnPageLoadCls': 'hide-on-page-load'
     },
 
     /**
@@ -31,6 +32,8 @@ $.overridePlugin('swOffcanvasMenu', {
         var me = this,
             opts = me.opts,
             menuWidth = me.$offCanvas.outerWidth();
+
+        me.$offCanvas.removeClass(opts.hideOnPageLoadCls);
 
         if (me.isOpened) {
             return;
