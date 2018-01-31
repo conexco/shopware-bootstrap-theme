@@ -12,10 +12,10 @@
 
 The repository contains different branches
 
-- **1.1** contains the stable code. If you want to use the theme in production, you should use this branch.
+- **1.2** contains the stable code. If you want to use the theme in production, you should use this branch.
 - **dev** the dev branch contains new features and bugfixes
 
-Every release is tagged with its version like `v1.1.0`. If you need an older version for you shop, just checkout the tag you need.
+Every release is tagged with its version like `v1.2.0`. If you need an older version for you shop, just checkout the tag you need.
 
 ### Installation via Shopware Store
 Open the plugin manager in your shop and search for `Shopware Bootstrap Theme`.

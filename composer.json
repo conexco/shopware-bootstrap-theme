@@ -10,7 +10,7 @@
       "role": "Developer"
     }
   ],
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-or-later",
   "homepage": "https://www.conexco.com",
   "type": "shopware-plugin",
   "extra": {
