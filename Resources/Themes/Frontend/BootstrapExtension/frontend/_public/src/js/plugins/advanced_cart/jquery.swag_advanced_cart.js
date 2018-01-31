@@ -24,7 +24,7 @@ $.overridePlugin('swAdvancedCart', {
         quickViewActiveSelector: '.quick-view.is--active',
         quickViewContainerSelector: '.quick-view--view',
         defaultUrlSuffixRegEx: /\/[0-9]+$/,
-        articleSearchFieldSelector: '.add-article-text-field',
+        productSearchFieldSelector: '.add-article-text-field',
         listContainerSelector: '.list-container-content',
         bundleMessageSelector: '.cart--header-info-bundle'
     },
@@ -94,11 +94,11 @@ $.overridePlugin('swAdvancedCart', {
         var me = this,
             contentCt = $el.parents(me.opts.listContainerSelector),
             $lastRow = $el.parents('.article-table-add-article'),
-            $textField = $lastRow.find(me.opts.articleSearchFieldSelector),
-            articleName = $textField.val(),
+            $textField = $lastRow.find(me.opts.productSearchFieldSelector),
+            productName = $textField.val(),
             basketId = $lastRow.find('.add-article-hidden').val(),
             url = jsUrlObject.getArticle,
-            parameter = { basketId: basketId, articleName: articleName },
+            parameter = { basketId: basketId, articleName: productName },
             extraParams = {
                 el: $el,
                 textField: $textField,
@@ -106,7 +106,7 @@ $.overridePlugin('swAdvancedCart', {
                 lastRow: $lastRow
             };
 
-        if (!articleName) {
+        if (!productName) {
             return;
         }
 
@@ -119,7 +119,7 @@ $.overridePlugin('swAdvancedCart', {
 
     afterAddArticle: function (response, extraParams) {
         var me = this,
-            articleTable = extraParams.contentCt.find('.article-table-header'),
+            productTable = extraParams.contentCt.find('.article-table-header'),
             status = $.parseJSON(response),
             alertContainer, alert, $template;
 
@@ -136,13 +136,13 @@ $.overridePlugin('swAdvancedCart', {
             // Normal success
             else if (status.type === 'added') {
                 $template = $(status.template);
-                articleTable.after($template);
+                productTable.after($template);
 
                 $template.find('.advancedCartQuantity').swSelectboxReplacement();
                 window.picturefill();
             }
         } else {
-            // Failed, because the article couldn't be found
+            // Failed, because the product couldn't be found
             if (status.type !== 'notfound') {
                 return;
             }
@@ -433,6 +433,8 @@ $.overridePlugin('swAdvancedCart', {
             .slideUp('slow');
 
         me.requireBundleMessage(status.requireBundleMessage);
+
+        $.publish('plugin/swAdvancedCart/afterCreateNewList', [ me, response, data ]);
     },
 
     prepareErrorMessage: function (data, errorArray, errorMessageContainerSelector) {
