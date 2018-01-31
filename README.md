@@ -36,6 +36,19 @@ php bin/console sw:plugin:install --activate SwfBootstrapTheme
 
 3.) to use the bootstrap theme you have to activate it in the plugin manager in the shopware backend
 
+### Installation via Composer
+1.) add to composer dependencies
+```
+composer require conexco/shopware-bootstrap-theme
+```
+
+2.) install the plugin in the plugin manager or execute the following commands on the command line
+```
+php bin/console sw:plugin:refresh
+php bin/console sw:plugin:install --activate SwfBootstrapTheme
+```
+
+4.) to use the bootstrap theme you have to activate it in the plugin manager in the shopware backend
 
 ## Get involved
 The Shopware Bootstrap Theme is available under the GPL-3.0 license.
