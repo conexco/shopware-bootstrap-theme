@@ -39,26 +39,10 @@ php bin/console sw:plugin:install --activate SwfBootstrapTheme
 ### Installation via Composer
 1.) add to composer dependencies
 ```
-{
-    "require": {
-        ...
-        "conexco/shopware-bootstrap-theme": "~1"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/conexco/shopware-bootstrap-theme.git"
-        }
-    ]
-}
+composer require conexco/shopware-bootstrap-theme
 ```
 
-2.) update your composer dependencies
-```
-composer update
-```
-
-3.) install the plugin in the plugin manager or execute the following commands on the command line
+2.) install the plugin in the plugin manager or execute the following commands on the command line
 ```
 php bin/console sw:plugin:refresh
 php bin/console sw:plugin:install --activate SwfBootstrapTheme
