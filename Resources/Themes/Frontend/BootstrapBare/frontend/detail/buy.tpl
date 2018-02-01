@@ -52,49 +52,40 @@
         {block name="frontend_detail_buy_button_container_outer"}
             {if (!isset($sArticle.active) || $sArticle.active)}
                 {if $sArticle.isAvailable}
-                    {block name='frontend_detail_buy_laststock'}
-                        {if $sArticle.laststock}
-                            <div id="detailBuyInfoNotAvailable"{if $sArticle.instock > 0} class="hidden"{/if}>
-                                <p>{include file="frontend/_includes/messages.tpl" type="danger" content="{s name='DetailBuyInfoNotAvailable'}{/s}"}</p>
-                            </div>
-                        {/if}
-                    {/block}
                     {block name="frontend_detail_buy_button_container"}
-                        {if !$sArticle.laststock || $sArticle.instock > 0}
-                            <div id="detailCartButton" {if $NotifyHideBasket && $sArticle.notification && $sArticle.instock <= 0}class="hidden"{/if}>
-                                {* Quantity selection *}
-                                {block name='frontend_detail_buy_quantity'}
-                                    {$maxQuantity=$sArticle.maxpurchase+1}
-                                    {if $sArticle.laststock && $sArticle.instock < $sArticle.maxpurchase}
-                                        {$maxQuantity=$sArticle.instock+1}
-                                    {/if}
+                        <div id="detailCartButton" {if $NotifyHideBasket && $sArticle.notification && $sArticle.instock <= 0}class="hidden"{/if}>
+                            {* Quantity selection *}
+                            {block name='frontend_detail_buy_quantity'}
+                                {$maxQuantity=$sArticle.maxpurchase+1}
+                                {if $sArticle.laststock && $sArticle.instock < $sArticle.maxpurchase}
+                                    {$maxQuantity=$sArticle.instock+1}
+                                {/if}
 
-                                    {block name='frontend_detail_buy_quantity_select'}
-                                        <select id="sQuantity" name="sQuantity" class="form-control">
-                                            {section name="i" start=$sArticle.minpurchase loop=$maxQuantity step=$sArticle.purchasesteps}
-                                                <option value="{$smarty.section.i.index}">{$smarty.section.i.index}{if $sArticle.packunit} {$sArticle.packunit}{/if}</option>
-                                            {/section}
-                                        </select>
-                                    {/block}
+                                {block name='frontend_detail_buy_quantity_select'}
+                                    <select id="sQuantity" name="sQuantity" class="form-control">
+                                        {section name="i" start=$sArticle.minpurchase loop=$maxQuantity step=$sArticle.purchasesteps}
+                                            <option value="{$smarty.section.i.index}">{$smarty.section.i.index}{if $sArticle.packunit} {$sArticle.packunit}{/if}</option>
+                                        {/section}
+                                    </select>
                                 {/block}
+                            {/block}
 
-                                {* "Buy now" button *}
-                                {block name='frontend_detail_buy_button'}
-                                    {if $sArticle.sConfigurator && !$activeConfiguratorSelection}
-                                        <button class="mtm btn btn-primary btn-block buybox-button" 
-                                                title="{s name="DetailBuySelectConfig"}Bitte wählen Sie eine Ausführung{/s}" 
-                                                name="{s name="DetailBuyActionAddName"}{/s}" 
-                                                disabled="disabled">{s name="DetailBuySelectConfig"}Bitte wählen Sie eine Ausführung{/s}</button>
-                                    {else}
-                                        <button class="mtm btn btn-primary btn-block buybox-button" 
-                                                title="{$sArticle.articleName|htmlentities} {s name='DetailBuyActionAddName'}{/s}"
-                                                name="{s name="DetailBuyActionAddName"}{/s}">
-                                            {s name="DetailBuyActionAdd"}{/s}
-                                        </button>
-                                    {/if}
-                                {/block}
-                            </div>
-                        {/if}
+                            {* "Buy now" button *}
+                            {block name='frontend_detail_buy_button'}
+                                {if $sArticle.sConfigurator && !$activeConfiguratorSelection}
+                                    <button class="mtm btn btn-primary btn-block buybox-button" 
+                                            title="{s name="DetailBuySelectConfig"}Bitte wählen Sie eine Ausführung{/s}" 
+                                            name="{s name="DetailBuyActionAddName"}{/s}" 
+                                            disabled="disabled">{s name="DetailBuySelectConfig"}Bitte wählen Sie eine Ausführung{/s}</button>
+                                {else}
+                                    <button class="mtm btn btn-primary btn-block buybox-button" 
+                                            title="{$sArticle.articleName|htmlentities} {s name='DetailBuyActionAddName'}{/s}"
+                                            name="{s name="DetailBuyActionAddName"}{/s}">
+                                        {s name="DetailBuyActionAdd"}{/s}
+                                    </button>
+                                {/if}
+                            {/block}
+                        </div>
                     {/block}
                 {/if}
             {/if}
