@@ -1,5 +1,10 @@
 // strips and returns controller url, safeUrl(controller,'/path')
-function safeUrl(url,path){url=url.replace('http:','').replace('https:','');path=typeof path==='undefined'?'':path;return url+path;}
+function safeUrl(url, path) {
+    if (!url) return;
+    url = url.replace('http:', '').replace('https:', '');
+    path = typeof path === 'undefined' ? '' : path;
+    return url + path;
+}
 
 // Ajax cart amount display
 function cartRefresh() {
