@@ -12,7 +12,8 @@ function cartRefresh() {
         $cartAmount = $('.cart-amount'),
         $cartQuantity = $('.cart-quantity'),
         $cartBtn = $('[data-ajax-cart="true"]'),
-        cartBtnChangeColor = $cartBtn.data('changeColor');
+        withQuantityCls = $cartBtn.attr('data-with-quantity'),
+        withoutQuantityCls = $cartBtn.attr('data-without-quantity');
 
     if (!ajaxCartRefresh.length) {
         return;
@@ -24,11 +25,15 @@ function cartRefresh() {
     }).done(function(response) {
         var cart = JSON.parse(response);
 
-        if (cartBtnChangeColor) {
+        if (withQuantityCls && withoutQuantityCls) {
             if (cart.quantity != 0) {
-                $cartBtn.removeClass('btn-default').addClass('btn-primary');
+                $cartBtn
+                    .removeClass(withoutQuantityCls)
+                    .addClass(withQuantityCls);
             } else {
-                $cartBtn.removeClass('btn-primary').addClass('btn-default');
+                $cartBtn
+                    .removeClass(withQuantityCls)
+                    .addClass(withoutQuantityCls);
             }
         }
 
@@ -41,10 +46,11 @@ function cartRefresh() {
 
         var cleanAmount = cart.amount.replace('.','');
 
-        if (parseInt(cleanAmount) < 100)
+        if (parseInt(cleanAmount) < 100) {
             $cartAmount.removeClass('hidden');
-        else
+        } else {
             $cartAmount.addClass('hidden');
+        }
     });
 }
 
