@@ -14,7 +14,9 @@
 
             <script src="{link file="frontend/_public/vendors/js/jquery.js"}"></script>
             <script src="{link file="frontend/_public/vendors/js/shopware/jquery.plugin-base.js"}"></script>
-            <script src="{link file="frontend/_public/src/js/jquery.cover.js"}"></script>
+            <script type="text/javascript">
+                {include file="../frontend/js/jquery.cover.js"}
+            </script>
         </body>
     </html>
 {/block}
