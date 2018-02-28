@@ -1,7 +1,7 @@
 {namespace name="frontend/checkout/cart_item"}
 
 {if $sBasketItem.additional_details.sConfigurator}
-    {$detailLink={url controller=detail sArticle=$sBasketItem.articleID number=$sBasketItem.ordernumber forceSecure}}
+    {$detailLink={url controller=detail sArticle=$sBasketItem.articleID number=$sBasketItem.ordernumber}}
 {else}
     {$detailLink=$sBasketItem.linkDetails}
 {/if}

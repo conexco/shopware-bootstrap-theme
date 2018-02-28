@@ -33,7 +33,7 @@
                     {* Author *}
                     {block name='frontend_detail_comment_author'}
                         <meta itemprop="author" content="{$vote.name|htmlentities}"/>
-                        {$vote.name}
+                        {if $vote.name}{$vote.name}{else}{s name="DetailCommentAnonymousName"}{/s}{/if}
                     {/block}
                     -
                     {* Date *}

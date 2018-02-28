@@ -24,7 +24,7 @@
                     </p>
                     {/block}
 
-                    {if count($addresses) > 0}
+                    {if $addresses|count > 0}
                         {block name="frontend_address_selection_modal_container"}
                             <div class="row" data-equalheight="true">
                                 {foreach $addresses as $address}

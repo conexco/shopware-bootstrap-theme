@@ -32,7 +32,7 @@
                             <h4 class="modal-title" id="notifyModalLabel">{s name="NotifyModalTitle"}Emailbenachrichtigung für diesen Artikel aktivieren{/s}</h4>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="{url action='notify' sArticle=$sArticle.articleID}" id="sendArticleNotification">
+                            <form method="post" action="{url action='notify' sArticle=$sArticle.articleID number=$sArticle.ordernumber}" id="sendArticleNotification">
                                 <input type="hidden" name="notifyOrdernumber" value="{$sArticle.ordernumber}" id="variantOrdernumber"/>
                                 <div class="input-group mbm">
                                     {block name="frontend_detail_index_notification_field"}

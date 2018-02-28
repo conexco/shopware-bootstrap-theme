@@ -8,30 +8,25 @@
 
 {* Javascript *}
 {block name="frontend_index_header_javascript" append}
-<script type="text/javascript">
-//<![CDATA[
-    jQuery(document).ready(function($) {
-        
-        //$('#payment').removeClass('grid_18').removeClass('push_1');
-        //$('#payment').addClass('grid_14').addClass('push_3');
-        $('#payment_frame').css('display', 'none');
-        $('#payment_loader').css('display', 'block');
-        
-        $('#payment_frame').load(function(){
-            $('#payment_loader').css('display', 'none');
-            $('#payment_frame').css('display', 'block');
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('#payment_frame').css('display', 'none');
+            $('#payment_loader').css('display', 'block');
             
-            var window = $('#payment_frame')[0].contentWindow;
-            if(window) {
-                var height = window.document.body.offsetHeight;
-                if(height>400) {
-                    $('#payment_frame').css('height', height+'px');
+            $('#payment_frame').load(function(){
+                $('#payment_loader').css('display', 'none');
+                $('#payment_frame').css('display', 'block');
+                
+                var window = $('#payment_frame')[0].contentWindow;
+                if(window) {
+                    var height = window.document.body.offsetHeight;
+                    if(height>400) {
+                        $('#payment_frame').css('height', height+'px');
+                    }
                 }
-            }
+            });
         });
-    });
-//]]>
-</script>
+    </script>
 {/block}
 
 {* Main content *}

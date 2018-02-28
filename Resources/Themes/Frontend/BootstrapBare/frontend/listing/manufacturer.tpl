@@ -34,15 +34,16 @@
          data-ajax-wishlist="true"
          data-compare-ajax="true"
          data-equalheight="true"
-            {if $theme['infinite-scrolling']}
-            data-infinite-scrolling="true"
-            data-ajaxUrl="{url module="widgets" controller="Listing" action="ajaxListing" sSupplier=$manufacturer->getId()}"
-            data-loadPreviousSnippet="{s name="ListingActionsLoadPrevious"}{/s}"
-            data-loadMoreSnippet="{s name="ListingActionsLoadMore"}{/s}"
-            data-categoryId="{$Shop->getCategory()->getId()}"
-            data-pages="{$pages}"
-            data-threshold="{$theme['infinite-threshold']}"
-            {/if}>
+         {if $theme['infinite-scrolling']}
+         data-infinite-scrolling="true"
+         data-productBoxLayout="{$sCategoryContent.productBoxLayout}"
+         data-ajaxUrl="{url module="widgets" controller="Listing" action="ajaxListing" sSupplier=$manufacturer->getId()}"
+         data-loadPreviousSnippet="{s name="ListingActionsLoadPrevious"}{/s}"
+         data-loadMoreSnippet="{s name="ListingActionsLoadMore"}{/s}"
+         data-categoryId="{$Shop->getCategory()->getId()}"
+         data-pages="{$pages}"
+         data-threshold="{$theme['infinite-threshold']}"
+         {/if}>
 
         {block name="frontend_listing_list_inline"}
             {foreach $sArticles as $sArticle}

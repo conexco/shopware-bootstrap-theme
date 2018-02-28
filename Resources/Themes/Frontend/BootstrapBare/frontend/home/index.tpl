@@ -57,8 +57,10 @@
             {elseif $hasEmotion}
                 <div class="content-emotions">
                     {foreach $emotions as $emotion}
-                        <div class="emotion-wrapper sw5-plugin" data-controllerUrl="{url module=widgets controller=emotion action=index emotionId=$emotion.id controllerName=$Controller}" data-availableDevices="{$emotion.devices}">
-                        </div>
+                        {block name='frontend_home_index_emotion_wrapper'}
+                            <div class="emotion-wrapper sw5-plugin" data-controllerUrl="{url module=widgets controller=emotion action=index emotionId=$emotion.id controllerName=$Controller}" data-availableDevices="{$emotion.devices}">
+                            </div>
+                        {/block}
                     {/foreach}
                 </div>
             {/if}

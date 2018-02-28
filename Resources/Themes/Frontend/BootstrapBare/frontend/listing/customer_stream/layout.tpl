@@ -55,11 +55,13 @@
                                 {$showListingCls = "{$showListingCls} hidden-{$emotionViewports[$device]}"}
                             {/foreach}
 
-                            <div class="{$showListingCls} text-center sw5-plugin">
-                                <a href="{url controller='cat' sPage=1 sCategory=$sCategoryContent.id}" title="{$sCategoryContent.name|escape}" class="btn btn-primary mbm">
-                                    {s name="ListingActionsOffersLink"}Weitere Artikel in dieser Kategorie &raquo;{/s}
-                                </a>
-                            </div>
+                            {if $showListingButton}
+                                <div class="{$showListingCls} text-center sw5-plugin">
+                                    <a href="{url controller='cat' sPage=1 sCategory=$sCategoryContent.id}" title="{$sCategoryContent.name|escape}" class="btn btn-primary mbm">
+                                        {s name="ListingActionsOffersLink"}Weitere Artikel in dieser Kategorie &raquo;{/s}
+                                    </a>
+                                </div>
+                            {/if}
                         {/block}
                     {/if}
                 </div>
