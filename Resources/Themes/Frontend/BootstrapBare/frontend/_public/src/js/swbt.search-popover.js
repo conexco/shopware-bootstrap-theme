@@ -99,6 +99,8 @@
                                 $input.popover('show');
                             }
 
+                            picturefill();
+
                             $.publish('plugin/ajaxSearch/onSearchResponse', [ me, searchTerm, data ]);
                         });
                     }

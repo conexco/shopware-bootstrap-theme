@@ -173,6 +173,8 @@ $.overridePlugin('swListingActions', {
                 }
             }
 
+            picturefill();
+
             // publish finish event to update filter panels
             $.publish('plugin/swListingActions/onGetFilterResultFinished', [me, response, params]);
         });

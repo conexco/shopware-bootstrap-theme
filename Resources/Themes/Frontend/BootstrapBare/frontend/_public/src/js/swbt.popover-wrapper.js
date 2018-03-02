@@ -159,6 +159,8 @@
                 me.initPopover();
                 me.popoverInitialized = true;
 
+                picturefill();
+
                 // opens popover
                 me.$el.trigger(me.opts.trigger);
                 me.$el.addClass(me.opts.ajaxPopoverReadyCls + ' ' + me.opts.ajaxPopoverOpenCls);
