@@ -1,7 +1,8 @@
 {extends file="frontend/index/index.tpl"}
 
-{block name="gridconfig" prepend}
+{block name="gridconfig"}
     {assign "grid" "g010" scope="global"}
+    {$smarty.block.parent}
 {/block}
 
 {block name='frontend_index_scrollup'}{/block}

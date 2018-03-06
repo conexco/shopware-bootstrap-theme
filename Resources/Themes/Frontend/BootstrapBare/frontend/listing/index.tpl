@@ -5,7 +5,7 @@
 {/block}
 
 {* Hide sidebar if at least one emotion is in fullscreen mode *}
-{block name="gridconfig" prepend}
+{block name="gridconfig"}
     {$fullscreenEmotion=false}
     {foreach $emotions as $emotion}
         {if $emotion.fullscreen}
@@ -17,6 +17,7 @@
     {else}
         {assign "grid" "g110" scope="global"}
     {/if}
+    {$smarty.block.parent}
 {/block}
 
 {block name='frontend_index_left_menu_content'}{/block}

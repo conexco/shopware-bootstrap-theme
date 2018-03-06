@@ -4,10 +4,11 @@
 {block name='frontend_listing_liveshopping_box_article_discount'}{/block}
 
 {* includes only if LiveShopping plugin is active *}
-{block name='frontend_listing_box_article_pseudo' prepend}
+{block name='frontend_listing_box_article_pseudo'}
 	{if $sArticle.liveShopping}
 		{include file='frontend/swag_live_shopping/listing/liveshopping-listing-badge.tpl' liveShopping=$sArticle.liveShopping}
 	{/if}	
+	{$smarty.block.parent}
 {/block}
 
 {block name="frontend_listing_box_article_actions"}
