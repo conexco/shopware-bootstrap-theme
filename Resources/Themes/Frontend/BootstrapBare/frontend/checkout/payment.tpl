@@ -7,7 +7,8 @@
 {/block}
 
 {* Javascript *}
-{block name="frontend_index_header_javascript" append}
+{block name="frontend_index_header_javascript"}
+    {$smarty.block.parent}
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $('#payment_frame').css('display', 'none');

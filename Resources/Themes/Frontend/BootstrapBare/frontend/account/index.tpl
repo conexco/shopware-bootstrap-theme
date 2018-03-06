@@ -5,8 +5,9 @@
 {/block}
 
 {* Breadcrumb *}
-{block name='frontend_index_start' append}
-    {assign var='sBreadcrumb' value=[['name'=>"{s name='AccountTitle'}{/s}", 'link' =>{url controller='account' action='index'}]]}
+{block name='frontend_index_start'}
+    {$smarty.block.parent}
+    {assign var='sBreadcrumb' value=[['name' => "{s name='AccountTitle'}{/s}", 'link' => {url controller='account' action='index'}]]}
 {/block}
 
 {block name='frontend_index_content_left'}

@@ -1,6 +1,7 @@
 {extends file='frontend/account/index.tpl'}
 
-{block name="frontend_index_header_javascript_jquery" append}
+{block name="frontend_index_header_javascript_jquery"}
+    {$smarty.block.parent}
     {* Configuration of the partner chart *}
     jQuery.partnerChart =  {ldelim}
         'timeUnit': '{s name='PartnerStatisticLabelTimeUnit'}{/s}',
@@ -33,15 +34,17 @@
     $('*[data-datepicker="true"]').datepicker(jQuery.datePickerRegional);
 {/block}
 
-{block name="frontend_index_header_javascript_jquery_lib" append}
+{block name="frontend_index_header_javascript_jquery_lib"}
+    {$smarty.block.parent}
     <script type="text/javascript" src="{link file='frontend/_public/vendors/js/raphael/raphael.js'}"></script>
     <script type="text/javascript" src="{link file='frontend/_public/vendors/js/raphael/popup.js'}"></script>
     <script type="text/javascript" src="{link file='frontend/_public/vendors/js/raphael/analytics.js'}"></script>
 {/block}
 
 {* Breadcrumb *}
-{block name='frontend_index_start' append}
-    {$sBreadcrumb[] = ['name'=>"{s name='Provisions'}{/s}", 'link'=>{url}]}
+{block name='frontend_index_start'}
+    {$smarty.block.parent}
+    {$sBreadcrumb[] = ['name' => "{s name='Provisions'}{/s}", 'link' => {url}]}
 {/block}
 
 {* Main content *}

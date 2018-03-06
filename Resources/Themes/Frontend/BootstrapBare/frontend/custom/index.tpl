@@ -1,7 +1,8 @@
 {extends file='frontend/index/index.tpl'}
 
 {* Breadcrumb *}
-{block name='frontend_index_start' append}
+{block name='frontend_index_start'}
+    {$smarty.block.parent}
     {$sBreadcrumb = []}
     {if $sCustomPage.parent}
         {$sBreadcrumb[] = [
