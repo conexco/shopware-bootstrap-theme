@@ -136,14 +136,31 @@
                 {block name='frontend_detail_index_buy_container_inner'}
                     <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                         {* Delivery informations *}
-                        {if ($sArticle.sConfiguratorSettings.type != 1 && $sArticle.sConfiguratorSettings.type != 2) || $activeConfiguratorSelection == true}
-                            {include file="frontend/plugins/index/delivery_informations.tpl" sArticle=$sArticle}
-                        {/if}
+                        {block name="frontend_detail_data_delivery"}
+                            {if ($sArticle.sConfiguratorSettings.type != 1 && $sArticle.sConfiguratorSettings.type != 2) || $activeConfiguratorSelection == true}
+                                {include file="frontend/plugins/index/delivery_informations.tpl" sArticle=$sArticle}
+                            {/if}
+                        {/block}
 
-                        {* Product eMail notification *}
+                        {block name='frontend_detail_buy_laststock'}
+                            {if !$sArticle.isAvailable && !$sArticle.sConfigurator}
+                                {include file="frontend/_includes/messages.tpl" type="error" content="{s name='DetailBuyInfoNotAvailable' namespace='frontend/detail/buy'}{/s}"}
+
+                            {elseif !$sArticle.isAvailable && $sArticle.isSelectionSpecified}
+                                {include file="frontend/_includes/messages.tpl" type="error" content="{s name='DetailBuyInfoNotAvailable' namespace='frontend/detail/buy'}{/s}"}
+
+                            {elseif !$sArticle.isAvailable && !$sArticle.hasAvailableVariant}
+                                {include file="frontend/_includes/messages.tpl" type="error" content="{s name='DetailBuyInfoNotAvailable' namespace='frontend/detail/buy'}{/s}"}
+                            {/if}
+                        {/block}
+
+                        {* Product email notification *}
                         {block name="frontend_detail_index_notification"}
-                            {if $sArticle.notification && $sArticle.instock <= 0 && $ShowNotification}
-                                {include file="frontend/plugins/notification/index.tpl"}
+                            {if $ShowNotification && $sArticle.notification && !$sArticle.isAvailable}
+                                {* Support products with or without variants *}
+                                {if ($sArticle.hasAvailableVariant && $sArticle.isSelectionSpecified) || !$sArticle.hasAvailableVariant}
+                                    {include file="frontend/plugins/notification/index.tpl"}
+                                {/if}
                             {/if}
                         {/block}
 

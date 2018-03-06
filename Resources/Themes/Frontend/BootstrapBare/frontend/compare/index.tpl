@@ -29,12 +29,12 @@
                     {/foreach}
                 </table>
                 {block name='frontend_compare_product_dropdown_action_start'}
-                    <a href="{url controller='compare' action='overlay' forceSecure}" rel="nofollow" class="btn btn-primary btn-block btn-sm compare-start sw5-plugin" title="{s name="CompareActionStart"}{/s}">
+                    <a href="{url controller='compare' action='overlay'}" rel="nofollow" class="btn btn-primary btn-block btn-sm compare-start sw5-plugin" title="{s name="CompareActionStart"}{/s}">
                         {s name="CompareActionStart"}{/s}
                     </a>
                 {/block}
                 {block name='frontend_compare_product_dropdown_action_delete'}
-                    <a href="{url controller='compare' action='delete_all' forceSecure}" rel="nofollow" class="btn btn-danger btn-block btn-sm compare-delete-all sw5-plugin" title="{s name="CompareActionDelete"}{/s}">
+                    <a href="{url controller='compare' action='delete_all'}" rel="nofollow" class="btn btn-danger btn-block btn-sm compare-delete-all sw5-plugin" title="{s name="CompareActionDelete"}{/s}">
                         {s name="CompareActionDelete"}{/s}
                     </a>
                 {/block}

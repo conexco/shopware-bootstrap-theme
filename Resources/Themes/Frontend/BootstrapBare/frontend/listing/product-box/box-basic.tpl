@@ -81,12 +81,31 @@
                                     {/if}
                                 {/block}
 
-                                <small>
+                                <div class="small">
                                     {if $productBoxLayout != 'listing'}
                                         {$sArticle.description_long|strip_tags|truncate:80}
                                     {/if}
-                                </small>
+                                </div>
                             {/block}
+                        </div>
+                    {/block}
+
+                    {* Variant description *}
+                    {block name='frontend_listing_box_variant_description'}
+                        <div class="variant-wrapper" data-equal="variants">
+                            {if $sArticle.attributes.swagVariantConfiguration}
+                                <span title="
+                                    {foreach $sArticle.attributes.swagVariantConfiguration->get('value') as $group}
+                                        {$group.groupName}: {$group.optionName}
+                                    {/foreach}
+                                    ">
+                                    {foreach $sArticle.attributes.swagVariantConfiguration->get('value') as $group}
+                                        <span class="small variant-description-line">
+                                            <span class="variant-groupName">{$group.groupName}:</span> {$group.optionName} {if !$group@last}|{/if}
+                                        </span>
+                                    {/foreach}
+                                </span>
+                            {/if}
                         </div>
                     {/block}
 
