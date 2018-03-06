@@ -141,13 +141,18 @@ $.overridePlugin('swRegister', {
             $el = $(event.target),
             id = $el.attr('id'),
             action,
-            relatedTarget = event.relatedTarget || document.activeElement;
+            relatedTarget = event.relatedTarget || document.activeElement,
+            hasEmailConfirmation = me.$personalEmailConfirmation.length > 0,
+            hasPasswordConfirmation = me.$personalPasswordConfirmation.length > 0;
 
         me.$targetElement = $(relatedTarget);
 
         switch (id) {
             case 'register_personal_email':
             case 'register_personal_emailConfirmation':
+                if (hasEmailConfirmation && (me.$personalEmail.val().length <= 0 || me.$personalEmailConfirmation.val().length <= 0)) {
+                    break;
+                }
                 action = 'ajax_validate_email';
                 break;
             case 'register_billing_ustid':
@@ -155,6 +160,9 @@ $.overridePlugin('swRegister', {
                 break;
             case 'register_personal_password':
             case 'register_personal_passwordConfirmation':
+                if (hasPasswordConfirmation && (me.$personalPassword.val().length <= 0 || me.$personalPasswordConfirmation.val().length <= 0)) {
+                    break;
+                }
                 action = 'ajax_validate_password';
                 break;
             default:

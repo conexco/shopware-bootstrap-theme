@@ -40,9 +40,9 @@ $.overridePlugin('swProductCompareMenu', {
 
         // Load compare modal before opening modal box
         $.ajax({
-            'url': modalUrl,
-            'dataType': 'jsonp',
-            'success': function(template) {
+            url: modalUrl,
+            dataType: 'html',
+            success: function(template) {
                 $.publish('plugin/swProductCompareMenu/onStartCompareSuccess', [me, template]);
 
                 $('body').showModal(template, me.opts.modalClass, function(){
@@ -94,9 +94,9 @@ $.overridePlugin('swProductCompareMenu', {
         $menuBtn.addClass('hidden');
 
         $.ajax({
-            'url': deleteUrl,
-            'dataType': 'jsonp',
-            'success': function () {
+            url: deleteUrl,
+            dataType: 'html',
+            success: function () {
                 $.publish('plugin/swProductCompareMenu/onDeleteCompareSuccess', me);
             }
         });
@@ -149,9 +149,9 @@ $.overridePlugin('swProductCompareMenu', {
 
         // remove product silent in the background
         $.ajax({
-            'url': deleteUrl,
-            'dataType': 'jsonp',
-            'success': function (response) {
+            url: deleteUrl,
+            dataType: 'html',
+            success: function (response) {
                 $.publish('plugin/swProductCompareMenu/onDeleteItemSuccess', [me, response]);
             }
         });

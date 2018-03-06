@@ -18,6 +18,7 @@ $.overridePlugin('swInfiniteScrolling', {
         'listingContainerSelector': '.listing-container',
         'pagingBottomSelector': '.listing-paging',
         'listingActionsWrapper': 'infinite-actions text-center mbl',
+        productBoxLayout: null,
         delegateConSelector: '.listing-wrapper',
         addArticleSelector: '*[data-add-article="true"]',
         // custom

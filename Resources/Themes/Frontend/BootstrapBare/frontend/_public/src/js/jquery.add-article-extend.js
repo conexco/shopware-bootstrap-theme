@@ -129,10 +129,11 @@
             $.publish('plugin/addArticleModal/onBeforeAddArticle', [ me, ajaxData ]);
 
             $.ajax({
-                'data': ajaxData,
-                'dataType': 'jsonp',
-                'url': opts.addArticleUrl,
-                'success': function (result) {
+                data: ajaxData,
+                dataType: 'html',
+                method: 'POST',
+                url: opts.addArticleUrl,
+                success: function (result) {
                     $.publish('plugin/' + me.getName() + '/onAddArticle', [ me, result ]);
                     // fallback
                     $.publish('plugin/addArticleModal/onAddArticle', [ me, result ]);

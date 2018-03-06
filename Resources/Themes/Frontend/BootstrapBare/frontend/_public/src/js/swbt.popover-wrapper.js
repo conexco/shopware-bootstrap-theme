@@ -152,7 +152,7 @@
                 
             $.ajax({
                 url: safeUrl(me.opts.ajaxUrl),
-                dataType: 'jsonp'
+                dataType: 'html'
             }).done(function(data) {
                 // init popover
                 me.opts.content = data;

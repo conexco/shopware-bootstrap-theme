@@ -49,7 +49,8 @@ $.overridePlugin('swListingActions', {
         filterFacetContainerSelector: '.filter-panel-container',
         filterActionButtonBottomSelector: '.filter-actions.filter-actions-bottom',
         sidebarLoadingIndicatorParentSelector: '.content-main',
-        addArticleSelector: '*[data-add-article="true"]'
+        addArticleSelector: '*[data-add-article="true"]',
+        listingScrollThreshold: -10
     },
 
     init: function () {
