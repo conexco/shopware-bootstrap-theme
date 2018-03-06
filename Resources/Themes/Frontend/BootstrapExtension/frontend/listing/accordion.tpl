@@ -53,7 +53,7 @@
         {block name="frontend_bonus_accordion_footer"}
             <div class="panel-footer text-center">
                 {block name="frontend_bonus_accordion_footer_link"}
-                    <a class="accordion-container--footer-link" title="{"{s namespace="frontend/plugins/bonus_system/index" name="DisplayAllBonusArticleLink"}{/s}"|escape}" href="{url controller=BonusSystem forceSecure}">
+                    <a class="accordion-container--footer-link" title="{"{s namespace="frontend/plugins/bonus_system/index" name="DisplayAllBonusArticleLink"}{/s}"|escape}" href="{url controller=BonusSystem}">
                         {s namespace="frontend/plugins/bonus_system/index" name="DisplayAllBonusArticleLink"}{/s}
                     </a>
                 {/block}

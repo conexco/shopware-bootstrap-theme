@@ -1,7 +1,7 @@
 {if $PaypalShowButton}
     <div class="col-xs-12 text-right mtm paypal-express">
         {* PayPal express button *}
-        <a href="{url controller=payment_paypal action=express forceSecure}"
+        <a href="{url controller=payment_paypal action=express}"
            title="{s name='PaypalButtonLinkTitleText'}{/s}"
            class="paypal-express-btn">
             {if !$PaypalLocale || $PaypalLocale == 'de_DE'}

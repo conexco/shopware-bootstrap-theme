@@ -110,9 +110,9 @@
                 {block name="frontend_checkout_cart_item_details_inline_swag_custom_products_surcharges_total"}
                     {if $action == 'cart' || $action == 'confirm'}
                         {if $sBasketItem.additional_details.sConfigurator}
-                            {$detailLink={url controller=detail sArticle=$sBasketItem.articleID number=$sBasketItem.ordernumber forceSecure}}
+                            {$detailLink={url controller=detail sArticle=$sBasketItem.articleID number=$sBasketItem.ordernumber}}
                         {else}
-                            {$detailLink = {url controller=detail sArticle=$sBasketItem.articleID forceSecure}}
+                            {$detailLink = {url controller=detail sArticle=$sBasketItem.articleID}}
                         {/if}
                         <a href="{$detailLink}#{$sBasketItem.customProductHash}" title="{s name="basket/open_configuration"}{/s}" class="custom-product-open-config text-primary">
                             {s name="basket/open_configuration"}{/s}
