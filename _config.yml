@@ -2,7 +2,7 @@
 id: conexco/shopware-bootstrap-theme
 name: Bootstrap Theme for Shopware
 description: The Shopware Bootstrap Theme helps you build fast, robust, and adaptable responsive shopware themes. Kick-start your shopware theme with the combined knowledge and effort of 1000s of custom shopware themes.
-version: 1.2.1
+version: 2.0.0
 license: GPL-3.0
 licenseUrl: https://www.gnu.org/licenses/gpl-3.0.en.html
 
