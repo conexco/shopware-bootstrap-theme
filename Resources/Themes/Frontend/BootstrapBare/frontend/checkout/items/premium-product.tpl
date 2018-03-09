@@ -44,7 +44,15 @@
 
                         {* Remove product from basket *}
                         {block name='frontend_checkout_cart_item_premium_delete_article'}
-                            <a href="{url action='deleteArticle' sDelete=$sBasketItem.id sTargetAction=$sTargetAction}" title="{s name='CartPremiumLinkDelete'}entfernen{/s}" data-use="deleteArticle">{s name='CartPremiumLinkDelete'}{/s}</a>
+                            <form action="{url action='deleteArticle' sDelete=$sBasketItem.id sTargetAction=$sTargetAction}"
+                                  method="post" data-use="deleteArticle">
+                                {block name='frontend_checkout_cart_item_premium_delete_article_button'}
+                                    <button type="submit" class="btn btn-link pan"
+                                            title="{"{s name='CartItemLinkDelete'}{/s}"|escape}">
+                                        {s name='CartPremiumLinkDelete'}{/s}
+                                    </button>
+                                {/block}
+                            </form>
                         {/block}
                     </div>
                 {/block}

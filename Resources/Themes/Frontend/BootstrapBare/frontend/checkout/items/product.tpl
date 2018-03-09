@@ -114,14 +114,18 @@
                     {* Remove product from basket *}
                     {block name='frontend_checkout_cart_item_delete_article'}
                         <div class="col-xs-6 col-sm-2 col-sm-push-4 col-md-1 text-right">
-                            {block name='frontend_checkout_cart_item_delete_article_button'}
-                                <a href="{url action='deleteArticle' sDelete=$sBasketItem.id sTargetAction=$sTargetAction}" class="btn btn-danger" title="{s name='CartItemLinkDelete'}L&ouml;schen{/s}" data-use="deleteArticle">
-                                    <i class="fa fa-trash-o"></i>
-                                </a>
-                            {/block}
+                             <form action="{url action='deleteArticle' sDelete=$sBasketItem.id sTargetAction=$sTargetAction}"
+                                  method="post" data-use="deleteArticle">
+                                {block name='frontend_checkout_cart_item_delete_article_button'}
+                                    <button type="submit" class="btn btn-danger"
+                                            title="{"{s name='CartItemLinkDelete'}{/s}"|escape}">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                {/block}
+                            </form>
                         </div>
                     {/block}
-
+                    
                     {* Product unit price *}
                     {block name='frontend_checkout_cart_item_price'}
                         <div class="col-xs-12 col-sm-2 col-sm-pull-2 col-md-pull-1 text-right">
