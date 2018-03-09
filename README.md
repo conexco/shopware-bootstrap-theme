@@ -5,17 +5,20 @@
 - **Shopware Community Store**: <http://store.shopware.com/swf4843184974406/shopware-bootstrap-theme.html>
 
 ### Requirements
-- Shopware 5.3 or newer
+- Shopware 5.4 or newer
+
+Versions 1.0 - 1.2.x support Shopware 5.3
 
 
 ### Overview
 
 The repository contains different branches
 
-- **1.2** contains the stable code. If you want to use the theme in production, you should use this branch.
+- **2.0** contains the stable code. If you want to use the theme in production, you should use this branch.
 - **dev** the dev branch contains new features and bugfixes
 
-Every release is tagged with its version like `v1.2.1`. If you need an older version for you shop, just checkout the tag you need.
+Every release is tagged with its version like `v2.0.0`. If you need an older version for you shop, just checkout the tag you need.
+
 
 ### Installation via Shopware Store
 Open the plugin manager in your shop and search for `Shopware Bootstrap Theme`.

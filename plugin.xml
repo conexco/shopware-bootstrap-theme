@@ -8,7 +8,7 @@
         The Shopware Bootstrap Theme helps you build fast, robust, and adaptable responsive shopware themes. Kick-start your shopware theme with the combined knowledge and effort of 1000s of custom shopware themes.
     </description>
 
-    <compatibility minVersion="5.3.0"/>
+    <compatibility minVersion="5.4.0"/>
     <author>conexco - the e-commerce experts</author>
     <copyright>Copyright (c) 2017, conexco UG (haftungsbeschränkt) &amp; Co. KG</copyright>
     <license>GNU GPLv3</license>
