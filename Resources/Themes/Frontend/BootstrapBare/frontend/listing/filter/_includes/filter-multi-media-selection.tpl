@@ -9,7 +9,7 @@
                         {block name="frontend_listing_filter_facet_media_list_option"}
                             <li>
                                 {block name="frontend_listing_filter_facet_media_list_option_container"}
-                                    <div class="thumbnail">
+                                    <div class="thumbnail filter-panel--input">
                                         {block name="frontend_listing_filter_facet_media_list_input"}
 
                                             {$name = "__{$facet->getFieldName()|escape:'htmlall'}__{$option->getId()|escape:'htmlall'}"}
