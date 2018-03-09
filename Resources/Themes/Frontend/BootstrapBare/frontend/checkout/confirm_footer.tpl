@@ -1,6 +1,7 @@
 {extends file='frontend/checkout/cart_footer.tpl'}
 
-{block name='frontend_checkout_cart_footer_tax_information' append}
+{block name='frontend_checkout_cart_footer_tax_information'}
+	{$smarty.block.parent}
     {if !$sUserData.additional.charge_vat && {config name=nettonotice}}
         <p>{s name='CheckoutFinishTaxInformation'}{/s}</p>
     {/if}

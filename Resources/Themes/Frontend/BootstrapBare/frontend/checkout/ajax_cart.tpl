@@ -32,7 +32,27 @@
 
         {block name='frontend_checkout_ajax_cart_prices_container'}
             {if $sBasket.content}
-                {block name='frontend_checkout_ajax_cart_prices_container_inner'}{/block}
+                <div class="prices-container">
+                    {block name='frontend_checkout_ajax_cart_prices_container_inner'}
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <span class="prices-articles-text">
+                                    {s name="AjaxCartTotalAmount"}{/s}
+                                </span>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <span class="price price-small price-default prices-articles-amount">
+                                    {$sBasket.Amount|currency}
+                                </span>
+                            </div>
+                        </div>
+                    {/block}
+                    {block name='frontend_checkout_ajax_cart_prices_info'}
+                        <p class="small prices-tax">
+                            {s name="DetailDataPriceInfo" namespace="frontend/detail/data"}{/s}
+                        </p>
+                    {/block}
+                </div>
             {/if}
         {/block}
 

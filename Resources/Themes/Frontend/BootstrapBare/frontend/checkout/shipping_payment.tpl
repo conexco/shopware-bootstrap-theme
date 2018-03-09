@@ -1,8 +1,9 @@
 {extends file="frontend/index/index.tpl"}
 
 {* Hide sidebar left *}
-{block name="gridconfig" prepend}
+{block name="gridconfig"}
     {assign var="grid" value="g010"}
+    {$smarty.block.parent}
 {/block}
 {block name='frontend_index_content_left'}{/block}
 

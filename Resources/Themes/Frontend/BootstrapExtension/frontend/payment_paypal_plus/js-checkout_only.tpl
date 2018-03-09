@@ -15,8 +15,8 @@
             window.jQuery = $ = window.jQuery_SW;
             $(document).ready(function($) {
                 var $agb = $('#sAGB'),
-                    urlForSendingCustomerData = '{url controller=checkout action=preRedirect forceSecure}',
-                    urlForSendingCustomerDataError = '{url controller=payment_paypal action=return forceSecure}',
+                    urlForSendingCustomerData = '{url controller=checkout action=preRedirect}',
+                    urlForSendingCustomerDataError = '{url controller=payment_paypal action=return}',
                     customerCommentField = $(".user-comment-hidden"),
 
                     onConfirm = function(event) {

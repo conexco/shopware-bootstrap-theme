@@ -41,7 +41,7 @@
                 {/block}
 
                 {block name="frontend_checkout_bonussystem_slider_container_confirm"}
-                    <form method="post" class="bonussystem-add-voucher-form prl pll" action="{url controller='BonusSystem' action='addVoucher' sTargetAction=$sTargetAction forceSecure}">
+                    <form method="post" class="bonussystem-add-voucher-form prl pll" action="{url controller='BonusSystem' action='addVoucher' sTargetAction=$sTargetAction}">
                         {block name="frontend_checkout_bonussystem_slider_input_currency"}
                             <input type="hidden" id="currency_display" value="{"0"|currency}" />
                         {/block}

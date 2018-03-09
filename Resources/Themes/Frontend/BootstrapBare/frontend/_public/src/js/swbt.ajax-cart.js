@@ -66,7 +66,8 @@
             $.publish('plugin/modifyAjaxCart/onDeleteAction', [ me, $content ]);
 
             $.ajax({
-                type: 'GET',
+                type: 'POST',
+                dataType: 'html',
                 url: safeUrl(url),
                 success: function (data) {
 
@@ -97,6 +98,7 @@
             $.ajax({
                 type: 'POST',
                 url: safeUrl(url),
+                dataType: 'html',
                 data: formData,
                 success: function (data) {
 

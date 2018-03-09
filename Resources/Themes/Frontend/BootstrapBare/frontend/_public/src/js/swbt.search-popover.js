@@ -83,6 +83,7 @@
                     } else {
                         $.ajax({
                             url: url,
+                            dataType: 'html',
                             type: 'GET'
                         }).done(function(data) {
                             var popoverData = $input.data('bs.popover'),

@@ -133,7 +133,7 @@
                                 {/block}
                                 {block name='frontend_ticket_answer_upload'}
                                     {if {config name=allowUploads}}
-                                        <form name="fileuploadOption" method="post" action="{url controller=ticket action=upload forceSecure}" class="answerUpload">
+                                        <form name="fileuploadOption" method="post" action="{url controller=ticket action=upload}" class="answerUpload">
                                             <div class="option_values option_values_upload_file_custom btn btn-primary mbl">
                                                 <input type="hidden" name="ticket" value="{$ticketDetails.id}"/>
                                                 <input type="hidden" name="answer" value="-1"/>

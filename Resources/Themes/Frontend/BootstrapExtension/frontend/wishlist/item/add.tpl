@@ -9,7 +9,7 @@ original SW: form is in /wishlist/item_form.tpl
       data-eventName="submit"
       {if $theme.offcanvasCart}
         data-showModal="false"
-        data-addArticleUrl="{url controller=checkout action=ajaxAddArticleCart forceSecure}"
+        data-addArticleUrl="{url controller=checkout action=ajaxAddArticleCart}"
       {/if}
     >
 

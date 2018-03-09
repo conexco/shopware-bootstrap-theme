@@ -8,10 +8,11 @@
     </div>
 {/block}
 
-{block name="frontend_address_form_form_inner" prepend}
+{block name="frontend_address_form_form_inner"}
     {assign "FormInputSize" "col-md-6" scope="global"}
     {assign "FormLabelSize" "col-md-4" scope="global"}
     {assign "FormLabelOffset" "col-md-offset-4" scope="global"}
+    {$smarty.block.parent}
 {/block}
 
 {block name="frontend_address_action_buttons"}

@@ -56,7 +56,7 @@
 			{block name="frontend_bonussystem_changes_item_reason_value"}
                 {if $change.type == "spend" || $change.type == "earn"}
                     {assign var="anchor" value="order{$change.context}"}
-                    {s name=order}{/s} <a href="{url controller="account" action="orders" forceSecure}#{$anchor}" class="bold">#{$change.context}</a>
+                    {s name=order}{/s} <a href="{url controller="account" action="orders"}#{$anchor}" class="bold">#{$change.context}</a>
                 {else}
                     {$change.context}
                 {/if}

@@ -21,7 +21,7 @@
             {block name="frontend_detail_bonussystem_points_info"}
                 <span>{s namespace="frontend/detail/buy" name="DetailPointsForArticleBefore"}Jetzt{/s}</span>
                 <span class="bonussystem-earning sw5-plugin">{$sArticleEarningPointsCurrent}</span>
-                <a href="{url controller=BonusSystem forceSecure}" title="{s namespace="frontend/detail/buy" name="DetailPointsForArticleBefore"}Jetzt{/s} {s namespace="frontend/detail/buy" name="DetailPointsForArticleAfter"}Bonuspunkte sichern{/s}">
+                <a href="{url controller=BonusSystem}" title="{s namespace="frontend/detail/buy" name="DetailPointsForArticleBefore"}Jetzt{/s} {s namespace="frontend/detail/buy" name="DetailPointsForArticleAfter"}Bonuspunkte sichern{/s}">
                     {s namespace="frontend/detail/buy" name="DetailPointsForArticleAfter"}Bonuspunkte sichern{/s}
                 </a>
             {/block}

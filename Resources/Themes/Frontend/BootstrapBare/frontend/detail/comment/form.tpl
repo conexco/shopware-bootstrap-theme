@@ -43,7 +43,7 @@
                 <label for="sVoteName" class="{$FormLabelSize} control-label">{s name="DetailCommentLabelName"}{/s}</label>
 
                 <div class="{$FormInputSize}">
-                    <input name="sVoteName" placeholder="{s name="DetailCommentLabelName"}{/s}" type="text" class="form-control" id="sVoteName" value="{$sFormData.sVoteName|escape}" required="required" aria-required="true"/>
+                    <input name="sVoteName" placeholder="{s name="DetailCommentLabelName"}{/s}" type="text" class="form-control" id="sVoteName" value="{$sFormData.sVoteName|escape}"/>
                 </div>
             </div>
         {/block}

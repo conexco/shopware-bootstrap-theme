@@ -1,15 +1,17 @@
 {extends file='frontend/index/index.tpl'}
 
-{block name="gridconfig" prepend}
+{block name="gridconfig"}
     {assign "grid" "g110" scope="global"}
+    {$smarty.block.parent}
 {/block}
 
 {* push sidebar to the right on desktop *}
-{block name="frontend_index_content_left_wrapper" prepend}
+{block name="frontend_index_content_left_wrapper"}
     {if $grid eq 'g110'}
         {assign "gridLeftStart" "&lt;div class=\"col-xs-12 col-hd-push-{math equation="x-y" x=12 y=$theme['amount-left-columns']} col-hd-`$theme['amount-left-columns']`\" id=\"gLeft\"&gt;" scope="global"}
         {assign "gridCenterStart" "&lt;div class=\"col-xs-12 col-hd-pull-{$theme['amount-left-columns']} col-hd-{math equation="x-y" x=12 y=$theme['amount-left-columns']}\" id=\"gCenter\"&gt;" scope="global"}
     {/if}
+    {$smarty.block.parent}
 {/block}
 
 {block name='frontend_index_header'}

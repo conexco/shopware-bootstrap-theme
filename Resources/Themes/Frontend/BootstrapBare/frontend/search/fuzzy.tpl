@@ -1,11 +1,12 @@
 {extends file='frontend/index/index.tpl'}
 
-{block name="gridconfig" prepend}
+{block name="gridconfig"}
     {if $theme.sidebarFilter}
         {assign "grid" "g110" scope="global"}
     {else}
         {assign "grid" "g010" scope="global"}
     {/if}
+    {$smarty.block.parent}
 {/block}
 
 {* Sidebar left *}
@@ -21,12 +22,13 @@
 {block name="frontend_index_left_menu_container"}{/block}
 
 {* Breadcrumb *}
-{block name='frontend_index_start' prepend}
+{block name='frontend_index_start'}
     {if $sRequests.sSearchOrginal}
         {$sBreadcrumb = [['name' => "{s name="SearchResultsFor"}{/s}"]]}
     {else}
         {$sBreadcrumb = [['name' => "{s name="SearchResultsEmpty"}{/s}"]]}
     {/if}
+    {$smarty.block.parent}
 {/block}
 
 {* Main content *}

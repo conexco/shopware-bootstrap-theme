@@ -21,10 +21,8 @@ function cartRefresh() {
 
     $.ajax({
         url: ajaxCartRefresh,
-        dataType: 'jsonp'
-    }).done(function(response) {
-        var cart = JSON.parse(response);
-
+        dataType: 'json'
+    }).done(function(cart) {
         if (withQuantityCls && withoutQuantityCls) {
             if (cart.quantity != 0) {
                 $cartBtn

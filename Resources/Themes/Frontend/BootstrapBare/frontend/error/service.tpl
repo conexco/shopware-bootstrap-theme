@@ -1,8 +1,9 @@
 {extends file='frontend/index/index.tpl'}
-{block name="gridconfig" prepend}
+{block name="gridconfig"}
     {assign "grid" "g010" scope="global"}
+    {$smarty.block.parent}
 {/block}
-{block name='frontend_index_header_title' prepend}{s name="ServiceIndexTitle"}Wartungsarbeiten{/s} | {/block}
+{block name='frontend_index_header_title'}{s name="ServiceIndexTitle"}Wartungsarbeiten{/s} | {$smarty.block.parent}{/block}
 {block name='frontend_index_content'}
 
     <div class="text-center">

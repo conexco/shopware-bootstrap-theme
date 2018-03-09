@@ -1,7 +1,8 @@
 {extends file="frontend/index/index.tpl"}
 
-{block name="gridconfig" prepend}
+{block name="gridconfig"}
     {assign "grid" "g010" scope="global"}
+    {$smarty.block.parent}
 {/block}
 
 {* Shop header *}
@@ -414,7 +415,7 @@
                     {* Right of revocation notice *}
                     {block name='frontend_checkout_confirm_tos_revocation_notice'}
                         {if {config name=revocationnotice}}
-                            <p>{s name="ConfirmTextRightOfRevocationModalLink"}Bitte beachten Sie bei Ihrer Bestellung auch unsere <a href="{url controller=custom sCustom=8 forceSecure}" data-toggle="ajax-modal">Widerrufsbelehrung</a>.{/s}</p>
+                            <p>{s name="ConfirmTextRightOfRevocationModalLink"}Bitte beachten Sie bei Ihrer Bestellung auch unsere <a href="{url controller=custom sCustom=8}" data-toggle="ajax-modal">Widerrufsbelehrung</a>.{/s}</p>
                         {/if}
                     {/block}
 

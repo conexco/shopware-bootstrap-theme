@@ -15,7 +15,7 @@
                 <div class="list-group">
                     {block name="frontend_bonus_sidebar_points"}
                         <div class="list-group-item sidebar-bonus-menu hidden sw5-plugin">
-                            <a href="{url controller=BonusSystem action=points forceSecure}" title="{"{s namespace='widgets/index/shop_menu' name='DisplayUserPointAccount'}Ihr Punktekonto{/s}"|escape}" rel="nofollow">
+                            <a href="{url controller=BonusSystem action=points}" title="{"{s namespace='widgets/index/shop_menu' name='DisplayUserPointAccount'}Ihr Punktekonto{/s}"|escape}" rel="nofollow">
                                 {s namespace='widgets/index/shop_menu' name="DisplayUserPointAccount"}Ihr Punktekonto{/s}
                             </a>
                         </div>
@@ -23,7 +23,7 @@
                     {block name="frontend_bonus_sidebar_bonus_articles"}
                         {if $sBonusSystem.settings.bonus_articles_active}
                             <div class="list-group-item">
-                                <a href="{url controller=BonusSystem forceSecure}" title="{"{s namespace='widgets/index/shop_menu' name='DisplayAllBonusArticlesTitle'}Zu den Bonus-Artikeln{/s}"|escape}" rel="nofollow">
+                                <a href="{url controller=BonusSystem}" title="{"{s namespace='widgets/index/shop_menu' name='DisplayAllBonusArticlesTitle'}Zu den Bonus-Artikeln{/s}"|escape}" rel="nofollow">
                                     {s namespace='widgets/index/shop_menu' name="DisplayAllBonusArticlesTitle"}Zu den Bonus-Artikeln{/s}
                                 </a>
                             </div>

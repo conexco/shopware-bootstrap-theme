@@ -1,16 +1,18 @@
 {extends file='frontend/index/index.tpl'}
 
-{block name="gridconfig" prepend}
+{block name="gridconfig"}
     {if !$sUserLoggedIn}
         {assign "grid" "g010" scope="global"}
     {else}
         {assign "grid" "g110" scope="global"}
     {/if}
+    {$smarty.block.parent}
 {/block}
 
 {* Breadcrumb *}
-{block name='frontend_index_start' prepend}
+{block name='frontend_index_start'}
     {$sBreadcrumb = [['name'=>"{s name='NoteTitle'}{/s}", 'link'=>{url}]]}
+    {$smarty.block.parent}
 {/block}
 
 {* Main content *}

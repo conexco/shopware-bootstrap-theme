@@ -27,8 +27,8 @@
                     preSelection = 'none',
                     $payPalCheckBox = $("#payment_mean" + {$PayPalPaymentId}),
                     isConfirmAction = $('.is-act-confirm').length > 0,
-                    urlForSendingCustomerData = '{url controller=checkout action=preRedirect forceSecure}',
-                    urlForSendingCustomerDataError = '{url controller=payment_paypal action=return forceSecure}',
+                    urlForSendingCustomerData = '{url controller=checkout action=preRedirect}',
+                    urlForSendingCustomerDataError = '{url controller=payment_paypal action=return}',
                     customerCommentField = $(".user-comment-hidden"),
 
                     onConfirm = function (event) {

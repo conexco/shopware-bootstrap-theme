@@ -34,10 +34,16 @@
 
                         {* Remove voucher from basket *}
                         {block name='frontend_checkout_cart_item_voucher_delete_article'}
-                            <a href="{url action='deleteArticle' sDelete=voucher sTargetAction=$sTargetAction}" title="{s name='CartVoucherLinkDelete'}entfernen{/s}" data-use="deleteArticle">{s name='CartVoucherLinkDelete'}{/s}</a>
+                            <form action="{url action='deleteArticle' sDelete=voucher sTargetAction=$sTargetAction}"
+                                  method="post" data-use="deleteArticle">
+                                {block name='frontend_checkout_cart_item_voucher_delete_article_button'}
+                                    <button type="submit" class="btn btn-link pan"
+                                            title="{"{s name='CartItemLinkDelete'}{/s}"|escape}">
+                                        {s name='CartPremiumLinkDelete'}{/s}
+                                    </button>
+                                {/block}
+                            </form> 
                         {/block}
-
-
                     </div>
                 {/block}
 
