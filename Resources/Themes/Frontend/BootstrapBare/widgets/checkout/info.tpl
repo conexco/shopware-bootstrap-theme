@@ -113,9 +113,9 @@
                     {action module=widgets controller=index action=shopMenu}
                 {/block}
                 {block name='frontend_index_checkout_actions_notepad_xs'}
-                    <a href="{url controller='note' action='index'}" class="btn btn-default visible-xs visible-sm" title="{s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}">
+                    <a href="{url controller='note' action='index'}" class="btn btn-default visible-xs visible-sm" title="{s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}" class="entry-notepad">
                         <i class="fa fa-list fa-lg"></i>
-                        {if $sNotesQuantity > 0}<span class="badge mls">{$sNotesQuantity}</span>{/if}
+                        {if $sNotesQuantity > 0}<span class="badge notes-quantity mls">{$sNotesQuantity}</span>{/if}
                     </a>
                 {/block}
                 <div class="btn-group visible-xs visible-sm">
