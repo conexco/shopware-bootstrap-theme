@@ -9,6 +9,7 @@
     {$smarty.block.parent}
 {/block}
 
+
 {* Sidebar left *}
 {block name='frontend_index_content_left'}
     {block name="frontend_search_sidebar"}
@@ -17,6 +18,7 @@
         {/if}
     {/block}
 {/block}
+
 
 {block name='frontend_index_left_categories_content'}{/block}
 {block name="frontend_index_left_menu_container"}{/block}
@@ -28,6 +30,18 @@
     {else}
         {$sBreadcrumb = [['name' => "{s name="SearchResultsEmpty"}{/s}"]]}
     {/if}
+
+    {* Listing variables *}
+    {block name="frontend_search_variables"}
+        {if $sSearchResults.sArticles}
+            {$sArticles = $sSearchResults.sArticles}
+            {$sNumberArticles = $sSearchResults.sArticlesCount}
+            {$sBoxMode = "table"}
+            {$showListing = true}
+            {$pages = ceil($sNumberArticles / $criteria->getLimit())}
+            {$countCtrlUrl = "{url module="widgets" controller="listing" action="listingCount" params=$ajaxCountUrlParams fullPath}"}
+        {/if}
+    {/block}
     {$smarty.block.parent}
 {/block}
 
@@ -56,16 +70,6 @@
     {/block}
 
     {if $sSearchResults.sArticles}
-        {* Listing variables *}
-        {block name="frontend_search_variables"}
-            {$sArticles = $sSearchResults.sArticles}
-            {$sNumberArticles = $sSearchResults.sArticlesCount}
-            {$sBoxMode = "table"}
-            {$showListing = true}
-            {$pages = ceil($sNumberArticles / $criteria->getLimit())}
-            {$countCtrlUrl = "{url module="widgets" controller="listing" action="listingCount" params=$ajaxCountUrlParams fullPath}"}
-        {/block}
-
         {block name='frontend_search_headline'}
             <h1 class="search-headline mbl text-center">
                 {s name='SearchHeadline'}{/s}
@@ -79,3 +83,5 @@
         {/block}
     {/if}
 {/block}
+
+
