@@ -3,7 +3,8 @@
         {if $level == 0}
             {block name="frontend_index_navigation_mega_menu_main_settings"}   
                 {foreach from=$categories item=category}
-                    {if !$category.hidetop}
+                <pre class="text-danger text-left">{$categories|print_r:true|replace:' ':'&nbsp;'}</pre>
+                    {if !$category.hideTop}
                         {assign "has_under" "yes"}
                     {/if}
                 {/foreach}
@@ -26,7 +27,7 @@
             {block name="frontend_index_navigation_mega_menu_main_categories"}
                 {foreach from=$categories item=category name=categoryloop}
                     {block name="frontend_index_navigation_mega_menu_main_category"}
-                        {if !$category.hidetop}
+                        {if !$category.hideTop}
                             <div class="main-nav-sub-head{if $category.sub} subs-active{/if}">
                                 <a {if !empty($category.flag)} class="active"{/if} href="{$category.link}">{$category.name}</a>
                             </div>
@@ -80,10 +81,10 @@
                 </div>
             {/if}
         {elseif $level == 1}
-            {if !$category.hidetop}
+            {if !$category.hideTop}
                 <ul class="main-nav-sub-list">
                     {foreach from=$categories item=category}
-                        {if !$category.hidetop}
+                        {if !$category.hideTop}
                             <li {if !empty($category.flag)} class="active"{/if}>
                                 <a href="{$category.link}">
                                     <small>{$category.name}</small>
