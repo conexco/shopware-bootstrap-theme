@@ -67,8 +67,7 @@
                     {/block}
                     {block name="frontend_listing_listing_content"}
                         <div class="listing" data-compare-ajax="true" data-ajax-wishlist="true">
-                            {if $sArticles|@count > 0}
-                                <ul class="row thumbnails list-unstyled"
+                            <ul class="row thumbnails list-unstyled"
                                     data-equalheight="true"
                                     {if $theme['infinite-scrolling']}
                                         data-infinite-scrolling="true"
@@ -78,16 +77,17 @@
                                         data-pages="{$pages}"
                                         data-threshold="{$theme['infinite-threshold']}"
                                     {/if}>
-                                    {* Actual listing *}
-                                    {block name="frontend_listing_list_inline"}
-                                        {foreach $sArticles as $sArticle}
-                                            {include file="frontend/listing/box_article.tpl"}
-                                        {/foreach}
-                                    {/block}
-                                </ul>
-                            {else}
-                                {include file="frontend/_includes/messages.tpl" type="info" content="{s name='ListingInfoNoArticles'}Keine Artikel gefunden{/s}"}
-                            {/if}
+                                {if $sArticles|@count > 0}
+                                        {* Actual listing *}
+                                        {block name="frontend_listing_list_inline"}
+                                            {foreach $sArticles as $sArticle}
+                                                {include file="frontend/listing/box_article.tpl"}
+                                            {/foreach}
+                                        {/block}
+                                {else}
+                                    {include file="frontend/_includes/messages.tpl" type="info" content="{s name='ListingInfoNoArticles'}Keine Artikel gefunden{/s}"}
+                                {/if}
+                            </ul>
                         </div>
                     {/block}
                 </div>
