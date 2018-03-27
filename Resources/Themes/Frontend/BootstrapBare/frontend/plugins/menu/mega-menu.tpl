@@ -3,7 +3,6 @@
         {if $level == 0}
             {block name="frontend_index_navigation_mega_menu_main_settings"}   
                 {foreach from=$categories item=category}
-                <pre class="text-danger text-left">{$categories|print_r:true|replace:' ':'&nbsp;'}</pre>
                     {if !$category.hideTop}
                         {assign "has_under" "yes"}
                     {/if}
