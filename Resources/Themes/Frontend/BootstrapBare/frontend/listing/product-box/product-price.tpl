@@ -29,7 +29,7 @@
                     {block name='frontend_listing_box_article_price_default'}
                         <div class="text-right">
                             {block name='frontend_listing_box_article_price_default_inner'}
-                                <p class="price price-large {if !$sArticle.pseudoprice}price-default{else}price-discount{/if}">{if $sArticle.priceStartingFrom && !$sArticle.liveshoppingData}{s name='ListingBoxArticleStartsAt'}{/s} {/if}{$sArticle.price|currency}{s name="Star"}*{/s}</p>
+                                <p class="price price-large {if !$sArticle.pseudoprice}price-default{else}price-discount{/if}">{if $sArticle.priceStartingFrom}{s name='ListingBoxArticleStartsAt'}{/s} {/if}{$sArticle.price|currency}{s name="Star"}*{/s}</p>
                             {/block}
                         </div>
                     {/block}

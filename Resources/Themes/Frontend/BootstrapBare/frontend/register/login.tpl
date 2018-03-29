@@ -22,7 +22,11 @@
                 {/if}
 
                 <form name="sLogin" method="post" action="{$url}" class="form-horizontal">
-                    {if $sTarget}<input name="sTarget" type="hidden" value="{$sTarget|escape}"/>{/if}
+                    {block name='frontend_register_login_form_additional_inputs'}
+                        {if $sTarget}<input name="sTarget" type="hidden" value="{$sTarget|escape}" />{/if}
+                        {if $showNoAccount}<input name="showNoAccount" type="hidden" value="true" />{/if}
+                    {/block}
+
                     <fieldset>
                         {block name='frontend_register_login_description'}
                             <span class="help-block">{s name="LoginHeaderFields"}{/s}</span>
