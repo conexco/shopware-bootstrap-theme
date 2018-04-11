@@ -3,9 +3,22 @@
 namespace SwfBootstrapTheme\Subscribers\Frontend;
 
 use Enlight\Event\SubscriberInterface;
+use Shopware\Components\ContainerAwareEventManager;
 
 class Checkout implements SubscriberInterface
 {
+    /**
+     * @var ContainerAwareEventManager
+     */
+    private $eventManager;
+
+
+    public function __construct(ContainerAwareEventManager $eventManager)
+    {
+        $this->eventManager = $eventManager;
+    }
+
+
     public static function getSubscribedEvents()
     {
         return [
@@ -31,11 +44,21 @@ class Checkout implements SubscriberInterface
         $subject = $args->get('subject');
         $request = $subject->Request();
 
-        $basketItemID = (int) $request->getParam('sArticle');
-        $quantity = (int) $request->getParam('sQuantity');
+        $basketItemID = (int)$request->getParam('sArticle');
+        $quantity = (int)$request->getParam('sQuantity');
 
         if ($basketItemID && $quantity) {
-            $subject->View()->assign('sBasketInfo', Shopware()->Modules()->Basket()->sUpdateArticle($basketItemID, $quantity));
+            $cancelUpdate = $this->eventManager->notifyUntil(
+                'BootstrapTheme_AjaxQuantityCart_UpdateBasketItem',
+                [
+                    'subject' => $subject,
+                    'basketItemID' => $basketItemID,
+                    'quantity' => $quantity,
+                ]);
+
+            if (!$cancelUpdate) {
+                $subject->View()->assign('sBasketInfo', Shopware()->Modules()->Basket()->sUpdateArticle($basketItemID, $quantity));
+            }
         }
         $subject->forward('ajaxCart');
     }
