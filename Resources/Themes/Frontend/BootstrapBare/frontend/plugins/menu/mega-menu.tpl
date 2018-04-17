@@ -24,6 +24,7 @@
             {/if}
 
             {block name="frontend_index_navigation_mega_menu_main_categories"}
+                {$loopindex = 0}
                 {foreach from=$categories item=category name=categoryloop}
                     {block name="frontend_index_navigation_mega_menu_main_category"}
                         {if !$category.hidetop}
@@ -55,7 +56,7 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-hd-{$columnWidth}">
                             {else}
-                                {if $smarty.foreach.categoryloop.iteration % $categoriesPerColumn == 0}
+                                {if $loopindex % $categoriesPerColumn == 0}
                                     {assign var=columnCounter value=$columnCounter + $columnWidth}
                                     {* start new row *}
                                     {if ($columnCounter + $columnWidth) >= 13 }
@@ -70,6 +71,7 @@
                                     {/if}
                                 {/if}
                             {/if}
+                            {$loopindex = $loopindex + 1}
                         {/if}
                     {/block}    
                 {/foreach}
