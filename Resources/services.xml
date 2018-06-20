@@ -6,6 +6,7 @@
     <services>
         <!-- subscribers -->
         <service id="swf_bootstrap_theme.subscribers.frontend.checkout" class="SwfBootstrapTheme\Subscribers\Frontend\Checkout">
+            <argument type="service" id="events"/>
             <tag name="shopware.event_subscriber"/>
         </service>
 
