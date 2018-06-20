@@ -83,6 +83,7 @@
 @sw-icon-arrow-up: '';
 @sw-icon-plus3: '';
 
+
 // mixins used by shopware plugins
 .linear-gradient(@start, @end) {}
 .transform(@transformation) {  }
@@ -113,3 +114,7 @@
 }
 
 .is--align-center { text-align: center !important; }
+
+.is--primary() {
+    .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
