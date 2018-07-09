@@ -24,7 +24,7 @@
             {/if}
 
             {block name="frontend_index_navigation_mega_menu_main_categories"}
-                {$loopindex = 0}
+                {$loopindex = 1}
                 {foreach from=$categories item=category name=categoryloop}
                     {block name="frontend_index_navigation_mega_menu_main_category"}
                         {if !$category.hidetop}
