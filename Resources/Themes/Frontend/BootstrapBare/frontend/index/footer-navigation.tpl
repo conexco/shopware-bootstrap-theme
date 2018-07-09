@@ -108,7 +108,7 @@
                                                     {$hideCheckbox=true}
                                                 {/if}
 
-                                                {include file="frontend/_includes/privacy.tpl" hideCheckbox=$hideCheckbox}
+                                                {include file="frontend/_includes/privacy.tpl" hideCheckbox=$hideCheckbox footer=true}
                                             {/if}
                                         {/block}
                                     </form>

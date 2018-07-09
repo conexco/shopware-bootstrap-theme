@@ -1,6 +1,6 @@
 {block name="frontend_data_protection_information"}
-    <div class="form-group">
-        <div class="{$FormLabelOffset} {$FormInputSize}">
+    <div class="{if !$footer}form-group{else}mtm{/if}">
+        <div class="{if !$footer}{$FormLabelOffset} {$FormInputSize}{else}small{/if}">
             <p class="privacy-information mbn">
                 {if {config name=ACTDPRCHECK} && !$hideCheckbox}
                     {block name="frontend_data_protection_information_checkbox"}
