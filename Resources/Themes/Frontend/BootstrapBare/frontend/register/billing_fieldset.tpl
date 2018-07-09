@@ -87,7 +87,7 @@
 
                             <div class="{$FormInputSize}">
                                 <input autocomplete="section-billing billing address-line2"
-                                       name="register[billing][additional_address_line1]"
+                                       name="register[billing][additionalAddressLine1]"
                                        type="text"
                                        id="additionalAddressLine1"
                                        value="{$form_data.additional_address_line1|escape}"
@@ -106,7 +106,7 @@
 
                             <div class="{$FormInputSize}">
                                 <input autocomplete="section-billing billing address-line3"
-                                       name="register[billing][additional_address_line2]"
+                                       name="register[billing][additionalAddressLine2]"
                                        type="text" id="additionalAddressLine2"
                                        value="{$form_data.additional_address_line2|escape}"
                                        class="form-control col-lg-5{if {config name=requireAdditionAddressLine1}} is-required{/if}"

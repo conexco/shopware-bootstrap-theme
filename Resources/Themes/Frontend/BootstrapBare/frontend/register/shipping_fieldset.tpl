@@ -117,7 +117,7 @@
 
                             <div class="{$FormInputSize}">
                                 <input autocomplete="section-shipping shipping address-line2"
-                                       name="register[shipping][additional_address_line1]"
+                                       name="register[shipping][additionalAddressLine1]"
                                        type="text"
                                        id="additionalAddressLine21"
                                        value="{$form_data.additional_address_line1|escape}"
@@ -136,7 +136,7 @@
 
                             <div class="{$FormInputSize}">
                                 <input autocomplete="section-shipping shipping address-line3"
-                                       name="register[shipping][additional_address_line2]"
+                                       name="register[shipping][additionalAddressLine2]"
                                        type="text"
                                        id="additionalAddressLine22"
                                        value="{$form_data.additional_address_line2|escape}"
