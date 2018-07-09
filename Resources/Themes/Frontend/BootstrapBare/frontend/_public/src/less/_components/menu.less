@@ -176,6 +176,36 @@
                 }
             }
         }
+
+        // sub category ajax menu
+        .nav-ajax-loader {
+            color: @swf-brand-primary;
+            .unitize(top, 12);
+            .unitize(right, 15);
+            position: absolute;
+            display: none;
+        }
+
+        &.is-inactive {
+            overflow: hidden !important;
+        }
+
+        .offcanvas-overlay {
+            .unitize-width(@swf-navbar-off-canvas-width);
+            .unitize(top, 41);
+            background: @swf-shop-bg;
+            position: absolute;
+            overflow-x: hidden;
+            overflow-y: auto;
+            left: 0;
+            padding: 0;
+            z-index: @swf-zindex-offcanvas-overlay;
+            bottom: 0;
+
+            &.background {
+                z-index: @swf-zindex-offcanvas-overlay-background;
+            }
+        }
     }
 }
 

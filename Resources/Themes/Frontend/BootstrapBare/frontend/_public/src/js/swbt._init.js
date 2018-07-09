@@ -177,6 +177,9 @@
         // Sidebar Filter
         .addPlugin('.sidebar-filter-offcanvas [data-offcanvas="true"]', 'swOffcanvasMenu', ['xs', 's'])
 
+        // Navigation for sub categories
+        .addPlugin('*[data-subcategory-nav="true"]', 'swSubCategoryNav', ['xs', 's'])
+
     ;   // window.StateManager addPlugin end
 
     $(function($) {

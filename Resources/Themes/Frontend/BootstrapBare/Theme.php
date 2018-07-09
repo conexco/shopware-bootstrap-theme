@@ -62,6 +62,7 @@ class Theme extends \Shopware\Components\Theme
             'jquery.elevatezoom.js',
             'jquery.clingify.js',
             'jquery.bootstrap-strength.js',
+            'jquery.transit.js',
         ];
 
         $shopwareJavascripts = [
@@ -93,6 +94,7 @@ class Theme extends \Shopware\Components\Theme
             "jquery.pseudo-text.js",
             "jquery.preloader-button.js",
             "jquery.invalid-tos-jump.js",
+            "jquery.subcategory-nav.js",
         ];
 
         $sourceJavascripts = [
@@ -131,6 +133,7 @@ class Theme extends \Shopware\Components\Theme
             "jquery.address-editor-extend.js",
             "jquery.preloader-button-extend.js",
             "jquery.invalid-tos-jump-extend.js",
+            "jquery.subcategory-nav-extend.js",
 
             "swbt._init.js",
         ];
@@ -3819,6 +3822,21 @@ class Theme extends \Shopware\Components\Theme
             )
         );
 
+        $fieldset->addElement(
+            $this->createCheckboxField(
+                'sub-category-ajax-nav',
+                'Mobile Menü: Unterkategorien nachladen',
+                $this->themeDefaults['sub-category-ajax-nav'],
+                array(
+                    'attributes' =>
+                        array(
+                            'boxLabel' =>
+                                'Wenn aktiv, werden im Mobile Menü die Unterkategorien per Ajax nachgeladen.',
+                        ),
+                )
+            )
+        );
+
         return $fieldset;
     }
 
@@ -4440,6 +4458,7 @@ class Theme extends \Shopware\Components\Theme
             'mega-menu-new-col' => '3',
             'mega-menu-depth' => '3',
             'mega-menu-category-img' => false,
+            'sub-category-ajax-nav' => true,
             // slider config defaults
             'swf-slick-font-family' => '"FontAwesome"',
             'swf-slick-arrow-color' => '#000',
