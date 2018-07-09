@@ -3,40 +3,33 @@
 {block name="widgets_listing_get_category"}
     <div class="offcanvas-overlay sw5-plugin">
 
-        {block name="widgets_listing_get_category_mainmenu"}
-            <div class="overlay-headline">
-                {block name="widgets_listing_get_category_mainmenu_link"}
-                    <a class="text-primary link-go-main sw5-plugin" href="#" title="{s name="MainMenu"}{/s}">
-                        <i class="fa fa-bars" aria-hidden="true"></i> {s name="MainMenu"}{/s}
-                    </a>
-                {/block}
-            </div>
-        {/block}
-
-        {block name="widgets_listing_get_category_name"}
-            <div class="overlay-category">
-                {block name="widgets_listing_get_category_name_link"}
-                    <a href="{$category.link}" title="{$category.name|escape}">
-                        <span class="category-headline">{$category.name}</span>
-                    </a>
-                {/block}
-            </div>
-        {/block}
+        {block name="widgets_listing_get_category_name"}{/block}
 
         {block name="widgets_listing_get_category_categories"}
-            <ul class="categories--sublevel navigation--list sub-category-navigation sw5-plugin" role="menu">
+            <ul class="main-nav-list sub-category-navigation sw5-plugin" role="menu">
+                {block name="widgets_listing_get_category_mainmenu"}
+                    <li class="main-nav-category" role="menuitem">
+                        {block name="widgets_listing_get_category_mainmenu_link"}
+                            <a class="main-nav-link link-go-main sw5-plugin" href="#" title="{s name="MainMenu"}{/s}">
+                                <span class="text-primary">
+                                    <i class="fa fa-bars mrs" aria-hidden="true"></i> {s name="MainMenu"}{/s}
+                                </span>
+                            </a>
+                        {/block}
+                    </li>
+                {/block}
 
                 {* Go back button *}
                 {block name="widgets_listing_get_category_categories_back"}
-                    <li class="navigation--entry" role="menuitem">
+                    <li class="main-nav-category" role="menuitem">
                         {block name="widgets_listing_get_category_categories_back_link"}
                             <a href="{url module=widgets controller=listing action=getCategory categoryId={$category.parentId}}"
                                data-parentId="{$category.parentId}"
-                               class="link-go-back sw5-plugin"
+                               class="main-nav-link link-go-back sw5-plugin"
                                title="{s name="ButtonBack"}{/s}">
                                 {block name="widgets_listing_get_category_categories_back_link_arrow_left"}
-                                    <span class="is--icon-left">
-                                        <i class="icon--arrow-left"></i>
+                                    <span class="is-icon-left">
+                                        <i class="fa fa-angle-left mrs" aria-hidden="true"></i>
                                     </span>
                                 {/block}
 
@@ -50,7 +43,7 @@
 
                 {* Show this category button *}
                 {block name="widgets_listing_get_category_categories_show"}
-                    <li class="navigation--entry" role="menuitem">
+                    <li class="main-nav-category" role="menuitem">
                         {block name="widgets_listing_get_category_categories_show_link"}
 
                             {$categoryLink = $category.link}
@@ -59,10 +52,12 @@
                             {/if}
                             <a href="{$categoryLink}"
                                title="{s name="ButtonShowPrepend"}{/s} {$category.name|escape} {s name="ButtonShowAppend"}{/s}"
-                               class="navigation--link is--display-button"
+                               class="main-nav-link"
                                {if $category.external && $category.externalTarget}target="{$category.externalTarget}"{/if}>
                                 {block name="widgets_listing_get_category_categories_show_link_name"}
-                                    {s name="ButtonShowPrepend"}{/s} {$category.name} {s name="ButtonShowAppend"}{/s}
+                                    <span class="text-primary">
+                                        {s name="ButtonShowPrepend"}{/s} {$category.name} {s name="ButtonShowAppend"}{/s}
+                                    </span>
                                 {/block}
                             </a>
                         {/block}
@@ -73,7 +68,7 @@
                 {foreach $category.children as $children}
                     {block name="widgets_listing_get_category_categories_item"}
                         {if $children.active}
-                            <li class="navigation--entry" role="menuitem">
+                            <li class="main-nav-category" role="menuitem">
                                 {block name="widgets_listing_get_category_categories_item_link"}
 
                                     {$link = $children.link}
@@ -82,7 +77,7 @@
                                     {/if}
                                     <a href="{$link}"
                                        title="{$children.name|escape}"
-                                       class="navigation--link{if $children.childrenCount} link-go-forward sw5-plugin{/if}"
+                                       class="main-nav-link{if $children.childrenCount} link-go-forward sw5-plugin{/if}"
                                        data-category-id="{$children.id}"
                                        data-fetchUrl="{url module=widgets controller=listing action=getCategory categoryId={$children.id}}"
                                        {if $children.external && $category.externalTarget}target="{$children.externalTarget}"{/if}>
@@ -93,8 +88,8 @@
 
                                         {block name="widgets_listing_get_category_categories_item_link_children"}
                                             {if $children.childrenCount}
-                                                <span class="is-icon-right">
-                                                    <i class="fa fa-angle-right"></i>
+                                                <span class="is-icon-right pull-right">
+                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
                                                 </span>
                                             {/if}
                                         {/block}

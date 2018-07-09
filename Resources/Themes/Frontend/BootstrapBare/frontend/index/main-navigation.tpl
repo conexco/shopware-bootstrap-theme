@@ -2,18 +2,20 @@
     {include file="frontend/plugins/menu/mega-menu.tpl"}
 
     {block name='frontend_index_main_navigation_categories_top_menu'}
-        {$subCategoryNav = $theme['sub-category-ajax-nav']}
+        {block name='frontend_index_main_navigation_categories_subcategory_configuration'}
+            {$subCategoryNav = $theme['sub-category-ajax-nav']}
 
-        {if $subCategoryNav}
-            {* if sCategoryContent is not available use sArticle.categoryID *}
-            {if isset($sCategoryContent) && $sCategoryContent.id}
-                {$subCategoryId = $sCategoryContent.id}
-            {elseif isset($sArticle) && $sArticle.categoryID}
-                {$subCategoryId = $sArticle.categoryID}
-            {else}
-                {$subCategoryId = 0}
+            {if $subCategoryNav}
+                {* if sCategoryContent is not available use sArticle.categoryID *}
+                {if isset($sCategoryContent) && $sCategoryContent.id}
+                    {$subCategoryId = $sCategoryContent.id}
+                {elseif isset($sArticle) && $sArticle.categoryID}
+                    {$subCategoryId = $sArticle.categoryID}
+                {else}
+                    {$subCategoryId = 0}
+                {/if}
             {/if}
-        {/if}
+        {/block}
 
         <nav id="mainNavigation"
              class="main-nav"
