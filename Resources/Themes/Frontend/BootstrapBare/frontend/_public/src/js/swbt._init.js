@@ -126,6 +126,9 @@
         // ShippingPayment change after register
         .addPlugin('*[data-ajax-shipping-payment="true"]', 'swShippingPayment')
 
+        // Jump to ToS-Checkbox on invalid
+        .addPlugin('*[data-invalid-tos-jump="true"]', 'swInvalidTosJump')
+
         // Infinite scrolling
         .addPlugin('*[data-infinite-scrolling="true"]', 'swInfiniteScrolling')
 

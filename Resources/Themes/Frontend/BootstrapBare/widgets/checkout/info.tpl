@@ -16,7 +16,7 @@
                         {/if}
                     {/block}
                     {block name="frontend_index_checkout_actions_account"}
-                        {if {config name=useSltCookie}}
+                        {if {config name=useSltCookie} || $sOneTimeAccount}
                             <li role="menuitem" class="dropdown sltCookie{if $userInfo} logged-in{/if}">
                                 <a id="account-dropdown"
                                     data-target="#"
@@ -127,7 +127,7 @@
                     </ul>
                 </div>
 
-                {if {config name=useSltCookie}}
+                {if {config name=useSltCookie} || $sOneTimeAccount}
                     <div class="btn-group visible-xs visible-sm">
                         <div class="off-canvas-account sw5-plugin">
                             <a href="#"

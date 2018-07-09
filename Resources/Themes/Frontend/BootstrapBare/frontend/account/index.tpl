@@ -1,4 +1,5 @@
 {extends file='frontend/index/index.tpl'}
+
 {block name="gridconfig"}
     {assign "grid" "g110" scope="global"}
     {$smarty.block.parent}
@@ -21,6 +22,11 @@
     {block name="frontend_account_index_success_messages"}
         {include file="frontend/account/success_messages.tpl"}
     {/block}
+
+    {* Optin successful *}
+    {if $smarty.get.optinconfirmed && {config name=optinregister}}
+        {include file="frontend/_includes/messages.tpl" type="success" content="{s name="AccountOptinConfirmed"}{/s}"}
+    {/if}
 
     {* Error messages *}
     {block name='frontend_account_index_error_messages'}

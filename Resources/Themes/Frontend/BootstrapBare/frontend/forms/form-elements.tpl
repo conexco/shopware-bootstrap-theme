@@ -9,21 +9,29 @@
         {* Form Content *}
         {block name='frontend_forms_form_elements_form_content'}
             {if $sSupport.sErrors.e || $sSupport.sErrors.v}
-                <div class="alert alert-danger">
+                {$errorContent=""}
+                <div class="error">
                     {if $sSupport.sErrors.v}
                         {foreach from=$sSupport.sErrors.v key=sKey item=sError}
-                            {if $sKey !=0&&$sSupport.sElements.$sError.error_msg}<br/>{/if}
-                            {$sSupport.sElements.$sError.error_msg}
+                            {if $sKey !=0&&$sSupport.sElements.$sError.error_msg}{$errorContent="{$errorContent}<br />"}{/if}
+                            {$errorContent="{$errorContent}{$sSupport.sElements.$sError.error_msg}"}
                         {/foreach}
-                        {if $sSupport.sErrors.e}<br/>{/if}
+                        {if $sSupport.sErrors.e}
+                            {$errorContent="{$errorContent}<br />"}
+                        {/if}
                     {/if}
+
                     {if $sSupport.sErrors.e}
                         {if $sSupport.sErrors.e['sCaptcha'] == true}
                             {$errorContent="{$errorContent}{s name='SupportInfoFillCaptcha' namespace="frontend/forms/elements"}{/s}"}
                         {else}
-                            {s name='SupportInfoFillRedFields'}{/s}
+                            {$errorContent="{$errorContent}{s name='SupportInfoFillRedFields' namespace="frontend/forms/elements"}{/s}"}
                         {/if}
                     {/if}
+
+                    {block name='frontend_forms_elements_error_messages'}
+                        {include file="frontend/_includes/messages.tpl" type='error' content=$errorContent}
+                    {/block}
                 </div>
             {/if}
 
@@ -102,6 +110,13 @@
                             </div>
                         </div>
                     </div>
+                {/block}
+
+                {* Data protection information *}
+                {block name='frontend_forms_form_elements_form_privacy'}
+                    {if {config name=ACTDPRTEXT} || {config name=ACTDPRCHECK}}
+                        {include file="frontend/_includes/privacy.tpl"}
+                    {/if}
                 {/block}
 
                 {* Forms actions *}

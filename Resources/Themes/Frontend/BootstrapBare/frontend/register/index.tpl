@@ -130,7 +130,23 @@
                             </div>
                             <div class="panel-body">
                                 {block name="frontend_register_index_form_tag"}
-                                <form method="post" action="{url action=saveRegister sTarget=$sTarget sTargetAction=$sTargetAction}" class="register-form form-horizontal">
+                                <form method="post"
+                                      action="{url action=saveRegister sTarget=$sTarget sTargetAction=$sTargetAction}"
+                                      class="register-form form-horizontal">
+                                    {/block}
+
+                                    {* Successful optin verification *}
+                                    {block name='frontend_register_index_form_optin_success'}
+                                        {if $smarty.get.optinsuccess && {config name=optinregister}}
+                                            {include file="frontend/_includes/messages.tpl" type="success" content="{s name="RegisterInfoSuccessOptin"}{/s}"}
+                                        {/if}
+                                    {/block}
+
+                                    {* Invalid hash while option verification process *}
+                                    {block name='frontend_register_index_form_optin_invalid_hash'}
+                                        {if $smarty.get.optinhashinvalid && {config name=optinregister}}
+                                            {include file="frontend/_includes/messages.tpl" type="error" content="{s name="RegisterInfoInvalidHash"}{/s}"}
+                                        {/if}
                                     {/block}
 
                                     {block name='frontend_register_index_form_captcha_fieldset'}
@@ -152,23 +168,59 @@
                                         {include file="frontend/register/shipping_fieldset.tpl" form_data=$register.shipping error_flags=$errors.shipping country_list=$countryList}
                                     {/block}
 
-                                    {*! Privacy checkbox *}
+                                    {* @deprecated Block will be excluded in 5.7 *}
+                                    {* It has been replaced by "frontend_register_index_form_privacy" below *}
                                     {if !$update}
-                                        {if {config name=ACTDPRCHECK}}
-                                            {block name='frontend_register_index_input_privacy'}
-                                                <div class="form-group{if isset($errors.personal.dpacheckbox)} has-error{/if}">
-                                                    <div class="col-lg-6 col-lg-offset-4">
-                                                    <label for="dpacheckbox" class="checkbox-inline">
-                                                            <input name="register[personal][dpacheckbox]" type="checkbox" id="dpacheckbox"{if $form_data.dpacheckbox} checked="checked"{/if} value="1" class="is-required" required="required" aria-required="true" />
-                                                            {s name='RegisterLabelDataCheckbox'}{/s}
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            {/block}
-                                        {/if}
+                                        {block name='frontend_register_index_input_privacy'}{/block}
                                     {/if}
 
                                     {block name='frontend_register_index_form_bottom'}
+                                        {* Captcha *}
+                                        {block name='frontend_register_index_form_captcha'}
+                                            <div class="row">
+                                                {$captchaHasError = $errors.captcha}
+                                                {$captchaName = {config name=registerCaptcha}}
+                                                {include file="widgets/captcha/custom_captcha.tpl" captchaName=$captchaName captchaHasError=$captchaHasError}
+                                            </div>
+                                        {/block}
+
+                                        {* Data protection information *}
+                                        {if !$update}
+                                            {block name="frontend_register_index_form_privacy"}
+                                                {if {config name=ACTDPRTEXT} || {config name=ACTDPRCHECK}}
+                                                    {block name="frontend_register_index_form_privacy_title"}{/block}
+
+                                                    {block name="frontend_register_index_form_privacy_content"}
+                                                        <div class="form-group{if isset($errors.personal.dpacheckbox)} has-error{/if}">
+                                                            <div class="col-lg-6 col-lg-offset-4">
+                                                                {if {config name=ACTDPRCHECK}}
+                                                                    {* Privacy checkbox *}
+                                                                    {block name="frontend_register_index_form_privacy_content_checkbox"}
+                                                                        <label for="dpacheckbox"
+                                                                               class="checkbox-inline">
+                                                                            <input name="register[personal][dpacheckbox]"
+                                                                                   type="checkbox"
+                                                                                   id="dpacheckbox"{if $form_data.dpacheckbox} checked="checked"{/if}
+                                                                                   required="required"
+                                                                                   aria-required="true"
+                                                                                   value="1"
+                                                                                   class="is-required"/>
+
+                                                                            {s name="PrivacyText" namespace="frontend/index/privacy"}{/s}
+                                                                        </label>
+                                                                    {/block}
+                                                                {else}
+                                                                    {block name="frontend_register_index_form_privacy_content_text"}
+                                                                        {s name="PrivacyText" namespace="frontend/index/privacy"}{/s}
+                                                                    {/block}
+                                                                {/if}
+                                                            </div>
+                                                        </div>
+                                                    {/block}
+                                                {/if}
+                                            {/block}
+                                        {/if}
+
                                         <div class="row">
                                             {*! Required fields hint *}
                                             {block name='frontend_register_index_form_required'}
@@ -179,17 +231,13 @@
                                                 </div>
                                             {/block}
 
-                                            {* Captcha *}
-                                            {block name='frontend_register_index_form_captcha'}
-                                                {$captchaHasError = $errors.captcha}
-                                                {$captchaName = {config name=registerCaptcha}}
-                                                {include file="widgets/captcha/custom_captcha.tpl" captchaName=$captchaName captchaHasError=$captchaHasError}
-                                            {/block}
-
                                             {* Submit button *}
                                             {block name='frontend_register_index_form_submit'}
                                                 <div class="{$FormInputSize} {$FormLabelOffset}">
-                                                    <input id="registerbutton" type="submit" class="btn btn-lg btn-primary register-submit sw5-plugin" value="{s name='RegisterIndexNewActionSubmit'}{/s}"/>
+                                                    <input id="registerbutton"
+                                                           type="submit"
+                                                           class="btn btn-lg btn-primary register-submit sw5-plugin"
+                                                           value="{s name='RegisterIndexNewActionSubmit'}{/s}"/>
                                                 </div>
                                             {/block}
                                         </div>

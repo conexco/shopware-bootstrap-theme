@@ -84,7 +84,7 @@
                 {block name='frontend_checkout_confirm_information_addresses'}
 
                     {if $activeBillingAddressId == $activeShippingAddressId}
-                        
+
                         {* Equal Billing & Shipping *}
                         {block name='frontend_checkout_confirm_information_addresses_equal'}
                             <div class="col-lg-12" id="confirm-billing-shipping-address">
@@ -122,7 +122,7 @@
                                                             </address>
                                                             {block name="frontend_checkout_confirm_information_addresses_equal_panel_billing_invalid_data"}
                                                                 {if $invalidBillingAddress}
-                                                                    {include file='frontend/_includes/messages.tpl' type="warning" content="{s name='ConfirmAddressInvalidAddress'}{/s}"}
+                                                                    {include file="frontend/_includes/messages.tpl" type="warning" content="{s name='ConfirmAddressInvalidAddress'}{/s}"}
                                                                 {else}
                                                                     {block name="frontend_checkout_confirm_information_addresses_equal_panel_billing_set_as_default"}
                                                                         {if $activeBillingAddressId != $sUserData.additional.user.default_billing_address_id || $activeShippingAddressId != $sUserData.additional.user.default_shipping_address_id}
@@ -160,8 +160,8 @@
                                                                         {s name="ConfirmAddressSelectLink"}{/s}
                                                                     </a>
                                                                 {/block}
-                                                            {/block}    
-                                                        </div>    
+                                                            {/block}
+                                                        </div>
                                                     {/block}
 
                                                     {block name='frontend_checkout_confirm_information_addresses_equal_panel_shipping'}
@@ -180,11 +180,11 @@
                                                     {/block}
                                                 </div>
                                             {/block}
-                                        </div>    
+                                        </div>
                                     </div>
                                 {/block}
                             </div>
-                        {/block}    
+                        {/block}
 
                     {else}
 
@@ -195,7 +195,7 @@
                                 {block name='frontend_checkout_confirm_information_addresses_billing_panel'}
                                     <div class="panel panel-default">
                                         <div class="panel-body">
-                                            
+
                                             {* Headline *}
                                             {block name='frontend_checkout_confirm_information_addresses_billing_panel_title'}
                                                 <legend>{s name="ConfirmHeaderBilling" namespace="frontend/checkout/confirm"}{/s}</legend>
@@ -223,7 +223,7 @@
                                                     </address>
                                                     {block name="frontend_checkout_confirm_information_addresses_billing_panel_body_invalid_data"}
                                                         {if $invalidBillingAddress}
-                                                            {include file='frontend/_includes/messages.tpl' type="warning" content="{s name='ConfirmAddressInvalidBillingAddress'}{/s}"}
+                                                            {include file="frontend/_includes/messages.tpl" type="warning" content="{s name='ConfirmAddressInvalidBillingAddress'}{/s}"}
                                                         {else}
                                                             {block name="frontend_checkout_confirm_information_addresses_billing_panel_body_set_as_default"}
                                                                 {if $activeBillingAddressId != $sUserData.additional.user.default_billing_address_id}
@@ -266,7 +266,7 @@
                                                     </a>
                                                 {/block}
                                             {/block}
-                                        </div>    
+                                        </div>
                                     </div>
                                 {/block}
                             </div>
@@ -307,7 +307,7 @@
                                                     </address>
                                                     {block name="frontend_checkout_confirm_information_addresses_shipping_panel_body_invalid_data"}
                                                         {if $invalidShippingAddress}
-                                                            {include file='frontend/_includes/messages.tpl' type="warning" content="{s name='ConfirmAddressInvalidShippingAddress'}{/s}"}
+                                                            {include file="frontend/_includes/messages.tpl" type="warning" content="{s name='ConfirmAddressInvalidShippingAddress'}{/s}"}
                                                         {else}
                                                             {block name="frontend_checkout_confirm_information_addresses_shipping_panel_body_set_as_default"}
                                                                 {if $activeShippingAddressId != $sUserData.additional.user.default_shipping_address_id}
@@ -350,13 +350,13 @@
                                                     </a>
                                                 {/block}
                                             {/block}
-                                        </div>    
+                                        </div>
                                     </div>
                                 {/block}
                             </div>
                         {/block}
                     {/if}
-                {/block}    
+                {/block}
             </div>
         {/block}
 
@@ -401,7 +401,7 @@
                 {/block}
             </div>
         {/block}
-    {/block}    
+    {/block}
 
     {* AGB and Revocation *}
     {block name='frontend_checkout_confirm_tos_panel'}
@@ -428,7 +428,7 @@
                                         {if !{config name='IgnoreAGB'}}
                                             {* Terms of service checkbox *}
                                             {block name='frontend_checkout_confirm_agb_checkbox'}
-                                                <input type="checkbox" class="agb_accept" name="sAGB" id="sAGB" required="required" aria-required="true" {if $sAGBChecked} checked="checked"{/if} />
+                                                <input type="checkbox" class="agb_accept" name="sAGB" id="sAGB" required="required" aria-required="true" {if $sAGBChecked} checked="checked"{/if} data-invalid-tos-jump="true" />
                                             {/block}
                                         {/if}
                                         {* AGB label *}

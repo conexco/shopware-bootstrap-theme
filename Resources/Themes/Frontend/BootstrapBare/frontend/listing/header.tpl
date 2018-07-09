@@ -48,11 +48,9 @@
     {if $criteria}
         {$pages = ceil($sNumberArticles / $criteria->getLimit())}
     {/if}
-
-    {if empty($sPage) || ($SeoMetaRobots|strpos:'noindex' === false && $sPage == 1)}
-        {* Remove sPage-parameter *}
-        {assign var='canonical' value='?'|explode:{url params = $sCategoryContent.canonicalParams|array_unset:'sPage'}}
-        <link rel="canonical" href="{$canonical[0]}"/>
+    
+    {if $SeoMetaRobots|strpos:'noindex' === false}
+        <link rel="canonical" href="{url params = $sCategoryContent.canonicalParams}"/>
     {/if}
 
     {if {config name=seoIndexPaginationLinks}}

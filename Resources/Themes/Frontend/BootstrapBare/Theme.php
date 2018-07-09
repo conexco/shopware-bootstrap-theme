@@ -92,6 +92,7 @@ class Theme extends \Shopware\Components\Theme
             "jquery.form-polyfill.js",
             "jquery.pseudo-text.js",
             "jquery.preloader-button.js",
+            "jquery.invalid-tos-jump.js",
         ];
 
         $sourceJavascripts = [
@@ -129,6 +130,7 @@ class Theme extends \Shopware\Components\Theme
             "jquery.address-selection-extend.js",
             "jquery.address-editor-extend.js",
             "jquery.preloader-button-extend.js",
+            "jquery.invalid-tos-jump-extend.js",
 
             "swbt._init.js",
         ];
