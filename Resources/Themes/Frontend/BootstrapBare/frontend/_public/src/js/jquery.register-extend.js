@@ -6,7 +6,7 @@
 $.overridePlugin('swRegister', {
     defaults: {
         hiddenClass: 'd-none',
-        errorClass: 'has-error',
+        errorClass: 'is-invalid',
         formSelector: '.register-form',
         submitBtnSelector: '.register-submit, .address-form-submit',
         typeFieldSelector: '.register-customertype select, .address-customertype select, .address-customertype input',
@@ -22,14 +22,14 @@ $.overridePlugin('swRegister', {
         stateContainerSelector: '.register-state-selection, .address-state-selection',
         paymentMethodSelector: '.payment-method',
         inputSelector: '.is-required',
-        errorMessageClass: 'text-danger mtm',
+        errorMessageClass: 'invalid-feedback',
         personalEmailSelector: '#register_personal_email',
         personalPasswordSelector: '#register_personal_password',
         personalEmailConfirmationSelector: '#register_personal_emailConfirmation',
         personalPasswordConfirmationSelector: '#register_personal_passwordConfirmation',
         personalGuestSelector: '#register_personal_skipLogin',
         // custom
-        showCollapseClass: 'in'
+        showCollapseClass: 'show'
     },
 
     init: function () {
@@ -223,8 +223,8 @@ $.overridePlugin('swRegister', {
         }
 
         if (errorMessages && errorMessages.length) {
-            $('<p>', {
-                'html': '<small>' + errorMessages.join('<br/>') + '</small>',
+            $('<div>', {
+                'html': '<div>' + errorMessages.join('<br/>') + '</div>',
                 'id': action + '-message',
                 'class': me.opts.errorMessageClass
             }).insertAfter($input);

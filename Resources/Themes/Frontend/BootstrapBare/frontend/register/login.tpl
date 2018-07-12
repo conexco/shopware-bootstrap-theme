@@ -7,13 +7,14 @@
 
 {* Existing customer *}
 {block name='frontend_register_login_customer'}
-    <div class="panel panel-default">
-        {block name='frontend_register_login_customer_title'}
-            <div class="panel-heading">
-                {s name="LoginHeaderExistingCustomer"}{/s}
-            </div>
-        {/block}
-        <div class="panel-body">
+    <div class="card mb-4">
+        <div class="card-body">
+            {block name='frontend_register_login_customer_title'}
+                <div class="card-title">
+                    <h4>{s name="LoginHeaderExistingCustomer"}{/s}</h4>
+                </div>
+            {/block}
+
             {block name='frontend_register_login_form'}
                 {if $register.personal.sValidation}
                     {$url = {url controller=account action=login sTarget=$sTarget sTargetAction=$sTargetAction sValidation=$register.personal.sValidation} }
@@ -21,44 +22,57 @@
                     {$url = {url controller=account action=login sTarget=$sTarget sTargetAction=$sTargetAction} }
                 {/if}
 
-                <form name="sLogin" method="post" action="{$url}" class="form-horizontal">
+                <form name="sLogin" method="post" action="{$url}">
                     {if $sTarget}<input name="sTarget" type="hidden" value="{$sTarget|escape}"/>{/if}
-                    <fieldset>
-                        {block name='frontend_register_login_description'}
-                            <span class="help-block">{s name="LoginHeaderFields"}{/s}</span>
-                        {/block}
+                    {block name='frontend_register_login_description'}
+                        <span class="form-text mb-3">{s name="LoginHeaderFields"}{/s}</span>
+                    {/block}
 
-                        {block name='frontend_register_login_input_email'}
-                            <div class="form-group{if $sErrorFlag.email} has-error{/if}">
-                                <label for="email" class="{$FormLabelSize} control-label">{s name='LoginLabelMail'}{/s}</label>
-                                <div class="{$FormInputSize}">
-                                    <input name="email" type="email" autocomplete="email" tabindex="1" value="{$sFormData.email|escape}" id="email" class="form-control"/>
-                                </div>
-                            </div>
-                        {/block}
+                    {block name='frontend_register_login_input_email'}
+                        <div class="form-group">
+                            <label for="email" 
+                                   class="col-form-label">
+                                    {s name='LoginLabelMail'}{/s}</label>
 
-                        {block name='frontend_register_login_input_password'}
-                            <div class="form-group {if $sErrorFlag.password} has-error{/if}">
-                                <label class="{$FormLabelSize} control-label" for="password">{s name="LoginLabelPassword"}{/s}</label>
-                                <div class="{$FormInputSize}">
-                                    <input name="password" type="password" autocomplete="current-password" tabindex="2" id="password" class="form-control"/>
-                                    {block name='frontend_register_login_input_lostpassword'}
-                                        <span class="help-block">
-                                            <a href="{url controller=account action=password}" title="{s name='LoginLinkLostPassword'}{/s}">{s name="LoginLinkLostPassword"}{/s}</a>
-                                        </span>
-                                    {/block}
-                                </div>
-                            </div>
-                        {/block}
+                            <input name="email" 
+                                   type="email" 
+                                   autocomplete="email" 
+                                   tabindex="1" 
+                                   value="{$sFormData.email|escape}" 
+                                   id="email" 
+                                   class="form-control
+                                   {if $sErrorFlag.email} is-invalid{/if}"/>
+                        </div>
+                    {/block}
 
-                        {block name='frontend_register_login_input_form_submit'}
-                            <div class="form-group mbn">
-                                <div class="{$FormInputSize} {$FormLabelOffset}">
-                                    <input class="btn btn-primary" type="submit" value="{s name='LoginLinkLogon'}{/s}" name="Submit"/>
-                                </div>
-                            </div>
-                        {/block}
-                    </fieldset>
+                    {block name='frontend_register_login_input_password'}
+                        <div class="form-group">
+                            <label for="password"
+                                   class="col-form-label">
+                                    {s name="LoginLabelPassword"}{/s}</label>
+
+                            <input name="password" 
+                                   type="password" 
+                                   autocomplete="current-password" 
+                                   tabindex="2" 
+                                   id="password" 
+                                   class="form-control
+                                   {if $sErrorFlag.password} is-invalid{/if}"/>
+                            {block name='frontend_register_login_input_lostpassword'}
+                                <span class="form-text small">
+                                    <a href="{url controller=account action=password}" 
+                                       class="btn-link" 
+                                       title="{s name='LoginLinkLostPassword'}{/s}">{s name="LoginLinkLostPassword"}{/s}</a>
+                                </span>
+                            {/block}
+                        </div>
+                    {/block}
+
+                    {block name='frontend_register_login_input_form_submit'}
+                        <button class="btn btn-primary" type="submit">
+                            {s name='LoginLinkLogon'}{/s}
+                        </button>
+                    {/block}
                 </form>
             {/block}
         </div>

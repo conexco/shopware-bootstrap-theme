@@ -47,37 +47,38 @@
             <div class="col-md-5">
                 {* Register login *}
                 {include file="frontend/register/login.tpl"}
+                
                 {* Register advantages *}
                 {block name='frontend_register_index_advantages'}
-                    <div class="panel panel-default d-none d-md-block">
-                        {block name='frontend_register_index_advantages_title'}
-                            <div class="panel-heading">
-                                {s name='RegisterInfoAdvantagesTitle'}Meine Vorteile{/s}
-                            </div>
-                        {/block}
+                    <div class="card mb-4 d-none d-md-block">
                         {block name='frontend_index_content_advantages_list'}
-                            <div class="panel-body">
+                            <div class="card-body">
+                                {block name='frontend_register_index_advantages_title'}
+                                    <div class="card-title">
+                                        <h4>{s name='RegisterInfoAdvantagesTitle'}Meine Vorteile{/s}</h4>
+                                    </div>
+                                {/block}
                                 <ul>
                                     {block name='frontend_index_content_advantages_entry1'}
-                                        <li class="register--advantages-entry">
+                                        <li>
                                             {s name='RegisterInfoAdvantagesEntry1'}{/s}
                                         </li>
                                     {/block}
 
                                     {block name='frontend_index_content_advantages_entry2'}
-                                        <li class="register--advantages-entry">
+                                        <li>
                                             {s name='RegisterInfoAdvantagesEntry2'}{/s}
                                         </li>
                                     {/block}
 
                                     {block name='frontend_index_content_advantages_entry3'}
-                                        <li class="register--advantages-entry">
+                                        <li>
                                             {s name='RegisterInfoAdvantagesEntry3'}{/s}
                                         </li>
                                     {/block}
 
                                     {block name='frontend_index_content_advantages_entry4'}
-                                        <li class="register--advantages-entry">
+                                        <li>
                                             {s name='RegisterInfoAdvantagesEntry4'}{/s}
                                         </li>
                                     {/block}
@@ -101,19 +102,19 @@
                             {*! Include information related to registration for other customergroups then guest, this block get overridden by b2b essentials plugin *}
                             <div class="supplier_register">
                                 <div class="inner_container">
-                                    <div class="panel panel-default">
+                                    <div class="card mb-4">
                                         {block name='frontend_register_index_cgroup_header_title'}
-                                            <div class="panel-heading">
+                                            <div class="card-header">
                                                 {$sShopname|escapeHtml} {s name='RegisterHeadlineSupplier' namespace='frontend/register/index'}{/s}
                                             </div>
                                         {/block}
                                         {block name='frontend_register_index_cgroup_header_body'}
-                                            <div class="panel-body">
+                                            <div class="card-body">
                                                 <h4 class="bold">{s name='RegisterInfoSupplier3' namespace='frontend/register/index'}{/s}</h4>
 
                                                 <h5 class="bold">{s name='RegisterInfoSupplier4' namespace='frontend/register/index'}{/s}</h5>{s name='RegisterInfoSupplier5' namespace='frontend/register/index'}{/s}
 
-                                                <h5 class="mtl bold">{s name='RegisterInfoSupplier6' namespace='frontend/register/index'}{/s}</h5>{s name='RegisterInfoSupplier7' namespace='frontend/register/index'}{/s}
+                                                <h5 class="bold">{s name='RegisterInfoSupplier6' namespace='frontend/register/index'}{/s}</h5>{s name='RegisterInfoSupplier7' namespace='frontend/register/index'}{/s}
                                             </div>
                                         {/block}
                                     </div>
@@ -123,13 +124,10 @@
                     {/block}
 
                     {block name='frontend_register_index_form'}
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                {s name="LoginHeaderNew" namespace="frontend/account/login"}{/s} {$sShopname}
-                            </div>
-                            <div class="panel-body">
+                        <div class="card mb-5">
+                            <div class="card-body">
                                 {block name="frontend_register_index_form_tag"}
-                                <form method="post" action="{url action=saveRegister sTarget=$sTarget sTargetAction=$sTargetAction}" class="register-form form-horizontal">
+                                <form method="post" action="{url action=saveRegister sTarget=$sTarget sTargetAction=$sTargetAction}" class="register-form">
                                     {/block}
 
                                     {block name='frontend_register_index_form_captcha_fieldset'}
@@ -155,10 +153,17 @@
                                     {if !$update}
                                         {if {config name=ACTDPRCHECK}}
                                             {block name='frontend_register_index_input_privacy'}
-                                                <div class="form-group{if isset($errors.personal.dpacheckbox)} has-error{/if}">
-                                                    <div class="col-lg-6 col-lg-offset-4">
-                                                    <label for="dpacheckbox" class="checkbox-inline">
-                                                            <input name="register[personal][dpacheckbox]" type="checkbox" id="dpacheckbox"{if $form_data.dpacheckbox} checked="checked"{/if} value="1" class="is-required" required="required" aria-required="true" />
+                                                <div class="form-group">
+                                                    <div class="form-check">
+                                                        <input name="register[personal][dpacheckbox]" 
+                                                               type="checkbox" 
+                                                               id="dpacheckbox"
+                                                               {if $form_data.dpacheckbox}checked="checked"{/if} 
+                                                               value="1" 
+                                                               class="is-required form-check-input{if isset($errors.personal.dpacheckbox)} is-invalid{/if}" 
+                                                               required="required" aria-required="true"/>
+
+                                                        <label for="dpacheckbox" class="form-check-label">
                                                             {s name='RegisterLabelDataCheckbox'}{/s}
                                                         </label>
                                                     </div>
@@ -168,30 +173,27 @@
                                     {/if}
 
                                     {block name='frontend_register_index_form_bottom'}
-                                        <div class="row">
-                                            {*! Required fields hint *}
-                                            {block name='frontend_register_index_form_required'}
-                                                <div class="{$FormInputSize} {$FormLabelOffset}">
-                                                    <p class="help-block">
-                                                        {s name='RegisterPersonalRequiredText' namespace='frontend/register/personal_fieldset'}{/s}
-                                                    </p>
-                                                </div>
-                                            {/block}
+                                        {*! Required fields hint *}
+                                        {block name='frontend_register_index_form_required'}
+                                            <p class="text-muted small">
+                                                {s name='RegisterPersonalRequiredText' namespace='frontend/register/personal_fieldset'}{/s}
+                                            </p>
+                                        {/block}
 
-                                            {* Captcha *}
-                                            {block name='frontend_register_index_form_captcha'}
-                                                {$captchaHasError = $errors.captcha}
-                                                {$captchaName = {config name=registerCaptcha}}
-                                                {include file="widgets/captcha/custom_captcha.tpl" captchaName=$captchaName captchaHasError=$captchaHasError}
-                                            {/block}
+                                        {* Captcha *}
+                                        {block name='frontend_register_index_form_captcha'}
+                                            {$captchaHasError = $errors.captcha}
+                                            {$captchaName = {config name=registerCaptcha}}
+                                            {include file="widgets/captcha/custom_captcha.tpl" captchaName=$captchaName captchaHasError=$captchaHasError}
+                                        {/block}
 
-                                            {* Submit button *}
-                                            {block name='frontend_register_index_form_submit'}
-                                                <div class="{$FormInputSize} {$FormLabelOffset}">
-                                                    <input id="registerbutton" type="submit" class="btn btn-lg btn-primary register-submit sw5-plugin" value="{s name='RegisterIndexNewActionSubmit'}{/s}"/>
-                                                </div>
-                                            {/block}
-                                        </div>
+                                        {block name='frontend_register_index_form_submit'}
+                                            <button id="registerbutton" 
+                                                    class="btn btn-lg btn-primary register-submit sw5-plugin" 
+                                                    type="submit">
+                                                {s name='RegisterIndexNewActionSubmit'}{/s}
+                                            </button>
+                                        {/block}
                                     {/block}
                                 </form>
                             </div>

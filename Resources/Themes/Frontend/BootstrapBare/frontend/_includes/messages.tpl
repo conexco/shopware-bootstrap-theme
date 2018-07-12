@@ -61,10 +61,10 @@
 
 {* Messages container *}
 {block name="frontend_global_messages_container"}
-	<div class="alerts{if $isVisible === false} d-none{/if}">
+	<div class="alerts mb-3{if $isVisible === false} d-none{/if}">
 		{* Content column *}
 		{block name="frontend_global_messages_content"}
-            <div class="alert alert-{if $type == 'error'}danger{else}{$type}{/if}">
+            <div class="alert mb-0 alert-{if $type == 'error'}danger{else}{$type}{/if}">
                 <div class="row">
                     {block name="frontend_global_messages_icon"}
                         {if $iconCls}
@@ -81,7 +81,7 @@
                             {elseif $list|@count === 1}
                                 {$list[0]}
                             {else}
-                                <ul>
+                                <ul class="list-unstyled mb-0">
                                     {foreach $list as $entry}
                                         {if $entry != ''}
                                             <li>
