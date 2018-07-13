@@ -2,7 +2,7 @@
 {block name="frontend_index_checkout_actions_notepad"}
     <div class="btn-group entry-notepad sw5-plugin">
         <a href="{url controller='note'}" 
-           class="btn btn-outline-secondary" 
+           class="btn btn-outline-dark" 
            title="{"{s namespace='frontend/index/checkout_actions' name='IndexLinkNotepad'}{/s}"|escape}">
 
            <i class="fa fa-file-text-o fa-lg"></i>
@@ -21,7 +21,7 @@
         data-offCanvasSelector=".account-dropdown-navigation">
 
         {block name="frontend_index_checkout_actions_account"}
-            <a class="btn btn-outline-secondary dropdown-toggle{if $userInfo} account-user-loggedin{/if}" 
+            <a class="btn btn-outline-dark dropdown-toggle{if $userInfo} account-user-loggedin{/if}" 
                data-toggle="dropdown-md"
                role="button"
                aria-haspopup="true"
@@ -71,7 +71,7 @@
 {* Cart entry *}
 {block name="frontend_index_checkout_actions_cart"}
     <button type="button"
-            class="btn btn-outline-secondary cart-button"
+            class="btn btn-outline-dark cart-button"
             aria-label="{"{s namespace='frontend/index/checkout_actions' name='IndexLinkCart'}{/s}"|escape}"
             data-ajax-cart="true"
             data-offcanvas="true"
@@ -82,12 +82,12 @@
             <i class="fa fa-shopping-cart fa-lg mr-1"></i>
 
             <span class="d-none d-sm-inline">
-                <span class="cart-amount small text-primary{if $sBasketAmount >= 100} d-none{/if}">
+                <span class="cart-amount small text-secondary {if $sBasketAmount >= 100} d-none{/if}">
                     {$sBasketAmount|currency} {s name="Star" namespace="frontend/listing/box_article"}{/s}
                 </span>
             </span>
 
-            <span class="badge badge-primary cart-quantity ml-1{if $sBasketQuantity < 1} d-none{/if}">
+            <span class="badge badge-secondary cart-quantity ml-1{if $sBasketQuantity < 1} d-none{/if}">
                 {$sBasketQuantity}
             </span>
         </span>
