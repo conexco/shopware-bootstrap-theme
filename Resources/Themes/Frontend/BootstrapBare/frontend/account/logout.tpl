@@ -20,6 +20,7 @@
                         <p class="card-text">{s name="AccountLogoutText"}{/s}</p>
                     {/block}
                 </div>
+                
                 {block name="frontend_account_logout_info_actions"}
                     <div class="card-footer">
                         <a class="btn btn-outline-primary" 

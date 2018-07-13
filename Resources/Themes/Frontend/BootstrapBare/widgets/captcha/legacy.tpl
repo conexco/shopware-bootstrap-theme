@@ -1,7 +1,7 @@
 {block name='frontend_widgets_captcha'}
     <div class="review-captcha">
         {block name='frontend_widgets_captcha_input_placeholder'}
-            <div class="captcha-placeholder mbm"><img src="data:image/png;base64,{$img}" alt="Captcha" /></div>
+            <div class="captcha-placeholder mb-3"><img src="data:image/png;base64,{$img}" alt="Captcha" /></div>
         {/block}
 
         {block name='frontend_widgets_captcha_input_label'}
@@ -9,8 +9,8 @@
         {/block}
 
         {block name='frontend_widgets_captcha_input_code'}
-            <div class="captcha-code mtm">
-                <input type="text" name="sCaptcha" class="form-control review-field{if $sErrorFlag.sCaptcha} has-error{/if}" required="required" aria-required="true"/>
+            <div class="captcha-code mt-2">
+                <input type="text" name="sCaptcha" class="form-control review-field{if $sErrorFlag.sCaptcha} is-invalid{/if}" required="required" aria-required="true"/>
                 <input type="hidden" name="sRand" value="{$sRand}" />
             </div>
         {/block}

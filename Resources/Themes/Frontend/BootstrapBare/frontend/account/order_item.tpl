@@ -21,18 +21,7 @@
         {/block}
 
         {* Dispatch type *}
-        {block name="frontend_account_order_item_dispatch"}
-            <td>
-                {block name="frontend_account_order_item_dispatch_label"}{/block}
-                {block name="frontend_account_order_item_dispatch_value"}
-                    {if $offerPosition.dispatch.name}
-                        {$offerPosition.dispatch.name}
-                    {else}
-                        {s name="OrderInfoNoDispatch"}{/s}
-                    {/if}
-                {/block}
-            </td>
-        {/block}
+        {block name="frontend_account_order_item_dispatch"}{/block}
 
         {* Order status *}
         {block name="frontend_account_order_item_status"}
@@ -66,10 +55,10 @@
         {block name="frontend_account_order_item_actions"}
             <td>
                 <div class="d-none d-sm-block">
-                    <a class="btn btn-xs btn-outline-secondary btn-block mbs" title="{s name='OrderActionSlide'}{/s} {$offerPosition.ordernumber}" data-toggle="collapse" data-target="#order{$offerPosition.ordernumber}">{s name="OrderActionSlide"}{/s}</a>
+                    <a class="btn btn-sm btn-outline-secondary btn-block mb-2" title="{s name='OrderActionSlide'}{/s} {$offerPosition.ordernumber}" data-toggle="collapse" data-target="#order{$offerPosition.ordernumber}">{s name="OrderActionSlide"}{/s}</a>
                 </div>
                 <div class="d-sm-none">
-                    <a class="btn btn-xs btn-outline-secondary btn-block mbs" title="{s name='OrderActionSlide'}{/s} {$offerPosition.ordernumber}" data-toggle="collapse" data-target="#order{$offerPosition.ordernumber}">{s name="OrderActionSlide"}{/s}</a>
+                    <a class="btn btn-sm btn-outline-secondary btn-block mb-2" title="{s name='OrderActionSlide'}{/s} {$offerPosition.ordernumber}" data-toggle="collapse" data-target="#order{$offerPosition.ordernumber}">{s name="OrderActionSlide"}{/s}</a>
                 </div>
                 {* Repeat order *}
                 {block name="frontend_account_order_item_repeat_order"}
@@ -81,10 +70,10 @@
 
                         {block name="frontend_account_order_item_repeat_button"}
                             <div class="d-none d-sm-block">
-                                <input type="submit" class="btn btn-xs btn-primary btn-block" value="{s name='OrderLinkRepeat'}{/s}"/>
+                                <input type="submit" class="btn btn-sm btn-primary btn-block" value="{s name='OrderLinkRepeat'}{/s}"/>
                             </div>
                             <div class="d-sm-none">
-                                <input type="submit" class="btn btn-xs btn-primary btn-block" value="{s name='OrderLinkRepeat'}{/s}" style="white-space:normal !important; word-wrap:break-word;"/>
+                                <input type="submit" class="btn btn-sm btn-primary btn-block" value="{s name='OrderLinkRepeat'}{/s}" style="white-space:normal !important; word-wrap:break-word;"/>
                             </div>
                         {/block}
                     </form>

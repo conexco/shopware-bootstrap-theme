@@ -5,7 +5,7 @@
         <td colspan="5" class="orders-table-details">
             <div id="order{$offerPosition.ordernumber}" class="collapse">
                 {block name="frontend_account_order_item_detail_table"}
-                    <div class="table-responsive mtm">
+                    <div class="table-responsive">
                         <table class="table table-bordered">
                             {block name='frontend_account_order_item_detail_table_head'}
                                 <thead>
@@ -89,16 +89,11 @@
                                                             {/if}
                                                         {/block}
 
-                                                        {* If ESD-Article *}
                                                         {block name='frontend_account_order_item_downloadlink'}
                                                             {if $article.esdarticle && $offerPosition.cleared|in_array:$sDownloadAvailablePaymentStatus}
-                                                                <a href="{$article.esdLink}" class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-cloud-download mrs"></i> {s name="OrderItemInfoInstantDownload"}{/s}
-                                                                </a>
-                                                            {/if}
-                                                            {if $article.esdarticle && !$offerPosition.cleared|in_array:$sDownloadAvailablePaymentStatus}
-                                                                <a href="#" class="btn btn-outline-secondary btn-xs" disabled="disabled">
-                                                                    <i class="fa fa-cloud-download fa-lg"></i> {s name="OrderItemInfoInstantDownload"}{/s}
+                                                                <a href="{$article.esdLink}" class="btn btn-outline-primary btn-sm">
+                                                                    <i class="fa fa-cloud-download"></i>
+                                                                    {s name="OrderItemInfoInstantDownload"}{/s}
                                                                 </a>
                                                             {/if}
                                                         {/block}
@@ -152,9 +147,9 @@
                     </div>
                     
                     <div class="row">
-                        <div class="col-lg-5">
+                        <div class="col-md-6">
                             {block name="frontend_account_order_item_detail_info_data"}
-                                <dl class="dl-horizontal">
+                                <dl>
                                     {* Order date *}
                                     {block name="frontend_account_order_item_label_date"}
                                         <dt>{s name="OrderItemColumnDate"}{/s}</dt>
@@ -235,40 +230,44 @@
                         </div>
 
                         {if $offerPosition.customercomment || $offerPosition.comment}
-                            <div class="col-12">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">{s name="OrderCommentTitle"}Kommentare zur Bestellung{/s}</div>
-                                    <div class="panel-body">
-                        {/if}
-                                    {* User comment *}
-                                    {block name="frontend_account_order_item_user_comment"}
-                                        {if $offerPosition.customercomment}
-                                            <blockquote>
-                                                {block name="frontend_account_order_item_user_comment_content"}
-                                                    <p>{$offerPosition.customercomment}</p>
-                                                {/block}
-                                                {block name="frontend_account_order_item_user_comment_title"}
-                                                    <small>{s name="OrderItemCustomerComment"}Ihr Kommentar{/s}</small>
-                                                {/block}
-                                            </blockquote>
-                                        {/if}
-                                    {/block}
-                                    {* Shop comment *}
-                                    {block name="frontend_account_order_item_shop_comment"}
-                                        {if $offerPosition.comment}
-                                            <blockquote>
-                                                {block name="frontend_account_order_item_shop_comment_content"}
-                                                    <p>{$offerPosition.comment}</p>
-                                                {/block}
-                                                {block name="frontend_account_order_item_shop_comment_title"}
-                                                    <small>{s name="OrderItemComment"}Unser Kommentar{/s}</small>
-                                                {/block}
-                                            </blockquote>
-                                        {/if}
-                                    {/block}
-                        {if $offerPosition.customercomment || $offerPosition.comment}
-                                    </div>
+                            <div class="col-md-6">
+                                <div class="h6">
+                                    {s name="OrderCommentTitle"}Kommentare zur Bestellung{/s}
                                 </div>
+
+                                {* User comment *}
+                                {block name="frontend_account_order_item_user_comment"}
+                                    {if $offerPosition.customercomment}
+                                        <blockquote>
+                                            {block name="frontend_account_order_item_user_comment_content"}
+                                                <p class="mb-1">{$offerPosition.customercomment}</p>
+                                            {/block}
+
+                                            {block name="frontend_account_order_item_user_comment_title"}
+                                                <footer class="blockquote-footer">
+                                                    {s name="OrderItemCustomerComment"}Ihr Kommentar{/s}
+                                                </footer>
+                                            {/block}
+                                        </blockquote>
+                                    {/if}
+                                {/block}
+
+                                {* Shop comment *}
+                                {block name="frontend_account_order_item_shop_comment"}
+                                    {if $offerPosition.comment}
+                                        <blockquote>
+                                            {block name="frontend_account_order_item_shop_comment_content"}
+                                                <p class="mb-1">{$offerPosition.comment}</p>
+                                            {/block}
+
+                                            {block name="frontend_account_order_item_shop_comment_title"}
+                                                <footer class="blockquote-footer">
+                                                    {s name="OrderItemComment"}Unser Kommentar{/s}
+                                                </footer>
+                                            {/block}
+                                        </blockquote>
+                                    {/if}
+                                {/block}
                             </div>
                         {/if}
                     </div>

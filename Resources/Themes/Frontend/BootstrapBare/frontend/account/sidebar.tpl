@@ -16,7 +16,7 @@
                 {/if}
 
                 {block name="frontend_account_offcanvas_wrapper"}
-                    <div id="accountSidebar" class="account-offcanvas">
+                    <div id="accountSidebar" class="account-offcanvas{if !$inHeader} mb-4{/if}">
                         <div class="account-menu{if !$inHeader} card{/if}">
                             {* Sidebar navigation headline *}
                             {block name="frontend_account_menu_title"}
@@ -81,8 +81,7 @@
 
                                         {* Link to the user addresses *}
                                         {block name="frontend_account_menu_link_addresses"}
-                                            <a 
-                                               title="{s name="AccountLinkAddresses"}{/s}"
+                                            <a title="{s name="AccountLinkAddresses"}{/s}"
                                                {if $inHeader}
                                                href="{url module='frontend' controller='address' action='index' sidebar=''}"
                                                {else}

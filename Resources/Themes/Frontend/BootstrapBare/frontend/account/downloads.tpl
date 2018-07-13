@@ -10,7 +10,7 @@
     {* Welcome text *}
     {block name="frontend_account_downloads_welcome"}
         {block name="frontend_account_downloads_welcome_headline"}
-            <h1>{s name="DownloadsHeader"}{/s}</h1>
+            <h2 class="h3">{s name="DownloadsHeader"}{/s}</h2>
         {/block}
 
         {block name="frontend_account_downloads_welcome_content"}
@@ -37,70 +37,75 @@
         {/block}
     {else}
         {block name="frontend_account_downloads_table"}
-            <table class="table table-responsive">
-                {block name="frontend_account_downloads_table_head"}
-                    <thead>
-                        <tr>
-                            {block name="frontend_account_downloads_table_head_date"}
-                                <th class="col-2">{s name="DownloadsColumnDate"}{/s}</th>
-                            {/block}
-                            {block name="frontend_account_downloads_table_head_info"}
-                                <th class="col-8">{s name="DownloadsColumnName"}{/s}</th>
-                            {/block}
-                            {block name="frontend_account_downloads_table_head_actions"}
-                                <th class="col-2">{s name="DownloadsColumnLink"}{/s}</th>
-                            {/block}
-                        </tr>
-                    </thead>
-                {/block}
-                <tbody>
-                    {foreach from=$sDownloads item=offerPosition}
-                        {foreach name=offerdetails from=$offerPosition.details item=article}
-                            {if $article.esdarticle}
-                                {block name="frontend_account_downloads_table_row"}
-                                    <tr>
-                                        <td>
-                                            {block name="frontend_account_downloads_date"}
-                                                {$offerPosition.datum|date}
-                                            {/block}
-                                        </td>
-                                        <td>
-                                            {block name="frontend_account_downloads_info"}
-                                                {block name='frontend_account_downloads_name'}
-                                                    <p><strong>{$article.name}</strong></p>
+            <div class="table-responsive">
+                <table class="table table-sm">
+                    {block name="frontend_account_downloads_table_head"}
+                        <thead>
+                            <tr>
+                                {block name="frontend_account_downloads_table_head_date"}
+                                    <th scope="col">{s name="DownloadsColumnDate"}{/s}</th>
+                                {/block}
+
+                                {block name="frontend_account_downloads_table_head_info"}
+                                    <th scope="col">{s name="DownloadsColumnName"}{/s}</th>
+                                {/block}
+
+                                {block name="frontend_account_downloads_table_head_actions"}
+                                    <th scope="col">{s name="DownloadsColumnLink"}{/s}</th>
+                                {/block}
+                            </tr>
+                        </thead>
+                    {/block}
+
+                    <tbody>
+                        {foreach from=$sDownloads item=offerPosition}
+                            {foreach name=offerdetails from=$offerPosition.details item=article}
+                                {if $article.esdarticle}
+                                    {block name="frontend_account_downloads_table_row"}
+                                        <tr>
+                                            <td>
+                                                {block name="frontend_account_downloads_date"}
+                                                    {$offerPosition.datum|date}
                                                 {/block}
-                                                {block name='frontend_account_downloads_serial'}
-                                                    {if $article.serial && $offerPosition.cleared|in_array:$sDownloadAvailablePaymentStatus}
-                                                        <p class="text-muted">
-                                                            {s name="DownloadsSerialnumber"}{/s} 
-                                                            <div class="card card-body">
-                                                                <strong>{$article.serial}</strong>
+                                            </td>
+
+                                            <td>
+                                                {block name="frontend_account_downloads_info"}
+                                                    {block name='frontend_account_downloads_name'}
+                                                        <p>{$article.name}</p>
+                                                    {/block}
+
+                                                    {block name='frontend_account_downloads_serial'}
+                                                        {if $article.serial && $offerPosition.cleared|in_array:$sDownloadAvailablePaymentStatus}
+                                                            <div class="small text-muted">
+                                                                {s name="DownloadsSerialnumber"}{/s} 
                                                             </div>
-                                                        </p>
+                                                            <div class="small mb-1">
+                                                                {$article.serial}
+                                                            </div>
+                                                        {/if}
+                                                    {/block}
+                                                {/block}
+                                            </td>
+
+                                            <td>
+                                                {block name='frontend_account_downloads_link'}
+                                                    {if $article.esdarticle && $offerPosition.cleared|in_array:$sDownloadAvailablePaymentStatus}
+                                                        <a href="{$article.esdLink}" title="{"{s name='DownloadsLink'}{/s}"|escape} {$article.name|escape}" class="btn btn-outline-primary btn-sm">
+                                                            <i class="fa fa-cloud-download"></i>
+                                                            {s name="DownloadsLink"}{/s}
+                                                        </a>
                                                     {/if}
                                                 {/block}
-                                            {/block}
-                                        </td>
-                                        <td>
-                                            {block name='frontend_account_downloads_link'}
-                                                {if !$offerPosition.cleared|in_array:$sDownloadAvailablePaymentStatus}
-                                                    <a href="#" title="{s name='DownloadsLink'}{/s} {$article.name}" class="btn btn-outline-secondary" disabled="disabled">
-                                                        <i class="fa fa-cloud-download fa-lg"></i> {s name="DownloadsLink"}{/s}
-                                                    </a>
-                                                {else}
-                                                    <a href="{$article.esdLink}" title="{s name='DownloadsLink'}{/s} {$article.name}" class="btn btn-primary">
-                                                        <i class="fa fa-cloud-download fa-lg"></i> {s name="DownloadsLink"}{/s}
-                                                    </a>
-                                                {/if}
-                                            {/block}
-                                        </td>
-                                    </tr>
-                                {/block}
-                            {/if}
+                                            </td>
+                                        </tr>
+                                    {/block}
+                                {/if}
+                            {/foreach}
                         {/foreach}
-                    {/foreach}
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         {/block}
     {/if}
 {/block}

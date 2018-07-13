@@ -8,13 +8,12 @@
 {* Main content *}
 {block name="frontend_index_content"}
     <div class="account-profile">
-
         {block name="frontend_account_profile_profile_form"}
-            <form name="profileForm" action="{url controller=account action=saveProfile}" method="post" class="form-horizontal">
+            <form name="profileForm" action="{url controller=account action=saveProfile}" method="post" class="mb-5">
 
                 {block name="frontend_account_profile_profile_panel"}
                     {block name="frontend_account_profile_profile_title"}
-                        <h3>{s name="ProfileHeadline"}Mein Profil{/s}</h3>
+                        <h2 class="h3 mb-4">{s name="ProfileHeadline"}Mein Profil{/s}</h2>
                     {/block}
 
                     {block name="frontend_account_profile_profile_body"}
@@ -34,15 +33,19 @@
                         {* Salutation *}
                         {block name='frontend_account_profile_profile_input_salutation'}
                             {getSalutations variable="salutations"}
+                            <div class="form-row">
+                                <div class="profile-salutation form-group col-md-6 col-lg-4">
+                                    <label for="profileSolutation"
+                                           class="col-form-label">
+                                            {s name='RegisterPlaceholderSalutation' namespace="frontend/register/personal_fieldset"}{/s}
+                                            {s name="RequiredField" namespace="frontend/register/index"}{/s}</label>
 
-                            <div class="profile-salutation form-group {if $errorFlags.salutation} has-error{/if}">
-                                <label class="control-label {$FormLabelSize}">{s name='RegisterPlaceholderSalutation' namespace="frontend/register/personal_fieldset"}{/s}{s name="RequiredField" namespace="frontend/register/index"}{/s}</label>
-
-                                <div class="{$FormInputSize}">
                                     <select name="profile[salutation]"
                                         required="required"
                                         aria-required="true"
-                                        class="form-control is-required">
+                                        class="form-control is-required
+                                        {if $errorFlags.salutation} is-invalid{/if}"
+                                        id="profileSolutation">
 
                                         {foreach $salutations as $key => $label}
                                             <option value="{$key}"{if $form_data.profile.salutation eq $key} selected="selected"{/if}>{$label}</option>
@@ -54,55 +57,67 @@
 
                         {* Title *}
                         {block name='frontend_account_profile_profile_input_title'}
-                            {if {config name="displayprofiletitle"}}
-                                <div class="profile-title form-group{if $errorFlags.title} has-error{/if}">
-                                    <label class="control-label {$FormLabelSize}">{s name='RegisterPlaceholderTitle' namespace="frontend/register/personal_fieldset"}Titel{/s}</label>
+                            <div class="form-row">
+                                {if {config name="displayprofiletitle"}}
+                                    <div class="profile-title form-group col-md-6 col-lg-4">
+                                        <label for="profileTitle"
+                                               class="col-form-label">
+                                                {s name='RegisterPlaceholderTitle' namespace="frontend/register/personal_fieldset"}Titel{/s}</label>
 
-                                    <div class="{$FormInputSize}">
                                         <input autocomplete="section-personal title"
                                                name="profile[title]"
                                                type="text"
                                                value="{$form_data.profile.title|escape}"
-                                               class="form-control profile-field" />
-                                    </div>       
-                                </div>
-                            {/if}
+                                               class="form-control profile-field
+                                               {if $errorFlags.title} is-invalid{/if}"
+                                               id="profileTitle" />   
+                                    </div>
+                                {/if}
+                            </div>
                         {/block}
 
                         {* Firstname *}
                         {block name='frontend_account_profile_profile_input_firstname'}
-                            <div class="profile-firstname form-group{if $errorFlags.firstname} has-error{/if}">
-                                <label class="control-label {$FormLabelSize}">{s name='RegisterPlaceholderFirstname' namespace="frontend/register/personal_fieldset"}{/s}{s name="RequiredField" namespace="frontend/register/index"}{/s}</label>
+                            <div class="form-row">
+                                <div class="profile-firstname form-group col-md-6">
+                                    <label for="profileFirstname"
+                                           class="col-form-label">
+                                            {s name='RegisterPlaceholderFirstname' namespace="frontend/register/personal_fieldset"}{/s}
+                                            {s name="RequiredField" namespace="frontend/register/index"}{/s}</label>
 
-                                <div class="{$FormInputSize}">
                                     <input autocomplete="section-personal given-name"
                                            name="profile[firstname]"
                                            type="text"
                                            required="required"
                                            aria-required="true"
                                            value="{$form_data.profile.firstname|escape}" 
-                                           class="form-control is-required"
-                                    />
+                                           class="form-control is-required
+                                           {if $errorFlags.firstname} is-invalid{/if}"
+                                           id="profileFirstname" />
                                 </div>
                             </div>
                         {/block}
 
                         {* Lastname *}
                         {block name="frontend_account_profile_profile_input_lastname"}
-                            <div class="profile-lastname form-group{if $errorFlags.lastname} has-error{/if}">
-                                <label class="control-label {$FormLabelSize}">{s name='RegisterPlaceholderLastname' namespace="frontend/register/personal_fieldset"}{/s}{s name="RequiredField" namespace="frontend/register/index"}{/s}</label>
+                        <div class="form-row">
+                            <div class="profile-lastname form-group col-md-6">
+                                <label for="profileLastname"
+                                       class="col-form-label">
+                                        {s name='RegisterPlaceholderLastname' namespace="frontend/register/personal_fieldset"}{/s}
+                                        {s name="RequiredField" namespace="frontend/register/index"}{/s}</label>
 
-                                <div class="{$FormInputSize}">
-                                    <input autocomplete="section-personal family-name"
-                                           name="profile[lastname]"
-                                           type="text"
-                                           required="required"
-                                           aria-required="true"
-                                           value="{$form_data.profile.lastname|escape}"
-                                           class="form-control is-required"
-                                    />
-                                </div>    
+                                <input autocomplete="section-personal family-name"
+                                       name="profile[lastname]"
+                                       type="text"
+                                       required="required"
+                                       aria-required="true"
+                                       value="{$form_data.profile.lastname|escape}"
+                                       class="form-control is-required
+                                       {if $errorFlags.lastname} is-invalid{/if}"
+                                       id="profileLastname" />  
                             </div>
+                        </div>
                         {/block}
 
                         {* Birthday *}
@@ -110,86 +125,84 @@
                             {if {config name=showBirthdayField}}
                                 <div class="form-group profile-birthdate">
                                     {block name="frontend_account_profile_profile_input_birthday_label"}
-                                        <label for="register_personal_birthdate" class="{$FormLabelSize} control-label">{s name='RegisterPlaceholderBirthday' namespace="frontend/register/personal_fieldset"}{/s}{if {config name=requireBirthdayField}}{s name="RequiredField" namespace="frontend/register/index"}{/s}{/if}</label>
+                                        <label for="register_personal_birthdate" 
+                                               class="col-form-label">
+                                                {s name='RegisterPlaceholderBirthday' namespace="frontend/register/personal_fieldset"}{/s}
+                                                {if {config name=requireBirthdayField}}
+                                                {s name="RequiredField" namespace="frontend/register/index"}{/s}{/if}</label>
                                     {/block}
 
-                                    <div class="{$FormInputSize}">
-                                        <div class="row">
-                                            {block name="frontend_account_profile_profile_input_birthday_day"}
-                                                <div class="col-3">
-                                                    <div class="profile-birthday">
-                                                        <select name="profile[birthday][day]"
-                                                                id="register_personal_birthdate"
-                                                                {if {config name=requireBirthdayField}} required="required" aria-required="true"{/if}
-                                                                class="form-control {if {config name=requireBirthdayField}}is-required{/if}{if $errorFlags.birthday && {config name=requireBirthdayField}} has-error{/if}">
+                                    <div class="form-row">
+                                        {block name="frontend_account_profile_profile_input_birthday_day"}
+                                            <div class="col-3 col-md-2">
+                                                <div class="profile-birthday">
+                                                    <select name="profile[birthday][day]"
+                                                            id="register_personal_birthdate"
+                                                            {if {config name=requireBirthdayField}} required="required" aria-required="true"{/if}
+                                                            class="form-control {if {config name=requireBirthdayField}}is-required{/if}{if $errorFlags.birthday && {config name=requireBirthdayField}} is-invalid{/if}">
 
-                                                            <option{if {config name=requireBirthdayField} && $form_data.profile.birthday.day} disabled="disabled"{/if} value="">{s name='RegisterBirthdaySelectDay' namespace="frontend/register/personal_fieldset"}{/s}</option>
+                                                        <option{if {config name=requireBirthdayField} && $form_data.profile.birthday.day} disabled="disabled"{/if} value="">{s name='RegisterBirthdaySelectDay' namespace="frontend/register/personal_fieldset"}{/s}</option>
 
-                                                            {for $day = 1 to 31}
-                                                                <option value="{$day}" {if $day == $form_data.profile.birthday.day}selected{/if}>{$day}</option>
-                                                            {/for}
-                                                        </select>
-                                                    </div>
-                                                </div>   
-                                            {/block}
-
-                                            {block name="frontend_account_profile_profile_input_birthday_month"}
-                                                <div class="col-3">
-                                                    <div class="profile-birthmonth">
-                                                        <select name="profile[birthday][month]"
-                                                                {if {config name=requireBirthdayField}} required="required" aria-required="true"{/if}
-                                                                class="form-control {if {config name=requireBirthdayField}}is-required{/if}{if $errorFlags.birthday && {config name=requireBirthdayField}} has-error{/if}">
-
-                                                            <option{if {config name=requireBirthdayField} && $form_data.profile.birthday.month} disabled="disabled"{/if} value="">{s name='RegisterBirthdaySelectMonth' namespace="frontend/register/personal_fieldset"}{/s}</option>
-
-                                                            {for $month = 1 to 12}
-                                                                <option value="{$month}" {if $month == $form_data.profile.birthday.month}selected{/if}>{$month}</option>
-                                                            {/for}
-                                                        </select>
-                                                    </div>
+                                                        {for $day = 1 to 31}
+                                                            <option value="{$day}" {if $day == $form_data.profile.birthday.day}selected{/if}>{$day}</option>
+                                                        {/for}
+                                                    </select>
                                                 </div>
-                                            {/block}
+                                            </div>   
+                                        {/block}
 
-                                            {block name="frontend_account_profile_profile_input_birthday_year"}
-                                                <div class="col-6">
-                                                    <div class="profile-birthyear">
-                                                        <select name="profile[birthday][year]"
-                                                                {if {config name=requireBirthdayField}} required="required" aria-required="true"{/if}
-                                                                class="form-control {if {config name=requireBirthdayField}}is-required{/if}{if $errorFlags.birthday && {config name=requireBirthdayField}} has-error{/if}">
+                                        {block name="frontend_account_profile_profile_input_birthday_month"}
+                                            <div class="col-3 col-md-2">
+                                                <div class="profile-birthmonth">
+                                                    <select name="profile[birthday][month]"
+                                                            {if {config name=requireBirthdayField}} required="required" aria-required="true"{/if}
+                                                            class="form-control {if {config name=requireBirthdayField}}is-required{/if}{if $errorFlags.birthday && {config name=requireBirthdayField}} is-invalid{/if}">
 
-                                                            <option{if {config name=requireBirthdayField} && $form_data.profile.birthday.year} disabled="disabled"{/if} value="">{s name='RegisterBirthdaySelectYear' namespace="frontend/register/personal_fieldset"}{/s}</option>
+                                                        <option{if {config name=requireBirthdayField} && $form_data.profile.birthday.month} disabled="disabled"{/if} value="">{s name='RegisterBirthdaySelectMonth' namespace="frontend/register/personal_fieldset"}{/s}</option>
 
-                                                            {for $year = date("Y")-12 to date("Y")-120 step=-1}
-                                                                <option value="{$year}" {if $year == $form_data.profile.birthday.year}selected{/if}>{$year}</option>
-                                                            {/for}
-                                                        </select>
-                                                    </div>
+                                                        {for $month = 1 to 12}
+                                                            <option value="{$month}" {if $month == $form_data.profile.birthday.month}selected{/if}>{$month}</option>
+                                                        {/for}
+                                                    </select>
                                                 </div>
-                                            {/block}
-                                        </div>
-                                    </div>        
+                                            </div>
+                                        {/block}
+                                        
+                                        {block name="frontend_account_profile_profile_input_birthday_year"}
+                                            <div class="col-6 col-md-4">
+                                                <div class="profile-birthyear">
+                                                    <select name="profile[birthday][year]"
+                                                            {if {config name=requireBirthdayField}} required="required" aria-required="true"{/if}
+                                                            class="form-control {if {config name=requireBirthdayField}}is-required{/if}{if $errorFlags.birthday && {config name=requireBirthdayField}} is-invalid{/if}">
+
+                                                        <option{if {config name=requireBirthdayField} && $form_data.profile.birthday.year} disabled="disabled"{/if} value="">{s name='RegisterBirthdaySelectYear' namespace="frontend/register/personal_fieldset"}{/s}</option>
+
+                                                        {for $year = date("Y")-12 to date("Y")-120 step=-1}
+                                                            <option value="{$year}" {if $year == $form_data.profile.birthday.year}selected{/if}>{$year}</option>
+                                                        {/for}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        {/block}
+                                    </div>       
                                 </div>
                             {/if}
                         {/block}
 
                         {block name="frontend_account_profile_profile_required_info"}
                             <div class="form-group required-info">
-                                <div class="{$FormInputSize} {$FormLabelOffset}">
-                                    <p class="help-block">{s name='RegisterPersonalRequiredText' namespace='frontend/register/personal_fieldset'}{/s}</p>
-                                </div>
+                                <p class="text-muted">{s name='RegisterPersonalRequiredText' namespace='frontend/register/personal_fieldset'}{/s}</p>
                             </div>
                         {/block}
                     {/block}
 
                     {block name="frontend_account_profile_profile_actions"}
                         <div class="form-group">
-                            <div class="{$FormInputSize} {$FormLabelOffset}">
-                                {block name="frontend_account_profile_profile_actions_submit"}
-                                    <button class="btn btn-primary" type="submit">
-                                        {s name="ProfileSaveButton"}Profil speichern{/s}
-                                    </button>
-                                {/block}
-                            </div>
+                            {block name="frontend_account_profile_profile_actions_submit"}
+                                <button class="btn btn-primary" type="submit">
+                                    {s name="ProfileSaveButton"}Profil speichern{/s}
+                                </button>
+                            {/block}
                         </div>        
                     {/block}
                 {/block}
@@ -197,11 +210,11 @@
         {/block}
 
         {block name="frontend_account_profile_email_form"}
-            <form name="emailForm" action="{url controller=account action=saveEmail}" method="post" class="form-horizontal">
+            <form name="emailForm" action="{url controller=account action=saveEmail}" method="post" class="mb-4">
 
                 {block name="frontend_account_profile_email_panel"}
                     {block name="frontend_account_profile_email_title"}
-                        <h3>{s name="EmailHeadline"}Meine E-Mail{/s}</h3>
+                        <h2 class="h3 mb-4">{s name="EmailHeadline"}Meine E-Mail{/s}</h2>
                     {/block}
 
                     {block name="frontend_account_profile_email_body"}
@@ -219,94 +232,105 @@
                         {/block}
 
                         {block name="frontend_account_profile_email_current"}
-                            <div class="form-group">
-                                <label class="control-label {$FormLabelSize}">{s name="EmailCurrentEmailLabel"}Aktuelle E-Mail-Adresse{/s}</label>
-                                <div class="{$FormInputSize}">
-                                    <div class="pts">{$sUserData.additional.user.email}</div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 col-lg-4">
+                                    <label class="col-form-label">{s name="EmailCurrentEmailLabel"}Aktuelle E-Mail-Adresse{/s}</label>
+                                    {$sUserData.additional.user.email}
                                 </div>
                             </div>
                         {/block}
 
                         {* Email *}
                         {block name='frontend_account_profile_email_input_email'}
-                            <div class="profile-email form-group{if $errorFlags.email} has-error{/if}">
-                                <label class="control-label {$FormLabelSize}">{s name="AccountLabelNewMail" namespace="frontend/account/index"}{/s}{s name="Star" namespace="frontend/listing/box_article"}{/s}</label>
+                            <div class="form-row">
+                                <div class="profile-email form-group col-md-6">
+                                    <label for="profileEmail"
+                                           class="col-form-label">
+                                            {s name="AccountLabelNewMail" namespace="frontend/account/index"}{/s}
+                                            {s name="Star" namespace="frontend/listing/box_article"}{/s}</label>
 
-                                <div class="{$FormInputSize}">
                                     <input autocomplete="section-personal email"
                                        required="required"
                                        aria-required="true"
                                        name="email[email]"
                                        type="email"
                                        value="{$form_data.email.email}"
-                                       class="form-control is-required" />
-                                </div>    
+                                       class="form-control is-required
+                                       {if $errorFlags.email} is-invalid{/if}" 
+                                       id="profileEmail" /> 
+                                </div>
                             </div>
                         {/block}
 
                         {* Email confirmation *}
                         {block name='frontend_account_profile_email_input_email_confirmation'}
-                            <div class="profile-email-confirmation form-group{if $errorFlags.emailConfirmation} has-error{/if}">
-                                <label class="control-label {$FormLabelSize}">{s name="AccountLabelMail" namespace="frontend/account/index"}{/s}{s name="Star" namespace="frontend/listing/box_article"}{/s}</label>
+                            <div class="form-row">
+                                <div class="profile-email-confirmation form-group col-md-6">
+                                    <label for="profileEmailConfirmation"
+                                           class="col-form-label">
+                                            {s name="AccountLabelMail" namespace="frontend/account/index"}{/s}
+                                            {s name="Star" namespace="frontend/listing/box_article"}{/s}</label>
 
-                                <div class="{$FormInputSize}">
                                     <input name="email[emailConfirmation]"
                                        type="email"
                                        required="required"
                                        aria-required="true"
                                        value="{$form_data.email.emailConfirmation}"
-                                       class="form-control is-required" />
-                                </div>    
+                                       class="form-control is-required
+                                       {if $errorFlags.emailConfirmation} is-invalid{/if}" 
+                                       id="profileEmailConfirmation" />
+                                </div>
                             </div>
                         {/block}
 
                         {block name='frontend_account_profile_email_input_current_password'}
-                            {if {config name=accountPasswordCheck}}
-                                <div class="profile-current-password form-group{if $section == 'email' && $errorFlags.currentPassword} has-error{/if}">
-                                    <label class="control-label {$FormLabelSize}">{s name="AccountLabelCurrentPassword2" namespace="frontend/account/index"}{/s}{s name="Star" namespace="frontend/listing/box_article"}{/s}</label>
+                            <div class="form-row">
+                                {if {config name=accountPasswordCheck}}
+                                    <div class="profile-current-password form-group col-md-6">
+                                        <label for="profileCurrentPassword"
+                                               class="col-form-label">
+                                                {s name="AccountLabelCurrentPassword2" namespace="frontend/account/index"}{/s}
+                                                {s name="Star" namespace="frontend/listing/box_article"}{/s}</label>
 
-                                    <div class="{$FormInputSize}">
                                         <input name="email[currentPassword]"
                                                type="password"
                                                autocomplete="current-password"
                                                required="required"
                                                aria-required="true"
-                                               class="form-control is-required" />
-                                    </div>    
-                                </div>
-                            {/if}
+                                               class="form-control is-required
+                                               {if $section == 'email' && $errorFlags.currentPassword} is-invalid{/if}"
+                                               id="profileCurrentPassword" />   
+                                    </div>
+                                {/if}
+                            </div>
                         {/block}
 
                         {block name="frontend_account_profile_email_required_info"}
                             <div class="form-group required-info">
-                                <div class="{$FormInputSize} {$FormLabelOffset}">
-                                    <p class="help-block">{s name='RegisterPersonalRequiredText' namespace='frontend/register/personal_fieldset'}{/s}</p>
-                                </div>
+                                <p class="text-muted">{s name='RegisterPersonalRequiredText' namespace='frontend/register/personal_fieldset'}{/s}</p>
                             </div>
                         {/block}
                     {/block}
 
                     {block name="frontend_account_profile_email_actions"}
                         <div class="form-group">
-                            <div class="{$FormInputSize} {$FormLabelOffset}">
-                                {block name="frontend_account_profile_email_actions_submit"}
-                                    <button class="btn btn-primary" type="submit">
-                                        {s name="EmailSaveButton"}E-Mail speichern{/s}
-                                    </button>
-                                {/block}
-                            </div>
-                        </div>       
+                            {block name="frontend_account_profile_email_actions_submit"}
+                                <button class="btn btn-primary" type="submit">
+                                    {s name="EmailSaveButton"}E-Mail speichern{/s}
+                                </button>
+                            {/block}
+                        </div>     
                     {/block}
                 {/block}
             </form>
         {/block}
 
         {block name="frontend_account_profile_password_form"}
-            <form name="passwordForm" action="{url controller=account action=savePassword}" method="post" class="form-horizontal">
+            <form name="passwordForm" action="{url controller=account action=savePassword}" method="post" class="mb-5">
 
                 {block name="frontend_account_profile_password_panel"}
                     {block name="frontend_account_profile_password_title"}
-                        <h3>{s name="PasswordHeadline"}Mein Passwort{/s}</h3>
+                        <h2 class="h3 mb-4">{s name="PasswordHeadline"}Mein Passwort{/s}</h2>
                     {/block}
 
                     {block name="frontend_account_profile_password_body"}
@@ -325,75 +349,83 @@
 
                         {* Password *}
                         {block name='frontend_account_profile_password_input_password'}
-                            <div class="profile-password form-group{if $errorFlags.password} has-error{/if}">
-                                <label class="control-label {$FormLabelSize}">{s name="AccountLabelNewPassword2" namespace="frontend/account/index"}{/s}{s name="Star" namespace="frontend/listing/box_article"}{/s}</label>
+                            <div class="form-row">
+                                <div class="profile-password form-group col-md-6">
+                                    <label for="profilePassword" 
+                                           class="col-form-label">
+                                            {s name="AccountLabelNewPassword2" namespace="frontend/account/index"}{/s}
+                                            {s name="Star" namespace="frontend/listing/box_article"}{/s}</label>
 
-                                <div class="{$FormInputSize}">
                                     <input name="password[password]"
                                            type="password"
                                            autocomplete="new-password"
                                            required="required"
                                            aria-required="true"
-                                           class="form-control is-required"
-                                        />
-                                </div>    
+                                           class="form-control is-required
+                                           {if $errorFlags.password} is-invalid{/if}"
+                                           id="profilePassword" />  
+                                </div>
                             </div>
                         {/block}
 
                         {* Password confirmation *}
                         {block name='frontend_account_profile_password_input_password_confirmation'}
-                            <div class="profile-password-confirmation form-group{if $errorFlags.passwordConfirmation} has-error{/if}">
-                                <label class="control-label {$FormLabelSize}">{s name="AccountLabelRepeatPassword2" namespace="frontend/account/index"}{/s}{s name="Star" namespace="frontend/listing/box_article"}{/s}</label>
+                            <div class="form-row">   
+                                <div class="profile-password-confirmation form-group col-md-6">
+                                    <label for="profilePasswordConfirmation" 
+                                           class="col-form-label">
+                                            {s name="AccountLabelRepeatPassword2" namespace="frontend/account/index"}{/s}
+                                            {s name="Star" namespace="frontend/listing/box_article"}{/s}</label>
 
-                                <div class="{$FormInputSize}">
                                     <input name="password[passwordConfirmation]"
                                            type="password"
                                            autocomplete="new-password"
                                            required="required"
                                            aria-required="true"
-                                           class="form-control is-required"
-                                        />
-                                </div>    
+                                           class="form-control is-required
+                                           {if $errorFlags.passwordConfirmation} is-invalid{/if}"
+                                           id="profilePasswordConfirmation" />  
+                                </div>
                             </div>
                         {/block}
 
                         {block name='frontend_account_profile_password_input_current_password'}
-                            {if {config name=accountPasswordCheck}}
-                                <div class="profile-current-password form-group{if $section == 'password' && $errorFlags.currentPassword} has-error{/if}">
-                                    <label class="control-label {$FormLabelSize}">{s name="AccountLabelCurrentPassword2" namespace="frontend/account/index"}{/s}{s name="Star" namespace="frontend/listing/box_article"}{/s}</label>
+                            <div class="form-row">
+                                {if {config name=accountPasswordCheck}}
+                                    <div class="profile-current-password form-group col-md-6">
+                                        <label for="profileLatestPassword" 
+                                               class="col-form-label">
+                                                {s name="AccountLabelCurrentPassword2" namespace="frontend/account/index"}{/s}
+                                                {s name="Star" namespace="frontend/listing/box_article"}{/s}</label>
 
-                                    <div class="{$FormInputSize}">
                                         <input name="password[currentPassword]"
                                                type="password"
                                                autocomplete="current-password"
                                                required="required"
                                                aria-required="true"
-                                               class="form-control is-required"
-                                        />
-                                    </div>    
-                                </div>
-                            {/if}
+                                               class="form-control is-required
+                                               {if $section == 'password' && $errorFlags.currentPassword} is-invalid{/if}
+                                               id="profileLatestPassword" />  
+                                    </div>
+                                {/if}
+                            </div>
                         {/block}
 
                         {block name="frontend_account_profile_password_required_info"}
                             <div class="form-group required-info">
-                                <div class="{$FormInputSize} {$FormLabelOffset}">
-                                    <p class="help-block">{s name='RegisterPersonalRequiredText' namespace='frontend/register/personal_fieldset'}{/s}</p>
-                                </div>
+                                <p class="text-muted">{s name='RegisterPersonalRequiredText' namespace='frontend/register/personal_fieldset'}{/s}</p>
                             </div>
                         {/block}
                     {/block}
 
                     {block name="frontend_account_profile_password_actions"}
                         <div class="form-group">
-                            <div class="{$FormInputSize} {$FormLabelOffset}">
-                                {block name="frontend_account_profile_password_actions_submit"}
-                                    <button class="btn btn-primary" type="submit">
-                                        {s name="PasswordSaveButton"}Passwort speichern{/s}
-                                    </button>
-                                {/block}
-                            </div>
-                        </div>  
+                            {block name="frontend_account_profile_password_actions_submit"}
+                                <button class="btn btn-primary" type="submit">
+                                    {s name="PasswordSaveButton"}Passwort speichern{/s}
+                                </button>
+                            {/block}
+                        </div> 
                     {/block}
                 {/block}
             </form>

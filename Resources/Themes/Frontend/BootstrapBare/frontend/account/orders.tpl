@@ -16,48 +16,47 @@
         {* Welcome text *}
         {block name="frontend_account_orders_welcome"}
             {block name="frontend_account_orders_welcome_headline"}
-                <h1>{s name="OrdersHeader"}{/s}</h1>
+                <h2 class="h3 mb-3">{s name="OrdersHeader"}{/s}</h2>
             {/block}
 
             {block name="frontend_account_orders_welcome_content"}
-                <p>{s name="OrdersWelcomeText"}{/s}</p>
+                <p class="form-text">{s name="OrdersWelcomeText"}{/s}</p>
             {/block}
         {/block}
+
         {* Orders overview *}
         {block name="frontend_account_orders_overview"}
             {block name="frontend_account_orders_table"}
-                <table class="table table-order-list">
+                <table class="table table-order-list mb-5">
                     {block name="frontend_account_orders_table_head"}
                         <thead>
                             <tr>
                                 {block name="frontend_account_orders_table_head_date"}
-                                    <th>
+                                    <th scope="col">
                                         {s name="OrderColumnDate"}{/s}
                                     </th>
                                 {/block}
                                 {block name="frontend_account_orders_table_head_id"}
-                                    <th class="d-none d-sm-block">
+                                    <th scope="col" 
+                                        class="d-none d-sm-block">
                                         {s name="OrderColumnId"}{/s}
                                     </th>
                                 {/block}
-                                {block name="frontend_account_orders_table_head_dispatch"}
-                                    <th>
-                                        {s name="OrderColumnDispatch"}{/s}
-                                    </th>
-                                {/block}
+                                {block name="frontend_account_orders_table_head_dispatch"}{/block}
                                 {block name="frontend_account_orders_table_head_status"}
-                                    <th>
+                                    <th scope="col">
                                         {s name="OrderColumnStatus"}{/s}
                                     </th>
                                 {/block}
                                 {block name="frontend_account_orders_table_head_actions"}
-                                    <th>
+                                    <th scope="col">
                                         {s name="OrderColumnActions"}{/s}
                                     </th>
                                 {/block}
                             </tr>
                         </thead>
                     {/block}
+                    
                     {block name="frontend_account_order_item_overview"}
                         <tbody>
                             {foreach $sOpenOrders as $offerPosition}
