@@ -182,8 +182,8 @@
                                     {block name="frontend_index_footer_last_articles_container"}
                                         <div class="container last-seen-products-wrapper">
                                             <div class="last-seen-products py-4 d-none" data-last-seen-products="true">
-                                                <div class="last-seen-products-title page-header">
-                                                    <h3>
+                                                <div class="last-seen-products-title">
+                                                    <h3 class="h4">
                                                         {s namespace="frontend/plugins/index/viewlast" name='WidgetsRecentlyViewedHeadline'}{/s}
                                                     </h3>
                                                 </div>

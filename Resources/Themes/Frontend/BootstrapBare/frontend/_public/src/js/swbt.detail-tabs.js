@@ -5,7 +5,7 @@
         defaults: {
             showTabCommentsSelector: '.showtabcomments',
             tabCommentsSelector: '#tabcomments',
-            formErrorSelector: '.has-error'
+            formErrorSelector: '.is-invalid'
         },
 
         init: function () {

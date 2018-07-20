@@ -1,12 +1,6 @@
 {* Product-Streams slider *}
 {block name='frontend_detail_index_streams_slider'}
     <div id="productStreamWrapper{$index}" class="product-streams-slider-wrapper">
-        {block name="frontend_detail_index_streams_slider_title"}
-            <div class="page-header">
-                <h2>{$relatedProductStream.name}</h2>
-            </div>
-        {/block}
-
         {block name='frontend_detail_index_streams_slider_container'}
             {include file="frontend/_includes/product_slider.tpl"
                     equalHeight="true"

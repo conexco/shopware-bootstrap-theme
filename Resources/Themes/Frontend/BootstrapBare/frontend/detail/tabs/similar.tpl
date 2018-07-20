@@ -1,14 +1,11 @@
 {namespace name="frontend/detail/similar"}
 
+{* Offcanvas close button *}
+{include file="frontend/_includes/close-offcanvas.tpl"}
+
 {if count($sArticle.sSimilarArticles) > 0}
-	<div class="page-header">
-		<h4>{s name='DetailRecommendationSimilarLabel' namespace='frontend/detail/index'}{/s}</h4>
-	</div>
-	<div data-equalheight="true">
-		<div class="row">
-			{foreach name=line from=$sArticle.sSimilarArticles item=sSimilarArticle key=key name="counter"}
-				{include file="frontend/listing/box_article.tpl" sArticle=$sSimilarArticle productBoxLayout="similar"}
-			{/foreach}
-		</div>
-	</div>
+	{* Related products - Content *}
+	{block name="frontend_detail_index_similar_slider_content"}
+		{include file="frontend/_includes/product_slider.tpl" articles=$sArticle.sSimilarArticles sliderInitOnEvent="onShowContent-similar"}
+	{/block}
 {/if}

@@ -40,21 +40,23 @@
         init: function () {
             var me = this;
 
-            me.applyDataAttributes();
+            // TODO: replace popover
 
-            me.popoverInitialized = false;
-            me.closedOnBodyClick = false;
+            // me.applyDataAttributes();
 
-            // get popover content via ajax or selector or init it directly
-            if (me.opts.ajaxUrl) {
-                me.registerAjaxPopover();
-            } else if (me.opts.contentselector) {
-                me.getHtmlPopover();
-            } else {
-                me.initPopover();
-            }
+            // me.popoverInitialized = false;
+            // me.closedOnBodyClick = false;
 
-            $.publish('plugin/popoverWrapper/onInit', [ me ]);
+            // // get popover content via ajax or selector or init it directly
+            // if (me.opts.ajaxUrl) {
+            //     me.registerAjaxPopover();
+            // } else if (me.opts.contentselector) {
+            //     me.getHtmlPopover();
+            // } else {
+            //     me.initPopover();
+            // }
+
+            // $.publish('plugin/popoverWrapper/onInit', [ me ]);
         },
 
         registerPopoverEvents: function () {

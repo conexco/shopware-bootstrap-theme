@@ -2,12 +2,12 @@
     {block name="frontend_detail_index_also_bought_slider"}
         <div id="BoughtArticlesWrapper" class="product-streams-slider-wrapper">
             {block name="frontend_detail_index_also_bought_slider_title"}
-                <div class="page-header">
-                    <h3>{s name="DetailBoughtArticlesSlider" namespace="frontend/plugins/recommendation/blocks_detail"}Kunden kauften auch:{/s}</h3>
-                </div>
+                <h3 class="h4">
+                    {s name="DetailBoughtArticlesSlider" namespace="frontend/plugins/recommendation/blocks_detail"}Kunden kauften auch:{/s}
+                </h3>
             {/block}
+
             {block name="frontend_detail_index_also_bought_slider_container"}
-            
                 {include file="frontend/_includes/product_slider.tpl" 
                         articles=$boughtArticles 
                         equalHeight="true"

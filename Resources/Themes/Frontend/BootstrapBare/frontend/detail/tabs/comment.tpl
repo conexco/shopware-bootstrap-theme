@@ -7,11 +7,11 @@
 
 {* Rating title *}
 {block name="frontend_detail_tabs_rating_title"}
-    <div class="page-header">
-        {block name="frontend_detail_tabs_rating_title_inner"}
-            <h3>{s name="DetailCommentHeader"}{/s} "{$sArticle.articleName}"</h3>
-        {/block}
-    </div>
+    {block name="frontend_detail_tabs_rating_title_inner"}
+        <h3 class="h4">
+            {s name="DetailCommentHeader"}{/s} "{$sArticle.articleName}"
+        </h3>
+    {/block}
 {/block}
 
 {* Display review *}

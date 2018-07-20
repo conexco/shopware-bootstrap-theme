@@ -10,7 +10,7 @@
         {block name='frontend_detail_comment_text'}
             {* Star rating *}
             {block name="frontend_detail_comment_star_rating"}
-                <div class="mbl">
+                <div class="mb-4">
                     {include file="frontend/_includes/rating.tpl" points=$vote.points}
                 </div>
             {/block}
@@ -23,7 +23,7 @@
             {* Review text *}
             {block name='frontend_detail_comment_content'}
                 <meta itemprop="reviewBody" content="{$vote.comment|nl2br}"/>
-                <p>{$vote.comment|nl2br}</p>
+                <p class="mb-0">{$vote.comment|nl2br}</p>
             {/block}
         {/block}
 

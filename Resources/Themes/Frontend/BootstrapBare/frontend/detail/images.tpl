@@ -50,7 +50,9 @@
                                 {/block}
                             {else}
                                 {block name='frontend_detail_image_fallback'}
-                                    <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$alt}" class="img-fluid mx-auto d-block"/>
+                                    <img src="{link file='frontend/_public/src/img/no-picture.png'}" 
+                                         alt="{$alt}" 
+                                         class="img-fluid mx-auto d-block"/>
                                 {/block}
                             {/if}
                         </a>
@@ -84,7 +86,9 @@
                                     {/block}
                                 {else}
                                     {block name='frontend_detail_images_fallback'}
-                                        <img src="{link file='frontend/_public/src/img/no-picture.png'}" alt="{$alt}" class="img-fluid mx-auto d-block"/>
+                                        <img src="{link file='frontend/_public/src/img/no-picture.png'}" 
+                                             alt="{$alt}" 
+                                             class="img-fluid mx-auto d-block"/>
                                     {/block}
                                 {/if}
                              </a>
@@ -102,7 +106,6 @@
         {assign var="countSlides" value=$sArticle.images|@count}
         {block name="frontend_detail_images_thumbs_wrapper"}
             <div id="ThumbsWrapper" class="gallery-thumb-slider-wrapper">
-                <hr>
                 {block name="frontend_detail_images_thumbs_list"}
                     <div id="thumbs" class="slick"
                          data-arrows="1"
@@ -141,16 +144,19 @@
                                         {$alt = $sArticle.image.description|escape}
                                     {/if}
 
-                                    <div class="card card-body">
-                                        {block name='frontend_detail_image_thumbs_main_img'}
-                                            <img srcset="{$sArticle.image.thumbnails[0].sourceSet}"
-                                                 alt="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt}"
-                                                 title="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt|truncate:160:""}"
-                                                 class="img-fluid mx-auto d-block" />
-                                        {/block}
+                                    <div class="thumbnail px-1">
+                                        <div class="card card-body p-1">
+                                            {block name='frontend_detail_image_thumbs_main_img'}
+                                                <img srcset="{$sArticle.image.thumbnails[0].sourceSet}"
+                                                     alt="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt}"
+                                                     title="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt|truncate:160:""}"
+                                                     class="img-fluid" />
+                                            {/block}
+                                        </div>
                                     </div>
                                 {/if}
                             {/block}
+                            
                             {* Thumbnails *}
                             {foreach $sArticle.images as $image}
                                 {if $image.thumbnails}
@@ -160,13 +166,15 @@
                                             {$alt = $image.description|escape}
                                         {/if}
 
-                                        <div class="card card-body">
-                                            {block name='frontend_detail_image_thumbs_images_img'}
-                                                <img srcset="{$image.thumbnails[0].sourceSet}"
-                                                     alt="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt}"
-                                                     title="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt|truncate:160:""}"
-                                                     class="img-fluid mx-auto d-block" />
-                                            {/block}
+                                        <div class="thumbnail px-1">
+                                            <div class="card card-body p-1">
+                                                {block name='frontend_detail_image_thumbs_images_img'}
+                                                    <img srcset="{$image.thumbnails[0].sourceSet}"
+                                                         alt="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt}"
+                                                         title="{s name="DetailThumbnailText" namespace="frontend/detail/index"}{/s}: {$alt|truncate:160:""}"
+                                                         class="img-fluid" />
+                                                {/block}
+                                            </div>
                                         </div>
                                     {/block}
                                 {/if}

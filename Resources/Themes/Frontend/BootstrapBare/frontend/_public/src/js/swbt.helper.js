@@ -96,8 +96,9 @@ $.fn.equalHeight = function () {
 
 // initializes selectboxit with custom options and provides shopware fallback
 $.fn.swSelectboxReplacement = function () {
+    // TODO: replace
     if (swfCustomSelects) {
-        $(this).find('select:not([data-no-custom-select="true"])').selectBoxIt(swfCustomSelectOptions);
+        // $(this).find('select:not([data-no-custom-select="true"])').selectBoxIt(swfCustomSelectOptions);
     }
 };
 

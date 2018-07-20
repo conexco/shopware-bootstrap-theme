@@ -1,11 +1,14 @@
 {block name="frontend_detail_image"}
-    {* Multiple pictures available *}
     {if count($sArticle.images)}
         {include file="frontend/detail/images.tpl"}
-    {* One picture available *}
     {else}
         {block name="frontend_detail_image_box"}
-            <div id="gallery"{if {config name=sUSEZOOMPLUS}} data-image-zoom="true" data-zoomType="{$theme['zoom-type']}" data-lensShape="{$theme['zoom-shape']}"{/if}>
+            <div id="gallery"
+                 {if {config name=sUSEZOOMPLUS}} 
+                 data-image-zoom="true" 
+                 data-zoomType="{$theme['zoom-type']}" 
+                 data-lensShape="{$theme['zoom-shape']}"{/if}>
+
                 {block name='frontend_detail_image_default_image_element'}
                     {$alt = $sArticle.articleName|escape}
                     {if $sArticle.image.description}

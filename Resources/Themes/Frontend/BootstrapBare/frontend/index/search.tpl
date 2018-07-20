@@ -11,18 +11,16 @@
                        placeholder="{s name='IndexSearchFieldValue'}Suchbegriff eingeben...{/s}"
                        aria-label="{s name='IndexSearchFieldValue'}{/s}" 
                        autocomplete="off">
-            {/block}
 
-            {block name='frontend_index_search_field_submit'}
-                <span class="input-group-btn">
-                    <button class="btn btn-outline-secondary ajax-search-button" 
+                <div class="input-group-append">
+                    <button class="btn btn-outline-dark ajax-search-button" 
                             type="submit" 
                             aria-label="{s name='IndexSearchFieldSubmit'}{/s}">
                         {block name='frontend_index_search_icon'}
                             <i class="fa fa-search fa-lg"></i>
                         {/block}
                     </button>
-                </span>
+                </div>
             {/block}
         </div>
     </form>

@@ -1,9 +1,22 @@
 {block name="frontend_detail_buy"}
-    <form name="sAddToBasket" method="post" action="{url controller=checkout action=addArticle}" class="basketform" data-add-article="true" data-eventName="submit"{if $theme.detailOffcanvasCart} data-showModal="false" data-addArticleUrl="{url controller=checkout action=ajaxAddArticleCart}" data-displayMode="offcanvas"{/if}>
+    <form name="sAddToBasket" 
+          method="post" 
+          action="{url controller=checkout action=addArticle}" 
+          class="basketform" 
+          data-add-article="true" 
+          data-eventName="submit"
+          {if $theme.detailOffcanvasCart} 
+          data-showModal="false" 
+          data-addArticleUrl="{url controller=checkout action=ajaxAddArticleCart}" 
+          data-displayMode="offcanvas"
+          {/if}>
+
         {block name="frontend_detail_buy_configurator_inputs"}
     		{if $sArticle.sConfigurator&&$sArticle.sConfiguratorSettings.type==3}
     			{foreach from=$sArticle.sConfigurator item=group}
-    				<input type="hidden" name="group[{$group.groupID}]" value="{$group.selected_value}" />
+    				<input type="hidden" 
+                           name="group[{$group.groupID}]" 
+                           value="{$group.selected_value}" />
     	    	{/foreach}
     		{/if}
         {/block}
@@ -31,8 +44,13 @@
                             </p>
 
                             {foreach from=$sAccessory.childs item=sAccessoryChild}
-                                <input type="checkbox" class="sValueChanger chkbox" name="sValueChange" id="CHECK{$sAccessoryChild.ordernumber}" value="{$sAccessoryChild.ordernumber}" />
-                                <label for="CHECK{$sAccessoryChild.ordernumber}">{$sAccessoryChild.optionname|truncate:35}
+                                <input type="checkbox" 
+                                       class="sValueChanger chkbox" 
+                                       name="sValueChange" 
+                                       id="CHECK{$sAccessoryChild.ordernumber}" 
+                                       value="{$sAccessoryChild.ordernumber}" />
+                                <label for="CHECK{$sAccessoryChild.ordernumber}">
+                                    {$sAccessoryChild.optionname|truncate:35}
                                     ({s name="DetailBuyLabelSurcharge"}{/s}: {$sAccessoryChild.price} {$sConfig.sCURRENCYHTML})
                                 </label>
 
@@ -52,16 +70,10 @@
         {block name="frontend_detail_buy_button_container_outer"}
             {if (!isset($sArticle.active) || $sArticle.active)}
                 {if $sArticle.isAvailable}
-                    {block name='frontend_detail_buy_laststock'}
-                        {if $sArticle.laststock}
-                            <div id="detailBuyInfoNotAvailable"{if $sArticle.instock > 0} class="d-none"{/if}>
-                                <p>{include file="frontend/_includes/messages.tpl" type="danger" content="{s name='DetailBuyInfoNotAvailable'}{/s}"}</p>
-                            </div>
-                        {/if}
-                    {/block}
                     {block name="frontend_detail_buy_button_container"}
                         {if !$sArticle.laststock || $sArticle.instock > 0}
-                            <div id="detailCartButton"{if $NotifyHideBasket && $sArticle.notification && $sArticle.instock <= 0} class="d-none"{/if}>
+                            <div id="detailCartButton"
+                                 class="form-group d-flex{if $NotifyHideBasket && $sArticle.notification && $sArticle.instock <= 0} d-none{/if}">
                                 {* Quantity selection *}
                                 {block name='frontend_detail_buy_quantity'}
                                     {$maxQuantity=$sArticle.maxpurchase+1}
@@ -70,7 +82,7 @@
                                     {/if}
 
                                     {block name='frontend_detail_buy_quantity_select'}
-                                        <select id="sQuantity" name="sQuantity" class="form-control">
+                                        <select id="sQuantity" name="sQuantity" class="form-control col-md-3 mr-3">
                                             {section name="i" start=$sArticle.minpurchase loop=$maxQuantity step=$sArticle.purchasesteps}
                                                 <option value="{$smarty.section.i.index}">{$smarty.section.i.index}{if $sArticle.packunit} {$sArticle.packunit}{/if}</option>
                                             {/section}
@@ -78,18 +90,17 @@
                                     {/block}
                                 {/block}
 
-                                {* "Buy now" button *}
                                 {block name='frontend_detail_buy_button'}
                                     {if $sArticle.sConfigurator && !$activeConfiguratorSelection}
-                                        <button class="mtm btn btn-primary btn-block buybox-button" 
-                                                title="{s name="DetailBuySelectConfig"}Bitte wählen Sie eine Ausführung{/s}" 
-                                                name="{s name="DetailBuyActionAddName"}{/s}" 
+                                        <button class="btn btn-primary btn-block buybox-button col-md-8"
+                                                title="{s name="DetailBuySelectConfig"}Bitte wählen Sie eine Ausführung{/s}"
+                                                name="{s name="DetailBuyActionAddName"}{/s}"
                                                 disabled="disabled">{s name="DetailBuySelectConfig"}Bitte wählen Sie eine Ausführung{/s}</button>
                                     {else}
-                                        <button class="mtm btn btn-primary btn-block buybox-button" 
+                                        <button class="btn btn-primary btn-block buybox-button col-md-8" 
                                                 title="{$sArticle.articleName|htmlentities} {s name='DetailBuyActionAddName'}{/s}"
                                                 name="{s name="DetailBuyActionAddName"}{/s}">
-                                            {s name="DetailBuyActionAdd"}{/s}
+                                                {s name="DetailBuyActionAdd"}{/s}
                                         </button>
                                     {/if}
                                 {/block}

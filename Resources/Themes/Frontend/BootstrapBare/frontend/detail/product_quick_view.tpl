@@ -1,3 +1,4 @@
+{* TODO: used on confirm *}
 {block name='frontend_detail_product_quick_view'}
     <div class="modal-dialog">
         <div class="modal-content">
@@ -73,11 +74,9 @@
                         {/block}
                     </div>
                     {block name='frontend_detail_product_quick_view_description_title'}
-                        <div class="page-header">
-                            {block name='frontend_detail_product_quick_view_description_title_inner'}
-                                <h3><small>{s name="DetailDescriptionHeader" namespace="frontend/detail/description"}{/s} "{$sArticle.articleName}"</small></h3>
-                            {/block}
-                        </div>
+                        {block name='frontend_detail_product_quick_view_description_title_inner'}
+                            <h3><small>{s name="DetailDescriptionHeader" namespace="frontend/detail/description"}{/s} "{$sArticle.articleName}"</small></h3>
+                        {/block}
                     {/block}
                     {block name='frontend_detail_product_quick_view_description'}
                         <div class="quick-view-description">

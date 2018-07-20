@@ -12,6 +12,7 @@
 {block name="frontend_listing_box_article_buy"}{/block}
 
 {block name="frontend_listing_box_article_item_start"}
+    {* TODO: equal height slider items *}
     <div class="product-box box-{$productBoxLayout} px-1">
         <div class="card card-body">
 {/block}

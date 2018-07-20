@@ -1,5 +1,6 @@
+{* TODO: style configurator *}
 {block name="frontend_detail_config_upprice_form"}
-    <form method="post" action="{url sArticle=$sArticle.articleID sCategory=$sArticle.categoryID}" class="config-upprice-form configurator-form sw5-plugin">
+    <form method="post" action="{url sArticle=$sArticle.articleID sCategory=$sArticle.categoryID}" class="config-upprice-form configurator-form sw5-plugin mb-3">
         {block name="frontend_detail_config_upprice_form_inner"}
             {foreach $sArticle.sConfigurator as $sConfigurator}
                 {block name="frontend_detail_config_upprice_form_group"}
@@ -13,7 +14,7 @@
                             {* Group description *}
                             {if $sConfigurator.groupdescription}
                                 {block name='frontend_detail_group_description'}
-                                    <span class="help-block">{$sConfigurator.groupdescription}</span>
+                                    <span class="form-text small mb-2">{$sConfigurator.groupdescription}</span>
                                 {/block}
                             {/if}
 

@@ -10,12 +10,12 @@
 {* Publish review form *}
 {block name='frontend_detail_comment_post_form'}
     {block name='frontend_detail_comment_post_form_tag'}
-        <form method="post" action="{url action='rating' sArticle=$sArticle.articleID sCategory=$sArticle.categoryID}" class="form-horizontal">
+        <form method="post" action="{url action='rating' sArticle=$sArticle.articleID sCategory=$sArticle.categoryID}">
     {/block}
-    <fieldset>
+
         {* Review title *}
         {block name='frontend_detail_comment_post_title'}
-            <legend>{s name="DetailCommentHeaderWriteReview"}{/s}</legend>
+            <h5>{s name="DetailCommentHeaderWriteReview"}{/s}</h5>
         {/block}
 
         {* Response save comment *}
@@ -37,24 +37,19 @@
             {/if}
         {/block}
 
-        {* Review author name *}
-        {block name='frontend_detail_comment_input_name'}
-            <div class="form-group{if $sErrorFlag.sVoteName} has-error{/if}">
-                <label for="sVoteName" class="{$FormLabelSize} control-label">{s name="DetailCommentLabelName"}{/s}</label>
-
-                <div class="{$FormInputSize}">
-                    <input name="sVoteName" placeholder="{s name="DetailCommentLabelName"}{/s}" type="text" class="form-control" id="sVoteName" value="{$sFormData.sVoteName|escape}" required="required" aria-required="true"/>
-                </div>
-            </div>
-        {/block}
-
         {* Review Rating *}
         {block name='frontend_detail_comment_input_rating'}
-            <div class="form-group">
-                <label for="sVoteStars" class="{$FormLabelSize} control-label">{s name="vote_average" namespace="frontend/listing/facet_labels"}{/s}</label>
+            <div class="form-row">
+                <div class="form-group col-md-12 col-lg-6">
+                    <label for="sVoteStars" 
+                           class="col-form-label">
+                            {s name="vote_average" namespace="frontend/listing/facet_labels"}{/s}
+                    </label>
 
-                <div class="{$FormInputSize}">
-                    <select name="sVoteStars" id="sVoteStars" class="form-control" required="required" aria-required="true">
+                    <select name="sVoteStars" 
+                            id="sVoteStars" 
+                            class="form-control" 
+                            required="required" aria-required="true">
                         <option value="10">{s name="Rate5n"}5 sehr gut{/s}</option>
                         <option value="8">{s name="Rate4"}{/s}</option>
                         <option value="6">{s name="Rate3"}{/s}</option>
@@ -65,85 +60,118 @@
             </div>
         {/block}
 
+        {* Review author name *}
+        {block name='frontend_detail_comment_input_name'}
+            <div class="form-group">
+                <label for="sVoteName" 
+                       class="col-form-label">
+                        {s name="DetailCommentLabelName"}{/s}</label>
+
+                <input name="sVoteName"
+                       type="text"
+                       id="sVoteName" 
+                       value="{$sFormData.sVoteName|escape}" 
+                       required="required" aria-required="true"
+                       class="form-control 
+                       {if $sErrorFlag.sVoteName} is-invalid{/if}" />
+            </div>
+        {/block}
+
         {* Comment summary*}
         {block name='frontend_detail_comment_input_summary'}
-            <div class="form-group{if $sErrorFlag.sVoteSummary} has-error{/if}">
-                <label for="sVoteSummary" class="{$FormLabelSize} control-label">{s name="DetailCommentLabelSummary"}{/s}</label>
+            <div class="form-group">
+                <label for="sVoteSummary" 
+                       class="col-form-label">
+                        {s name="DetailCommentLabelSummary"}{/s}</label>
 
-                <div class="{$FormInputSize}">
-                    <input name="sVoteSummary" placeholder="{s name="DetailCommentLabelSummary"}{/s}" type="text" class="form-control" value="{$sFormData.sVoteSummary|escape}" id="sVoteSummary" required="required" aria-required="true"/>
-                </div>
+                <input name="sVoteSummary" 
+                       type="text"
+                       value="{$sFormData.sVoteSummary|escape}" 
+                       id="sVoteSummary" 
+                       required="required" aria-required="true"
+                       class="form-control
+                       {if $sErrorFlag.sVoteSummary} is-invalid{/if}" />
             </div>
         {/block}
 
         {* E-Mail address *}
         {block name='frontend_detail_comment_input_mail'}
             {if {config name=OptinVote} == true}
-                <div class="form-group{if $sErrorFlag.sVoteMail} has-error{/if}">
-                    <label for="sVoteMail" class="{$FormLabelSize} control-label">{s name="DetailCommentLabelMail"}{/s}</label>
+                <div class="form-group">
+                    <label for="sVoteMail" 
+                           class="col-form-label">
+                            {s name="DetailCommentLabelMail"}{/s}</label>
 
-                    <div class="{$FormInputSize}">
-                        <input placeholder="{s name="DetailCommentLabelMail"}{/s}" name="sVoteMail" type="email" class="form-control" id="sVoteMail" value="{$sFormData.sVoteMail|escape}" required="required" aria-required="true"/>
-                    </div>
+                    <input name="sVoteMail" 
+                           type="email"
+                           id="sVoteMail" 
+                           value="{$sFormData.sVoteMail|escape}" 
+                           required="required" aria-required="true"
+                           class="form-control
+                           {if $sErrorFlag.sVoteMail} is-invalid{/if}" />
                 </div>
             {/if}
         {/block}
 
         {* Comment text *}
         {block name='frontend_detail_comment_input_text'}
-            <div class="form-group{if $sErrorFlag.sVoteComment} has-error{/if}">
-                <label for="sVoteComment" class="{$FormLabelSize} control-label">{s name='DetailCommentLabelText'}{/s}</label>
+            <div class="form-group">
+                <label for="sVoteComment" 
+                       class="col-form-label">
+                        {s name='DetailCommentLabelText'}{/s}</label>
 
-                <div class="{$FormInputSize}">
-                    <textarea placeholder="{s name='DetailCommentLabelText'}{/s}" name="sVoteComment" id="sVoteComment" class="form-control" rows="7" required="required" aria-required="true">{$sFormData.sVoteComment|escape}</textarea>
-                </div>
+                <textarea placeholder="{s name='DetailCommentPlaceholderText'}{/s}" 
+                          name="sVoteComment" 
+                          id="sVoteComment"
+                          rows="7" 
+                          required="required" aria-required="true"
+                          class="form-control
+                          {if $sErrorFlag.sVoteComment} is-invalid{/if}" >
+                          {$sFormData.sVoteComment|escape}</textarea>
             </div>
         {/block}
 
         {* Captcha *}
         {block name='frontend_detail_comment_input_captcha'}
-        <div class="form-group{if $sErrorFlag.sCaptcha} has-error{/if} captcha">
-            <div class="{$FormLabelOffset} {$FormInputSize}">
-                    {if {config name=captchaMethod} === 'legacy'}
-                        <div class="row">
-                            <div class="col-12">
-                                {* Deferred loading of the captcha image*}
-                                {block name='frontend_detail_comment_input_captcha_placeholder'}
-                                    <div class="captcha-placeholder" {if $sErrorFlag.sCaptcha} data-hasError="true"{/if} data-src="{url module=widgets controller=Captcha action=refreshCaptcha}"></div>
-                                {/block}
-                            </div>
-                            <div class="col-12">
-                                {block name='frontend_detail_comment_input_captcha_label'}
-                                    <p class="mtm">
-                                        <small>{s name="DetailCommentLabelCaptcha"}{/s}</small>
-                                    </p>
-                                {/block}
-                                {block name='frontend_detail_comment_input_captcha_code'}
-                                    <input type="text" name="sCaptcha" class="form-control mtm" required="required" aria-required="true"/>
-                                {/block}
-                            </div>
-                        </div>
-                    {else}
-                        <div class="captcha-placeholder" data-src="{url module=widgets controller=Captcha action=index}"{if isset($sErrorFlag) && count($sErrorFlag) > 0} data-hasError="true"{/if}></div>
-                    {/if}
-                </div>
+            <div class="form-group">
+                {if {config name=captchaMethod} === 'legacy'}
+                    <div>
+                        {* Deferred loading of the captcha image*}
+                        {block name='frontend_detail_comment_input_captcha_placeholder'}
+                            <div class="captcha-placeholder" {if $sErrorFlag.sCaptcha} data-hasError="true"{/if} data-src="{url module=widgets controller=Captcha action=refreshCaptcha}"></div>
+                        {/block}
+                    </div>
+                    <div>
+                        {block name='frontend_detail_comment_input_captcha_label'}
+                            <p class="text-muted small">
+                                {s name="DetailCommentLabelCaptcha"}{/s}
+                            </p>
+                        {/block}
+                        {block name='frontend_detail_comment_input_captcha_code'}
+                            <input type="text" name="sCaptcha" 
+                                   class="form-control {if $sErrorFlag.sCaptcha} is-invalid{/if} captcha" 
+                                   required="required" aria-required="true"/>
+                        {/block}
+                    </div>
+                {else}
+                    <div class="captcha-placeholder" 
+                         data-src="{url module=widgets controller=Captcha action=index}"{if isset($sErrorFlag) && count($sErrorFlag) > 0} data-hasError="true"{/if}>
+                    </div>
+                {/if}
             </div>
         {/block}
 
         {* Review actions *}
         {block name='frontend_detail_comment_input_actions'}
             <div class="form-group">
-                <div class="{$FormLabelOffset} {$FormInputSize}">
-                    <span class="help-block">{s name="DetailCommentInfoFields"}{/s}</span>
-                    {* Publish review button *}
-                    {block name='frontend_detail_comment_input_actions_submit'}
-                        <button class="btn btn-primary" name="Submit" type="submit">
-                            {s name="DetailCommentActionSave"}{/s}
-                        </button>
-                    {/block}
-                </div>
+                <span class="form-text text-muted mb-3">{s name="DetailCommentInfoFields"}{/s}</span>
+                {* Publish review button *}
+                {block name='frontend_detail_comment_input_actions_submit'}
+                    <button class="btn btn-primary" name="Submit" type="submit">
+                        {s name="DetailCommentActionSave"}{/s}
+                    </button>
+                {/block}
             </div>
         {/block}
-    </fieldset>
     </form>
 {/block}
