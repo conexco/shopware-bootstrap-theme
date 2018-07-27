@@ -120,7 +120,7 @@ $.overridePlugin('swListingActions', {
             if (!me.$filterCont.hasClass(me.opts.collapsedCls)) {
                 me.applyCategoryParams();
             }
-        } else if (!me.$activeFilterCont.hasClass(me.opts.disabledCls)) {
+        } else if (!me.$activeFilterCont.hasClass(me.opts.disabledCls) || me.$filterCont.closest('.off-canvas').is('.is-open')) {
             me.removeActiveFilter(param);
             me.resetFilterProperty(param);
         }

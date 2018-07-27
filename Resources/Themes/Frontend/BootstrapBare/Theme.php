@@ -122,6 +122,7 @@ class Theme extends \Shopware\Components\Theme
             "jquery.emotion-extend.js",
             "jquery.auto-submit-extend.js",
             "jquery.listing-actions-extend.js",
+            "jquery.cookie-permission-extend.js",
             "jquery.range-slider-extend.js",
             "jquery.ajax-wishlist-extend.js",
             "jquery.off-canvas-menu-extend.js",

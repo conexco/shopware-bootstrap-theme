@@ -119,14 +119,12 @@
 
                                             {* Link to the user orders *}
                                             {block name="frontend_account_menu_link_orders"}
-                                                {if {config name=showEsd}}
-                                                    <a href="{url module='frontend' controller='account' action='orders'}"
-                                                       class="list-group-item{if $sAction == 'orders'} active{/if}"
-                                                       title="{s name="AccountLinkPreviousOrders"}Meine Bestellungen{/s}"
-                                                       rel="nofollow">
-                                                        {s name="AccountLinkPreviousOrders"}{/s}
-                                                    </a>
-                                                {/if}
+                                                <a href="{url module='frontend' controller='account' action='orders'}"
+                                                   class="list-group-item{if $sAction == 'orders'} active{/if}"
+                                                   title="{s name="AccountLinkPreviousOrders"}Meine Bestellungen{/s}"
+                                                   rel="nofollow">
+                                                    {s name="AccountLinkPreviousOrders"}{/s}
+                                                </a>
                                             {/block}
 
                                             {* Link to the user downloads *}

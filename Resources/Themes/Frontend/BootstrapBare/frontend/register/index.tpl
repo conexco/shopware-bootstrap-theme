@@ -137,8 +137,12 @@
 
                                     {* Successful optin verification *}
                                     {block name='frontend_register_index_form_optin_success'}
-                                        {if $smarty.get.optinsuccess && {config name=optinregister}}
-                                            {include file="frontend/_includes/messages.tpl" type="success" content="{s name="RegisterInfoSuccessOptin"}{/s}"}
+                                        {if $smarty.get.optinsuccess && ({config name=optinregister} || {config name=optinaccountless})}
+                                            {if $isAccountless}
+                                                {include file="frontend/_includes/messages.tpl" type="success" content="{s name="RegisterInfoSuccessOptinAccountless"}{/s}"}
+                                            {else}
+                                                {include file="frontend/_includes/messages.tpl" type="success" content="{s name="RegisterInfoSuccessOptin"}{/s}"}
+                                            {/if}
                                         {/if}
                                     {/block}
 

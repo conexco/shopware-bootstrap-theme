@@ -9,15 +9,24 @@
 
             {block name='frontend_blog_comments_form_errors'}
                 {if $sAction == "rating"}
-                    {if $sErrorFlag}
-                        {include file="frontend/_includes/messages.tpl" type="danger" content="{s name='BlogInfoFailureFields'}{/s}"}
-                    {else}
-                        {if {config name=OptInVote} && !{$smarty.get.sConfirmation} && !{$userLoggedIn}}
-                            {include file="frontend/_includes/messages.tpl" type="info" content="{s name='BlogInfoSuccessOptin'}{/s}"}
+                    {if isset($sErrorFlag)}
+                        {$type = "error"}
+                        {if $sErrorFlag['sCaptcha']}
+                            {$snippet = "{s name="BlogInfoFailureCaptcha"}{/s}"}
+                        {elseif $sErrorFlag['invalidHash']}
+                            {$snippet = "{s name="BlogInfoFailureDoubleOptIn"}{/s}"}
                         {else}
-                            {include file="frontend/_includes/messages.tpl" type="success" content="{s name='BlogInfoSuccess'}{/s}"}
+                            {$snippet = "{s name="BlogInfoFailureFields"}{/s}"}
+                        {/if}
+                    {else}
+                        {$type = "success"}
+                        {if {config name=OptInVote} && !{$smarty.get.sConfirmation} && !{$userLoggedIn}}
+                            {$snippet = "{s name="BlogInfoSuccessOptin"}{/s}"}
+                        {else}
+                            {$snippet = "{s name="BlogInfoSuccess"}{/s}"}
                         {/if}
                     {/if}
+                    {include file="frontend/_includes/messages.tpl" type=$type content=$snippet}
                 {/if}
             {/block}
 

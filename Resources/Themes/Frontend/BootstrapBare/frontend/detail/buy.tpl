@@ -53,7 +53,7 @@
             {if (!isset($sArticle.active) || $sArticle.active)}
                 {if $sArticle.isAvailable}
                     {block name="frontend_detail_buy_button_container"}
-                        <div id="detailCartButton" {if $NotifyHideBasket && $sArticle.notification && $sArticle.instock <= 0}class="hidden"{/if}>
+                        <div id="detailCartButton" {if $NotifyHideBasket && $sArticle.notification && $sArticle.instock < $sArticle.minpurchase}class="hidden"{/if}>
                             {* Quantity selection *}
                             {block name='frontend_detail_buy_quantity'}
                                 {$maxQuantity=$sArticle.maxpurchase+1}
