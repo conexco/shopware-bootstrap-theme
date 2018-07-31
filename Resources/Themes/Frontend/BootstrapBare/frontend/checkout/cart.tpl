@@ -46,12 +46,11 @@
 
             {* Action Buttons Top *}
             {block name='frontend_checkout_cart_table_actions_wrapper'}
-                <div class="row">
+                <div class="row mb-5">
                     {block name='frontend_checkout_cart_table_actions'}
                         {include file="frontend/checkout/actions.tpl"}
                     {/block}
                 </div>
-                <hr>
             {/block}
 
             {* Product table content *}
@@ -62,22 +61,25 @@
                 {/block}
 
                 {* Basket items *}
-                {foreach $sBasket.content as $sBasketItem}
-                    {block name='frontend_checkout_cart_item'}
-                        {include file='frontend/checkout/cart_item.tpl'}
-                    {/block}
-                {/foreach}
+                <div class="cart-items mb-5">
+                    {foreach $sBasket.content as $sBasketItem}
+                        {block name='frontend_checkout_cart_item'}
+                            <div class="cart-item">
+                                {include file='frontend/checkout/cart_item.tpl'}
+                            </div>
+                        {/block}
+                    {/foreach}
+                </div>
 
                 {* Product table footer *}
                 {block name='frontend_checkout_cart_cart_footer'}
                     {include file="frontend/checkout/cart_footer.tpl"}
-                    <hr class="d-none d-md-block">
                 {/block}
             {/block}
 
             {* Action Buttons Bottom *}
             {block name='frontend_checkout_cart_table_actions_bottom_wrapper'}
-                <div class="row mbl">
+                <div class="row mb-5">
                     {block name='frontend_checkout_cart_table_actions_bottom'}
                         {include file="frontend/checkout/actions.tpl" bottom=true}
                     {/block}

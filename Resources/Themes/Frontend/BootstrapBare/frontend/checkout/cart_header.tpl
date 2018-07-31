@@ -1,4 +1,4 @@
-<div class="table-head d-none d-sm-block">
+<div class="d-none d-md-block mb-3">
 	<div class="row">
 	    {block name='frontend_checkout_cart_header_field_labels'}
 	    	<div class="col-sm-2">
@@ -9,7 +9,7 @@
 	    	</div>
 			<div class="col-sm-10">
 				<div class="row">
-					<div class="col-sm-4 col-md-5"></div>
+					<div class="col-sm-4 col-lg-5"></div>
 
                     {* Product quantity *}
 			        {block name='frontend_checkout_cart_header_quantity'}

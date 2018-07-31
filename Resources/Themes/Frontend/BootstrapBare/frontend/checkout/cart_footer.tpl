@@ -1,16 +1,18 @@
 {block name='frontend_checkout_cart_footer_element'}
-    <div class="row mtl">
+    <div class="row mb-5">
         {block name='frontend_checkout_cart_cart_footer_left'}
-            <div class="col-12 col-sm-6 col-md-8">
+            <div class="col-12 col-md-6 col-lg-8">
                 {if $sTargetAction != 'shippingPayment'}
-                    <div class="row mtl">
+                    <div class="row">
                         {* Add product using a voucher *}
                         {block name='frontend_checkout_cart_footer_add_voucher'}
-                            <div class="col-6 col-sm-12 col-md-6">
+                            <div class="col-lg-6 mb-3">
                                 <form method="post" action="{url action='addVoucher' sTargetAction=$sTargetAction}">
                                     <div class="input-group">
                                         {block name='frontend_checkout_cart_footer_add_voucher_field'}
-                                            <input type="text" class="form-control" id="basket_add_voucher" name="sVoucher" placeholder="{s name='CheckoutFooterAddVoucherLabelInline' namespace='frontend/checkout/cart_footer_left'}{/s}">
+                                            <input type="text" class="form-control" id="basket_add_voucher"
+                                                   name="sVoucher"
+                                                   placeholder="{s name='CheckoutFooterAddVoucherLabelInline' namespace='frontend/checkout/cart_footer_left'}{/s}">
                                         {/block}
                                         {block name='frontend_checkout_cart_footer_add_voucher_button'}
                                             <span class="input-group-btn">
@@ -26,11 +28,12 @@
 
                         {* Add product using the sku *}
                         {block name='frontend_checkout_cart_footer_add_product'}
-                            <div class="col-6 col-sm-12 col-md-6 mtm-xs mtm-hd">
+                            <div class="col-lg-6 mb-3">
                                 <form method="post" action="{url action='addArticle' sTargetAction=$sTargetAction}">
                                     <div class="input-group">
                                         {block name='frontend_checkout_cart_footer_add_product_field'}
-                                            <input id="basket_add_article" class="form-control" name="sAdd" type="text" placeholder="{s name='CheckoutFooterAddProductPlaceholder' namespace='frontend/checkout/cart_footer_left'}{/s}"/>
+                                            <input id="basket_add_article" class="form-control" name="sAdd" type="text"
+                                                   placeholder="{s name='CheckoutFooterAddProductPlaceholder' namespace='frontend/checkout/cart_footer_left'}{/s}"/>
                                         {/block}
                                         {block name='frontend_checkout_cart_footer_add_product_button'}
                                             <span class="input-group-btn">
@@ -44,8 +47,8 @@
                             </div>
                         {/block}
                     </div>
-                {/if}    
-                    
+                {/if}
+
                 {* Shipping costs pre-calculation *}
                 {if $sBasket.content && !$sUserLoggedIn && !$sUserData.additional.user.id && {config name=basketShowCalculation}}
                     {block name='frontend_checkout_shipping_costs_country_include'}
@@ -56,39 +59,40 @@
         {/block}
 
         {block name='frontend_checkout_cart_cart_footer_right'}
-            <div class="col-12 col-sm-6 col-md-4">
-                {block name='frontend_checkout_cart_footer_tax_information'}{/block}
+            <div class="col-md-6 col-lg-4">
+                <div class="row">
+                    {block name='frontend_checkout_cart_footer_tax_information'}{/block}
 
-                {* Field labels *}
-                {block name='frontend_checkout_cart_footer_field_labels'}
-                    <dl class="dl-horizontal dl-checkout mtl">
+                    {* Field labels *}
+                    {block name='frontend_checkout_cart_footer_field_labels'}
+
                         {* Basket sum *}
                         {block name='frontend_checkout_cart_footer_field_labels_sum'}
                             {block name='frontend_checkout_cart_footer_field_labels_sum_label'}
-                                <dt>{s name="CartFooterLabelSum"}{/s}</dt>
+                                <div class="col-8">{s name="CartFooterLabelSum"}{/s}</div>
                             {/block}
                             {block name='frontend_checkout_cart_footer_field_labels_sum_value'}
-                                <dd>{$sBasket.Amount|currency}</dd>
+                                <div class="col-4 text-right">{$sBasket.Amount|currency}</div>
                             {/block}
                         {/block}
 
                         {* Shipping costs *}
                         {block name='frontend_checkout_cart_footer_field_labels_shipping'}
                             {block name='frontend_checkout_cart_footer_field_labels_shipping_label'}
-                                <dt>{s name="CartFooterLabelShipping"}{/s}</dt>
+                                <div class="col-8">{s name="CartFooterLabelShipping"}{/s}</div>
                             {/block}
                             {block name='frontend_checkout_cart_footer_field_labels_shipping_value'}
-                                <dd>{$sShippingcosts|currency}</dd>
+                                <div class="col-4 text-right">{$sShippingcosts|currency}</div>
                             {/block}
                         {/block}
 
                         {* Total sum *}
                         {block name='frontend_checkout_cart_footer_field_labels_total'}
                             {block name='frontend_checkout_cart_footer_field_labels_total_label'}
-                                <dt>{s name="CartFooterLabelTotal"}{/s}</dt>
+                                <div class="col-8 font-weight-bold">{s name="CartFooterLabelTotal"}{/s}</div>
                             {/block}
                             {block name='frontend_checkout_cart_footer_field_labels_total_value'}
-                                <dd>{if $sAmountWithTax && $sUserData.additional.charge_vat}{$sAmountWithTax|currency}{else}{$sAmount|currency}{/if}</dd>
+                                <div class="col-4 text-right font-weight-bold">{if $sAmountWithTax && $sUserData.additional.charge_vat}{$sAmountWithTax|currency}{else}{$sAmount|currency}{/if}</div>
                             {/block}
                         {/block}
 
@@ -96,10 +100,10 @@
                         {block name='frontend_checkout_cart_footer_field_labels_totalnet'}
                             {if $sUserData.additional.charge_vat}
                                 {block name='frontend_checkout_cart_footer_field_labels_totalnet_label'}
-                                    <dt>{s name="CartFooterTotalNet"}{/s}</dt>
+                                    <div class="col-8">{s name="CartFooterTotalNet"}{/s}</div>
                                 {/block}
                                 {block name='frontend_checkout_cart_footer_field_labels_totalnet_value'}
-                                    <dd>{$sAmountNet|currency}</dd>
+                                    <div class="col-4 text-right align-self-end">{$sAmountNet|currency}</div>
                                 {/block}
 
                                 {* Taxes *}
@@ -107,18 +111,18 @@
                                     {foreach $sBasket.sTaxRates as $rate=>$value}
                                         {block name='frontend_checkout_cart_footer_field_labels_taxes_entry'}
                                             {block name='frontend_checkout_cart_footer_field_labels_taxes_label'}
-                                                <dt>{s name="CartFooterTotalTax"}{/s}</dt>
+                                                <div class="col-8">{s name="CartFooterTotalTax"}{/s}</div>
                                             {/block}
                                             {block name='frontend_checkout_cart_footer_field_labels_taxes_value'}
-                                                <dd>{$value|currency}</dd>
+                                                <div class="col-4 text-right">{$value|currency}</div>
                                             {/block}
                                         {/block}
                                     {/foreach}
                                 {/block}
                             {/if}
                         {/block}
-                    </dl>
-                {/block}
+                    {/block}
+                </div>
             </div>
         {/block}
     </div>

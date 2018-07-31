@@ -1,13 +1,12 @@
 {if $sDispatches}
-    <div class="panel panel-default">
-        <div class="panel-body">
+        <div>
             <form method="POST" action="{url action='calculateShippingCosts' sTargetAction=$sTargetAction}">
-                <legend>{s name='CheckoutDispatchHeadline'}Versandart{/s}</legend>
-                <div class="panel-wrapper" data-equal="paymentrow">
+                <p><strong>{s name='CheckoutDispatchHeadline'}Versandart{/s}: </strong><span>{$sDispatch.name}</span></p>
+                <div data-equal="paymentrow">
                     {if $sDispatches|count>1}
                         {foreach from=$sDispatches item=dispatch name=dispatches}
                             {block name='frontend_checkout_dispatch_fieldset_input_radio'}
-                                <div class="radio">
+                                <div>
                                     <label for="confirm_dispatch{$dispatch.id}">
                                         <input id="confirm_dispatch{$dispatch.id}" type="radio" data-auto-submit="true" value="{$dispatch.id}" name="sDispatch" {if $dispatch.id eq $sDispatch.id}checked="checked"{/if} />
                                         {$dispatch.name}
@@ -17,7 +16,7 @@
 
                             {block name='frontend_checkout_dispatch_fieldset_description'}
                                 {if $dispatch.description}
-                                    <span class="help-block">{$dispatch.description}</span>
+                                    <span class="text-muted">{$dispatch.description}</span>
                                 {/if}
                             {/block}
                         {/foreach}
@@ -28,12 +27,11 @@
 
                         {block name='frontend_checkout_dispatch_fieldset_description'}
                             {if $sDispatch.description}
-                                <span class="help-block">{$sDispatch.description}</span>
+                                <span class="text-muted">{$sDispatch.description}</span>
                             {/if}
                         {/block}
                     {/if}
                 </div>
             </form>
         </div>
-    </div>
 {/if}

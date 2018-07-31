@@ -1,9 +1,9 @@
 {* Step box *}
 {block name='frontend_register_steps'}
-    <ul class="nav nav-tabs nav-justified mbl d-none d-md-block">
+    <ul class="nav nav-tabs d-none d-md-flex mb-5">
         {block name='frontend_register_steps_basket'}
-            <li class="step-basket{if $sStepActive == 'address'} active{elseif $sStepActive == 'paymentShipping' || $sStepActive == 'finished'} disabled{/if}">              
-                <a href="{url controller=checkout action=confirm}" title="{s name='CheckoutStepAddressText'}{/s}">
+            <li class="nav-item step-basket">
+                <a class="nav-link {if $sStepActive == 'address'} active{elseif $sStepActive == 'paymentShipping' || $sStepActive == 'finished'} disabled{/if}" href="{url controller=checkout action=confirm}" title="{s name='CheckoutStepAddressText'}{/s}">
                     {s name="CheckoutStepAddressText"}{/s}
                 </a>
             </li>
@@ -14,8 +14,8 @@
 
         {* Second Step - Payment *}
         {block name='frontend_register_steps_register'}
-            <li class="step-register {if $sStepActive=='paymentShipping'}active{/if}">
-                <a href="{url controller=checkout action=shippingPayment}" title="{s name='CheckoutStepPaymentShippingText'}{/s}">
+            <li class="nav-item step-register">
+                <a class="nav-link {if $sStepActive=='paymentShipping'}active{/if}" href="{url controller=checkout action=shippingPayment}" title="{s name='CheckoutStepPaymentShippingText'}{/s}">
                     {s name="CheckoutStepPaymentShippingText"}{/s}
                 </a>
             </li>
@@ -26,8 +26,8 @@
 
         {* Third Step - Confirmation *}
         {block name='frontend_register_steps_confirm'}
-            <li class="step-confirm {if $sStepActive=='finished'}active{/if}">
-                <a href="{url controller=checkout action=confirm}" title="{s name='CheckoutStepConfirmText'}{/s}">
+            <li class="nav-item step-confirm">
+                <a class="nav-link {if $sStepActive=='finished'}active{/if}" href="{url controller=checkout action=confirm}" title="{s name='CheckoutStepConfirmText'}{/s}">
                     {s name="CheckoutStepConfirmText"}{/s}
                 </a>
             </li>

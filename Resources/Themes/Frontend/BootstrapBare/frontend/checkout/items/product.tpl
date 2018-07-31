@@ -7,7 +7,7 @@
 {/if}
 
 {block name='frontend_checkout_cart_item_details_title_mobile'}
-    <div class="mtm d-sm-none">
+    <div class="my-2 d-md-none">
         {block name='frontend_checkout_cart_item_details_title_mobile'}
             <a href="{$sBasketItem.linkDetails}" title="{$sBasketItem.articlename|strip_tags}">
                 {$sBasketItem.articlename|strip_tags|truncate:60}
@@ -17,9 +17,8 @@
 {/block}
 
 {block name='frontend_checkout_cart_item_wrapper'}
-    <div class="table-row">
-        <div class="row">
-            <div class="col-3 col-sm-2">
+        <div class="row py-3 border-bottom">
+            <div class="col-3 col-md-2">
                 {* Product image *}
                 {block name='frontend_checkout_cart_item_image'}
                     <div class="image-wrapper">
@@ -49,15 +48,15 @@
                     </div>
                 {/block}
             </div>
-            <div class="col-9 col-sm-10">
+            <div class="col-9 col-md-10">
                 <div class="row">
                     {* Product information *}
                     {block name='frontend_checkout_cart_item_details_column'}
-                        <div class="col-12 col-sm-4 col-md-5">
+                        <div class="col-12 col-md-4 col-lg-5">
                             {block name='frontend_checkout_cart_item_details'}
                                 {* Product name *}
                                 {block name='frontend_checkout_cart_item_details_title'}
-                                    <a class="d-none d-sm-block" href="{$detailLink}" title="{$sBasketItem.articlename|strip_tags|escape}"
+                                    <a class="d-none d-md-block" href="{$detailLink}" title="{$sBasketItem.articlename|strip_tags|escape}"
                                         {if {config name=detailmodal} && {controllerAction} === 'confirm'}
                                             data-toggle="ajax-modal"
                                             data-href="{url controller=detail action=productQuickView ordernumber={$sBasketItem.ordernumber} fullPath}"
@@ -89,7 +88,7 @@
 
                     {* Product quantity *}
                     {block name='frontend_checkout_cart_item_quantity'}
-                        <div class="col-6 col-sm-2">
+                        <div class="col-6 col-md-2 mb-2">
                             <form name="basket_change_quantity{$sBasketItem.id}" method="post" action="{url action='changeQuantity' sTargetAction=$sTargetAction}">
                                 <input type="hidden" name="sArticle" value="{$sBasketItem.id}"/>
                                 {block name='frontend_checkout_cart_item_quantity_selection'}
@@ -111,7 +110,7 @@
 
                     {* Remove product from basket *}
                     {block name='frontend_checkout_cart_item_delete_article'}
-                        <div class="col-6 col-sm-2 col-sm-push-4 col-md-1 text-right">
+                        <div class="col-6 col-md-2 col-lg-1 text-right order-md-last mb-2">
                             {block name='frontend_checkout_cart_item_delete_article_button'}
                                 <a href="{url action='deleteArticle' sDelete=$sBasketItem.id sTargetAction=$sTargetAction}" class="btn btn-danger" title="{s name='CartItemLinkDelete'}L&ouml;schen{/s}" data-use="deleteArticle">
                                     <i class="fa fa-trash-o"></i>
@@ -122,11 +121,11 @@
 
                     {* Product unit price *}
                     {block name='frontend_checkout_cart_item_price'}
-                        <div class="col-12 col-sm-2 col-sm-pull-2 col-md-pull-1 text-right">
+                        <div class="col-12 col-md-2 text-right">
                             {if !$sBasketItem.modus}
-                                <div class="mtm-xs">
+                                <div class="py-1">
                                     {block name='frontend_checkout_cart_item_unit_price_label'}
-                                        <span class="d-sm-none float-left">{s name="CartColumnPrice" namespace="frontend/checkout/cart_header"}St&uuml;ckpreis{/s}</span>
+                                        <span class="d-md-none float-left">{s name="CartColumnPrice" namespace="frontend/checkout/cart_header"}St&uuml;ckpreis{/s}</span>
                                     {/block}
                                     {$sBasketItem.price|currency}{block name='frontend_checkout_cart_tax_symbol'}{s name="Star" namespace="frontend/listing/box_article"}{/s}{/block}
                                 </div>
@@ -134,22 +133,22 @@
                         </div>
                     {/block}
 
+                    {* Product tax rate *}
+                    {block name='frontend_checkout_cart_item_tax_price'}{/block}
+
                     {* Accumulated product price *}
                     {block name='frontend_checkout_cart_item_total_sum'}
-                        <div class="col-12 col-sm-2 col-sm-pull-2 col-md-pull-1 text-right">
-                            <div class="mtm-xs">
+                        <div class="col-12 col-md-2 text-right">
+                            <div class="py-1">
                                 {block name='frontend_checkout_cart_item_total_price_label'}
-                                    <strong class="d-sm-none float-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
+                                    <strong class="d-md-none float-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
                                 {/block}
                                 <strong>{$sBasketItem.amount|currency}{block name='frontend_checkout_cart_tax_symbol'}{s name="Star" namespace="frontend/listing/box_article"}{/s}{/block}</strong>
                             </div>
                         </div>
                     {/block}
 
-                    {* Product tax rate *}
-                    {block name='frontend_checkout_cart_item_tax_price'}{/block}
                 </div>
             </div>
         </div>
-    </div>
 {/block}

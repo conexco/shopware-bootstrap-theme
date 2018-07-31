@@ -1,6 +1,6 @@
 {namespace name="frontend/checkout/cart_item"}
 
-<div class="table-row">
+<div class="table-row my-3">
     <div class="row">
         <div class="d-none d-sm-block col-sm-2">
             {* Badge *}

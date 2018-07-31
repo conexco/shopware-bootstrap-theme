@@ -47,32 +47,28 @@
 {* Product *}
 {block name='frontend_checkout_cart_item_price'}{/block}
 {block name='frontend_checkout_cart_item_tax_price'}
-    <div class="col-12 col-sm-2 col-sm-pull-4 col-md-pull-3 text-right">
+    <div class="col-12 col-md-2 text-right mb-2">
 	    {if $sUserData.additional.charge_vat}
-	    	<div class="mtm-xs">
-		    	<span class="d-sm-none float-left">{s name='CheckoutColumnTaxFix' namespace="frontend/checkout/confirm_header"}MwSt.{/s}</span>
+		    	<span class="d-md-none float-left">{s name='CheckoutColumnTaxFix' namespace="frontend/checkout/confirm_header"}MwSt.{/s}</span>
 	    		{$sBasketItem.tax|currency}
-	    	</div>	
 	    {/if}
 	</div>
 {/block}
 {block name='frontend_checkout_cart_item_total_sum'}
-    <div class="col-12 col-sm-2 col-md-push-1 text-right">
-        <div class="mtm-xs">
-            <strong class="d-sm-none float-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
+    <div class="col-12 col-md-2 text-right mb-2">
+            <strong class="d-md-none float-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
             <strong>{$sBasketItem.amount|currency}*</strong>
-        </div>
     </div>
 {/block}
-		        
+
 {* Voucher *}
 {block name='frontend_checkout_cart_item_voucher_tax_price'}
-    <div class="col-12 col-sm-2 col-sm-pull-2 text-right">
+    <div class="col-12 col-md-2 text-right">
         {if $sUserData.additional.charge_vat}{$sBasketItem.tax|currency}{/if}
     </div>
 {/block}
 {block name='frontend_checkout_cart_item_voucher_price'}
-    <div class="col-4 col-sm-2 col-sm-push-2 text-right">
+    <div class="col-12 col-md-2 text-right">
         {if $sBasketItem.itemInfo}
             <strong>{$sBasketItem.itemInfo}</strong>
         {else}
@@ -83,24 +79,24 @@
 
 {* Premium Product *}
 {block name='frontend_checkout_cart_item_premium_tax_price'}
-    <div class="col-12 col-sm-2 col-sm-pull-2 text-right">
+    <div class="col-12 col-md-2 text-right">
         {if $sUserData.additional.charge_vat}{$sBasketItem.tax|currency}{/if}
     </div>
 {/block}
 {block name='frontend_checkout_cart_item_premium_total_sum'}
-    <div class="col-4 col-sm-2 col-sm-push-2 text-right">
+    <div class="col-4 col-md-2 text-right">
         <p>{s name="CartItemInfoFree" namespace='frontend/checkout/cart_item'}{/s}</p>
     </div>
 {/block}
 
 {* Rebate *}
 {block name='frontend_checkout_cart_item_rebate_tax_price'}
-    <div class="col-12 col-sm-2 col-sm-pull-2 text-right">
+    <div class="col-12 col-md-2 text-right">
         {if $sUserData.additional.charge_vat}{$sBasketItem.tax|currency}{/if}
     </div>
 {/block}
 {block name='frontend_checkout_cart_item_rebate_price'}
-    <div class="col-4 col-sm-2 col-sm-push-2 text-right">
+    <div class="col-4 col-md-2 text-right">
         {if $sBasketItem.itemInfo}
             <strong>{$sBasketItem.itemInfo}</strong>
         {else}
