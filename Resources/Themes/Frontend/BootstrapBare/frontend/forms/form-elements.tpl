@@ -96,18 +96,30 @@
                 {/block}
 
                 {* Captcha *}
-                {block name='frontend_forms_elements_form_captcha'}
-                    <div class="form-group{if $sSupport.sErrors.e.sCaptcha} has-error{/if} captcha">
+                {block name='frontend_forms_form_elements_form_captcha'}
+                    <div class="form-group{if $sSupport.sErrors.e.sCaptcha} has-error{/if}">
                         <div class="{$FormLabelOffset} {$FormInputSize}">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="captcha-placeholder" data-src="{url module=widgets controller=Captcha action=refreshCaptcha}"></div>
+                            {if {config name=captchaMethod} === 'legacy'}
+                                <div class="captcha-placeholder"
+                                     {if $sSupport.sErrors.e.sCaptcha} data-hasError="true"{/if} 
+                                     data-src="{url module=widgets controller=Captcha action=refreshCaptcha}"></div>
+
+                                <strong class="captcha-notice">
+                                    {s name='SupportLabelCaptcha'}{/s}
+                                </strong>
+
+                                <div class="captcha-code">
+                                    <input type="text" 
+                                           required="required" 
+                                           aria-required="true" 
+                                           name="sCaptcha"
+                                           class="form-control" />
                                 </div>
-                                <div class="col-xs-12">
-                                    <p class="mtm"><small>{s name='SupportLabelCaptcha'}{/s}</small></p>
-                                    <input type="text" name="sCaptcha" class="form-control mtm is-required" required="required" aria-required="true" />
-                                </div>
-                            </div>
+                            {else}
+                                <div class="captcha-placeholder" 
+                                     data-src="{url module=widgets controller=Captcha action=index}"
+                                     {if $sSupport.sErrors.e || $sSupport.sErrors.v} data-hasError="true"{/if}></div>
+                            {/if}
                         </div>
                     </div>
                 {/block}
