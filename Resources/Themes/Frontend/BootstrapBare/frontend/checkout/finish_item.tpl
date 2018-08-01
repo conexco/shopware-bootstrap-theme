@@ -1,7 +1,12 @@
 {extends file='frontend/checkout/cart_item.tpl'}
 
 {block name='frontend_checkout_cart_item_delivery_informations'}{/block}
-{block name='frontend_checkout_cart_item_quantity'}{/block}
+{block name='frontend_checkout_cart_item_quantity'}
+    <div class="col-12 col-md-4 col-lg-3 text-right">
+        <strong class="d-md-none float-left">{s name="CartColumnQuantity" namespace="frontend/checkout/cart_header"}{/s}</strong>
+        <strong>{$sBasketItem.quantity}</strong>
+    </div>
+{/block}
 {block name='frontend_checkout_cart_item_price'}{/block}
 
 {* Remove all the delete buttons for products *}
@@ -12,11 +17,9 @@
 {block name='frontend_checkout_cart_item_voucher_delete_article'}{/block}
 
 {block name='frontend_checkout_cart_item_total_sum'}
-    <div class="col-12 col-sm-6 text-right">
-        <div class="mtm-xs">
-            <strong class="d-sm-none float-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
-            <strong>{$sBasketItem.amount|currency}*</strong>
-        </div>
+    <div class="col-12 col-md-4 col-lg-4 text-right">
+        <strong class="d-md-none float-left">{s name="CartColumnTotal" namespace="frontend/checkout/cart_header"}{/s}</strong>
+        <strong>{$sBasketItem.amount|currency}*</strong>
     </div>
 {/block}
 
@@ -51,4 +54,3 @@
         {/block}
     </div>
 {/block}
-
