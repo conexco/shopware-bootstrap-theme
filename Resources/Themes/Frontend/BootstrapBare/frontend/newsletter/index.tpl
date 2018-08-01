@@ -100,7 +100,7 @@
                                     <label for="newsletter" class="control-label {$FormLabelSize}">{s name="sNewsletterPlaceholderMail"}{/s}{s name="RequiredField" namespace="frontend/register/index"}{/s}</label>
 
                                     <div class="{$FormInputSize}">
-                                        <input name="newsletter" type="email" id="newsletter" value="{if $_POST.newsletter}{$_POST.newsletter}{elseif $_GET.sNewsletter}{$_GET.sNewsletter|escape}{/if}" class="form-control"/>
+                                        <input name="newsletter" type="email" id="newsletter" value="{if $_POST.newsletter}{$_POST.newsletter|escape}{elseif $_GET.sNewsletter}{$_GET.sNewsletter|escape}{/if}" class="form-control"/>
                                     </div>
                                 </div>
                             {/block}
