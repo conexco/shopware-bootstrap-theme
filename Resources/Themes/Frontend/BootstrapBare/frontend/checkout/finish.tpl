@@ -242,6 +242,7 @@
         {/block}
     {/block}
 
+
     {block name='frontend_checkout_finish_items'}
         {* Table header *}
         {block name='frontend_checkout_finish_table_header'}
@@ -249,12 +250,13 @@
         {/block}
 
         {* Article items *}
+        <div class="cart-items mb-5">
         {foreach name=basket from=$sBasket.content item=sBasketItem key=key}
             {block name='frontend_checkout_finish_item'}
                 {include file='frontend/checkout/finish_item.tpl'}
             {/block}
         {/foreach}
-
+        </div>
         {* Table footer *}
         {block name='frontend_checkout_finish_table_footer'}
             {include file="frontend/checkout/finish_footer.tpl"}
