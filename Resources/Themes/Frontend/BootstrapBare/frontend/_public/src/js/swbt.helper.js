@@ -14,7 +14,7 @@ function cartRefresh() {
 
     $.ajax({
         url: ajaxCartRefresh,
-        dataType: 'jsonp'
+        dataType: 'html'
     }).done(function(response) {
         var cart = JSON.parse(response);
 

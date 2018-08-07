@@ -132,7 +132,7 @@
             $.ajax({
                 'data': ajaxData,
                 'method': 'POST',
-                'dataType': 'jsonp',
+                'dataType': 'html',
                 'url': opts.addArticleUrl,
                 'success': function (result) {
                     $.publish('plugin/' + me.getName() + '/onAddArticle', [ me, result ]);
