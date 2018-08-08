@@ -9,25 +9,21 @@
 {/block}
 
 {block name="frontend_address_form_form_inner" prepend}
-    {assign "FormInputSize" "col-md-6" scope="global"}
-    {assign "FormLabelSize" "col-md-4" scope="global"}
-    {assign "FormLabelOffset" "col-md-offset-4" scope="global"}
+        {*{assign "FormInputSize" "col-md-6" scope="global"}*}
+        {*{assign "FormLabelSize" "col-md-4" scope="global"}*}
+        {*{assign "FormLabelOffset" "col-md-offset-4" scope="global"}*}
 {/block}
 
 {block name="frontend_address_action_buttons"}
-    <div class="row">
+    <div>
         {if $formData.id}
             {block name="frontend_address_action_button_send"}
-                <div class="{$FormLabelSize} address-form-submit-wrapper">
-                    <button class="btn btn-outline-secondary mbm-xs mbm-sm mbm-hd address-form-submit sw5-plugin" data-value="update" data-checkFormIsValid="false">{s name="AddressesActionButtonSend"}{/s}</button>
-                </div>
+                <button class="btn btn-outline-secondary address-form-submit mb-2 mr-2" data-value="update" data-checkFormIsValid="false">{s name="AddressesActionButtonSend"}{/s}</button>
             {/block}
         {/if}
 
         {block name="frontend_address_action_button_save_as_new"}
-            <div class="{if !$formData.id}{$FormLabelOffset}{/if} {$FormInputSize}">
-                <button class="btn btn-primary address-form-submit sw5-plugin" data-value="create" data-checkFormIsValid="false">{s name="AddressesActionButtonCreate"}{/s}</button>
-            </div>
+            <button class="btn btn-outline-primary address-form-submit mb-2" data-value="create" data-checkFormIsValid="false">{s name="AddressesActionButtonCreate"}{/s}</button>
         {/block}
 
         {block name="frontend_address_action_button_save_action"}

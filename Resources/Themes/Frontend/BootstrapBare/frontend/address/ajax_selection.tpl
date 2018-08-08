@@ -3,10 +3,12 @@
         <div class="modal-content">
             {block name="frontend_address_selection_modal_title"}
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     {block name='checkout_ajax_add_title'}
                         <h4 class="modal-title">{s name="ModalTitle"}{/s}</h4>
                     {/block}
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             {/block}
 
@@ -14,7 +16,7 @@
                 <div class="modal-body">
 
                     {block name="frontend_address_selection_modal_create_text"}
-                    <p class="mbl">
+                    <p>
                         {s name="CreateNewAddressText"}{/s}
                         <a href="{url controller=address action=create}"
                            title="{s name="CreateNewAddressTitle"}{/s}"
@@ -29,11 +31,11 @@
                             <div class="row" data-equalheight="true">
                                 {foreach $addresses as $address}
                                     {block name='frontend_address_selection_modal_container_item'}
-                                        <div class="col-12 col-sm-6">
-                                            <div class="panel panel-default">
-                                                <div class="panel-body">
+                                        <div class="col-12 col-sm-6 px-2 mb-3">
+                                            <div class="p-3">
+
                                                     {block name='frontend_address_selection_modal_container_item_body'}
-                                                        <address data-equal="addressModal">
+                                                        <address class="text-truncate" data-equal="addressModal">
                                                             <strong>{$address.firstname|escapeHtml} {$address.lastname|escapeHtml}</strong><br />
                                                             {if $address.company}{$address.company|escapeHtml}<br/>{/if}
                                                             {$address.street|escapeHtml}<br />
@@ -63,7 +65,7 @@
                                                             {/block}
                                                         </form>
                                                     {/block}
-                                                </div>    
+
                                             </div>
                                         </div>
                                     {/block}

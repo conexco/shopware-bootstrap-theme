@@ -57,35 +57,42 @@
             {block name='frontend_checkout_cart_panel'}
 
 
-                {* Basket items *}
-                <div class="container card cart-items mb-5">
+
+                <div class="card mb-4">
                     {* Product table header *}
                     {block name='frontend_checkout_cart_cart_head'}
                         {include file="frontend/checkout/cart_header.tpl"}
                     {/block}
-                    {foreach $sBasket.content as $sBasketItem}
-                        {block name='frontend_checkout_cart_item'}
-                            <div class="cart-item">
-                                {include file='frontend/checkout/cart_item.tpl'}
+                    <div>
+                        {* Basket items *}
+                        <ul class="list-group list-group-flush">
+                        {foreach $sBasket.content as $sBasketItem}
+                            {block name='frontend_checkout_cart_item'}
+                                <li class="list-group-item">
+                                    {include file='frontend/checkout/cart_item.tpl'}
+                                </li>
+                            {/block}
+                        {/foreach}
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        {* Product table footer *}
+                        {block name='frontend_checkout_cart_cart_footer'}
+                            {include file="frontend/checkout/cart_footer.tpl"}
+                        {/block}
+                        {* Action Buttons Bottom *}
+                        {block name='frontend_checkout_cart_table_actions_bottom_wrapper'}
+                            <div class="row mb-4">
+                                {block name='frontend_checkout_cart_table_actions_bottom'}
+                                    {include file="frontend/checkout/actions.tpl" bottom=true}
+                                {/block}
                             </div>
                         {/block}
-                    {/foreach}
-                </div>
-
-                {* Product table footer *}
-                {block name='frontend_checkout_cart_cart_footer'}
-                    {include file="frontend/checkout/cart_footer.tpl"}
-                {/block}
-            {/block}
-
-            {* Action Buttons Bottom *}
-            {block name='frontend_checkout_cart_table_actions_bottom_wrapper'}
-                <div class="row mb-5">
-                    {block name='frontend_checkout_cart_table_actions_bottom'}
-                        {include file="frontend/checkout/actions.tpl" bottom=true}
-                    {/block}
+                    </div>
                 </div>
             {/block}
+
+
 
             {* Premium products *}
             {block name='frontend_checkout_cart_premium'}

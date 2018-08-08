@@ -17,7 +17,7 @@
 {/block}
 
 {block name='frontend_checkout_cart_item_wrapper'}
-        <div class="row py-3 border-bottom">
+        <div class="row py-3">
             <div class="col-3 col-md-2">
                 {* Product image *}
                 {block name='frontend_checkout_cart_item_image'}

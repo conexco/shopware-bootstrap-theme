@@ -1,12 +1,12 @@
 {block name='frontend_checkout_cart_footer_element'}
-    <div class="row mb-5">
+    <div class="row mb-4">
         {block name='frontend_checkout_cart_cart_footer_left'}
             <div class="col-12 col-md-6 col-lg-8">
                 {if $sTargetAction != 'shippingPayment'}
                     <div class="row">
                         {* Add product using a voucher *}
                         {block name='frontend_checkout_cart_footer_add_voucher'}
-                            <div class="col-lg-6 mb-3">
+                            <div class="col-lg-6 mb-4">
                                 <form method="post" action="{url action='addVoucher' sTargetAction=$sTargetAction}">
                                     <div class="input-group">
                                         {block name='frontend_checkout_cart_footer_add_voucher_field'}
@@ -28,7 +28,7 @@
 
                         {* Add product using the sku *}
                         {block name='frontend_checkout_cart_footer_add_product'}
-                            <div class="col-lg-6 mb-3">
+                            <div class="col-lg-6 mb-4">
                                 <form method="post" action="{url action='addArticle' sTargetAction=$sTargetAction}">
                                     <div class="input-group">
                                         {block name='frontend_checkout_cart_footer_add_product_field'}

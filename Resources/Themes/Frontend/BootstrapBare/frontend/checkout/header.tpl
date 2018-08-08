@@ -1,4 +1,4 @@
-<header class="p-3 border-bottom">
+<header class="p-3 border-bottom bg-white">
 
 	{* Hide top bar navigation *}
 	{block name='frontend_index_top_bar_container'}{/block}

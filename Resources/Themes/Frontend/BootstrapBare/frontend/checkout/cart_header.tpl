@@ -1,5 +1,5 @@
-<div class="d-none d-md-block mb-3">
-    <div class="card-header row">
+<div class="card-header bg-transparent d-none d-md-block mb-3">
+    <div class="row">
         {block name='frontend_checkout_cart_header_field_labels'}
             <div class="col-sm-2">
                 {* Article informations *}

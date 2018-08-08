@@ -4,7 +4,6 @@
             <div data-register="true" class="panel">
                 {block name="frontend_address_editor_modal_title"}
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title">
                             {if $formData.id}
                                 {s name="AddressesTitleEdit" namespace="frontend/address/index"}{/s}
@@ -12,6 +11,9 @@
                                 {s name="AddressesTitleCreate" namespace="frontend/address/index"}{/s}
                             {/if}
                         </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                 {/block}
                 {block name="frontend_address_editor_modal_body"}
