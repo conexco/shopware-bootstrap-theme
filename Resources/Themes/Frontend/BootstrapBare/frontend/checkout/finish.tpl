@@ -78,7 +78,7 @@
                                 {block name='frontend_checkout_finish_information_addresses_equal_panel'}
                                     <div class="card h-100">
                                         {block name='frontend_checkout_finish_information_addresses_equal_panel_title'}
-                                            <legend class="card-header">{s name='ConfirmAddressEqualTitle' namespace="frontend/checkout/confirm"}{/s}</legend>
+                                            <div class="card-header bg-transparent">{s name='ConfirmAddressEqualTitle' namespace="frontend/checkout/confirm"}{/s}</div>
                                         {/block}
                                         <div class="card-body">
                                             {block name='frontend_checkout_finish_information_addresses_equal_panel_body'}
@@ -119,7 +119,7 @@
                                             <div class="card h-100">
                                                 {* Headline *}
                                                 {block name='frontend_checkout_confirm_information_addresses_billing_panel_title'}
-                                                    <legend class="card-header">{s name="ConfirmHeaderBilling" namespace="frontend/checkout/confirm"}{/s}</legend>
+                                                    <div class="card-header bg-transparent">{s name="ConfirmHeaderBilling" namespace="frontend/checkout/confirm"}{/s}</div>
                                                 {/block}
                                                 <div class="card-body">
                                                     {* Content *}
@@ -155,7 +155,7 @@
                                             <div class="card h-100">
                                                 {* Headline *}
                                                 {block name='frontend_checkout_finish_information_addresses_shipping_panel_title'}
-                                                    <legend class="card-header">{s name="ConfirmHeaderShipping" namespace="frontend/checkout/confirm"}{/s}</legend>
+                                                    <div class="card-header bg-transparent">{s name="ConfirmHeaderShipping" namespace="frontend/checkout/confirm"}{/s}</div>
                                                 {/block}
                                                 <div class="card-body">
                                                     {* Content *}
@@ -193,7 +193,7 @@
                     <div class="col-lg-4 mb-3">
                         <div class="card h-100">
                             {block name='frontend_checkout_finish_details_title'}
-                                <legend class="card-header">{s name="FinishHeaderInformation"}{/s}</legend>
+                                <div class="card-header bg-transparent">{s name="FinishHeaderInformation"}{/s}</div>
                             {/block}
                             <div class="card-body">
                                 {block name='frontend_checkout_finish_details_content'}
@@ -236,21 +236,31 @@
 
     {block name='frontend_checkout_finish_items'}
 
-        {* Article items *}
-        <div class="container card cart-items mb-5">
-        {* Table header *}
-        {block name='frontend_checkout_finish_table_header'}
-            {include file="frontend/checkout/finish_header.tpl"}
-        {/block}
-        {foreach name=basket from=$sBasket.content item=sBasketItem key=key}
-            {block name='frontend_checkout_finish_item'}
-                {include file='frontend/checkout/finish_item.tpl'}
+
+        <div class="card mb-4">
+            {* Table header *}
+            {block name='frontend_checkout_finish_table_header'}
+                {include file="frontend/checkout/finish_header.tpl"}
             {/block}
-        {/foreach}
+            <div>
+                <ul class="list-group list-group-flush">
+                    {* Article items *}
+                    {foreach name=basket from=$sBasket.content item=sBasketItem key=key}
+                        <li class="list-group-item">
+                            {block name='frontend_checkout_finish_item'}
+                                {include file='frontend/checkout/finish_item.tpl'}
+                            {/block}
+                        </li>
+                    {/foreach}
+                </ul>
+            </div>
+
+            {* Table footer *}
+            <div class="card-footer">
+                {block name='frontend_checkout_finish_table_footer'}
+                    {include file="frontend/checkout/finish_footer.tpl"}
+                {/block}
+            </div>
         </div>
-        {* Table footer *}
-        {block name='frontend_checkout_finish_table_footer'}
-            {include file="frontend/checkout/finish_footer.tpl"}
-        {/block}
     {/block}
 {/block}
