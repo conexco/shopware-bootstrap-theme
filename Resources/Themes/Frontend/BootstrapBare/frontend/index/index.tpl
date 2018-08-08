@@ -46,7 +46,7 @@
                 {block name='frontend_index_navigation'}
                     <header class="header-main">
                         {block name='frontend_index_header_navigation'}
-                            <div id="header" class="container d-print-none p-3">
+                            <div id="header" class="container d-print-none py-3">
                                 
                                 {* Include the top bar navigation *}
                                 {block name='frontend_index_top_bar_container'}

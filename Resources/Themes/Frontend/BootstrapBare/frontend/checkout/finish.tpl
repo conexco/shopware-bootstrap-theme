@@ -72,67 +72,59 @@
                 {block name='frontend_checkout_finish_information_addresses'}
 
                     {if $sAddresses.equal}
-                        <div class="col-md-8">
-                            <div class="row">
-                                {* Equal Billing & Shipping *}
-                                {block name='frontend_checkout_finish_information_addresses_equal'}
-                                    <div class="col-md-6">
-                                        {block name='frontend_checkout_finish_information_addresses_equal_panel'}
-                                            <div class="panel panel-default">
-                                                <div class="panel-body">
-
-                                                    {block name='frontend_checkout_finish_information_addresses_equal_panel_title'}
-                                                        <legend>{s name='ConfirmAddressEqualTitle' namespace="frontend/checkout/confirm"}{/s}</legend>
-                                                    {/block}
-
-                                                    {block name='frontend_checkout_finish_information_addresses_equal_panel_body'}
-                                                        {block name='frontend_checkout_finish_information_addresses_equal_panel_billing'}
-                                                            <address>
-                                                                {if $sAddresses.billing.company}
-                                                                    <strong>{$sAddresses.billing.company|escapeHtml}{if $sAddresses.billing.department}<br />{$sAddresses.billing.department|escapeHtml}{/if}</strong>
-                                                                    <br />
-                                                                {/if}
-
-                                                                {$sAddresses.billing.salutation|salutation}
-                                                                {if {config name="displayprofiletitle"}}
-                                                                    {$sAddresses.billing.title|escapeHtml}<br/>
-                                                                {/if}
-                                                                {$sAddresses.billing.firstname|escapeHtml} {$sAddresses.billing.lastname|escapeHtml}<br />
-                                                                {$sAddresses.billing.street|escapeHtml}<br />
-                                                                {if $sAddresses.billing.additional_address_line1}{$sAddresses.billing.additional_address_line1|escapeHtml}<br />{/if}
-                                                                {if $sAddresses.billing.additional_address_line2}{$sAddresses.billing.additional_address_line2|escapeHtml}<br />{/if}
-                                                                {if {config name=showZipBeforeCity}}{$sAddresses.billing.zipcode} {$sAddresses.billing.city|escapeHtml}{else}{$sAddresses.billing.city|escapeHtml} {$sAddresses.billing.zipcode|escapeHtml}{/if}<br />
-                                                                {if $sAddresses.billing.state.name}{$sAddresses.billing.state.name|escapeHtml}<br />{/if}
-                                                                {$sAddresses.billing.country.name|escapeHtml}
-                                                            </address>
-                                                        {/block}
-                                                    {/block}
-                                                </div>
-                                            </div>
+                        <div class="col-lg-8 mb-3">
+                            {* Equal Billing & Shipping *}
+                            {block name='frontend_checkout_finish_information_addresses_equal'}
+                                {block name='frontend_checkout_finish_information_addresses_equal_panel'}
+                                    <div class="card h-100">
+                                        {block name='frontend_checkout_finish_information_addresses_equal_panel_title'}
+                                            <legend class="card-header">{s name='ConfirmAddressEqualTitle' namespace="frontend/checkout/confirm"}{/s}</legend>
                                         {/block}
+                                        <div class="card-body">
+                                            {block name='frontend_checkout_finish_information_addresses_equal_panel_body'}
+                                                {block name='frontend_checkout_finish_information_addresses_equal_panel_billing'}
+                                                    <address class="card-text">
+                                                        {if $sAddresses.billing.company}
+                                                            <strong>{$sAddresses.billing.company|escapeHtml}{if $sAddresses.billing.department}<br />{$sAddresses.billing.department|escapeHtml}{/if}</strong>
+                                                            <br />
+                                                        {/if}
+
+                                                        {$sAddresses.billing.salutation|salutation}
+                                                        {if {config name="displayprofiletitle"}}
+                                                            {$sAddresses.billing.title|escapeHtml}<br/>
+                                                        {/if}
+                                                        {$sAddresses.billing.firstname|escapeHtml} {$sAddresses.billing.lastname|escapeHtml}<br />
+                                                        {$sAddresses.billing.street|escapeHtml}<br />
+                                                        {if $sAddresses.billing.additional_address_line1}{$sAddresses.billing.additional_address_line1|escapeHtml}<br />{/if}
+                                                        {if $sAddresses.billing.additional_address_line2}{$sAddresses.billing.additional_address_line2|escapeHtml}<br />{/if}
+                                                        {if {config name=showZipBeforeCity}}{$sAddresses.billing.zipcode} {$sAddresses.billing.city|escapeHtml}{else}{$sAddresses.billing.city|escapeHtml} {$sAddresses.billing.zipcode|escapeHtml}{/if}<br />
+                                                        {if $sAddresses.billing.state.name}{$sAddresses.billing.state.name|escapeHtml}<br />{/if}
+                                                        {$sAddresses.billing.country.name|escapeHtml}
+                                                    </address>
+                                                {/block}
+                                            {/block}
+                                        </div>
                                     </div>
                                 {/block}
-                            </div>
+                            {/block}
                         </div>
                     {else}
-                        <div class="col-md-8">
+                        <div class="col-lg-8">
                             <div class="row">
                                 {* Separate Billing & Shipping *}
                                 {block name='frontend_checkout_finish_information_addresses_billing'}
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 mb-3">
                                         {* Billing address *}
                                         {block name='frontend_checkout_finish_information_addresses_billing_panel'}
-                                            <div class="panel panel-default">
-                                                <div class="panel-body">
-
-                                                    {* Headline *}
-                                                    {block name='frontend_checkout_confirm_information_addresses_billing_panel_title'}
-                                                        <legend>{s name="ConfirmHeaderBilling" namespace="frontend/checkout/confirm"}{/s}</legend>
-                                                    {/block}
-
+                                            <div class="card h-100">
+                                                {* Headline *}
+                                                {block name='frontend_checkout_confirm_information_addresses_billing_panel_title'}
+                                                    <legend class="card-header">{s name="ConfirmHeaderBilling" namespace="frontend/checkout/confirm"}{/s}</legend>
+                                                {/block}
+                                                <div class="card-body">
                                                     {* Content *}
                                                     {block name='frontend_checkout_finish_information_addresses_billing_panel_body'}
-                                                        <address>
+                                                        <address class="card-text">
                                                             {if $sAddresses.billing.company}
                                                                 <strong>{$sAddresses.billing.company|escapeHtml}{if $sAddresses.billing.department}<br />{$sAddresses.billing.department|escapeHtml}{/if}</strong>
                                                                 <br />
@@ -158,19 +150,17 @@
                                 {/block}
 
                                 {block name='frontend_checkout_finish_information_addresses_shipping'}
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 mb-3">
                                         {block name='frontend_checkout_finish_information_addresses_shipping_panel'}
-                                            <div class="panel panel-default">
-                                                <div class="panel-body">
-
-                                                    {* Headline *}
-                                                    {block name='frontend_checkout_finish_information_addresses_shipping_panel_title'}
-                                                        <legend>{s name="ConfirmHeaderShipping" namespace="frontend/checkout/confirm"}{/s}</legend>
-                                                    {/block}
-
+                                            <div class="card h-100">
+                                                {* Headline *}
+                                                {block name='frontend_checkout_finish_information_addresses_shipping_panel_title'}
+                                                    <legend class="card-header">{s name="ConfirmHeaderShipping" namespace="frontend/checkout/confirm"}{/s}</legend>
+                                                {/block}
+                                                <div class="card-body">
                                                     {* Content *}
                                                     {block name='frontend_checkout_finish_information_addresses_shipping_panel_body'}
-                                                        <address>
+                                                        <address class="card-text">
                                                             {if $sAddresses.shipping.company}
                                                                 <strong>{$sAddresses.shipping.company|escapeHtml}{if $sAddresses.shipping.department}<br />{$sAddresses.shipping.department|escapeHtml}{/if}</strong>
                                                                 <br />
@@ -200,41 +190,42 @@
                 {/block}
 
                 {block name='frontend_checkout_finish_details'}
-                    <div class="col-md-4">
-                        <div class="panel-body">
+                    <div class="col-lg-4 mb-3">
+                        <div class="card h-100">
                             {block name='frontend_checkout_finish_details_title'}
-                                <legend>{s name="FinishHeaderInformation"}{/s}</legend>
+                                <legend class="card-header">{s name="FinishHeaderInformation"}{/s}</legend>
                             {/block}
+                            <div class="card-body">
+                                {block name='frontend_checkout_finish_details_content'}
+                                    {* Invoice number *}
+                                    {block name='frontend_checkout_finish_invoice_number'}
+                                        {if $sOrderNumber}
+                                            <p><strong>{s name="FinishInfoId"}{/s}</strong> {$sOrderNumber}</p>
+                                        {/if}
+                                    {/block}
 
-                            {block name='frontend_checkout_finish_details_content'}
-                                {* Invoice number *}
-                                {block name='frontend_checkout_finish_invoice_number'}
-                                    {if $sOrderNumber}
-                                        <p><strong>{s name="FinishInfoId"}{/s}</strong> {$sOrderNumber}</p>
-                                    {/if}
-                                {/block}
+                                    {* Transaction number *}
+                                    {block name='frontend_checkout_finish_transaction_number'}
+                                        {if $sTransactionumber}
+                                            <p><strong>{s name="FinishInfoTransaction"}{/s}</strong> {$sTransactionumber}</p>
+                                        {/if}
+                                    {/block}
 
-                                {* Transaction number *}
-                                {block name='frontend_checkout_finish_transaction_number'}
-                                    {if $sTransactionumber}
-                                        <p><strong>{s name="FinishInfoTransaction"}{/s}</strong> {$sTransactionumber}</p>
-                                    {/if}
-                                {/block}
+                                    {* Payment method *}
+                                    {block name='frontend_checkout_finish_payment_method'}
+                                        {if $sPayment.description}
+                                            <p><strong>{s name="ConfirmHeaderPayment" namespace="frontend/checkout/confirm"}{/s}:</strong> {$sPayment.description}</p>
+                                        {/if}
+                                    {/block}
 
-                                {* Payment method *}
-                                {block name='frontend_checkout_finish_payment_method'}
-                                    {if $sPayment.description}
-                                        <p><strong>{s name="ConfirmHeaderPayment" namespace="frontend/checkout/confirm"}{/s}:</strong> {$sPayment.description}</p>
-                                    {/if}
+                                    {* Dispatch method *}
+                                    {block name='frontend_checkout_finish_dispatch_method'}
+                                        {if $sDispatch.name}
+                                            <p><strong>{s name="CheckoutDispatchHeadline" namespace="frontend/checkout/confirm_dispatch"}{/s}:</strong> {$sDispatch.name}</p>
+                                        {/if}
+                                    {/block}
                                 {/block}
-
-                                {* Dispatch method *}
-                                {block name='frontend_checkout_finish_dispatch_method'}
-                                    {if $sDispatch.name}
-                                        <p><strong>{s name="CheckoutDispatchHeadline" namespace="frontend/checkout/confirm_dispatch"}{/s}:</strong> {$sDispatch.name}</p>
-                                    {/if}
-                                {/block}
-                            {/block}
+                            </div>
                         </div>
                     </div>
                 {/block}
@@ -244,13 +235,13 @@
 
 
     {block name='frontend_checkout_finish_items'}
+
+        {* Article items *}
+        <div class="container card cart-items mb-5">
         {* Table header *}
         {block name='frontend_checkout_finish_table_header'}
             {include file="frontend/checkout/finish_header.tpl"}
         {/block}
-
-        {* Article items *}
-        <div class="cart-items mb-5">
         {foreach name=basket from=$sBasket.content item=sBasketItem key=key}
             {block name='frontend_checkout_finish_item'}
                 {include file='frontend/checkout/finish_item.tpl'}

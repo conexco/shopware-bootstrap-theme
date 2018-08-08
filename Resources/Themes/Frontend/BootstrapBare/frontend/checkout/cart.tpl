@@ -55,13 +55,14 @@
 
             {* Product table content *}
             {block name='frontend_checkout_cart_panel'}
-                {* Product table header *}
-                {block name='frontend_checkout_cart_cart_head'}
-                    {include file="frontend/checkout/cart_header.tpl"}
-                {/block}
+
 
                 {* Basket items *}
-                <div class="cart-items mb-5">
+                <div class="container card cart-items mb-5">
+                    {* Product table header *}
+                    {block name='frontend_checkout_cart_cart_head'}
+                        {include file="frontend/checkout/cart_header.tpl"}
+                    {/block}
                     {foreach $sBasket.content as $sBasketItem}
                         {block name='frontend_checkout_cart_item'}
                             <div class="cart-item">

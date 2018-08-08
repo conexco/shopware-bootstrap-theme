@@ -691,20 +691,22 @@
 {block name='frontend_checkout_confirm_product_table'}
 {block name="frontend_checkout_confirm_product_table_content"}
 
-{*Product table header *}
-{block name='frontend_checkout_confirm_confirm_head'}
-{include file="frontend/checkout/confirm_header.tpl"}
-{/block}
-{block name='frontend_checkout_confirm_item_before'}{/block}
+
 
 {*Basket items *}
 {block name='frontend_checkout_confirm_item_outer'}
 <div class="container card cart-items mb-5">
-   {foreach $sBasket.content as $sBasketItem}
-   {block name='frontend_checkout_confirm_item'}
-   {include file='frontend/checkout/confirm_item.tpl'}
-   {/block}
-   {/foreach}
+    {*Product table header *}
+    {block name='frontend_checkout_confirm_confirm_head'}
+        {include file="frontend/checkout/confirm_header.tpl"}
+    {/block}
+    {block name='frontend_checkout_confirm_item_before'}{/block}
+
+    {foreach $sBasket.content as $sBasketItem}
+        {block name='frontend_checkout_confirm_item'}
+            {include file='frontend/checkout/confirm_item.tpl'}
+        {/block}
+    {/foreach}
 </div>
 {/block}
 {block name='frontend_checkout_confirm_item_after'}{/block}
