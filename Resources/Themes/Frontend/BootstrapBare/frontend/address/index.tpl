@@ -11,7 +11,7 @@
 
         {* Addresses headline *}
         {block name="frontend_address_headline"}
-            <h1>{s name="AddressesTitle"}{/s}</h1>
+            <h1 class="card card-header bg-transparent mb-4">{s name="AddressesTitle"}{/s}</h1>
         {/block}
 
         {* Success messages *}
@@ -32,10 +32,24 @@
             <div class="row" data-equalheight="true">
                 {foreach $addresses as $address}
                     {block name="frontend_address_item_content"}
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-lg-6 mb-4">
                             {block name="frontend_address_item_content_body"}
-                                <div class="panel panel-default address-content-item mtm">
-                                    <div class="panel-body">
+                                <div class="card h-100">
+                                    {* data-equal="addressHeader"*}
+                                    <div class="card-header bg-transparent">
+                                        {if $sUserData.additional.user.default_shipping_address_id == $address.id || $sUserData.additional.user.default_billing_address_id == $address.id}
+                                            <h4 class="mb-0">
+                                                {if $sUserData.additional.user.default_shipping_address_id == $address.id}
+                                                    <span>{s name="AddressesTitleDefaultShippingAddress"}Default shipping address{/s}</span>
+                                                {/if}
+                                                {if $sUserData.additional.user.default_shipping_address_id == $address.id && $sUserData.additional.user.default_billing_address_id == $address.id}
+                                                    {s name="AddressesTitleDefaultShippingBillingAnd"} & {/s}
+                                                {/if}
+                                                {if $sUserData.additional.user.default_billing_address_id == $address.id}
+                                                    <span>{s name="AddressesTitleDefaultBillingAddress"}Default billing address{/s}</span>
+                                                {/if}
+                                            </h4>
+                                        {/if}
                                         {block name="frontend_address_item_content_title"}
                                             <div class="text-right">
                                                 {block name="frontend_address_item_content_actions_delete"}
@@ -52,23 +66,9 @@
                                                     </a>
                                                 {/block}
                                             </div>
-                                            <div class="mbm" data-equal="addressHeader">
-                                                {if $sUserData.additional.user.default_shipping_address_id == $address.id || $sUserData.additional.user.default_billing_address_id == $address.id}
-                                                    <h4 class="mtn">
-                                                        {if $sUserData.additional.user.default_shipping_address_id == $address.id}
-                                                            <span>{s name="AddressesTitleDefaultShippingAddress"}Default shipping address{/s}</span>
-                                                        {/if}
-                                                        {if $sUserData.additional.user.default_shipping_address_id == $address.id && $sUserData.additional.user.default_billing_address_id == $address.id}
-                                                            {s name="AddressesTitleDefaultShippingBillingAnd"} & {/s}
-                                                        {/if}
-                                                        {if $sUserData.additional.user.default_billing_address_id == $address.id}
-                                                            <span>{s name="AddressesTitleDefaultBillingAddress"}Default billing address{/s}</span>
-                                                        {/if}
-                                                    </h4>
-                                                {/if}
-                                            </div>
                                         {/block}
-
+                                    </div>
+                                    <div class="card-body d-flex flex-column">
                                         {block name="frontend_address_item_content_inner"}
                                             <address class="mbm" data-equal="address">   
                                                 {if $address.company}
@@ -91,13 +91,14 @@
                                         {/block}
 
                                         {block name="frontend_address_item_content_actions"}
-                                            <div data-equal="addressActions">
+                                            {*data-equal="addressActions" *}
+                                            <div class="align-self-start mt-auto">
                                                 {block name="frontend_address_item_content_set_default"}
                                                     {block name="frontend_address_item_content_set_default_shipping"}
                                                         {if $sUserData.additional.user.default_shipping_address_id != $address.id}
                                                             <form action="{url controller="address" action="setDefaultShippingAddress"}" method="post">
                                                                 <input type="hidden" name="addressId" value="{$address.id}" />
-                                                                <button type="submit" class="btn btn-outline-secondary btn-sm mtm">{s name="AddressesSetAsDefaultShippingAction"}{/s}</button>
+                                                                <button type="submit" class="btn btn-outline-secondary btn-sm mb-2">{s name="AddressesSetAsDefaultShippingAction"}{/s}</button>
                                                             </form>
                                                         {/if}
                                                     {/block}
@@ -106,7 +107,7 @@
                                                         {if $sUserData.additional.user.default_billing_address_id != $address.id}
                                                             <form action="{url controller="address" action="setDefaultBillingAddress"}" method="post">
                                                                 <input type="hidden" name="addressId" value="{$address.id}" />
-                                                                <button type="submit" class="btn btn-outline-secondary btn-sm mtm">{s name="AddressesSetAsDefaultBillingAction"}{/s}</button>
+                                                                <button type="submit" class="btn btn-outline-secondary btn-sm mb-2">{s name="AddressesSetAsDefaultBillingAction"}{/s}</button>
                                                             </form>
                                                         {/if}
                                                     {/block}
@@ -122,9 +123,11 @@
             </div>    
 
             {block name="frontend_address_item_content_create"}
-                <a href="{url controller=address action=create}" title="{s name="AddressesContentItemActionCreate"}Neue Adresse anlegen{/s}" class="btn btn-primary mbl">
-                    {s name="AddressesContentItemActionCreate"}{/s}
-                </a>
+                <div class="text-right">
+                    <a href="{url controller=address action=create}" title="{s name="AddressesContentItemActionCreate"}Neue Adresse anlegen{/s}" class="btn btn-outline-primary mb-4">
+                        {s name="AddressesContentItemActionCreate"}{/s}
+                    </a>
+                </div>
             {/block}
         {/block}
     </div>
