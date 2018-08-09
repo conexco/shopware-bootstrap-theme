@@ -57,7 +57,7 @@
             <div class="row">
                 {* General user informations *}
                 {block name="frontend_account_index_info"}
-                    <div class="col-md-6 mb-4">
+                    <div class="col-lg-6 mb-4">
                         <div class="card h-100">
                             <div class="card-header bg-transparent">
                                 {block name="frontend_account_index_info_headline"}
@@ -99,7 +99,7 @@
 
                 {* Payment informations *}
                 {block name="frontend_account_index_payment_method"}
-                    <div class="col-md-6 mb-4">
+                    <div class="col-lg-6 mb-4">
                         <div class="card h-100">
                             <div class="card-header bg-transparent">
                                 {block name="frontend_account_index_payment_method_headline"}
@@ -170,7 +170,7 @@
                 {* Addresses *}
                 {block name="frontend_account_index_addresses"}
                     {block name="frontend_account_index_primary_billing"}
-                        <div class="col-md-6 mb-4">
+                        <div class="col-lg-6 mb-4">
                             <div class="card h-100">
                                 <div class="card-header bg-transparent">
                                     {block name="frontend_account_index_primary_billing_headline"}
@@ -229,7 +229,7 @@
                         </div>
                     {/block}
                     {block name="frontend_account_index_primary_shipping"}
-                        <div class="col-md-6 mb-4">
+                        <div class="col-lg-6 mb-4">
                             <div class="card h-100">
                                 <div class="card-header bg-transparent">
                                     {block name="frontend_account_index_primary_shipping_headline"}
