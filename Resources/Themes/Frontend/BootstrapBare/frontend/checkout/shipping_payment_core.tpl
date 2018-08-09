@@ -41,8 +41,8 @@
 
 {* Cart values *}
 {block name='frontend_checkout_shipping_payment_core_footer'}
-    <div class="card bg-light mb-4">
-        <div class="card-body">
+    <div class="card mb-4">
+        <div class="card-footer border-top-0">
                 {include file="frontend/checkout/cart_footer.tpl"}
         </div>
     </div>

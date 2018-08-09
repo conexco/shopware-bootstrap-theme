@@ -20,7 +20,7 @@
     {if $sBasket.content}
         {block name='frontend_checkout_ajax_cart_item_container'}
             {block name='frontend_checkout_ajax_cart_item_container_inner'}
-                <div class="ajax-cart-item-wrapper mbl">
+                <div class="container mb-5">
                     {foreach name=ajaxbasket from=$sBasket.content item=sBasketItem}
                         {block name='frontend_checkout_ajax_cart_row'}
                             {include file="frontend/checkout/ajax_cart_item.tpl" basketItem=$sBasketItem}
@@ -63,7 +63,7 @@
         {/block}
     {else}
         {block name='frontend_checkout_ajax_cart_empty'}
-            <p class="text-center mal">{s name='AjaxCartInfoEmpty'}{/s}</p>
+            <p class="text-center">{s name='AjaxCartInfoEmpty'}{/s}</p>
         {/block}
     {/if}
 {/block}

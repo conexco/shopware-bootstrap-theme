@@ -7,7 +7,7 @@
         {$detailLink=$sBasketItem.linkDetails}
     {/if}
 
-    <div class="row mbm">
+    <div class="row mb-3">
         {block name='frontend_checkout_ajax_cart_articleimage'}
             <div class="col-3">
                 {block name='frontend_checkout_ajax_cart_articleimage_product'}
@@ -28,7 +28,7 @@
 
         {block name='frontend_checkout_ajax_cart_articlename'}
             <div class="col-9">
-                <div class="row mbm">    
+                <div class="row mb-3">
                     {block name="frontend_checkout_ajax_cart_articlename_name"}
                         <div class="col-10">
                             <a href="{$detailLink}" class="small" title="{$sBasketItem.articlename|strip_tags}">
@@ -47,7 +47,7 @@
                             {if $sBasketItem.modus != 4}
                                 {block name="frontend_checkout_modify_ajax_cart_delete_article"}
                                     <form action="{$deleteUrl}" method="post">
-                                        <button type="submit" class="btn btn-link btn-sm ptn delete-article" title="{s name="AjaxCartRemoveArticle"}{/s}">
+                                        <button type="submit" class="btn btn-link btn-sm" title="{s name="AjaxCartRemoveArticle"}{/s}">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </form>

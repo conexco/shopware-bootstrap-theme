@@ -15,7 +15,7 @@
 {/block}
 
 {block name='frontend_index_content'}
-    <div class="account-content">
+    <div>
 
         {* Success messages *}
         {block name="frontend_account_index_success_messages"}
@@ -31,39 +31,44 @@
 
         {* Welcome text *}
         {block name="frontend_account_index_welcome"}
-            <div class="card card-body mb-4">
-                {block name="frontend_account_index_welcome_headline"}
-                    <h1 class="card-title">
-                        {s name='AccountHeaderWelcome'}{/s},
-                        {if {config name="displayprofiletitle"}}
-                            {$sUserData.additional.user.title}
-                        {/if}
-                        {$sUserData.additional.user.firstname|escapeHtml}
-                        {$sUserData.additional.user.lastname|escapeHtml}
-                    </h1>
-                {/block}
+            <div class="card mb-4">
+                <div class="card-body">
+                    {block name="frontend_account_index_welcome_headline"}
+                        <h1 class="card-title">
+                            {s name='AccountHeaderWelcome'}{/s},
+                            {if {config name="displayprofiletitle"}}
+                                {$sUserData.additional.user.title}
+                            {/if}
+                            {$sUserData.additional.user.firstname|escapeHtml}
+                            {$sUserData.additional.user.lastname|escapeHtml}
+                        </h1>
+                    {/block}
 
-                {block name="frontend_account_index_welcome_content"}
-                    <p class="card-text">
-                        {s name='AccountHeaderInfo'}{/s}
-                    </p>
-                {/block}
+                    {block name="frontend_account_index_welcome_content"}
+                        <p class="card-text">
+                            {s name='AccountHeaderInfo'}{/s}
+                        </p>
+                    {/block}
+                </div>
             </div>
         {/block}
 
         {block name="frontend_account_index_info_payment_row"}
-            <div class="row mb-4 account-info-container">
+            <div class="row">
                 {* General user informations *}
                 {block name="frontend_account_index_info"}
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-4">
                         <div class="card h-100">
-                            <div class="card-body">
+                            <div class="card-header bg-transparent">
+                                {block name="frontend_account_index_info_headline"}
+                                    <h4 class="mb-0">
+                                        {s name="AccountHeaderBasic"}{/s}
+                                    </h4>
+                                {/block}
+                            </div>
+                            <div class="card-body d-flex flex-column">
                                 {block name="frontend_account_index_info_text"}
-                                    {block name="frontend_account_index_info_headline"}
-                                        <h4 class="card-title">
-                                            {s name="AccountHeaderBasic"}{/s}
-                                        </h4>
-                                    {/block}
+
 
                                     {block name="frontend_account_index_info_content"}
                                         <address>
@@ -82,7 +87,7 @@
 
                                 {block name="frontend_account_index_info_actions"}
                                     <a href="{url controller=account action=profile}" 
-                                       class="btn btn-primary btn-sm" 
+                                       class="btn btn-outline-primary btn-sm align-self-start mt-auto"
                                        title="{s name='AccountLinkChangeProfile'}{/s}">
                                         {s name='AccountLinkChangeProfile'}Profil anpassen{/s}
                                     </a>
@@ -94,16 +99,17 @@
 
                 {* Payment informations *}
                 {block name="frontend_account_index_payment_method"}
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-4">
                         <div class="card h-100">
-                            <div class="card-body">
+                            <div class="card-header bg-transparent">
+                                {block name="frontend_account_index_payment_method_headline"}
+                                    <h4 class="mb-0">
+                                        {s name="AccountHeaderPayment"}{/s}
+                                    </h4>
+                                {/block}
+                            </div>
+                            <div class="card-body d-flex flex-column">
                                 {block name="frontend_account_index_payment_method_text"}
-                                    {block name="frontend_account_index_payment_method_headline"}
-                                        <h4 class="card-title">
-                                            {s name="AccountHeaderPayment"}{/s}
-                                        </h4>
-                                    {/block}
-
                                     {block name="frontend_account_index_payment_method_content"}
                                         <p class="card-text">
                                             <strong>{$sUserData.additional.payment.description}</strong><br />
@@ -117,7 +123,7 @@
                                 {block name="frontend_account_index_payment_method_actions"}
                                     <a href="{url controller='account' action='payment'}" 
                                        title="{s name='AccountLinkChangePayment'}{/s}" 
-                                       class="btn btn-primary btn-sm">
+                                       class="btn btn-outline-primary btn-sm align-self-start mt-auto">
                                         {s name='AccountLinkChangePayment'}{/s}
                                     </a>
                                 {/block}
@@ -130,15 +136,16 @@
 
         {* Newsletter settings *}
         {block name='frontend_account_index_newsletter_settings'}
-            <div class="card mb-4 account-newsletter">
+            <div class="card mb-4">
+                <div class="card-header bg-transparent">
+                    {block name="frontend_account_index_newsletter_settings_headline"}
+                        <h4 class="mb-0">
+                            {s name="AccountHeaderNewsletter"}{/s}
+                        </h4>
+                    {/block}
+                </div>
                 <div class="card-body">
                     <form name="frmRegister" method="post" action="{url action=saveNewsletter}">
-                        {block name="frontend_account_index_newsletter_settings_headline"}
-                            <h4 class="card-title">
-                                {s name="AccountHeaderNewsletter"}{/s}
-                            </h4>
-                        {/block}
-
                         {block name="frontend_account_index_newsletter_settings_content"}
                             <div class="form-check mb-0">
                                 <label class="form-check-label" for="newsletter">
@@ -159,26 +166,29 @@
         {/block}
 
         {block name='frontend_account_index_primary_row'}
-            <div class="row mb-4 account-address-container">
+            <div class="row">
                 {* Addresses *}
                 {block name="frontend_account_index_addresses"}
                     {block name="frontend_account_index_primary_billing"}
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-4">
                             <div class="card h-100">
-                                <div class="card-body">
+                                <div class="card-header bg-transparent">
                                     {block name="frontend_account_index_primary_billing_headline"}
-                                        <h4 class="card-title">
+                                        <h4 class="mb-0">
                                             {s name="AccountHeaderPrimaryBilling"}{/s}
                                         </h4>
                                     {/block}
+                                </div>
+                                <div class="card-body d-flex flex-column">
+
 
                                     {block name="frontend_account_index_primary_billing_content"}
                                         <address>
                                             {if $sUserData.billingaddress.company}
-                                                <strong>{$sUserData.billingaddress.company|escapeHtml}{if $sUserData.billingaddress.department} - {$sUserData.billingaddress.department|escapeHtml}{/if}</strong>
+                                                <strong class="card-title">{$sUserData.billingaddress.company|escapeHtml}{if $sUserData.billingaddress.department} - {$sUserData.billingaddress.department|escapeHtml}{/if}</strong>
                                                 <br/>
                                             {/if}
-                                            <strong>
+                                            <strong class="card-title">
                                                 {$sUserData.billingaddress.salutation|salutation|escapeHtml}
                                                 {if {config name="displayprofiletitle"}}
                                                     {$sUserData.billingaddress.title|escapeHtml}<br/>
@@ -201,7 +211,7 @@
                                     {block name="frontend_account_index_primary_billing_actions"}
                                         <a href="{url controller=address action=edit id=$sUserData.additional.user.default_billing_address_id sTarget=account}"
                                            title="{s name='AccountLinkChangeBilling'}{/s}"
-                                           class="btn btn-primary btn-sm mb-2">
+                                           class="btn btn-outline-primary btn-sm mb-2 align-self-start mt-auto">
                                             {s name="AccountLinkChangeBilling"}{/s}
                                         </a>
 
@@ -209,7 +219,7 @@
                                            data-address-selection="true"
                                            data-setDefaultBillingAddress="1"
                                            data-id="{$sUserData.additional.user.default_billing_address_id}"
-                                           class="btn btn-outline-primary btn-sm"
+                                           class="btn btn-outline-secondary btn-sm mb-2 align-self-start mt-auto"
                                            title="{s name='AccountLinkSelectBilling'}{/s}">
                                             {s name="AccountLinkSelectBilling"}{/s}
                                         </a>
@@ -219,15 +229,16 @@
                         </div>
                     {/block}
                     {block name="frontend_account_index_primary_shipping"}
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-4">
                             <div class="card h-100">
-                                <div class="card-body">
+                                <div class="card-header bg-transparent">
                                     {block name="frontend_account_index_primary_shipping_headline"}
-                                        <h4 class="card-title">
+                                        <h4 class="mb-0">
                                             {s name="AccountHeaderPrimaryShipping"}{/s}
                                         </h4>
                                     {/block}
-
+                                </div>
+                                <div class="card-body d-flex flex-column">
                                     {block name="frontend_account_index_primary_shipping_content"}
                                         <address>
                                             {if $activeBillingAddressId == $activeShippingAddressId}
@@ -239,14 +250,14 @@
                                             {else}
                                                 {block name="frontend_account_index_primary_shipping_content_address"}
                                                     {if $sUserData.shippingaddress.company}
-                                                        <strong>
+                                                        <strong class="card-title">
                                                             <span class="address-company">{$sUserData.shippingaddress.company|escapeHtml}</span>
                                                             {if $sUserData.shippingaddress.department}
                                                                 - <span class="address-department">{$sUserData.shippingaddress.department|escapeHtml}</span>
                                                             {/if}
                                                         </strong><br>
                                                     {/if}
-                                                    <strong>
+                                                    <strong class="card-title">
                                                         <span class="address-salutation">{$sUserData.shippingaddress.salutation|salutation}</span>
                                                         {if {config name="displayprofiletitle"}}
                                                             <span class="address-title">{$sUserData.shippingaddress.title|escapeHtml}</span><br/>
@@ -278,7 +289,7 @@
                                         {if $activeBillingAddressId == $activeShippingAddressId}
                                             {block name="frontend_account_index_primary_shipping_choose_seperate_address"}
                                                 <a href="{url controller=address}"
-                                                   class="btn btn-primary btn-sm mb-2 choose-different-address"
+                                                   class="btn btn-outline-primary btn-sm mb-2 align-self-start mt-auto choose-different-address"
                                                    data-address-selection="true"
                                                    data-setDefaultShippingAddress="1"
                                                    data-id="{$sUserData.additional.user.default_shipping_address_id}"
@@ -290,7 +301,7 @@
                                             {block name="frontend_account_index_primary_shipping_add_select_address"}
                                                 <a href="{url controller=address action=edit id=$sUserData.additional.user.default_shipping_address_id sTarget=account}"
                                                    title="{s name='AccountLinkChangeShipping'}{/s}"
-                                                   class="btn btn-primary btn-sm mb-2">
+                                                   class="btn btn-outline-primary btn-sm mb-2 align-self-start mt-auto">
                                                     {s name="AccountLinkChangeShipping"}{/s}
                                                 </a>
 
@@ -299,7 +310,7 @@
                                                    data-setDefaultShippingAddress="1"
                                                    data-id="{$sUserData.additional.user.default_shipping_address_id}"
                                                    title="{s name='AccountLinkSelectShipping'}{/s}"
-                                                   class="btn btn-outline-primary btn-sm">
+                                                   class="btn btn-outline-secondary btn-sm align-self-start mt-auto">
                                                     {s name="AccountLinkSelectShipping"}{/s}
                                                 </a>
                                             {/block}
