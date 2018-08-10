@@ -37,40 +37,46 @@
                                 <div class="card h-100">
                                     {* data-equal="addressHeader"*}
                                     <div class="card-header bg-transparent">
-                                        {if $sUserData.additional.user.default_shipping_address_id == $address.id || $sUserData.additional.user.default_billing_address_id == $address.id}
-                                            <h4 class="mb-0">
-                                                {if $sUserData.additional.user.default_shipping_address_id == $address.id}
-                                                    <span>{s name="AddressesTitleDefaultShippingAddress"}Default shipping address{/s}</span>
+                                        <div class="row">
+                                            <div class="col-10 pr-0">
+                                                {if $sUserData.additional.user.default_shipping_address_id == $address.id || $sUserData.additional.user.default_billing_address_id == $address.id}
+                                                    <h4 class="mb-0">
+                                                        {if $sUserData.additional.user.default_shipping_address_id == $address.id}
+                                                            <span>{s name="AddressesTitleDefaultShippingAddress"}Default shipping address{/s}</span>
+                                                        {/if}
+                                                        {if $sUserData.additional.user.default_shipping_address_id == $address.id && $sUserData.additional.user.default_billing_address_id == $address.id}
+                                                            {s name="AddressesTitleDefaultShippingBillingAnd"} & {/s}
+                                                        {/if}
+                                                        {if $sUserData.additional.user.default_billing_address_id == $address.id}
+                                                            <span>{s name="AddressesTitleDefaultBillingAddress"}Default billing address{/s}</span>
+                                                        {/if}
+                                                    </h4>
                                                 {/if}
-                                                {if $sUserData.additional.user.default_shipping_address_id == $address.id && $sUserData.additional.user.default_billing_address_id == $address.id}
-                                                    {s name="AddressesTitleDefaultShippingBillingAnd"} & {/s}
-                                                {/if}
-                                                {if $sUserData.additional.user.default_billing_address_id == $address.id}
-                                                    <span>{s name="AddressesTitleDefaultBillingAddress"}Default billing address{/s}</span>
-                                                {/if}
-                                            </h4>
-                                        {/if}
-                                        {block name="frontend_address_item_content_title"}
-                                            <div class="text-right">
-                                                {block name="frontend_address_item_content_actions_delete"}
-                                                    {if $sUserData.additional.user.default_shipping_address_id != $address.id && $sUserData.additional.user.default_billing_address_id != $address.id}
-                                                        <a href="{url controller=address action=delete id=$address.id}" class="mrl" title="{s name="AddressesContentItemActionDelete"}Delete{/s}" >
-                                                            <i class="fa fa-trash"></i>
-                                                        </a>
-                                                    {/if}
-                                                {/block}
+                                            </div>
+                                            <div class="col-2 pl-0">
+                                                {block name="frontend_address_item_content_title"}
+                                                    <div class="text-right">
+                                                        {block name="frontend_address_item_content_actions_delete"}
+                                                            {if $sUserData.additional.user.default_shipping_address_id != $address.id && $sUserData.additional.user.default_billing_address_id != $address.id}
+                                                                <a href="{url controller=address action=delete id=$address.id}" class="mrl" title="{s name="AddressesContentItemActionDelete"}Delete{/s}" >
+                                                                    <i class="fa fa-trash"></i>
+                                                                </a>
+                                                            {/if}
+                                                        {/block}
 
-                                                {block name="frontend_address_item_content_actions_change"}
-                                                    <a href="{url controller=address action=edit id=$address.id}" title="{s name="AddressesContentItemActionEdit"}Change{/s}">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </a>
+                                                        {block name="frontend_address_item_content_actions_change"}
+                                                            <a href="{url controller=address action=edit id=$address.id}" title="{s name="AddressesContentItemActionEdit"}Change{/s}">
+                                                                <i class="fa fa-pencil"></i>
+                                                            </a>
+                                                        {/block}
+                                                    </div>
                                                 {/block}
                                             </div>
-                                        {/block}
+                                        </div>
                                     </div>
                                     <div class="card-body d-flex flex-column">
                                         {block name="frontend_address_item_content_inner"}
-                                            <address class="mbm" data-equal="address">   
+                                            <address class="mb-3" data-equal="address">
                                                 {if $address.company}
                                                     <p>{$address.company|escapeHtml}{if $address.department} - {$address.department|escapeHtml}{/if}</p>
                                                 {/if}

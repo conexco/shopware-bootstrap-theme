@@ -8,11 +8,11 @@
 
 {* Main content *}
 {block name="frontend_index_content"}
-    <div class="account-address-create" data-register="true">
+    <div class="card mb-4" data-register="true">
 
         {* Address headline *}
         {block name="frontend_address_form_headline"}
-            <h1>{s name="AddressesTitleCreate"}Neue Adresse anlegen{/s}</h1>
+            <h1 class="card-header bg-transparent">{s name="AddressesTitleCreate"}Neue Adresse anlegen{/s}</h1>
         {/block}
 
         {block name="frontend_address_form_content"}
@@ -22,9 +22,12 @@
                 {$url={url controller=address action=create}}
             {/if}
 
-            <form name="frmAddresses" method="post" action="{$url}">
-                {include file="frontend/address/form.tpl" formAction="{$url}"}
-            </form>
+            <div class="card-body">
+                <form name="frmAddresses" method="post" action="{$url}">
+                    {include file="frontend/address/form.tpl" formAction="{$url}"}
+                </form>
+            </div>
+
         {/block}
 
     </div>

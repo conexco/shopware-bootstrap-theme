@@ -86,11 +86,13 @@
                                 {/block}
 
                                 {block name="frontend_account_index_info_actions"}
-                                    <a href="{url controller=account action=profile}" 
-                                       class="btn btn-outline-primary btn-sm align-self-start mt-auto"
-                                       title="{s name='AccountLinkChangeProfile'}{/s}">
-                                        {s name='AccountLinkChangeProfile'}Profil anpassen{/s}
-                                    </a>
+                                    <div class="align-self-start mt-auto">
+                                        <a href="{url controller=account action=profile}"
+                                           class="btn btn-outline-primary btn-sm mb-2"
+                                           title="{s name='AccountLinkChangeProfile'}{/s}">
+                                            {s name='AccountLinkChangeProfile'}Profil anpassen{/s}
+                                        </a>
+                                    </div>
                                 {/block}
                             </div>
                         </div>
@@ -121,11 +123,13 @@
                                 {/block}
 
                                 {block name="frontend_account_index_payment_method_actions"}
-                                    <a href="{url controller='account' action='payment'}" 
-                                       title="{s name='AccountLinkChangePayment'}{/s}" 
-                                       class="btn btn-outline-primary btn-sm align-self-start mt-auto">
-                                        {s name='AccountLinkChangePayment'}{/s}
-                                    </a>
+                                    <div class="align-self-start mt-auto">
+                                        <a href="{url controller='account' action='payment'}"
+                                           title="{s name='AccountLinkChangePayment'}{/s}"
+                                           class="btn btn-outline-primary btn-sm mb-2">
+                                            {s name='AccountLinkChangePayment'}{/s}
+                                        </a>
+                                    </div>
                                 {/block}
                             </div>
                         </div>
@@ -209,20 +213,22 @@
                                     {/block}
 
                                     {block name="frontend_account_index_primary_billing_actions"}
-                                        <a href="{url controller=address action=edit id=$sUserData.additional.user.default_billing_address_id sTarget=account}"
-                                           title="{s name='AccountLinkChangeBilling'}{/s}"
-                                           class="btn btn-outline-primary btn-sm mb-2 align-self-start mt-auto">
-                                            {s name="AccountLinkChangeBilling"}{/s}
-                                        </a>
+                                        <div class="align-self-start mt-auto">
+                                            <a href="{url controller=address action=edit id=$sUserData.additional.user.default_billing_address_id sTarget=account}"
+                                               title="{s name='AccountLinkChangeBilling'}{/s}"
+                                               class="btn btn-outline-primary btn-sm mb-2">
+                                                {s name="AccountLinkChangeBilling"}{/s}
+                                            </a>
 
-                                        <a href="{url controller=address}"
-                                           data-address-selection="true"
-                                           data-setDefaultBillingAddress="1"
-                                           data-id="{$sUserData.additional.user.default_billing_address_id}"
-                                           class="btn btn-outline-secondary btn-sm mb-2 align-self-start mt-auto"
-                                           title="{s name='AccountLinkSelectBilling'}{/s}">
-                                            {s name="AccountLinkSelectBilling"}{/s}
-                                        </a>
+                                            <a href="{url controller=address}"
+                                               data-address-selection="true"
+                                               data-setDefaultBillingAddress="1"
+                                               data-id="{$sUserData.additional.user.default_billing_address_id}"
+                                               class="btn btn-outline-secondary btn-sm mb-2"
+                                               title="{s name='AccountLinkSelectBilling'}{/s}">
+                                                {s name="AccountLinkSelectBilling"}{/s}
+                                            </a>
+                                        </div>
                                      {/block}
                                 </div>
                             </div>
@@ -288,31 +294,35 @@
                                     {block name="frontend_account_index_primary_shipping_actions"}
                                         {if $activeBillingAddressId == $activeShippingAddressId}
                                             {block name="frontend_account_index_primary_shipping_choose_seperate_address"}
-                                                <a href="{url controller=address}"
-                                                   class="btn btn-outline-primary btn-sm mb-2 align-self-start mt-auto choose-different-address"
-                                                   data-address-selection="true"
-                                                   data-setDefaultShippingAddress="1"
-                                                   data-id="{$sUserData.additional.user.default_shipping_address_id}"
-                                                   title="{s name="ConfirmAddressChooseDifferentShippingAddress" namespace="frontend/checkout/confirm"}{/s}">
-                                                    {s name="ConfirmAddressChooseDifferentShippingAddress" namespace="frontend/checkout/confirm"}{/s}
-                                                </a>
+                                                <div class="align-self-start mt-auto">
+                                                    <a href="{url controller=address}"
+                                                       class="btn btn-outline-primary btn-sm mb-2 choose-different-address"
+                                                       data-address-selection="true"
+                                                       data-setDefaultShippingAddress="1"
+                                                       data-id="{$sUserData.additional.user.default_shipping_address_id}"
+                                                       title="{s name="ConfirmAddressChooseDifferentShippingAddress" namespace="frontend/checkout/confirm"}{/s}">
+                                                        {s name="ConfirmAddressChooseDifferentShippingAddress" namespace="frontend/checkout/confirm"}{/s}
+                                                    </a>
+                                                </div>
                                             {/block}
                                         {else}
                                             {block name="frontend_account_index_primary_shipping_add_select_address"}
-                                                <a href="{url controller=address action=edit id=$sUserData.additional.user.default_shipping_address_id sTarget=account}"
-                                                   title="{s name='AccountLinkChangeShipping'}{/s}"
-                                                   class="btn btn-outline-primary btn-sm mb-2 align-self-start mt-auto">
-                                                    {s name="AccountLinkChangeShipping"}{/s}
-                                                </a>
+                                                <div class="align-self-start mt-auto">
+                                                    <a href="{url controller=address action=edit id=$sUserData.additional.user.default_shipping_address_id sTarget=account}"
+                                                       title="{s name='AccountLinkChangeShipping'}{/s}"
+                                                       class="btn btn-outline-primary btn-sm mb-2">
+                                                        {s name="AccountLinkChangeShipping"}{/s}
+                                                    </a>
 
-                                                <a href="{url controller=address}"
-                                                   data-address-selection="true"
-                                                   data-setDefaultShippingAddress="1"
-                                                   data-id="{$sUserData.additional.user.default_shipping_address_id}"
-                                                   title="{s name='AccountLinkSelectShipping'}{/s}"
-                                                   class="btn btn-outline-secondary btn-sm align-self-start mt-auto">
-                                                    {s name="AccountLinkSelectShipping"}{/s}
-                                                </a>
+                                                    <a href="{url controller=address}"
+                                                       data-address-selection="true"
+                                                       data-setDefaultShippingAddress="1"
+                                                       data-id="{$sUserData.additional.user.default_shipping_address_id}"
+                                                       title="{s name='AccountLinkSelectShipping'}{/s}"
+                                                       class="btn btn-outline-secondary btn-sm mb-2">
+                                                        {s name="AccountLinkSelectShipping"}{/s}
+                                                    </a>
+                                                </div>
                                             {/block}
                                         {/if}
                                     {/block}

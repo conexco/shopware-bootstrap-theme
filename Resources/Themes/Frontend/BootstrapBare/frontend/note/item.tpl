@@ -88,7 +88,7 @@
                     </div>
                 {/block}
                 {block name="frontend_note_item_sale"}
-                    <div class="col-12 col-lg-3">
+                    <div class="col-12 col-lg-3 d-flex flex-column">
                         <div class="row">
                             <div class="col-12 col-sm-offset-6 col-sm-6 col-lg-12 col-lg-offset-0">
                                 <div class="row mbl">
@@ -118,7 +118,7 @@
                         </div>
                         {* Additional links *}
                         {block name="frontend_note_item_actions"}
-                            <div class="row">
+                            <div class="align-self-lg-center mt-auto">
                                 <div class="col-12 col-sm-6 col-sm-push-6 col-lg-12 col-lg-push-0 mbm-lg">
                                     {block name="frontend_note_item_actions_add_article"}
                                         {* Place article in basket *}
