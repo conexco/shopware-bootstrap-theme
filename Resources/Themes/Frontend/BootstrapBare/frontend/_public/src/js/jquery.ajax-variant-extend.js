@@ -75,8 +75,7 @@ $.overridePlugin('swAjaxVariant', {
                 var $response = $($.parseHTML(response, document, true)),
                     $productDetailsOriginal = $(me.opts.productDetailsSelector),
                     $productDetails,
-                    $productDescription,
-                    orderNumber;
+                    $productDescription;
 
                 $productDetails = $response.find(me.opts.productDetailsSelector);
 
@@ -87,7 +86,7 @@ $.overridePlugin('swAjaxVariant', {
                 $(me.opts.productDetailsDescriptionSelector).html($productDescription.html());
 
                 // Get the ordernumber for the url
-                ordernumber = $.trim(me.$el.find(me.opts.orderNumberSelector).text());
+                me.ordernumber = $.trim(me.$el.find(me.opts.orderNumberSelector).text());
 
                 // Update global variables
                 window.controller = window.snippets = window.themeConfig = window.lastSeenProductsConfig = window.csrfConfig = null;
@@ -116,7 +115,7 @@ $.overridePlugin('swAjaxVariant', {
 
                 if(pushState && me.hasHistorySupport) {
 
-                    var location = stateObj.location + '?number=' + ordernumber;
+                    var location = stateObj.location + '?number=' + me.ordernumber;
 
                     if(stateObj.params.hasOwnProperty('c')) {
                         location += '&c=' + stateObj.params.c;
