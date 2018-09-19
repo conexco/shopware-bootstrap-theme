@@ -52,6 +52,7 @@ function cartRefresh() {
     });
 }
 
+
 // plugin function to set the elements height to the highest of its siblings
 $.fn.equalMaxHeight = function () {
     var maxHeight = 0,
@@ -149,7 +150,17 @@ function applyMoveHelper() {
     });
 }
 
+// sets a cookie which expires in a specific time period
+function setCookie(key, days) {
+    var expires = new Date();
+    days = days || 1;
+
+    expires.setDate(expires.getDate() + days);
+    document.cookie = key + '=1; path=/ ;expires=' + expires.toUTCString();
+}
+
 // Expose methods for browser emulators
 window.safeUrl = safeUrl;
 window.cartRefresh = cartRefresh;
 window.applyMoveHelper = applyMoveHelper;
+window.setCookie = setCookie;
