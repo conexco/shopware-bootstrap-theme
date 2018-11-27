@@ -9,13 +9,16 @@
                 {/block}
                 {block name="frontend_widgets_topseller_slider_container"}
 
+                    {$lazyLoadingUrl = {url controller="epoq" action="template" type="widget" layout="slides" id="724016-00,732310-00,732311-00,723002-00"}}
+
                     {include file="frontend/_includes/product_slider.tpl"
                             articles=$sCharts
+                            lazyLoadingUrl=$lazyLoadingUrl
                             equalHeight="true"
 
                             sliderInfinite="1"
                             sliderAnimationSpeed="300"
-                            sliderAutoplay="1"
+                            sliderAutoplay="0"
                             sliderPauseOnHover="1"
 
                             sliderArrows="1"

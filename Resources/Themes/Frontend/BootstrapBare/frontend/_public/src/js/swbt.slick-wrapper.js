@@ -65,7 +65,8 @@
             // the category id for ajax loading.
             ajaxCategoryID: 3,
             // the maximum number of items to load via ajax.
-            ajaxMaxShow: 30
+            ajaxMaxShow: 30,
+            lazyLoadingUrl: false
         },
 
         /**
@@ -175,6 +176,8 @@
 
             me.trackItems();
 
+            me.registerLazyLoad();
+
             if (me.itemsCount <= 0 && opts.mode === 'ajax') {
                 me.loadItems(0, opts.ajaxMaxShow, $.proxy(me.initSlider, me));
                 return;
@@ -186,6 +189,35 @@
             if (opts.mode === 'ajax' && me.$el.attr('data-equalheight') && me.$el.is(':visible')) {
                 me.$el.equalHeight();
             }
+        },
+
+        registerLazyLoad: function() {
+            var me = this;
+
+            if (!me.opts.lazyLoadingUrl) {
+                return;
+            }
+
+            me.$el.on('afterChange', function(event, slick, currentSlide){
+
+                // TODO: don't load new items if direction is left (infinite)?
+
+                $.ajax({
+                    url: safeUrl(me.opts.lazyLoadingUrl),
+                    method: 'GET',
+                    success: function (response) {
+                        if (!response.data.markup) {
+                            return;
+                        }
+
+                        // TODO: set new lazyLoadingUrl for the next 4 items
+
+                        // TODO: consider equal height
+
+                        me.$el.slick('slickAdd', response.data.markup);
+                    }
+                });
+            });
         },
 
         /**

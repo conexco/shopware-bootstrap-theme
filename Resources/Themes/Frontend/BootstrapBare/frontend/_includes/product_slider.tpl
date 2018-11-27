@@ -65,6 +65,7 @@
 {block name="frontend_common_product_slider_component"}
     {block name="frontend_common_product_slider_container"}
         <div class="slick{if $productSliderCls} {$productSliderCls}{/if}"
+             {if $lazyLoadingUrl}data-lazyLoadingUrl="{$lazyLoadingUrl}"{/if}
              {if $equalHeight|sliderDefault:false}data-equalheight="{$equalHeight}"{/if}
              {if $sliderMode}data-mode="{$sliderMode}"{/if}
              {if $sliderAjaxCtrlUrl}data-ajaxCtrlUrl="{$sliderAjaxCtrlUrl}"{/if}
