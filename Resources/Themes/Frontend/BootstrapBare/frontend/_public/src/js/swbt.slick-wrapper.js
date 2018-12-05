@@ -66,7 +66,8 @@
             ajaxCategoryID: 3,
             // the maximum number of items to load via ajax.
             ajaxMaxShow: 30,
-            lazyLoadingUrl: false
+            lazyLoadingUrl: false,
+            lazyLoadingOrdernumbers: false
         },
 
         /**
@@ -194,7 +195,7 @@
         registerLazyLoad: function() {
             var me = this;
 
-            if (!me.opts.lazyLoadingUrl) {
+            if (!me.opts.lazyLoadingUrl || !me.opts.lazyLoadingOrdernumbers) {
                 return;
             }
 
@@ -202,17 +203,21 @@
 
                 // TODO: don't load new items if direction is left (infinite)?
 
+                // TODO: get first 4 items, add them in the data object and remove them from me.opts.lazyLoadingOrdernumbers
+                var ordernumbersArr = me.opts.lazyLoadingOrdernumbers.split(',');
+
                 $.ajax({
                     url: safeUrl(me.opts.lazyLoadingUrl),
+                    data: {
+                        id: ordernumbersArr[0]+','+ordernumbersArr[1]+','+ordernumbersArr[2]+','+ordernumbersArr[3]
+                    },
                     method: 'GET',
                     success: function (response) {
-                        if (!response.data.markup) {
+                        if (!response || !response.data || !response.data.markup) {
                             return;
                         }
 
                         // TODO: set new lazyLoadingUrl for the next 4 items
-
-                        // TODO: consider equal height
 
                         me.$el.slick('slickAdd', response.data.markup);
                     }

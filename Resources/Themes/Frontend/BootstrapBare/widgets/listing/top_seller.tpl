@@ -9,11 +9,25 @@
                 {/block}
                 {block name="frontend_widgets_topseller_slider_container"}
 
-                    {$lazyLoadingUrl = {url controller="epoq" action="template" type="widget" layout="slides" id="724016-00,732310-00,732311-00,723002-00"}}
+                    {$lazyLoadingOrdernumbers = ''}
+
+                    {* build ordernumbers array *}
+                    {foreach $sCharts as $chart}
+                        {if $chart@index >= 8}
+                            {if $lazyLoadingOrdernumbers != ''}
+                                {$lazyLoadingOrdernumbers = "`$lazyLoadingOrdernumbers`,`$chart.ordernumber`"}
+                            {else}
+                                {$lazyLoadingOrdernumbers = $chart.ordernumber}
+                            {/if}
+                        {/if}
+                    {/foreach}
+
+                    {$lazyLoadingUrl = {url controller="epoq" action="template" type="widget" layout="slides"}}
 
                     {include file="frontend/_includes/product_slider.tpl"
                             articles=$sCharts
                             lazyLoadingUrl=$lazyLoadingUrl
+                            lazyLoadingOrdernumbers=$lazyLoadingOrdernumbers
                             equalHeight="true"
 
                             sliderInfinite="1"
