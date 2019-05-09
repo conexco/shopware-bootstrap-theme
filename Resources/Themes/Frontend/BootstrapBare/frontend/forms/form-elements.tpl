@@ -104,17 +104,16 @@
                     </div>
                 {/block}
 
-                {* Data protection information *}
-                {block name='frontend_forms_form_elements_form_privacy'}
-                    {if {config name=ACTDPRTEXT} || {config name=ACTDPRCHECK}}
-                        {include file="frontend/_includes/privacy.tpl"}
-                    {/if}
-                {/block}
-
                 {* Forms actions *}
                 {block name='frontend_forms_elements_form_submit'}
                     <div class="form-group">
                         <div class="{$FormLabelOffset} {$FormInputSize}">
+                            {* Data protection information *}
+                            {block name='frontend_forms_form_elements_form_privacy'}
+                                {if {config name=ACTDPRTEXT} || {config name=ACTDPRCHECK}}
+                                    {include file="frontend/_includes/privacy.tpl"}
+                                {/if}
+                            {/block}
                             <span class="help-block required-info">{s name='SupportLabelInfoFields'}{/s}</span>
                             <input class="btn btn-primary" type="submit" name="Submit" value="{s name='SupportActionSubmit'}{/s}">
                         </div>
