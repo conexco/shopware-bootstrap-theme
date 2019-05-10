@@ -16,6 +16,9 @@
                             {$field = $sSupport.sFields[$sKey]|replace:'{literal}':''|replace:'{/literal}':''|replace:'%*%':"{s name='RequiredField' namespace='frontend/register/index'}{/s}"}
 
                             {if !$sSupport.sFields[$sKey]|strstr:"type=\"checkbox"}
+                                <pre>
+                                    {$sSupport.sFields[$sKey]|@print_r}
+                                </pre>
                                 <div class="form-group{if $sSupport.sFields[$sKey]|strpos:"instyle_error"} has-error{/if}">
                                     {$sSupport.sLabels.$sKey|replace:'<label ':$smarty.capture.formlabel}
                                     <div class="{$FormInputSize}">
