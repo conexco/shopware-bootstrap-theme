@@ -111,6 +111,13 @@
                 </div>
             {/block}
 
+            {* Data protection information *}
+            {block name='frontend_forms_form_elements_form_privacy'}
+                {if {config name=ACTDPRTEXT} || {config name=ACTDPRCHECK}}
+                    {include file="frontend/_includes/privacy.tpl"}
+                {/if}
+            {/block}
+
             {* Submit button *}
             {block name='frontend_blog_comments_input_submit'}
                 <div class="form-group">

@@ -37,6 +37,14 @@
     </div>
 {/block}
 
+{* Supplier *}
+{block name='frontend_detail_description_supplier'}
+    {if $sArticle.supplierDescription}
+        <h3>{s name="DetailDescriptionSupplier"}{/s} "{$sArticle.supplierName}"</h3>
+        <p>{$sArticle.supplierDescription}</p>
+    {/if}
+{/block}
+
 {* Links *}
 {block name='frontend_detail_description_links'}
     {if $sArticle.sLinks}
@@ -56,14 +64,6 @@
                 </li>
             {/foreach}
         </ul>
-    {/if}
-{/block}
-
-{* Supplier *}
-{block name='frontend_detail_description_supplier'}
-    {if $sArticle.supplierDescription}
-        <h3>{s name="DetailDescriptionSupplier"}{/s} "{$sArticle.supplierName}"</h3>
-        <p>{$sArticle.supplierDescription}</p>
     {/if}
 {/block}
 

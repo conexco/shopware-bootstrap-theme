@@ -225,6 +225,12 @@
                             {block name="frontend_newsletter_form_submit"}
                                 <div class="form-group">
                                     <div class="{$FormLabelOffset} {$FormInputSize}">
+                                        {* Data protection information *}
+                                        {block name="frontend_newsletter_form_privacy"}
+                                            {if {config name=ACTDPRTEXT} || {config name=ACTDPRCHECK}}
+                                                {include file="frontend/_includes/privacy.tpl"}
+                                            {/if}
+                                        {/block}
                                         <span class="help-block required-info">{s name='RegisterPersonalRequiredText' namespace='frontend/register/personal_fieldset'}{/s}</span>
                                         <button class="btn btn-primary" type="submit" name="submit">{s name=sNewsletterButton}{/s}</button>
                                     </div>
