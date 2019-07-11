@@ -16,7 +16,7 @@
                     <input type="hidden" name="register[personal][sValidation]" value="{$form_data.sValidation|escape}"/>
                 {else}
                     <div class="form-group{if isset($error_flags.customer_type)} has-error{/if} register-customertype sw5-plugin">
-                        {if {config name=showCompanySelectField}}
+                        {if {config name=showCompanySelectField} == 0}
                             <label for="register_personal_customer_type" class="{$FormLabelSize} control-label">{s name='RegisterPersonalLabelType'}{/s}{s name="RequiredField" namespace="frontend/register/index"}{/s}</label>
 
                             <div class="{$FormInputSize}">
@@ -25,12 +25,17 @@
                                         class="form-control is-required" 
                                         required="required" aria-required="true">
   
-                                    <option value="private"{if $form_data.customer_type eq "private"} selected="selected"{/if}>
-                                        {s name='RegisterPersonalLabelPrivate'}{/s}
-                                    </option>
-                                    <option value="business"{if $form_data.customer_type eq "business" or $form_data.company or $form_data.sValidation} selected="selected"{/if}>
-                                        {s name='RegisterPersonalLabelBusiness'}{/s}
-                                    </option>
+                                        <option value="" disabled="disabled" {if $form_data.customer_type eq ""} selected="selected"{/if}>
+                                            {s name='RegisterPersonalLabelType'}{/s}{s name="RequiredField" namespace="frontend/register/index"}{/s}
+                                        </option>
+
+                                        <option value="private" {if $form_data.customer_type eq "private" or (!$form_data.company and $sUserLoggedIn)} selected="selected"{/if}>
+                                            {s name='RegisterPersonalLabelPrivate'}{/s}
+                                        </option>
+
+                                        <option value="business"{if $form_data.customer_type eq "business" or $form_data.company or $form_data.sValidation} selected="selected"{/if}>
+                                            {s name='RegisterPersonalLabelBusiness'}{/s}
+                                        </option>
                                 </select>
                             </div>
                         {else}
