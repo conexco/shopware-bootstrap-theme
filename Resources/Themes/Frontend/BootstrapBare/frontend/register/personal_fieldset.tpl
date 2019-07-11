@@ -63,6 +63,11 @@
                                 class="form-control is-required"
                                 required="required" aria-required="true">
 
+                            <option value=""
+                                    {if $form_data.salutation eq ""} selected="selected"{/if}>
+                                {s name='RegisterPlaceholderSalutation'}{/s}{s name="RequiredField" namespace="frontend/register/index"}{/s}
+                            </option>
+
                             {foreach $salutations as $key => $label}
                                 <option value="{$key}"{if $form_data.salutation eq $key} selected="selected"{/if}>{$label}</option>
                             {/foreach}
