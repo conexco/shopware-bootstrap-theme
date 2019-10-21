@@ -2,7 +2,7 @@
 
 {* includes only if TicketSystem plugin is active *}
 {block name='frontend_index_content_left'}
-    {if {ControllerName} == 'ticket' && {ControllerAction} != 'index'}
+    {if {controllerName} == 'ticket' && {controllerAction} != 'index'}
         {include file="frontend/account/sidebar.tpl"}
     {else}
     	{$smarty.block.parent}
