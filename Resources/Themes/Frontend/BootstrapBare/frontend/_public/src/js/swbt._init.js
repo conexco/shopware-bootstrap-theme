@@ -1,8 +1,4 @@
 (function($, window) {
-
-    // GPDR Cookie consent banner
-    console.log('added gdpr inits');
-
 // calculate and set breakpoints: 1rem = 16px
 window.StateManager.init([
     {
