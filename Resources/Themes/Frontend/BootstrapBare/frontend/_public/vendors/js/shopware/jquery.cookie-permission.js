@@ -127,8 +127,6 @@
             me.preparePrivacyLink();
             me.registerEvents();
             me.displayCookiePermission(function(display) {
-                console.log('display:');
-                console.log(display);
                 if (display) {
                     me.showElement();
                 }
