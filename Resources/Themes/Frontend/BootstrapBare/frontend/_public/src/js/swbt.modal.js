@@ -252,7 +252,7 @@
             });
 
             $.publish('plugin/notifyModal/onOpenModal', [ me ]);
-        },
+        }
     });
 }(jQuery));
 

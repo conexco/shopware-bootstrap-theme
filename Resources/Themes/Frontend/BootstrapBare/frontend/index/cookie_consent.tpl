@@ -1,47 +1,52 @@
 {namespace name='frontend/cookie_consent/main'}
 
-<div id='cookie-consent' class='off-canvas is--left' data-cookie-consent-manager='true'>
-    {block name='frontend_index_cookie_consent_manager_content'}
-        {block name='frontend_index_cookie_consent_manager_header'}
-            <div class='cookie-consent--header cookie-consent--close'>
-                {s name="manager/title"}{/s}
+<div id='cookie-consent' class='modal' data-cookie-consent-manager='true'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            {block name='frontend_index_cookie_consent_manager_content'}
+                {block name='frontend_index_cookie_consent_manager_header'}
+                    <div class='modal-header cookie-consent--header'>
+                        {s name="manager/title"}{/s}
+                        <button type="button" class="close cookie-permission--close-button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>                </div>
+                {/block}
+                <div class="panel-body">
+                    {block name='frontend_index_cookie_consent_manager_description'}
+                        <div class='cookie-consent--description'>
+                            {s name="manager/description"}{/s}
+                        </div>
+                    {/block}
+                    {block name='frontend_index_cookie_consent_manager_configuration'}
+                        {if $cookieGroups}
+                            <div class='cookie-consent--configuration'>
+                                {block name="frontend_index_cookie_consent_manager_configuration_header"}
+                                    <div class='cookie-consent--configuration-header'>
+                                        <div class='cookie-consent--configuration-header-text h5'>{s name="manager/configuration/title"}{/s}</div>
+                                    </div>
+                                {/block}
 
-                <i class="icon--arrow-right"></i>
-           </div>
-        {/block}
-
-        {block name='frontend_index_cookie_consent_manager_description'}
-            <div class='cookie-consent--description'>
-                {s name="manager/description"}{/s}
-            </div>
-        {/block}
-
-        {if $cookieGroups}
-            {block name='frontend_index_cookie_consent_manager_configuration'}
-                    <div class='cookie-consent--configuration'>
-                        {block name="frontend_index_cookie_consent_manager_configuration_header"}
-                            <div class='cookie-consent--configuration-header'>
-                                <div class='cookie-consent--configuration-header-text'>{s name="manager/configuration/title"}{/s}</div>
+                                {block name="frontend_index_cookie_consent_manager_configuration_container"}
+                                    <div id="cookie-consent--configuration-main" class='cookie-consent--configuration-main panel-group' role="tablist" aria-multiselectable="true">
+                                        {foreach $cookieGroups as $cookieGroup}
+                                            {if $cookieGroup['cookies']|count}
+                                                {include file="frontend/index/cookie_consent/group.tpl"}
+                                            {/if}
+                                        {/foreach}
+                                    </div>
+                                {/block}
                             </div>
-                        {/block}
-
-                        {block name="frontend_index_cookie_consent_manager_configuration_container"}
-                            <div class='cookie-consent--configuration-main'>
-                                {foreach $cookieGroups as $cookieGroup}
-                                    {if $cookieGroup['cookies']|count}
-                                       {include file="frontend/index/cookie_consent/group.tpl"}
-                                    {/if}
-                                {/foreach}
+                        {/if}
+                    {/block}
+                </div>
+                {if $cookieGroups}
+                    <div class="modal-footer">
+                        {block name="frontend_index_cookie_consent_manager_save"}
+                            <div class="cookie-consent--save">
+                                <input class="cookie-consent--save-button btn btn-primary" type="button" value="{s name="manager/save"}{/s}" />
                             </div>
                         {/block}
                     </div>
+                {/if}
             {/block}
-
-            {block name="frontend_index_cookie_consent_manager_save"}
-                <div class="cookie-consent--save">
-                    <input class="cookie-consent--save-button btn is--primary" type="button" value="{s name="manager/save"}{/s}" />
-                </div>
-            {/block}
-        {/if}
-    {/block}
+        </div>
+    </div>
 </div>

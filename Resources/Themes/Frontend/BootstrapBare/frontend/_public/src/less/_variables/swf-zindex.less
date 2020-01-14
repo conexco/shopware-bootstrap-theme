@@ -10,10 +10,10 @@
 // custom
 
 @swf-zindex-variant-label:      			100;
-@swf-zindex-emotion-slider-title: 			100;
+@swf-zindex-emotion-slider-title: 		100;
 @swf-zindex-variant-input:      			101;
-@swf-zindex-emotion-mapping-link: 			110;
-@swf-zindex-box-emotion-image-element:		500;
+@swf-zindex-emotion-mapping-link: 		110;
+@swf-zindex-box-emotion-image-element:500;
 @swf-zindex-box-label-element:				501;
 @swf-zindex-menu:               			999;
 @swf-zindex-scroll-up:          			999;
@@ -21,13 +21,14 @@
 @swf-zindex-emotion-overlay:    			1000;
 @swf-zindex-custom-select:      			1035;   // must be lower than modal-background, but higher than navbar-fixed
 @swf-zindex-compare-popover:    			1049;   // must be lower than modal
-@swf-zindex-emotion-video-element: 			1000;
+@swf-zindex-emotion-video-element: 		1000;
 @swf-zindex-emotion-video-text: 			1100;
-@swf-zindex-emotion-video-play-btn: 		1200;
+@swf-zindex-emotion-video-play-btn: 	1200;
 @swf-zindex-emotion-video-cover: 			1300;
 @swf-zindex-overlay:            			5000;
 @swf-zindex-loader-full:        			5001;
-@swf-zindex-cookie-message:                 6000;
+@swf-zindex-cookie-message:           9999999999; // Trusted shops badge has a very high z-index - we need to overlay it
+@swf-zindex-cookie-consent-manager:   @swf-zindex-cookie-message;
 
 // selectBoxIt z-index is set via javascript to 999999.
 // offcanvas needs to have a higher z-index,

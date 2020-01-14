@@ -127,6 +127,8 @@
             me.preparePrivacyLink();
             me.registerEvents();
             me.displayCookiePermission(function(display) {
+                console.log('display:');
+                console.log(display);
                 if (display) {
                     me.showElement();
                 }
@@ -315,7 +317,7 @@
 
             this.hideElement();
             this.applyActiveToPreferences();
-            
+
             $.publish('plugin/swCookiePermission/onAcceptButtonClick', [this, event]);
         },
 
@@ -336,7 +338,7 @@
             document.cookie = 'cookieDeclined=1; path=' + this.getBasePath() + ';';
 
             this.hideElement();
-            
+
             $.publish('plugin/swCookiePermission/onDeclineButtonClick', [this, event]);
         },
 
@@ -360,11 +362,7 @@
          */
         showElement: function() {
             if (window.cookieRemoval === 2) {
-                $.modal.open(this.$el.html(), {
-                    title: this.opts.title,
-                    sizing: 'content',
-                    width: 500
-                });
+                $('#cookie-consent').modal('show');
 
                 this.$acceptButton = $(this.opts.acceptButtonSelector);
                 this.$closeButton = $(this.opts.closeButtonSelector);
@@ -385,7 +383,6 @@
         hideElement: function() {
             this.$el.addClass(this.opts.isHiddenClass);
             $body.css('padding-bottom', 0);
-            $.modal.close();
         },
 
         getBasePath: function () {

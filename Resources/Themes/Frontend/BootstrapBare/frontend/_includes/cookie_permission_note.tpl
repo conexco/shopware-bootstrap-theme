@@ -36,9 +36,9 @@
                         {block name="cookie_permission_decline_button_fixed"}
                             {if {config name="cookie_note_mode"} == 1}
                                 {block name="cookie_permission_decline_button"}
-                                    <a href="#" class="cookie-permission--decline-button btn is--large is--center">
+                                    <button class="cookie-permission--decline-button btn btn-default btn-lg btn-block">
                                         {s name="cookiePermission/declineText"}{/s}
-                                    </a>
+                                    </button>
                                 {/block}
                             {/if}
                         {/block}
@@ -46,18 +46,18 @@
                         {block name="cookie_permission_accept_button_fixed"}
                             {if {config name="cookie_note_mode"} == 1}
                                 {if {config name="cookie_show_button"}}
-                                    <a href="#" class="cookie-permission--accept-button btn is--large is--center">
+                                    <button class="cookie-permission--accept-button btn btn-primary btn-lg btn-block">
                                         {s name="cookiePermission/acceptAll"}{/s}
-                                    </a>
+                                    </button>
                                 {/if}
 
-                                <a href="#" class="cookie-permission--configure-button btn is--primary is--large is--center" data-openConsentManager="true">
+                                <button class="cookie-permission--configure-button btn btn-default btn-lg btn-block" data-openConsentManager="true">
                                     {s name="cookiePermission/configure"}{/s}
-                                </a>
+                                </button>
                             {else}
-                                <a href="#" class="cookie-permission--accept-button btn is--primary is--large is--center">
+                                <button class="cookie-permission--accept-button btn btn-primary btn-lg btn-block">
                                     {s name="cookiePermission/buttonText"}{/s}
-                                </a>
+                                </button>
                             {/if}
                         {/block}
                     </div>
@@ -88,8 +88,8 @@
                         {/if}
 
                         <div class="cookie-removal--buttons">
-                            <a class="btn is--secondary cookie-permission--accept-button is--center">{s name="cookiePermission/buttonText"}{/s}</a>
-                            <a class="btn cookie-permission--close-button is--center">{s name="cookiePermission/close"}{/s}</a>
+                            <button class="btn btn-secondary cookie-permission--accept-button">{s name="cookiePermission/buttonText"}{/s}</button>
+                            <button class="btn btn-default cookie-permission--close-button">{s name="cookiePermission/close"}{/s}</button>
                         </div>
                     </div>
                 {/block}

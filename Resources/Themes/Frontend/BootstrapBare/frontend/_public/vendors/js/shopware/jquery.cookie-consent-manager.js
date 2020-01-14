@@ -389,8 +389,12 @@
 
             this.assignCookieData();
 
-            this.$el.show();
+            // this.$el.show();
+            this.$el.modal('show');
             this.$el.addClass(this.opts.openClass);
+
+            // #webksde-TF: Remove this fucking disturbing swbt js-overlay
+            $('.js-overlay').remove();
 
             this.isOpened = true;
 
@@ -403,6 +407,8 @@
             if (!this.isOpened) {
                 return;
             }
+
+            this.$el.modal('hide');
 
             this.$el.removeClass(this.opts.openClass);
             this.isOpened = false;
