@@ -1,4 +1,4 @@
-(function($, window) {
+;(function($, window) {
     'use strict';
 
     var $body = $('body');
@@ -45,7 +45,7 @@
              * @property cookieConsentManagerSelector
              * @type {string}
              */
-            cookieConsentManagerSelector: '#cookie-consent',
+            cookieConsentManagerSelector: '*[data-cookie-consent-manager="true"]',
 
             /**
              * Selector of the close button to select the button and register events on it.
@@ -360,7 +360,11 @@
          */
         showElement: function() {
             if (window.cookieRemoval === 2) {
-                $('#cookie-consent').modal('show');
+                $.modal.open(this.$el.html(), {
+                    title: this.opts.title,
+                    sizing: 'content',
+                    width: 500
+                });
 
                 this.$acceptButton = $(this.opts.acceptButtonSelector);
                 this.$closeButton = $(this.opts.closeButtonSelector);
@@ -381,6 +385,13 @@
         hideElement: function() {
             this.$el.addClass(this.opts.isHiddenClass);
             $body.css('padding-bottom', 0);
+            // TODO - Modification of copied SW core file / MANUAL HANDLING REQUIRED ON UPDATE!
+            // The condition from showElement was missing here in SW core file
+            // which lead to unintended close of the cookie-consent-manager layer.
+            // Hopefully SW will fix this so this file can be reverted to be equal to core.
+            if (window.cookieRemoval === 2) {
+                $.modal.close();
+            }
         },
 
         getBasePath: function () {

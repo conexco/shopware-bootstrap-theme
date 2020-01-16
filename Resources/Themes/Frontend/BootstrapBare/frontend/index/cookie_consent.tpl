@@ -1,13 +1,14 @@
 {namespace name='frontend/cookie_consent/main'}
 
-<div id='cookie-consent' class='modal' data-cookie-consent-manager='true'>
+{* Set swbt-modal class to auto-open the modal in $.moda.open() instead of recreating it. *}
+<div id='cookie-consent' class='modal swbt-modal' data-cookie-consent-manager='true'>
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             {block name='frontend_index_cookie_consent_manager_content'}
                 {block name='frontend_index_cookie_consent_manager_header'}
                     <div class='modal-header cookie-consent--header'>
                         {s name="manager/title"}{/s}
-                        <button type="button" class="close cookie-permission--close-button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>                </div>
+                        <button type="button" class="close cookie-permission--close-button cookie-consent--close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>                </div>
                 {/block}
                 <div class="panel-body">
                     {block name='frontend_index_cookie_consent_manager_description'}

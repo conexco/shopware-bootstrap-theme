@@ -127,9 +127,7 @@
                                 <div id="content" class="container">
                                     {* Cookie consent manager*}
                                     {block name='frontend_index_cookie_consent_manager'}
-                                        {if {config name=cookie_note_mode} == 1 && {config name=show_cookie_note}}
-                                            {include file='frontend/index/cookie_consent.tpl'}
-                                        {/if}
+                                        {include file='frontend/index/cookie_consent.tpl'}
                                     {/block}
                                     {block name='frontend_index_content_container_inner'}
                                         <div class="content-container">

@@ -389,18 +389,24 @@
 
             this.assignCookieData();
 
+            // TODO - Modification of copied SW core file / MANUAL HANDLING REQUIRED ON UPDATE!
+            // This currently has to be added because the core implementation
+            // doesn't call a js plugin (like modal in swbt.modal.js) but directly
+            // uses the jQuery functions (show / hide) which makes it impossible
+            // to delegate the function cleanly to a js $.plugin implementation!
+            // Hopefully the core implementation will change in the future
+            // and uses a plugin instead like $.modal.open() / $.modal.close()
+            // Util that we have to adopt this change to SW Updates!
+
+            // Call bootstrap API modal show function instead of jquery show().
             // this.$el.show();
-            this.$el.modal('show');
-            this.$el.addClass(this.opts.openClass);
-
-            // #webksde-TF: Remove this fucking disturbing swbt js-overlay
-            $('.js-overlay').remove();
-
+            $.modal.open(this.$el);
+            // this.$el.addClass(this.opts.openClass);
+            // $.overlay.open({
+            //     onClose: $.proxy(this.close, this)
+            // });
+            // TODO - Modification of core file END.
             this.isOpened = true;
-
-            $.overlay.open({
-                onClose: $.proxy(this.close, this)
-            });
         },
 
         close: function () {
@@ -408,9 +414,19 @@
                 return;
             }
 
-            this.$el.modal('hide');
+            // TODO - Modification of copied SW core file / MANUAL HANDLING REQUIRED ON UPDATE!
+            // This currently has to be added because the core implementation
+            // doesn't call a js plugin (like modal in swbt.modal.js) but directly
+            // uses the jQuery functions (show / hide) which makes it impossible
+            // to delegate the function cleanly to a js $.plugin implementation!
+            // Hopefully the core implementation will change in the future
+            // and uses a plugin instead like $.modal.open() / $.modal.close().
+            // Util that we have to adopt this change to SW Updates!
 
-            this.$el.removeClass(this.opts.openClass);
+            // Call modal plugin function
+            $.modal.close();
+            // this.$el.removeClass(this.opts.openClass);
+            // TODO - Modification of core file END.
             this.isOpened = false;
         },
 
