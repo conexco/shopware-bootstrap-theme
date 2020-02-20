@@ -176,7 +176,7 @@
 
                             {* Last seen products *}
                             {block name="frontend_index_footer_last_articles"}
-                                {if $sLastArticlesShow}
+                                {if $sLastArticlesShow && !$isEmotionLandingPage}
                                     {block name="frontend_index_footer_last_articles_container"}
                                         <div class="container last-seen-products-wrapper">
                                             {block name="frontend_index_footer_last_articles_hr"}
