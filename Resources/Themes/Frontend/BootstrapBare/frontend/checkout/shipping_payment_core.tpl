@@ -48,3 +48,8 @@
         </div>
     {/block}
 {/block}
+
+{* Benefit and services footer *}
+{block name="frontend_checkout_footer"}
+    {include file="frontend/checkout/table_footer.tpl"}
+{/block}

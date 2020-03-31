@@ -5,16 +5,18 @@
 {block name='frontend_checkout_payment_content'}
     <div class="payment--method-list sw5-plugin">{* heidelpay compatibility *}
         {foreach $sPayments as $payment_mean}
-            <div class="payment-method payment--method sw5-plugin">{* heidelpay compatibility *}
+            <div class="payment-method payment--method sw5-plugin block{if $payment_mean@last} method_last{else} method{/if}">{* heidelpay compatibility *}
                 {* Method Name *}
                 {block name='frontend_checkout_payment_fieldset_input_label'}
                     <div class="radio">
                         <label for="payment_mean{$payment_mean.id}">
                             {* Radio Button *}
                             {block name='frontend_checkout_payment_fieldset_input_radio'}
-                                <input type="radio" name="payment" class="auto_submit" value="{$payment_mean.id}" id="payment_mean{$payment_mean.id}"{if $payment_mean.id eq $sFormData.payment or (!$sFormData && !$smarty.foreach.register_payment_mean.index)} checked="checked"{/if} />
+                                <div class="method--input">
+                                    <input type="radio" name="payment" class="radio auto_submit" value="{$payment_mean.id}" id="payment_mean{$payment_mean.id}"{if $payment_mean.id eq $sFormData.payment or (!$sFormData && !$smarty.foreach.register_payment_mean.index)} checked="checked"{/if} />
+                                </div>
                             {/block}
-                            {$payment_mean.description}
+                            <label class="method--name" for="payment_mean{$payment_mean.id}">{$payment_mean.description}</label>
                         </label>
                     </div>
                 {/block}
@@ -36,5 +38,5 @@
                 {/block}
             </div>
         {/foreach}
-    </div>    
+    </div>
 {/block}

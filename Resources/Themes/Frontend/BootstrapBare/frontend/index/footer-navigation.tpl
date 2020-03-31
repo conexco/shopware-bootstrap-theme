@@ -96,6 +96,19 @@
                                                     </span>
                                                 {/block}
                                             </div>
+                                            {* Data protection information *}
+                                            {block name="frontend_index_footer_column_newsletter_privacy"}
+                                                {if {config name=ACTDPRTEXT} || {config name=ACTDPRCHECK}}
+                                                    {$hideCheckbox=false}
+
+                                                    {* If a captcha is active, the user has to accept the privacy statement on the newsletter page *}
+                                                    {if {config name=newsletterCaptcha} !== "nocaptcha"}
+                                                        {$hideCheckbox=true}
+                                                    {/if}
+
+                                                    {include file="frontend/_includes/privacy.tpl" hideCheckbox=$hideCheckbox}
+                                                {/if}
+                                            {/block}
                                         {/block}
                                     </form>
                                  {/block}

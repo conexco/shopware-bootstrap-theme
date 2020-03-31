@@ -31,7 +31,11 @@
         <ul class="nav nav-tabs">
             {foreach $pages as $subPage}
                 <li{if $subPage.active} class="active"{/if}>
-                    <a href="{url controller=custom sCustom=$subPage.id}" title="{$subPage.description}">{$subPage.description}</a>
+                    <a href="{if $subPage.link}{$subPage.link}{else}{url controller='custom' sCustom=$subPage.id title=$subPage.description}{/if}"
+                    title="{$subPage.description}"
+                    data-categoryId="{$subPage.id}"
+                    data-fetchUrl="{url module=widgets controller=listing action=getCustomPage pageId={$subPage.id}}"
+                    {if $subPage.target}target="{$subPage.target}"{/if}>{$subPage.description}</a>
                 </li>
             {/foreach}
         </ul>

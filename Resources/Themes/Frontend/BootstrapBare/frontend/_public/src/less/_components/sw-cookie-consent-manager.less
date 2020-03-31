@@ -1,0 +1,112 @@
+#cookie-consent:extend(.sidebar-main.off-canvas) {
+    z-index: @swf-zindex-cookie-message;
+    .cookie-consent--configuration {
+        .cookie-consent--group {
+            border-bottom: 1px solid @gray-light;
+            position: relative;
+            .panel-title{
+                display:flex;
+                align-items:center;
+                text-align:left;
+            }
+        }
+        .cookie-consent--group-state{
+            flex: 0 0 auto;
+        }
+        .cookie-consent--group-title {
+            cursor: pointer;
+            flex: 1 0 auto;
+            display:flex;
+            align-items:center;
+            &[aria-expanded="true"]{
+                .cookie-consent--group-state-icon{
+                    transform: rotate(-180deg);
+                }
+            }
+        }
+        .cookie-consent--group-state-icon{
+            margin-left:auto;
+            transition-duration:80ms;
+            transition-property: transform;
+        }
+        .cookie-consent--cookies-container{
+            &:last-child{
+                margin-bottom:0;
+            }
+        }
+        .cookie-consent--cookie{
+            display:flex;
+            align-items:center;
+        }
+        .cookie-consent--state-input{
+            flex:0 0 auto;
+        }
+        .cookie--label{
+            flex:1 0 auto;
+            cursor:pointer;
+        }
+    }
+}
+
+// State input
+.cookie-consent--state-input {
+    margin:0;
+    .unitize(margin-right, 10);
+    &.cookie-consent--required {
+        opacity: 0.4;
+
+        .cookie-consent--state-input-element {
+            cursor: default;
+        }
+    }
+
+    .cookie-consent--state-input-element {
+        .unitize-height(20);
+        .unitize-width(20);
+        .unitize(border-radius, 3);
+        border: 1px solid @border-color;
+        cursor: pointer;
+        display: block;
+        position: relative;
+    }
+
+    input {
+        display: none;
+
+        &:checked+.cookie-consent--state-input-element {
+            background: @highlight-success;
+
+            &::after {
+                .unitize-width(10);
+                .unitize-height(5);
+                .unitize(top, 4);
+                .unitize(left, 3);
+
+                border: 2px solid #fff;
+                border-top: none;
+                border-right: none;
+                background: transparent;
+                content: '';
+                position: absolute;
+                transform: rotate(-45deg);
+            }
+        }
+
+        &:indeterminate+.cookie-consent--state-input-element {
+            background: #5f7285;
+
+            &::after {
+                .unitize-width(10);
+                .unitize-height(5);
+                .unitize(top, 3);
+                .unitize(left, 4);
+
+                border: 2px none #fff;
+                border-bottom-style: solid;
+                background: transparent;
+                content: '';
+                position: absolute;
+            }
+        }
+    }
+}

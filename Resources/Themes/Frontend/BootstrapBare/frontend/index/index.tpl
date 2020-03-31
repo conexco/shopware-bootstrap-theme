@@ -51,7 +51,7 @@
                                             {block name="frontend_index_navigation_nav_toggle"}
                                                 <div class="col-xs-3 visible-xs visible-sm">
                                                     {if !$theme.checkoutHeader || $theme.checkoutHeader && !({controllerAction} == 'confirm' || {controllerAction} == 'shippingPayment' || {controllerAction} == 'finish')}
-                                                        <button id="navToggle" 
+                                                        <button id="navToggle"
                                                                 class="btn btn-link nav-toggle"
                                                                 type="button"
                                                                 data-offcanvas="true"
@@ -125,6 +125,10 @@
                             {block name='frontend_index_content_container'}
                                 {*! Content section *}
                                 <div id="content" class="container">
+                                    {* Cookie consent manager*}
+                                    {block name='frontend_index_cookie_consent_manager'}
+                                        {include file='frontend/index/cookie_consent.tpl'}
+                                    {/block}
                                     {block name='frontend_index_content_container_inner'}
                                         <div class="content-container">
                                             {* Breadcrumb *}
@@ -165,14 +169,14 @@
                                                     {/block}
                                                 </div>
                                             {/block}
-                                        </div>    
+                                        </div>
                                     {/block}
                                 </div>
                             {/block}
 
                             {* Last seen products *}
                             {block name="frontend_index_footer_last_articles"}
-                                {if $sLastArticlesShow}
+                                {if $sLastArticlesShow && !$isEmotionLandingPage}
                                     {block name="frontend_index_footer_last_articles_container"}
                                         <div class="container last-seen-products-wrapper">
                                             {block name="frontend_index_footer_last_articles_hr"}
@@ -202,7 +206,7 @@
                                     {block name="frontend_index_footer_container_include"}
                                         {include file='frontend/index/footer.tpl'}
                                     {/block}
-                                    
+
                                     {block name="frontend_index_footer_bootstrap_link"}
                                         <p class="text-center">
                                             <small>
@@ -345,6 +349,7 @@
                         { device: 'desktop', enter: 1260, exit: 5160 }
                     ];
 
+                    var cookieRemoval = cookieRemoval || {config name="cookie_note_mode"};
                 {/block}
             </script>
         {/block}

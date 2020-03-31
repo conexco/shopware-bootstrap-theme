@@ -92,6 +92,9 @@ class Theme extends \Shopware\Components\Theme
             "jquery.form-polyfill.js",
             "jquery.pseudo-text.js",
             "jquery.preloader-button.js",
+            "jquery.invalid-tos-jump.js",
+            "jquery.notification-message-close.js",
+            "jquery.cookie-consent-manager.js",
         ];
 
         $sourceJavascripts = [
