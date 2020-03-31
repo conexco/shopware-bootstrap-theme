@@ -159,17 +159,25 @@
 
                         <div class="{$FormInputSize}">
                             <select name="register[billing][country]"
-                                    id="country"
-                                    class="form-control is-required select-country sw5-plugin"
-                                    required="required" aria-required="true">
+                                data-address-type="billing"
+                                id="country"
+                                required="required"
+                                aria-required="true"
+                                class="form-control is-required select-country sw5-plugin select--country is--required{if isset($error_flags.country)} has--error{/if}">
 
-                                <option value="" selected="selected">{s name='RegisterBillingPlaceholderCountry'}{/s}</option>
-                                {foreach from=$country_list item=country}
-                                    <option value="{$country.id}" {if $country.id eq $form_data.country}selected="selected"{/if} {if $country.states}stateSelector="country_{$country.id}_states"{/if}>
-                                        {$country.countryname}
-                                    </option>
-                                {/foreach}
-                            </select>
+                            <option disabled="disabled"
+                                    value=""
+                                    selected="selected">
+                                {s name='RegisterBillingPlaceholderCountry'}{/s}
+                                {s name="RequiredField" namespace="frontend/register/index"}{/s}
+                            </option>
+
+                            {foreach $country_list as $country}
+                                <option value="{$country.id}" {if $country.id eq $form_data.country}selected="selected"{/if} {if $country.states}stateSelector="country_{$country.id}_states"{/if}>
+                                    {$country.countryname}
+                                </option>
+                            {/foreach}
+                        </select>
                         </div>
                     </div>
                 {/block}
@@ -183,11 +191,13 @@
                                     <label for="country_{$country.id}_states" class="{$FormLabelSize} control-label">{s name='RegisterBillingLabelState'}Bundesstaat{/s}{if $country.force_state_in_registration}{s name="RequiredField" namespace="frontend/register/index"}{/s}{/if}:</label>
 
                                     <div class="{$FormInputSize}">
-                                        <select {if $country.id != $form_data.country}disabled="disabled"{/if} name="register[billing][country_state_{$country.id}]" id="country_{$country.id}_states" class="form-control{if $country.force_state_in_registration} is-required{/if}"{if $country.force_state_in_registration} required="required" aria-required="true"{/if}>
-                                            <option value="" selected="selected">{s name='RegisterBillingLabelSelect'}{/s}</option>
+                                        <select {if $country.id != $form_data.country}disabled="disabled"{/if} name="register[billing][country_state_{$country.id}]"{if $country.force_state_in_registration} required="required" aria-required="true"{/if} class="form-control is-required select--state {if $country.force_state_in_registration}is--required{/if}{if isset($error_flags.state)} has--error{/if}">
+                                            <option value="" selected="selected"{if $country.force_state_in_registration} disabled="disabled"{/if}>{s name='RegisterBillingLabelState'}{/s}{if $country.force_state_in_registration}{s name="RequiredField" namespace="frontend/register/index"}{/s}{/if}</option>
                                             {assign var="stateID" value="country_state_`$country.id`"}
-                                            {foreach from=$country.states item=state}
-                                                <option value="{$state.id}" {if $state.id eq $form_data[$stateID]}selected="selected"{/if}>{$state.name}</option>
+                                            {foreach $country.states as $state}
+                                                <option value="{$state.id}" {if $state.id eq $form_data['state']}selected="selected"{/if}>
+                                                    {$state.name}
+                                                </option>
                                             {/foreach}
                                         </select>
                                     </div>

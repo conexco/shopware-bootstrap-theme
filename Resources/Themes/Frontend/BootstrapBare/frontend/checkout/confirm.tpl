@@ -26,11 +26,20 @@
     {/if}
 {/block}
 
+{* Hide breadcrumb *}
+{block name='frontend_index_breadcrumb'}{/block}
+
 {* Hide shop navigation *}
 {block name='frontend_index_shop_navigation'}
     {if !$theme.checkoutHeader}
         {$smarty.block.parent}
     {/if}
+{/block}
+
+{* Step box *}
+{block name="frontend_index_content_top"}
+    {* Step box *}
+    {include file="frontend/register/steps.tpl" sStepActive="finished"}
 {/block}
 
 {* Hide top bar *}
@@ -50,17 +59,6 @@
         {/block}
     {/if}
 {/block}
-
-{* Hide breadcrumb *}
-{block name='frontend_index_breadcrumb'}{/block}
-
-{block name="frontend_index_content_top"}
-    {* Step box *}
-    {include file="frontend/register/steps.tpl" sStepActive="finished"}
-{/block}
-
-{* Hide sidebar left *}
-{block name='frontend_index_content_left'}{/block}
 
 {* Main content *}
 {block name="frontend_index_content"}
@@ -122,13 +120,19 @@
                                                             </address>
                                                             {block name="frontend_checkout_confirm_information_addresses_equal_panel_billing_invalid_data"}
                                                                 {if $invalidBillingAddress}
-                                                                    {include file='frontend/_includes/messages.tpl' type="warning" content="{s name='ConfirmAddressInvalidAddress'}{/s}"}
+                                                                    {if $invalidShippingCountry}
+                                                                        {s namespace="frontend/address/index" name="CountryNotAvailableForShipping" assign="snippetCountryNotAvailableForShipping"}{/s}
+                                                                        {include file='frontend/_includes/messages.tpl' type="warning" content=$snippetCountryNotAvailableForShipping}
+                                                                    {else}
+                                                                        {s name="ConfirmAddressInvalidAddress" assign="snippetConfirmAddressInvalidAddress"}{/s}
+                                                                        {include file='frontend/_includes/messages.tpl' type="warning" content=$snippetConfirmAddressInvalidAddress}
+                                                                    {/if}
                                                                 {else}
                                                                     {block name="frontend_checkout_confirm_information_addresses_equal_panel_billing_set_as_default"}
                                                                         {if $activeBillingAddressId != $sUserData.additional.user.default_billing_address_id || $activeShippingAddressId != $sUserData.additional.user.default_shipping_address_id}
                                                                             <div class="mbm">
                                                                                 <label for="set_as_default" class="checkbox-inline">
-                                                                                    <input name="setAsDefaultAddress" type="checkbox" id="set_as_default" value="1" />
+                                                                                    <input type="checkbox" name="setAsDefaultAddress" id="set_as_default" value="1" />
                                                                                     {s name='ConfirmUseForFutureOrders'}Als Standard verwenden{/s}
                                                                                 </label>
                                                                             </div>
@@ -658,16 +662,18 @@
                         {/block}
                     {else}
                         {block name='frontend_checkout_confirm_submit'}
-                            {* Submit order button *}
-                            {if $sPayment.embediframe || $sPayment.action}
-                                <button type="submit" class="btn btn-primary btn-lg mbl confirm-form-submit" form="confirm--form" data-preloader-button="true">
-                                    {s name='ConfirmDoPayment'}{/s}<i class="icon--arrow-right"></i>
-                                </button>
-                            {else}
-                                <button type="submit" class="btn btn-primary btn-lg mbl confirm-form-submit" form="confirm--form" data-preloader-button="true">
-                                    {s name='ConfirmActionSubmit'}{/s}<i class="icon--arrow-right"></i>
-                                </button>
-                            {/if}
+                            <div class="text-right">
+                                {* Submit order button *}
+                                {if $sPayment.embediframe || $sPayment.action}
+                                    <button type="submit" class="btn btn-primary btn-lg mbl confirm-form-submit" form="confirm--form" data-preloader-button="true">
+                                        {s name='ConfirmDoPayment'}{/s}<i class="icon--arrow-right"></i>
+                                    </button>
+                                {else}
+                                    <button type="submit" class="btn btn-primary btn-lg mbl confirm-form-submit" form="confirm--form" data-preloader-button="true">
+                                        {s name='ConfirmActionSubmit'}{/s}<i class="icon--arrow-right"></i>
+                                    </button>
+                                {/if}
+                            </div>
                         {/block}
                     {/if}
                 </div>
