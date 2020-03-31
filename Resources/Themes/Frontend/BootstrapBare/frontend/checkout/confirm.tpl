@@ -84,7 +84,7 @@
                 {block name='frontend_checkout_confirm_information_addresses'}
 
                     {if $activeBillingAddressId == $activeShippingAddressId}
-                        
+
                         {* Equal Billing & Shipping *}
                         {block name='frontend_checkout_confirm_information_addresses_equal'}
                             <div class="col-lg-12" id="confirm-billing-shipping-address">
@@ -160,8 +160,8 @@
                                                                         {s name="ConfirmAddressSelectLink"}{/s}
                                                                     </a>
                                                                 {/block}
-                                                            {/block}    
-                                                        </div>    
+                                                            {/block}
+                                                        </div>
                                                     {/block}
 
                                                     {block name='frontend_checkout_confirm_information_addresses_equal_panel_shipping'}
@@ -180,11 +180,11 @@
                                                     {/block}
                                                 </div>
                                             {/block}
-                                        </div>    
+                                        </div>
                                     </div>
                                 {/block}
                             </div>
-                        {/block}    
+                        {/block}
 
                     {else}
 
@@ -195,7 +195,7 @@
                                 {block name='frontend_checkout_confirm_information_addresses_billing_panel'}
                                     <div class="panel panel-default">
                                         <div class="panel-body">
-                                            
+
                                             {* Headline *}
                                             {block name='frontend_checkout_confirm_information_addresses_billing_panel_title'}
                                                 <legend>{s name="ConfirmHeaderBilling" namespace="frontend/checkout/confirm"}{/s}</legend>
@@ -266,7 +266,7 @@
                                                     </a>
                                                 {/block}
                                             {/block}
-                                        </div>    
+                                        </div>
                                     </div>
                                 {/block}
                             </div>
@@ -350,13 +350,13 @@
                                                     </a>
                                                 {/block}
                                             {/block}
-                                        </div>    
+                                        </div>
                                     </div>
                                 {/block}
                             </div>
                         {/block}
                     {/if}
-                {/block}    
+                {/block}
             </div>
         {/block}
 
@@ -401,7 +401,7 @@
                 {/block}
             </div>
         {/block}
-    {/block}    
+    {/block}
 
     {* AGB and Revocation *}
     {block name='frontend_checkout_confirm_tos_panel'}
@@ -420,7 +420,7 @@
                     {/block}
 
                     {block name='frontend_checkout_confirm_tos_panel_form'}
-                        <form id="confirmForm" method="post" action="{if $sPayment.embediframe || $sPayment.action}{url action='payment'}{else}{url action='finish'}{/if}">
+                        <form id="confirm--form" method="post" action="{if $sPayment.embediframe || $sPayment.action}{url action='payment'}{else}{url action='finish'}{/if}">
                             {* Terms of service *}
                             {block name='frontend_checkout_confirm_agb'}
                                 <div class="checkbox">
@@ -644,26 +644,37 @@
 
         {* Table actions *}
         {block name='frontend_checkout_confirm_confirm_table_actions'}
-            {if !$sLaststock.hideBasket}
-                {block name='frontend_checkout_confirm_submit'}
-                    <div class="text-right">
-                        {* Submit order button *}
-                        {if $sPayment.embediframe || $sPayment.action}
-                            <button type="submit" class="btn btn-primary btn-lg mbl confirm-form-submit" form="confirmForm" data-preloader-button="true">
-                                {s name='ConfirmDoPayment'}Zahlung durchführen{/s}
-                            </button>
-                        {else}
-                            <button type="submit" class="btn btn-primary btn-lg mbl confirm-form-submit" form="confirmForm" data-preloader-button="true">
-                                {s name='ConfirmActionSubmit'}{/s}
-                            </button>
-                        {/if}
-                    </div>
-                {/block}
-            {else}
-                {block name='frontend_checkout_confirm_stockinfo'}
-                    {include file="frontend/_includes/messages.tpl" type="danger" content="{s name='ConfirmErrorStock'}Ein Artikel aus Ihrer Bestellung ist nicht mehr verfügbar! Bitte entfernen Sie die Position aus dem Warenkorb!{/s}"}
-                {/block}
-            {/if}
+            <div class="table--actions actions--bottom">
+                <div class="main--actions">
+                    {if $sLaststock.hideBasket}
+                        {block name='frontend_checkout_confirm_stockinfo'}
+                            {s name="ConfirmErrorStock" assign="snippetConfirmErrorStock"}{/s}
+                            {include file="frontend/_includes/messages.tpl" type="danger" content=$snippetConfirmErrorStock}
+                        {/block}
+                    {elseif ($invalidBillingAddress || $invalidShippingAddress)}
+                        {block name='frontend_checkout_confirm_addressinfo'}
+                            {s name="ConfirmErrorInvalidAddress" assign="snippetConfirmErrorInvalidAddress"}{/s}
+                            {include file="frontend/_includes/messages.tpl" type="danger" content=$snippetConfirmErrorInvalidAddress}
+                        {/block}
+                    {else}
+                        {block name='frontend_checkout_confirm_submit'}
+                            {* Submit order button *}
+                            {if $sPayment.embediframe || $sPayment.action}
+                                <button type="submit" class="btn btn-primary btn-lg mbl confirm-form-submit" form="confirm--form" data-preloader-button="true">
+                                    {s name='ConfirmDoPayment'}{/s}<i class="icon--arrow-right"></i>
+                                </button>
+                            {else}
+                                <button type="submit" class="btn btn-primary btn-lg mbl confirm-form-submit" form="confirm--form" data-preloader-button="true">
+                                    {s name='ConfirmActionSubmit'}{/s}<i class="icon--arrow-right"></i>
+                                </button>
+                            {/if}
+                        {/block}
+                    {/if}
+                </div>
+            </div>
         {/block}
+
+
+
     {/block}
 {/block}

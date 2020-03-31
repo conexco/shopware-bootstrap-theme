@@ -1,3 +1,4 @@
+{if !$sUserLoggedIn}
 <form id="recalcShipping" method="POST" class="form-horizontal mtl" action="{url action='calculateShippingCosts' sTargetAction=$sTargetAction}">
     <legend>{s name="ShippingHeader"}{/s}</legend>
     {* Delivery country *}
@@ -11,9 +12,11 @@
                 <div class="{$FormInputSize} ">
                     <select id="basket_country_list" name="sCountry" class="form-control" data-auto-submit="true">
                         {foreach from=$sCountryList item=country}
-                            <option value="{$country.id}" {if $country.id eq $sCountry.id}selected{/if}>
-                                {$country.countryname}
-                            </option>
+                            {if $country.allow_shipping}
+                                <option value="{$country.id}"{if $country.id eq $sCountry.id} selected="selected"{/if}>
+                                    {$country.countryname}
+                                </option>
+                            {/if}
                         {/foreach}
                     </select>
                 </div>
@@ -31,10 +34,10 @@
 
                         {block name='frontend_checkout_shipping_costs_state_selection'}
                             <div class="{$FormInputSize} ">
-                                <select {if $country.id != $sCountry.id}disabled="disabled"{/if} name="sState" id="country_{$country.id}_states" class="form-control" data-auto-submit="true">
+                                <select name="sState" id="country_{$country.id}_states" class="form-control" data-auto-submit="true"{if $country.id != $sCountry.id} disabled="disabled"{/if}>
                                     <option value="" selected="selected">{s name='StateSelection'}{/s}</option>
-                                    {foreach from=$country.states item=state}
-                                        <option value="{$state.id}" {if $state.id eq $sState.id || $state.id eq $sState}selected="selected"{/if}>
+                                    {foreach $country.states as $state}
+                                        <option value="{$state.id}"{if $state.id eq $sState.id || $state.id eq $sState} selected="selected"{/if}>
                                             {$state.name}
                                         </option>
                                     {/foreach}
@@ -58,7 +61,7 @@
                 <div class="{$FormInputSize} ">
                     <select id="basket_payment_list" name="sPayment" class="form-control" data-auto-submit="true">
                         {foreach from=$sPayments item=payment}
-                            <option value="{$payment.id}" {if $payment.id eq $sPayment.id}selected{/if}>
+                            <option value="{$payment.id}"{if $payment.id eq $sPayment.id} selected="selected"{/if}>
                                 {$payment.description}
                             </option>
                         {/foreach}
@@ -79,8 +82,8 @@
                 <div class="{$FormInputSize}">
                     <select id="basket_dispatch_list" name="sDispatch" class="form-control" data-auto-submit="true">
                         {if $sDispatches}
-                            {foreach from=$sDispatches item=dispatch}
-                                <option value="{$dispatch.id}" {if $dispatch.id eq $sDispatch.id}selected{/if}>
+                            {foreach $sDispatches as $dispatch}
+                                <option value="{$dispatch.id}"{if $dispatch.id eq $sDispatch.id} selected="selected"{/if}>
                                     {$dispatch.name}
                                 </option>
                             {/foreach}
@@ -90,7 +93,7 @@
             {/block}
         </div>
     {/block}
-</form>
+
 
 {* Dispatch notice *}
 {block name='frontend_checkout_shipping_costs_dispatch_notice'}
@@ -98,3 +101,5 @@
         {include file="frontend/_includes/messages.tpl" type="info" content=$sDispatch.description}
     {/if}
 {/block}
+</form>
+{/if}
