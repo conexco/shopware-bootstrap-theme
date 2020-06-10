@@ -1,0 +1,88 @@
+.page-wrap--cookie-permission {
+    .unitize(padding, 10);
+    z-index: @swf-zindex-cookie-message;
+    border-top: 1px solid @gray-light;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    .cookie-permission--container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        @media screen and (min-width: @phoneLandscapeViewportWidth) {
+            flex-direction: row;
+            align-items: center;
+            text-align: left;
+        }
+        .cookie-permission--button {
+            display: flex;
+            flex-direction: column;
+            flex:1 0 auto;
+            .unitize(margin-top, 15);
+            @media screen and (min-width: @phoneLandscapeViewportWidth) {
+                margin-top:0;
+                .unitize(margin-left, 15);
+            }
+            @media screen and (min-width: @tabletLandscapeViewportWidth) {
+                flex-direction: row;
+                align-items: center;
+                flex: 1 1 auto;
+            }
+
+            .btn {
+                flex: 1 0 auto;
+                .unitize(margin, 5);
+                @media screen and (min-width: @tabletLandscapeViewportWidth) {
+                    flex: 0 1 auto;
+                }
+            }
+        }
+        .cookie-permission--privacy-link{
+            text-decoration: underline @swf-brand-primary;
+        }
+    }
+}
+
+// TODO: What is this?
+.cookie-removal--container {
+    .unitize(padding, 25);
+
+    .cookie-removal--list {
+        .unitize(margin-bottom, 20);
+        list-style-position: inside;
+    }
+
+    .cookie-removal--buttons {
+        .unitize(margin-top, 20);
+    }
+
+    .cookie-removal--buttons .btn {
+        .unitize(margin-bottom, 6);
+    }
+}
+
+@media screen and (min-width: @phoneLandscapeViewportWidth) {
+    .cookie-removal--container {
+        .cookie-removal--buttons {
+            margin: 0;
+        }
+
+        .privacy--notice {
+            .unitize(padding-top, 8);
+            display: inline-block;
+        }
+    }
+
+    .page-wrap--cookie-permission .cookie-permission--container {
+
+        .cookie-permission--accept-button,
+        .cookie-permission--decline-button,
+        .cookie-permission--configure-button {
+            margin-top: 0;
+        }
+    }
+}

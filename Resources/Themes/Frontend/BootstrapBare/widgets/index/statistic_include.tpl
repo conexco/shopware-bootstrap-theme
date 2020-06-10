@@ -1,10 +1,43 @@
 {block name="widgets_index_statistic_include"}
     <iframe id="refresh-statistics" width="0" height="0" style="display:none;"></iframe>
-    <script type="text/javascript">
+    <script>
+        /**
+         * @returns { boolean }
+         */
+        function hasCookiesAllowed () {
+            if (window.cookieRemoval === 0) {
+                return true;
+            }
+
+            if (window.cookieRemoval === 1) {
+                if (document.cookie.indexOf('cookiePreferences') !== -1) {
+                    return true;
+                }
+
+                return document.cookie.indexOf('cookieDeclined') === -1;
+            }
+
+            /**
+             * Must be cookieRemoval = 2, so only depends on existence of `allowCookie`
+             */
+            return document.cookie.indexOf('allowCookie') !== -1;
+        }
+
+        /**
+         * @returns { boolean }
+         */
+        function isDeviceCookieAllowed () {
+            var cookiesAllowed = hasCookiesAllowed();
+
+            if (window.cookieRemoval !== 1) {
+                return cookiesAllowed;
+            }
+
+            return cookiesAllowed && document.cookie.indexOf('"name":"x-ua-device","active":true') !== -1;
+        }
+
         (function(window, document) {
-            var cok = document.cookie.match(/session-{$Shop->getId()}=([^;])+/g),
-                sid = (cok && cok[0]) ? cok[0] : null,
-                par = document.location.search.match(/sPartner=([^&])+/g),
+            var par = document.location.search.match(/sPartner=([^&])+/g),
                 pid = (par && par[0]) ? par[0].substring(9) : null,
                 cur = document.location.protocol + '//' + document.location.host,
                 ref = document.referrer.indexOf(cur) === -1 ? document.referrer : null,
@@ -12,17 +45,19 @@
                 pth = document.location.pathname.replace("{url controller=index}", "/");
 
             url += url.indexOf('?') === -1 ? '?' : '&';
-            url += 'requestPage=' + encodeURI(pth);
+            url += 'requestPage=' + encodeURIComponent(pth);
             url += '&requestController=' + encodeURI("{$Controller|escape}");
-            if(sid) { url += '&' + sid; }
             if(pid) { url += '&partner=' + pid; }
-            if(ref) { url += '&referer=' + encodeURI(ref); }
+            if(ref) { url += '&referer=' + encodeURIComponent(ref); }
             {if $sArticle.articleID}
             url += '&articleId=' + encodeURI("{$sArticle.articleID}");
             {/if}
+            {if $sArticle.id && $Controller === 'blog'}
+            url += '&blogId=' + encodeURI("{$sArticle.id}");
+            {/if}
 
             {* Early simple device detection for statistics, duplicated in StateManager for resizes *}
-            if (document.cookie.indexOf('x-ua-device') === -1) {
+            if (isDeviceCookieAllowed()) {
                 var i = 0,
                     device = 'desktop',
                     width = window.innerWidth,
@@ -41,10 +76,9 @@
                 document.cookie = 'x-ua-device=' + device + '; path=/';
             }
 
-            document.asyncReady(function(){
-                var frm = document.getElementById('refresh-statistics');
-                frm.src = url;
-            });
+            document
+                .getElementById('refresh-statistics')
+                .src = url;
         })(window, document);
     </script>
 {/block}
