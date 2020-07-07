@@ -17,7 +17,7 @@
 							{s name="AboCommerceIntervalSelectWeeks"}Woche(n){/s}
 						{else}
 							{s name="AboCommerceIntervalSelectMonths"}Monat(e){/s}
-						{/if}{/strip}
+						{/if}
 					</option>
 				{/block}
 			{/for}
