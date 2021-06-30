@@ -5,11 +5,11 @@
 
     <services>
         <!-- subscribers -->
-        <service id="swf_bootstrap_theme.subscribers.frontend.checkout" class="SwfBootstrapTheme\Subscribers\Frontend\Checkout">
+        <service id="swf_bootstrap_theme.subscribers.frontend.checkout" class="SwfBootstrapTheme\Subscribers\Frontend\Checkout" public="true">
             <tag name="shopware.event_subscriber"/>
         </service>
 
-        <service id="swf_bootstrap_theme.subscribers.frontend" class="SwfBootstrapTheme\Subscribers\Frontend">
+        <service id="swf_bootstrap_theme.subscribers.frontend" class="SwfBootstrapTheme\Subscribers\Frontend" public="true">
             <argument type="service" id="shopware.plugin.cached_config_reader"/>
             <argument type="service" id="swf_bootstrap_theme.services.theme_config_reader"/>
             <argument>%swf_bootstrap_theme.plugin_name%</argument>
@@ -21,27 +21,27 @@
             <tag name="shopware.event_subscriber"/>
         </service>
 
-        <service id="swf_bootstrap_theme.subscribers.smarty" class="SwfBootstrapTheme\Subscribers\Smarty">
+        <service id="swf_bootstrap_theme.subscribers.smarty" class="SwfBootstrapTheme\Subscribers\Smarty" public="true">
             <argument type="service" id="swf_bootstrap_theme.services.theme_config_reader"/>
             <argument type="service" id="swf_bootstrap_theme.services.smarty_extensions"/>
             <tag name="shopware.event_subscriber"/>
         </service>
 
-        <service id="swf_bootstrap_theme.subscribers.widgets" class="SwfBootstrapTheme\Subscribers\Widgets">
+        <service id="swf_bootstrap_theme.subscribers.widgets" class="SwfBootstrapTheme\Subscribers\Widgets" public="true">
             <tag name="shopware.event_subscriber"/>
         </service>
 
 
         <!-- services -->
-        <service id="swf_bootstrap_theme.services.shop_selector" class="SwfBootstrapTheme\Services\ShopSelector">
+        <service id="swf_bootstrap_theme.services.shop_selector" class="SwfBootstrapTheme\Services\ShopSelector" public="true">
             <argument>%swf_bootstrap_theme.plugin_name%</argument>
             <argument type="service" id="dbal_connection"/>
         </service>
 
-        <service id="swf_bootstrap_theme.services.smarty_extensions" class="SwfBootstrapTheme\Services\SmartyExtensions">
+        <service id="swf_bootstrap_theme.services.smarty_extensions" class="SwfBootstrapTheme\Services\SmartyExtensions" public="true">
         </service>
 
-        <service id="swf_bootstrap_theme.services.theme_config_reader" class="SwfBootstrapTheme\Services\ThemeConfigReader">
+        <service id="swf_bootstrap_theme.services.theme_config_reader" class="SwfBootstrapTheme\Services\ThemeConfigReader" public="true">
             <argument type="service" id="theme_inheritance"/>
             <argument type="service" id="service_container"/>
         </service>
