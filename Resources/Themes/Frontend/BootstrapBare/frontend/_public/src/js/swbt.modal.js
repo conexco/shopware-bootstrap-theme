@@ -235,13 +235,17 @@
          */
         open: function (content, options) {
             var me = this,
-                $modalBox = me._$modalBox,
                 opts;
 
             me.options = opts = $.extend({}, me.defaults, options);
 
             // Bootstrap Modal start:
-            $('body').createModal(content, opts.sizing, opts.additionalClass + ' fade', opts.title, opts.footer, function(){}, opts);
+            me._$modalBox = $('body').createModal(content, opts.sizing, opts.additionalClass + ' fade', opts.title, opts.footer, function(){}, opts);
+            me._$content = $(content);
+            me._$header = $(opts.title);
+            me._$title = $(opts.title);
+            me._$closeButton = null;
+
             // Bootstrap Modal end:
 
             $.publish('plugin/swModal/onOpen', [ me ]);
@@ -672,7 +676,13 @@
 
             if (!me.opts['modal-gallery-url']) {
                 me.modalBody = '<a href="" data-dismiss="modal"><img src="' + imgSrc + '" class="' + me.opts.responsiveImgClass + '"></a>';
-                $('body').createModal(me.modalBody, me.opts['modal-size'], me.opts.imgModalSelector + ' fade', me.opts.title);
+                var content = me.modalBody;
+                var title = me.opts.title;
+                me._$modalBox = $('body').createModal(content, me.opts['modal-size'], me.opts.imgModalSelector + ' fade', title);
+                me._$content = $(content);
+                me._$header = $(title);
+                me._$title = $(title);
+                me._$closeButton = null;
             } else {
                 $body.loader('show');
                 $.publish('plugin/imgModal/beforeOpenModal', [me]);
@@ -702,11 +712,18 @@
                         me.setSliderAttributes($gallery);
 
                         if ($gallery[0] && $thumbs[0]) {
-                            $body.createModal($gallery[0].outerHTML + $thumbs[0].outerHTML, me.opts['modal-size'], me.opts.imgModalGallerySelector + ' fade', me.opts.title, false, function (modal) {
+                            var content = $gallery[0].outerHTML + $thumbs[0].outerHTML;
+                            var title = me.opts.title;
+                            me._$modalBox = $body.createModal(content, me.opts['modal-size'], me.opts.imgModalGallerySelector + ' fade', title, false, function (modal) {
                                 picturefill();
                                 $(modal).find('.slick').slickWrapper();
                                 $body.loader('hide');
                             });
+                            me._$content = $(content);
+                            me._$header = $(title);
+                            me._$title = $(title);
+                            me._$closeButton = null;
+
                         } else {
                             $body.loader('hide');
                         }
