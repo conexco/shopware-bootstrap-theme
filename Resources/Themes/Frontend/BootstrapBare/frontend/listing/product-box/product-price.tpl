@@ -39,7 +39,7 @@
         {* Regulation price *}
         {block name='frontend_listing_box_article_price_regulation'}
             {if $sArticle.regulationPrice}
-                <div class="price--regulation">
+                <div class="col-xs-5 col-sm-12 price--regulation">
 
                     {block name='frontend_listing_box_article_price_discount_before'}
                         {s name="priceRegulationLabel" namespace="frontend/detail/data"}{/s}
