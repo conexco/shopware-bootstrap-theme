@@ -31,7 +31,7 @@
 		{else}
             {* Discount price *}
             {block name='frontend_detail_data_pseudo_price'}
-                {if $sArticle.pseudoprice}
+                {if $sArticle.has_pseudoprice}
                     {block name='frontend_detail_data_pseudo_price_discount_icon'}{/block}
                     {* Discount price content *}
                     {block name='frontend_detail_data_pseudo_price_discount_content'}
@@ -42,7 +42,7 @@
                                     {s name="priceDiscountLabel"}{/s}
                                 {/block}
                                 <p class="text-right">
-                                    <span class="label label-danger price-saving">{$sArticle.pseudopricePercent.float|number_format:1:',': '.'}% {s name="DetailDataInfoSavePercent"}{/s}</span>
+                                    <span class="label label-danger price-saving">{$sArticle.pseudopricePercent.float|number}% {s name="DetailDataInfoSavePercent"}{/s}</span>
                                 </p>
                                 {block name='frontend_detail_data_pseudo_price_discount_after'}
                                     {s name="priceDiscountInfo"}{/s}
@@ -81,6 +81,25 @@
                                 {/if}
                                 {$sArticle.price|currency} {s name="Star" namespace="frontend/listing/box_article"}{/s}
                             </p>
+                        </div>
+                    {/block}
+                {/if}
+            {/block}
+
+            {* Regulation price *}
+            {block name='frontend_detail_data_regulation_price'}
+                {if $sArticle.regulationPrice}
+                    {* Regulation price content *}
+                    {block name='frontend_detail_data_regulation_price_content'}
+                        <div class="content--regulation">
+                            {block name='frontend_detail_data_regulation_price_before'}
+                                {s name="priceRegulationLabel"}{/s}
+                            {/block}
+                            <span>{$sArticle.regulationPrice|currency}{s name="Star" namespace="frontend/listing/box_article"}{/s}</span>
+
+                            {block name='frontend_detail_data_regulation_price_after'}
+                                {s name="priceRegulationInfo"}{/s}
+                            {/block}
                         </div>
                     {/block}
                 {/if}
