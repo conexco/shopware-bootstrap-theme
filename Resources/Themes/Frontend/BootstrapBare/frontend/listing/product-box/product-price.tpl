@@ -7,7 +7,7 @@
                 <div class="pseudo-wrapper" data-equal="pseudo">
                     {* Discount price *}
                     {block name='frontend_listing_box_article_price_discount'}
-                        {if $sArticle.pseudoprice}
+                        {if $sArticle.has_pseudoprice}
                             {block name='frontend_listing_box_article_price_discount_before'}
                                 {s name="priceDiscountLabel" namespace="frontend/detail/data"}{/s}
                             {/block}
@@ -35,6 +35,23 @@
                     {/block}
                 </div>
             </div>
+        {/block}
+        {* Regulation price *}
+        {block name='frontend_listing_box_article_price_regulation'}
+            {if $sArticle.regulationPrice}
+                <div class="col-xs-5 col-sm-12 price--regulation">
+
+                    {block name='frontend_listing_box_article_price_discount_before'}
+                        {s name="priceRegulationLabel" namespace="frontend/detail/data"}{/s}
+                    {/block}
+
+                    {$sArticle.regulationPrice|currency}{s name="Star" namespace="frontend/listing/box_article"}{/s}
+
+                    {block name='frontend_listing_box_article_price_discount_after'}
+                        {s name="priceRegulationInfo" namespace="frontend/detail/data"}{/s}
+                    {/block}
+                </div>
+            {/if}
         {/block}
     </div>
 {/block}

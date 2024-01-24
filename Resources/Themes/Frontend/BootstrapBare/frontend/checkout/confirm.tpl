@@ -5,6 +5,11 @@
     {$smarty.block.parent}
 {/block}
 
+{* #webksde: Added missing block ("PayPal Plus integration") *}
+{block name='frontend_index_header_javascript_jquery_lib'}
+    {$smarty.block.parent}
+{/block}
+
 {* Shop header *}
 {block name='frontend_index_navigation'}
     {* makes it possible to override checkout header in custom theme *}
@@ -26,11 +31,20 @@
     {/if}
 {/block}
 
+{* Hide breadcrumb *}
+{block name='frontend_index_breadcrumb'}{/block}
+
 {* Hide shop navigation *}
 {block name='frontend_index_shop_navigation'}
     {if !$theme.checkoutHeader}
         {$smarty.block.parent}
     {/if}
+{/block}
+
+{* Step box *}
+{block name="frontend_index_content_top"}
+    {* Step box *}
+    {include file="frontend/register/steps.tpl" sStepActive="finished"}
 {/block}
 
 {* Hide top bar *}
@@ -50,17 +64,6 @@
         {/block}
     {/if}
 {/block}
-
-{* Hide breadcrumb *}
-{block name='frontend_index_breadcrumb'}{/block}
-
-{block name="frontend_index_content_top"}
-    {* Step box *}
-    {include file="frontend/register/steps.tpl" sStepActive="finished"}
-{/block}
-
-{* Hide sidebar left *}
-{block name='frontend_index_content_left'}{/block}
 
 {* Main content *}
 {block name="frontend_index_content"}
@@ -84,7 +87,7 @@
                 {block name='frontend_checkout_confirm_information_addresses'}
 
                     {if $activeBillingAddressId == $activeShippingAddressId}
-                        
+
                         {* Equal Billing & Shipping *}
                         {block name='frontend_checkout_confirm_information_addresses_equal'}
                             <div class="col-lg-12" id="confirm-billing-shipping-address">
@@ -122,13 +125,19 @@
                                                             </address>
                                                             {block name="frontend_checkout_confirm_information_addresses_equal_panel_billing_invalid_data"}
                                                                 {if $invalidBillingAddress}
-                                                                    {include file='frontend/_includes/messages.tpl' type="warning" content="{s name='ConfirmAddressInvalidAddress'}{/s}"}
+                                                                    {if $invalidShippingCountry}
+                                                                        {s namespace="frontend/address/index" name="CountryNotAvailableForShipping" assign="snippetCountryNotAvailableForShipping"}{/s}
+                                                                        {include file='frontend/_includes/messages.tpl' type="warning" content=$snippetCountryNotAvailableForShipping}
+                                                                    {else}
+                                                                        {s name="ConfirmAddressInvalidAddress" assign="snippetConfirmAddressInvalidAddress"}{/s}
+                                                                        {include file='frontend/_includes/messages.tpl' type="warning" content=$snippetConfirmAddressInvalidAddress}
+                                                                    {/if}
                                                                 {else}
                                                                     {block name="frontend_checkout_confirm_information_addresses_equal_panel_billing_set_as_default"}
                                                                         {if $activeBillingAddressId != $sUserData.additional.user.default_billing_address_id || $activeShippingAddressId != $sUserData.additional.user.default_shipping_address_id}
                                                                             <div class="mbm">
                                                                                 <label for="set_as_default" class="checkbox-inline">
-                                                                                    <input name="setAsDefaultAddress" type="checkbox" id="set_as_default" value="1" />
+                                                                                    <input type="checkbox" name="setAsDefaultAddress" id="set_as_default" value="1" />
                                                                                     {s name='ConfirmUseForFutureOrders'}Als Standard verwenden{/s}
                                                                                 </label>
                                                                             </div>
@@ -160,8 +169,8 @@
                                                                         {s name="ConfirmAddressSelectLink"}{/s}
                                                                     </a>
                                                                 {/block}
-                                                            {/block}    
-                                                        </div>    
+                                                            {/block}
+                                                        </div>
                                                     {/block}
 
                                                     {block name='frontend_checkout_confirm_information_addresses_equal_panel_shipping'}
@@ -180,11 +189,11 @@
                                                     {/block}
                                                 </div>
                                             {/block}
-                                        </div>    
+                                        </div>
                                     </div>
                                 {/block}
                             </div>
-                        {/block}    
+                        {/block}
 
                     {else}
 
@@ -195,7 +204,7 @@
                                 {block name='frontend_checkout_confirm_information_addresses_billing_panel'}
                                     <div class="panel panel-default">
                                         <div class="panel-body">
-                                            
+
                                             {* Headline *}
                                             {block name='frontend_checkout_confirm_information_addresses_billing_panel_title'}
                                                 <legend>{s name="ConfirmHeaderBilling" namespace="frontend/checkout/confirm"}{/s}</legend>
@@ -266,7 +275,7 @@
                                                     </a>
                                                 {/block}
                                             {/block}
-                                        </div>    
+                                        </div>
                                     </div>
                                 {/block}
                             </div>
@@ -350,13 +359,13 @@
                                                     </a>
                                                 {/block}
                                             {/block}
-                                        </div>    
+                                        </div>
                                     </div>
                                 {/block}
                             </div>
                         {/block}
                     {/if}
-                {/block}    
+                {/block}
             </div>
         {/block}
 
@@ -401,122 +410,125 @@
                 {/block}
             </div>
         {/block}
-    {/block}    
+    {/block}
 
     {* AGB and Revocation *}
-    {block name='frontend_checkout_confirm_tos_panel'}
-        <div id="confirm-tos">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    {block name='frontend_checkout_confirm_tos_panel_headline'}
-                        <legend>{s name="ConfirmHeadlineAGBandRevocation"}AGB und Widerrufsbelehrung{/s}</legend>
-                    {/block}
+    {block name='frontend_checkout_confirm_form'}
+        <form id="confirm--form" method="post" action="{if $sPayment.embediframe || $sPayment.action}{url action='payment'}{else}{url action='finish'}{/if}">
 
-                    {* Right of revocation notice *}
-                    {block name='frontend_checkout_confirm_tos_revocation_notice'}
-                        {if {config name=revocationnotice}}
-                            <p>{s name="ConfirmTextRightOfRevocationModalLink"}Bitte beachten Sie bei Ihrer Bestellung auch unsere <a href="{url controller=custom sCustom=8}" data-toggle="ajax-modal">Widerrufsbelehrung</a>.{/s}</p>
-                        {/if}
-                    {/block}
-
-                    {block name='frontend_checkout_confirm_tos_panel_form'}
-                        <form id="confirmForm" method="post" action="{if $sPayment.embediframe || $sPayment.action}{url action='payment'}{else}{url action='finish'}{/if}">
-                            {* Terms of service *}
-                            {block name='frontend_checkout_confirm_agb'}
-                                <div class="checkbox">
-                                    <label for="sAGB"{if $sAGBError} class="text-danger"{/if}>
-                                        {if !{config name='IgnoreAGB'}}
-                                            {* Terms of service checkbox *}
-                                            {block name='frontend_checkout_confirm_agb_checkbox'}
-                                                <input type="checkbox" class="agb_accept" name="sAGB" id="sAGB" required="required" aria-required="true" {if $sAGBChecked} checked="checked"{/if} />
-                                            {/block}
-                                        {/if}
-                                        {* AGB label *}
-                                        {block name='frontend_checkout_confirm_agb_label'}
-                                            <span data-toggle="ajax-modal">{s name="ConfirmTerms"}{/s}</span>
-                                        {/block}
-                                    </label>
-                                </div>
-                            {/block}
-                            {block name="fontend_checkout_confirm_hiddenSComment"}
-                                <input class="user-comment-hidden" type="hidden" name="sComment" value="">
+            {block name='frontend_checkout_confirm_tos_panel'}
+                <div id="confirm-tos">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {block name='frontend_checkout_confirm_tos_panel_headline'}
+                                <legend>{s name="ConfirmHeadlineAGBandRevocation"}AGB und Widerrufsbelehrung{/s}</legend>
                             {/block}
 
-                            {* Service articles and ESD articles *}
-                            {block name='frontend_checkout_confirm_service_esd'}
-                                {* Service articles*}
-                                {block name='frontend_checkout_confirm_service'}
-                                    {if $hasServiceArticles}
-                                        <div class="checkbox">
-                                            <label for="serviceAgreementChecked"{if $agreementErrors && $agreementErrors.serviceError} class="text-danger"{/if}>
-                                                {* Service articles checkbox*}
-                                                {block name='frontend_checkout_confirm_service_checkbox'}
-                                                    <input type="checkbox" required="required" aria-required="true" name="serviceAgreementChecked" id="serviceAgreementChecked"{if $serviceAgreementChecked} checked="checked"{/if} />
-                                                    {* Service articles label*}
-                                                    {block name='frontend_checkout_confirm_service_label'}
-                                                        {s name="AcceptServiceMessage"}{/s}
-                                                    {/block}
-                                                {/block}
-                                            </label>
-                                        </div>
-                                    {/if}
-                                {/block}
-
-                                {* ESD articles*}
-                                {block name='frontend_checkout_confirm_esd'}
-                                    {if $hasEsdArticles}
-                                        <div class="checkbox">
-                                            <label for="esdAgreementChecked"{if $agreementErrors && $agreementErrors.esdError} class="text-danger"{/if}>
-                                                {* ESD articles checkbox*}
-                                                {block name='frontend_checkout_confirm_esd_checkbox'}
-                                                    <input type="checkbox" name="esdAgreementChecked" required="required" aria-required="true" id="esdAgreementChecked"{if $esdAgreementChecked} checked="checked"{/if} />
-                                                    {* ESD articles label *}
-                                                    {block name='frontend_checkout_confirm_esd_label'}
-                                                        {s name="AcceptEsdMessage"}{/s}
-                                                    {/block}
-                                                {/block}
-                                            </label>
-                                        </div>
-                                    {/if}
-                                {/block}
+                            {* Right of revocation notice *}
+                            {block name='frontend_checkout_confirm_tos_revocation_notice'}
+                                {if {config name=revocationnotice}}
+                                    <p>{s name="ConfirmTextRightOfRevocationModalLink"}Bitte beachten Sie bei Ihrer Bestellung auch unsere <a href="{url controller=custom sCustom=8}" data-toggle="ajax-modal">Widerrufsbelehrung</a>.{/s}</p>
+                                {/if}
                             {/block}
 
-                            {* Newsletter sign up checkbox *}
-                            {block name='frontend_checkout_confirm_newsletter'}
-                                {if !$sUserData.additional.user.newsletter && {config name=newsletter}}
+                            {block name='frontend_checkout_confirm_tos_panel_form'}
+                                {* Terms of service *}
+                                {block name='frontend_checkout_confirm_agb'}
                                     <div class="checkbox">
-                                        <label for="sNewsletter">
-                                            {* Newsletter checkbox *}
-                                            {block name='frontend_checkout_confirm_newsletter_checkbox'}
-                                                <input type="checkbox" name="sNewsletter" id="sNewsletter" value="1"{if $sNewsletter} checked="checked"{/if} />
-                                                {* Newsletter label *}
-                                                {block name='frontend_checkout_confirm_newsletter_label'}
-                                                    {s name="ConfirmLabelNewsletter"}{/s}
+                                        <label for="sAGB"{if $sAGBError} class="text-danger"{/if}>
+                                            {if !{config name='IgnoreAGB'}}
+                                                {* Terms of service checkbox *}
+                                                {block name='frontend_checkout_confirm_agb_checkbox'}
+                                                    <input type="checkbox" class="agb_accept" name="sAGB" id="sAGB" required="required" aria-required="true" {if $sAGBChecked} checked="checked"{/if} />
                                                 {/block}
+                                            {/if}
+                                            {* AGB label *}
+                                            {block name='frontend_checkout_confirm_agb_label'}
+                                                <span data-toggle="ajax-modal">{s name="ConfirmTerms"}{/s}</span>
                                             {/block}
                                         </label>
                                     </div>
+                                {/block}
+                                {block name="fontend_checkout_confirm_hiddenSComment"}
+                                    <input class="user-comment-hidden" type="hidden" name="sComment" value="">
+                                {/block}
+
+                                {* Service articles and ESD articles *}
+                                {block name='frontend_checkout_confirm_service_esd'}
+                                    {* Service articles*}
+                                    {block name='frontend_checkout_confirm_service'}
+                                        {if $hasServiceArticles}
+                                            <div class="checkbox">
+                                                <label for="serviceAgreementChecked"{if $agreementErrors && $agreementErrors.serviceError} class="text-danger"{/if}>
+                                                    {* Service articles checkbox*}
+                                                    {block name='frontend_checkout_confirm_service_checkbox'}
+                                                        <input type="checkbox" required="required" aria-required="true" name="serviceAgreementChecked" id="serviceAgreementChecked"{if $serviceAgreementChecked} checked="checked"{/if} />
+                                                        {* Service articles label*}
+                                                        {block name='frontend_checkout_confirm_service_label'}
+                                                            {s name="AcceptServiceMessage"}{/s}
+                                                        {/block}
+                                                    {/block}
+                                                </label>
+                                            </div>
+                                        {/if}
+                                    {/block}
+
+                                    {* ESD articles*}
+                                    {block name='frontend_checkout_confirm_esd'}
+                                        {if $hasEsdArticles}
+                                            <div class="checkbox">
+                                                <label for="esdAgreementChecked"{if $agreementErrors && $agreementErrors.esdError} class="text-danger"{/if}>
+                                                    {* ESD articles checkbox*}
+                                                    {block name='frontend_checkout_confirm_esd_checkbox'}
+                                                        <input type="checkbox" name="esdAgreementChecked" required="required" aria-required="true" id="esdAgreementChecked"{if $esdAgreementChecked} checked="checked"{/if} />
+                                                        {* ESD articles label *}
+                                                        {block name='frontend_checkout_confirm_esd_label'}
+                                                            {s name="AcceptEsdMessage"}{/s}
+                                                        {/block}
+                                                    {/block}
+                                                </label>
+                                            </div>
+                                        {/if}
+                                    {/block}
+                                {/block}
+
+                                {* Newsletter sign up checkbox *}
+                                {block name='frontend_checkout_confirm_newsletter'}
+                                    {if !$sUserData.additional.user.newsletter && {config name=newsletter}}
+                                        <div class="checkbox">
+                                            <label for="sNewsletter">
+                                                {* Newsletter checkbox *}
+                                                {block name='frontend_checkout_confirm_newsletter_checkbox'}
+                                                    <input type="checkbox" name="sNewsletter" id="sNewsletter" value="1"{if $sNewsletter} checked="checked"{/if} />
+                                                    {* Newsletter label *}
+                                                    {block name='frontend_checkout_confirm_newsletter_label'}
+                                                        {s name="ConfirmLabelNewsletter"}{/s}
+                                                    {/block}
+                                                {/block}
+                                            </label>
+                                        </div>
+                                    {/if}
+                                {/block}
+                            {/block}
+
+                            {* Additional custom text field which can be used to display the terms of services *}
+                            {block name="frontend_checkout_confirm_additional_free_text_display"}
+                                {if {config name=additionalfreetext}}
+                                    <p>{s name="ConfirmTextOrderDefault"}{/s}</p>
                                 {/if}
                             {/block}
-                        </form>
-                    {/block}
 
-                    {* Additional custom text field which can be used to display the terms of services *}
-                    {block name="frontend_checkout_confirm_additional_free_text_display"}
-                        {if {config name=additionalfreetext}}
-                            <p>{s name="ConfirmTextOrderDefault"}{/s}</p>
-                        {/if}
-                    {/block}
-
-                    {* Additional notice - bank connection *}
-                    {block name="frontend_checkout_confirm_bank_connection_notice"}
-                        {if {config name=bankConnection}}
-                            <p>{s name="ConfirmInfoPaymentData"}{/s}</p>
-                        {/if}
-                    {/block}
+                            {* Additional notice - bank connection *}
+                            {block name="frontend_checkout_confirm_bank_connection_notice"}
+                                {if {config name=bankConnection}}
+                                    <p>{s name="ConfirmInfoPaymentData"}{/s}</p>
+                                {/if}
+                            {/block}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            {/block}
+        </form>
     {/block}
 
     {* Additional feature which can be enabled / disabled in the base configuration *}
@@ -616,6 +628,16 @@
         {/if}
     {/block}
 
+    {* #webksde: Added missing block ("Do not allow deletion of items" *}
+    {block name='frontend_checkout_cart_item_delete_article'}
+        {$smarty.block.parent}
+    {/block}
+
+    {* #webksde: Added missing block ("Disable item quantity selection") *}
+    {block name='frontend_checkout_cart_item_quantity_selection'}
+        {$smarty.block.parent}
+    {/block}
+
     {block name='frontend_checkout_confirm_product_table'}
         {block name="frontend_checkout_confirm_product_table_content"}
             {* Product table header *}
@@ -644,26 +666,36 @@
 
         {* Table actions *}
         {block name='frontend_checkout_confirm_confirm_table_actions'}
-            {if !$sLaststock.hideBasket}
-                {block name='frontend_checkout_confirm_submit'}
-                    <div class="text-right">
-                        {* Submit order button *}
-                        {if $sPayment.embediframe || $sPayment.action}
-                            <button type="submit" class="btn btn-primary btn-lg mbl confirm-form-submit" form="confirmForm" data-preloader-button="true">
-                                {s name='ConfirmDoPayment'}Zahlung durchführen{/s}
-                            </button>
-                        {else}
-                            <button type="submit" class="btn btn-primary btn-lg mbl confirm-form-submit" form="confirmForm" data-preloader-button="true">
-                                {s name='ConfirmActionSubmit'}{/s}
-                            </button>
-                        {/if}
-                    </div>
-                {/block}
-            {else}
-                {block name='frontend_checkout_confirm_stockinfo'}
-                    {include file="frontend/_includes/messages.tpl" type="danger" content="{s name='ConfirmErrorStock'}Ein Artikel aus Ihrer Bestellung ist nicht mehr verfügbar! Bitte entfernen Sie die Position aus dem Warenkorb!{/s}"}
-                {/block}
-            {/if}
+            <div class="table--actions actions--bottom">
+                <div class="main--actions">
+                    {if $sLaststock.hideBasket}
+                        {block name='frontend_checkout_confirm_stockinfo'}
+                            {s name="ConfirmErrorStock" assign="snippetConfirmErrorStock"}{/s}
+                            {include file="frontend/_includes/messages.tpl" type="danger" content=$snippetConfirmErrorStock}
+                        {/block}
+                    {elseif ($invalidBillingAddress || $invalidShippingAddress)}
+                        {block name='frontend_checkout_confirm_addressinfo'}
+                            {s name="ConfirmErrorInvalidAddress" assign="snippetConfirmErrorInvalidAddress"}{/s}
+                            {include file="frontend/_includes/messages.tpl" type="danger" content=$snippetConfirmErrorInvalidAddress}
+                        {/block}
+                    {else}
+                        {block name='frontend_checkout_confirm_submit'}
+                            <div class="text-right">
+                                {* Submit order button *}
+                                {if $sPayment.embediframe || $sPayment.action}
+                                    <button type="submit" class="btn btn-primary btn-lg mbl confirm-form-submit" form="confirm--form" data-preloader-button="true">
+                                        {s name='ConfirmDoPayment'}{/s}<i class="icon--arrow-right"></i>
+                                    </button>
+                                {else}
+                                    <button type="submit" class="btn btn-primary btn-lg mbl confirm-form-submit" form="confirm--form" data-preloader-button="true">
+                                        {s name='ConfirmActionSubmit'}{/s}<i class="icon--arrow-right"></i>
+                                    </button>
+                                {/if}
+                            </div>
+                        {/block}
+                    {/if}
+                </div>
+            </div>
         {/block}
     {/block}
 {/block}

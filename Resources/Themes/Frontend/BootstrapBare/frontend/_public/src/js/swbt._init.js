@@ -1,215 +1,217 @@
 (function($, window) {
+// calculate and set breakpoints: 1rem = 16px
+window.StateManager.init([
+    {
+        state:  'xs', // xs
+        enter:  0,
+        exit:   swfDefaultBreakpointXS / 16         // 479px
+    },
+    {
+        state:  's',  // sm
+        enter:  (swfDefaultBreakpointXS + 1) / 16,  // 480px
+        exit:   swfDefaultBreakpointSM / 16         // 767px
+    },
+    {
+        state:  'm',  // hd
+        enter:  (swfDefaultBreakpointSM + 1) / 16,  // 768px
+        exit:   swfDefaultBreakpointHD / 16         // 1023px
+    },
+    {
+        state:  'l',  // md
+        enter:  (swfDefaultBreakpointHD + 1) / 16,  // 1024px
+        exit:   swfDefaultBreakpointMD / 16         // 1259px
+    },
+    {
+        state:  'xl', // lg
+        enter:  (swfDefaultBreakpointMD + 1) / 16,  // 1260px
+        exit:   (5160 / 16)
+    }
+]);
 
-    // calculate and set breakpoints: 1rem = 16px
-    window.StateManager.init([
-        {
-            state:  'xs', // xs
-            enter:  0,
-            exit:   swfDefaultBreakpointXS / 16         // 479px
-        },
-        {
-            state:  's',  // sm
-            enter:  (swfDefaultBreakpointXS + 1) / 16,  // 480px
-            exit:   swfDefaultBreakpointSM / 16         // 767px
-        },
-        {
-            state:  'm',  // hd
-            enter:  (swfDefaultBreakpointSM + 1) / 16,  // 768px
-            exit:   swfDefaultBreakpointHD / 16         // 1023px
-        },
-        {
-            state:  'l',  // md
-            enter:  (swfDefaultBreakpointHD + 1) / 16,  // 1024px
-            exit:   swfDefaultBreakpointMD / 16         // 1259px
-        },
-        {
-            state:  'xl', // lg
-            enter:  (swfDefaultBreakpointMD + 1) / 16,  // 1260px
-            exit:   (5160 / 16)
-        }
-    ]);
+window.StateManager.registerListener([{
+    state: '*',
+    enter: function() {
+        if ($('body').hasClass('ctl_detail'))
+            $('#similar').find('[data-equalheight="true"]').equalHeight();
+    }
+}]);
 
-    window.StateManager.registerListener([{
-        state: '*',
-        enter: function() {
-            if ($('body').hasClass('ctl_detail'))
-                $('#similar').find('[data-equalheight="true"]').equalHeight();
-        }
-    }]);
+// register move helper
+window.StateManager.registerListener([{
+    state: '*',
+    enter: function() {
+        applyMoveHelper();
+    }
+}]);
 
-    // register move helper
-    window.StateManager.registerListener([{
-        state: '*',
-        enter: function() {
-            applyMoveHelper();
-        }
-    }]);
+// Shopware plugin-base
+window.StateManager
+    // Menu
+    .addPlugin('[data-main-nav="true"]', 'mainNavigation')
 
-    // Shopware plugin-base
-    window.StateManager
-        // Menu 
-        .addPlugin('[data-main-nav="true"]', 'mainNavigation')
+    .addPlugin('#navToggle', 'swOffcanvasMenu', ['xs', 's'])
 
-        .addPlugin('#navToggle', 'swOffcanvasMenu', ['xs', 's'])
+    // Product compare menu
+    .addPlugin('*[data-product-compare-menu="true"]', 'swProductCompareMenu', {
+        fullwidthat: 8
+    }, ['xl'])
+    .addPlugin('*[data-product-compare-menu="true"]', 'swProductCompareMenu', {
+        fullwidthat: 6
+    }, ['l'])
+    .addPlugin('*[data-product-compare-menu="true"]', 'swProductCompareMenu', {
+        fullwidthat: 4
+    }, ['m'])
 
-        // Product compare menu
-        .addPlugin('*[data-product-compare-menu="true"]', 'swProductCompareMenu', {
-            fullwidthat: 8
-        }, ['xl'])
-        .addPlugin('*[data-product-compare-menu="true"]', 'swProductCompareMenu', {
-            fullwidthat: 6
-        }, ['l'])
-        .addPlugin('*[data-product-compare-menu="true"]', 'swProductCompareMenu', {
-            fullwidthat: 4
-        }, ['m'])
+    // Offcanvas tabs detail
+    .addPlugin('.off-canvas-tabs [data-offcanvas="true"]', 'swOffcanvasMenu', (typeof swfDetailOffcanvasViewports != 'undefined' ? swfDetailOffcanvasViewports : ['xs']))
 
-        // Offcanvas tabs detail
-        .addPlugin('.off-canvas-tabs [data-offcanvas="true"]', 'swOffcanvasMenu', (typeof swfDetailOffcanvasViewports != 'undefined' ? swfDetailOffcanvasViewports : ['xs']))
-        
-        // Offcanvas ajax cart 
-        .addPlugin('[data-ajax-cart="true"][data-offcanvas="true"]', 'swOffcanvasMenu', (typeof swfAjaxCartOffcanvasViewports != 'undefined' ? swfAjaxCartOffcanvasViewports : ['xs', 's']))
-        
-        // Offcanvas blog
-        .addPlugin('.off-canvas-blog [data-offcanvas="true"]', 'swOffcanvasMenu', (typeof swfBlogOffcanvasViewports != 'undefined' ? swfBlogOffcanvasViewports : ['xs', 's']))
+    // Offcanvas ajax cart
+    .addPlugin('[data-ajax-cart="true"][data-offcanvas="true"]', 'swOffcanvasMenu', (typeof swfAjaxCartOffcanvasViewports != 'undefined' ? swfAjaxCartOffcanvasViewports : ['xs', 's']))
 
-        // Offcanvas account
-        .addPlugin('.off-canvas-account [data-offcanvas="true"]', 'swOffcanvasMenu', (typeof swfAccountOffcanvasViewports != 'undefined' ? swfAccountOffcanvasViewports : ['xs', 's']))
+    // Offcanvas blog
+    .addPlugin('.off-canvas-blog [data-offcanvas="true"]', 'swOffcanvasMenu', (typeof swfBlogOffcanvasViewports != 'undefined' ? swfBlogOffcanvasViewports : ['xs', 's']))
 
-        // Ajax cart popover
-        .addPlugin('[data-ajax-cart="true"]', 'popoverWrapper', (typeof swfAjaxCartPopoverViewports != 'undefined' ? swfAjaxCartPopoverViewports : ['m', 'l', 'xl']))
+    // Offcanvas account
+    .addPlugin('.off-canvas-account [data-offcanvas="true"]', 'swOffcanvasMenu', (typeof swfAccountOffcanvasViewports != 'undefined' ? swfAccountOffcanvasViewports : ['xs', 's']))
 
-        // Default popover
-        .addPlugin('[data-toggle="popover"]', 'popoverWrapper')
-        
-        // Product navigation on detail
-        .addPlugin('body', 'swAjaxProductNavigation')
+    // Ajax cart popover
+    .addPlugin('[data-ajax-cart="true"]', 'popoverWrapper', (typeof swfAjaxCartPopoverViewports != 'undefined' ? swfAjaxCartPopoverViewports : ['m', 'l', 'xl']))
 
-        // Captcha
-        .addPlugin('div.captcha-placeholder[data-src]', 'swCaptcha')
+    // Default popover
+    .addPlugin('[data-toggle="popover"]', 'popoverWrapper')
 
-        // Tabs on detail
-        .addPlugin('.ctl_detail', 'detailTabs')
+    // Product navigation on detail
+    .addPlugin('body', 'swAjaxProductNavigation')
 
-        // Last seen products
-        .addPlugin('*[data-last-seen-products="true"]', 'swLastSeenProducts', $.extend({}, lastSeenProductsConfig))
+    // Captcha
+    .addPlugin('div.captcha-placeholder[data-src]', 'swCaptcha')
 
-        // Register
-        .addPlugin('div[data-register="true"]', 'swRegister')
+    // Tabs on detail
+    .addPlugin('.ctl_detail', 'detailTabs')
 
-        // Emotion world
-        .addPlugin('.emotion-wrapper', 'swEmotionLoader')
+    // Last seen products
+    .addPlugin('*[data-last-seen-products="true"]', 'swLastSeenProducts', $.extend({}, lastSeenProductsConfig))
 
-        // Add article modal
-        .addPlugin('*[data-add-article="true"]', 'swAddArticle')
+    // Register
+    .addPlugin('div[data-register="true"]', 'swRegister')
 
-        // Add product to compare
-        .addPlugin('*[data-compare-ajax="true"]', 'swProductCompareAdd')
+    // Emotion world
+    .addPlugin('.emotion-wrapper', 'swEmotionLoader')
 
-        // Listing
-        .addPlugin('*[data-listing-actions="true"]', 'swListingActions')
+    // Add article modal
+    .addPlugin('*[data-add-article="true"]', 'swAddArticle')
 
-        // Ajax wishlist
-        .addPlugin('*[data-ajax-wishlist="true"]', 'swAjaxWishlist')
+    // Add product to compare
+    .addPlugin('*[data-compare-ajax="true"]', 'swProductCompareAdd')
 
-        // Ajax cart
-        .addPlugin('[data-ajax-cart="true"]', 'ajaxCart')
+    // Listing
+    .addPlugin('*[data-listing-actions="true"]', 'swListingActions')
 
-        // Image zoom
-        .addPlugin('*[data-image-zoom="true"]', 'imageZoom')
+    // Ajax wishlist
+    .addPlugin('*[data-ajax-wishlist="true"]', 'swAjaxWishlist')
 
-        // Auto submit
-        .addPlugin('form *[data-auto-submit="true"]', 'swAutoSubmit')
+    // Ajax cart
+    .addPlugin('[data-ajax-cart="true"]', 'ajaxCart')
 
-        // Newsletter form
-        .addPlugin('*[data-newsletter="true"]', 'newsletterForm')
+    // Image zoom
+    .addPlugin('*[data-image-zoom="true"]', 'imageZoom')
 
-        // ShippingPayment change after register
-        .addPlugin('*[data-ajax-shipping-payment="true"]', 'swShippingPayment')
+    // Auto submit
+    .addPlugin('form *[data-auto-submit="true"]', 'swAutoSubmit')
 
-        // Infinite scrolling
-        .addPlugin('*[data-infinite-scrolling="true"]', 'swInfiniteScrolling')
+    // Newsletter form
+    .addPlugin('*[data-newsletter="true"]', 'newsletterForm')
 
-        // Load new variants via ajax
-        .addPlugin('*[data-ajax-variants-container="true"]', 'swAjaxVariant')
+    // ShippingPayment change after register
+    .addPlugin('*[data-ajax-shipping-payment="true"]', 'swShippingPayment')
 
-        // Range slider
-        .addPlugin('*[data-range-slider="true"]', 'swRangeSlider')
+    // Infinite scrolling
+    .addPlugin('*[data-infinite-scrolling="true"]', 'swInfiniteScrolling')
 
-        // Address Selection
-        .addPlugin('*[data-address-selection="true"]', 'swAddressSelection')
-        
-        // Address Editor
-        .addPlugin('*[data-address-editor="true"]', 'swAddressEditor')
+    // Load new variants via ajax
+    .addPlugin('*[data-ajax-variants-container="true"]', 'swAjaxVariant')
 
-        // allows submit button outside of forms in IE/Edge
-        .addPlugin('input[type="submit"][form], button[form]', 'swFormPolyfill')
+    // Range slider
+    .addPlugin('*[data-range-slider="true"]', 'swRangeSlider')
 
-        // adds comment text to checkout confirm form 
-        .addPlugin('*[data-pseudo-text="true"]', 'swPseudoText')
+    // Address Selection
+    .addPlugin('*[data-address-selection="true"]', 'swAddressSelection')
 
-        // prevents multiple clicks on the same button
-        .addPlugin('*[data-preloader-button="true"]', 'swPreloaderButton')
+    // Address Editor
+    .addPlugin('*[data-address-editor="true"]', 'swAddressEditor')
 
-        // Ajax Search Plugin
-        .addPlugin('[data-ajax-search="true"]', 'ajaxSearch')
+    // allows submit button outside of forms in IE/Edge
+    .addPlugin('input[type="submit"][form], button[form]', 'swFormPolyfill')
 
-        // ScrollUp Button
-        .addPlugin('[data-scroll-up="true"]', 'scrollUp', ['xl'])
+    // adds comment text to checkout confirm form
+    .addPlugin('*[data-pseudo-text="true"]', 'swPseudoText')
 
-        // Image Modal / Image Modal Gallery
-        .addPlugin('a[data-toggle="img-modal"], [data-toggle="img-modal"] a', 'imgModal')
+    // prevents multiple clicks on the same button
+    .addPlugin('*[data-preloader-button="true"]', 'swPreloaderButton')
 
-        // Ajax Modal
-        .addPlugin('a[data-toggle="ajax-modal"], [data-toggle="ajax-modal"] a', 'ajaxModal')
+    // Ajax Search Plugin
+    .addPlugin('[data-ajax-search="true"]', 'ajaxSearch')
 
-        // Notify Modal
-        .addPlugin('.submit-notify-modal', 'notifyModal')
+    // ScrollUp Button
+    .addPlugin('[data-scroll-up="true"]', 'scrollUp', ['xl'])
 
-        // Cookie Permisson Info
-        .addPlugin('*[data-cookie-permission="true"]', 'swCookiePermission')
+    // Image Modal / Image Modal Gallery
+    .addPlugin('a[data-toggle="img-modal"], [data-toggle="img-modal"] a', 'imgModal')
 
-        // Filter
-        .addPlugin('*[data-filter-type]', 'swFilterComponent')
+    // Ajax Modal
+    .addPlugin('a[data-toggle="ajax-modal"], [data-toggle="ajax-modal"] a', 'ajaxModal')
 
-        // Sidebar Filter
-        .addPlugin('.sidebar-filter-offcanvas [data-offcanvas="true"]', 'swOffcanvasMenu', ['xs', 's'])
+    // Notify Modal
+    .addPlugin('.submit-notify-modal', 'notifyModal')
 
-    ;   // window.StateManager addPlugin end
+    // Cookie Permisson Info
+    .addPlugin('*[data-cookie-permission="true"]', 'swCookiePermission')
 
-    $(function($) {
-        // don't add over window.StateManager because it causes issues with equalHeight function
-        $('.slick').slickWrapper();
+    // GDPR Cookie Compliance Banner
+    .addPlugin('*[data-notification-message-close="true"]', 'swNotificationMessageClose')
+    .addPlugin('*[data-cookie-consent-manager="true"]', 'swCookieConsentManager')
 
-        $('[data-equalheight="true"]:not([data-mode="ajax"]):visible').equalHeight();
+    // Filter
+    .addPlugin('*[data-filter-type]', 'swFilterComponent')
 
-        $('[data-fixed-navbar="true"]').clingify({breakpoint: swfDefaultBreakpointSM || 767});
+    // Sidebar Filter
+    .addPlugin('.sidebar-filter-offcanvas [data-offcanvas="true"]', 'swOffcanvasMenu', ['xs', 's'])
+;   // window.StateManager addPlugin end
 
-        $('body').swSelectboxReplacement();
+$(function($) {
+    // don't add over window.StateManager because it causes issues with equalHeight function
+    $('.slick').slickWrapper();
 
-        if (swfShowHidePwd) {
-            window.StateManager.addPlugin('input[type="password"]', 'passwordInputViewer');
-        }
-        if (swfShowPwdStrength) {
-            window.StateManager.addPlugin('.register-form input[type="password"]', 'passwordStrengthWrapper', $.extend({}, swfShowPwdStrengthConfig));
-        }
+    $('[data-equalheight="true"]:not([data-mode="ajax"]):visible').equalHeight();
 
-        $.subscribe('plugin/swAddArticle/onAddArticle', cartRefresh);
+    $('[data-fixed-navbar="true"]').clingify({breakpoint: swfDefaultBreakpointSM || 767});
 
-        // Check if cookies are disabled and show notification
-        if (!StorageManager.hasCookiesSupport)
-            createNoCookiesNoticeBox(window.snippets.noCookiesNotice);
+    $('body').swSelectboxReplacement();
 
-        // Create the no cookies notification message
-        function createNoCookiesNoticeBox(message) {
-            $('<div/>', {
-                'class': 'alert alert-warning no-cookies',
-                'html': message
-            })
-            .append('<i class="fa fa-times mtx pull-right"></i>')
-            .on('click', function() {
-                $(this).closest('.no-cookies').hide();
-            })
-            .appendTo('.page-wrap');
-        }
-    });
+    if (swfShowHidePwd) {
+        window.StateManager.addPlugin('input[type="password"]', 'passwordInputViewer');
+    }
+    if (swfShowPwdStrength) {
+        window.StateManager.addPlugin('.register-form input[type="password"]', 'passwordStrengthWrapper', $.extend({}, swfShowPwdStrengthConfig));
+    }
+
+    $.subscribe('plugin/swAddArticle/onAddArticle', cartRefresh);
+
+    // Check if cookies are disabled and show notification
+    if (!StorageManager.hasCookiesSupport)
+        createNoCookiesNoticeBox(window.snippets.noCookiesNotice);
+
+    // Create the no cookies notification message
+    function createNoCookiesNoticeBox(message) {
+        $('<div/>', {
+            'class': 'alert alert-warning no-cookies',
+            'html': message
+        })
+        .append('<i class="fa fa-times mtx pull-right"></i>')
+        .on('click', function() {
+            $(this).closest('.no-cookies').hide();
+        })
+        .appendTo('.page-wrap');
+    }
+});
 })(jQuery, window);
